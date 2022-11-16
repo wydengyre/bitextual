@@ -1,0 +1,990 @@
+<p>		0
+au milieu du grand silence , et dans le désert de l 'avenue , les voitures de maraîchers montaient vers paris , avec les cahots rhythmés de leurs roues , dont les échos battaient les façades des maisons , endormies aux deux bords , derrière les lignes confuses des ormes	in the silence of a deserted avenue , wagons stuffed with produce made their way toward paris , their thudding wheels rhythmically echoing off the houses sleeping behind the rows of elm trees meandering on either side of the road	0.983016
+un tombereau de choux et un tombereau de pois , au pont de neuilly , s 'étaient joints aux huit voitures de navets et de carottes qui descendaient de nanterre ; et les chevaux allaient tout seuls , la tête basse , de leur allure continue et paresseuse , que la montée ralentissait encore	at the pont de neuilly a cart full of cabbages and another full of peas met up with eight carts of turnips and carrots coming in from nanterre ~~~ the horses , their heads bent low , led themselves with their lazy , steady pace , a bit slowed by the slight uphill climb	0.259914
+en haut , sur la charge des légumes , allongés à plat ventre , couverts de leur limousine à petites raies noires et grises , les charretiers sommeillaient , les guides aux poignets	up on the carts , lying on their stomachs in the vegetables , wrapped in their black-and-gray-striped wool coats , the drivers slept with the reins in their fists	0.768889
+un bec de gaz , au sortir d 'une nappe d 'ombre , éclairait les clous d 'un soulier , la manche bleue d 'une blouse , le bout d 'une casquette , entrevus dans cette floraison énorme des bouquets rouges des carottes , des bouquets blancs des navets , des verdures débordantes des pois et des choux	occasionally the light from a gas lamp would grope its way through the shadows and brighten the hobnail of a boot , the blue sleeve of a blouse , or the tip of a hat poking from the bright bloom of vegetables—red bouquets of carrots , white bouquets of turnips , or the bursting greenery of peas and cabbages	0.743877
+	<p>	0
+et , sur la route , sur les routes voisines , en avant et en arrière , des ronflements lointains de charrois annonçaient des convois pareils , tout un arrivage traversant les ténèbres et le gros sommeil de deux heures du matin , berçant la ville noire du bruit de cette nourriture qui passait	all along the road and all the nearby routes , up ahead and farther back , the distant rumbling of carts told of other huge wagons , all pushing on through the darkness and slumber of two in the morning , the sound of passing food lulling the darkened town to stay asleep	0.994949
+<p>	<p>	0
+balthazar , le cheval de madame françois , une bête trop grasse , tenait la tête de la file	madame françois 's horse , balthazar , an overweight beast , led the column	1.44762
+il marchait , dormant à demi , dodelinant des oreilles , lorsque , à la hauteur de la rue de longchamp , un sursaut de peur le planta net sur ses quatre pieds	he dawdled on , half asleep , flicking his ears until , at rue de longchamp , his legs were suddenly frozen by fear	1.03032
+les autres bêtes vinrent donner de la tête contre le cul des voitures , et la file s 'arrêta , avec la secousse des ferrailles , au milieu des jurements des charretiers réveillés	the other animals bumped their heads into the stalled carts in front of them , and the column halted with the clanking of metal and the cursing of drivers who had been yanked from their sleep	0.632533
+madame françois , adossée à une planchette contre ses légumes , regardait , ne voyait rien , dans la maigre lueur jetée à gauche par la petite lanterne carrée , qui n 'éclairait guère qu 'un des flancs luisants de balthazar	seated up top , madame françois , with her back against a plank that held the vegetables in place , peered out but saw nothing by the faint light of the little square lantern to her left , which barely lit one of balthazar 's glistening flanks	1.13432
+<p>	<p>	0
+— eh !		-0.3
+la mère , avançons ! ~~~ cria un des hommes , qui s 'était mis à genoux sur ses navets… c 'est quelque cochon d 'ivrogne	“come on , lady , let 's keep moving,” shouted one of the men who was kneeling in turnips ~~~ “it 's just some drunken idiot.”	-0.0104167
+<p>	<p>	0
+elle s 'était penchée , elle avait aperçu , à droite , presque sous les pieds du cheval , une masse noire qui barrait la roule	but as she leaned over she thought she made out a dark patch of something blocking the road , about to be stepped on by the horse	0.51634
+<p>	<p>	0
+— on n 'écrase pas le monde , dit-elle , en sautant à terre	“you can 't just run people over,” she said , jumping down from her wagon	0.417021
+<p>	<p>	0
+c 'était un homme vautré tout de son long , les bras étendus , tombé la face dans la poussière	it was a man sprawled across the road , his arms stretched out , facedown in the dust	0.743249
+il paraissait d 'une longueur extraordinaire , maigre comme une branche sèche ; le miracle était que balthazar ne l 'eût pas cassé en deux d 'un coup de sabot	he seemed extraordinarily long and as thin as a dry branch ~~~ it was a miracle that balthazar had not stepped on him and snapped him in two	0.193417
+madame françois le crut mort ; elle s 'accroupit devant lui , lui prit une main , et vit qu 'elle était chaude	madame françois thought he was dead , but when she crouched over him and took his hand , she found it was still warm	0.883146
+<p>	<p>	0
+— eh ! ~~~ l 'homme ! ~~~ dit-elle doucement	“hey , mister,” she called softly	-0.103571
+<p>	<p>	0
+mais les charretiers s 'impatientaient	but the drivers were growing impatient	0.791176
+celui qui était agenouillé dans ses légumes , reprit de sa voix enrouée :	the one kneeling in the vegetables shouted in a gruff voice , “give it up , lady	0.680328
+<p>		0
+— fouettez donc , la mère !… il en a plein son sac , le sacré porc !	the son of a bitch is plastered	0.75
+poussez-moi ça dans le ruisseau !	shove him in the gutter.”	0.704545
+	<p>	0
+cependant , l 'homme avait ouvert les yeux	in the meantime , the man had opened his eyes	0.625
+il regardait madame françois d 'un air effaré , sans bouger	he stared , motionless , at madame françois , with a look of bewilderment	0.984
+elle pensa qu 'il devait être ivre , en effet	she too thought that he must be drunk	0.241935
+<p>	<p>	0
+— il ne faut pas rester là , vous allez vous faire écraser , lui dit-elle… où alliez-vous ?	“you can 't stay there , you 're going to get yourself run over,” she told him ~~~ “where were you going ?”	0.0571429
+<p>	<p>	0
+— je ne sais pas… , répondit-il d 'une voix très-basse	“i don 't know,” the man replied in a feeble voice	0.270732
+puis , avec effort , et le regard inquiet :	then , with great effort and a worried face , “i was going to paris , and i fell	1.42364
+<p>		0
+— j 'allais à paris , je suis tombé , je ne sais pas…	i don 't know …”	-0.346154
+<p>	<p>	0
+elle le voyait mieux , et il était lamentable , avec son pantalon noir , sa redingote noire , tout effiloqués , montrant les sécheresses des os	now she could see him better , and he was pathetic with his black pants and black overcoat , so threadbare that they showed the contour of his bare bones	0.710775
+sa casquette , de gros drap noir , rabattue peureusement sur les sourcils , découvrait deux grands yeux bruns , d 'une singulière douceur , dans un visage dur et tourmenté	underneath a hat of coarse black cloth that he had pulled down as though afraid of being recognized , two large brown eyes of a rare gentleness could be seen on a hard and tormented face	0.653873
+madame françois pensa qu 'il était vraiment trop maigre pour avoir bu	madame françois thought that this man was much too feeble to have been drinking	0.72086
+<p>	<p>	0
+— et où alliez-vous , dans paris ? ~~~ demanda-t-elle de nouveau	“where in paris were you going ?” she asked	0.290476
+<p>	<p>	0
+il ne répondit pas tout de suite ; cet interrogatoire le gênait	he didn 't answer right away	-0.0625
+il parut se consulter ; puis , en hésitant :	this cross-examination was worrying him	0.3
+<p>		0
+— par là , du côté des halles	after a moment 's reflection , he cautiously replied , “over there , by les halles.”	0.353623
+<p>	<p>	0
+il s 'était mis debout , avec des peines infinies , et il faisait mine de vouloir continuer son chemin	with great difficulty he had almost stood up again and seemed anxious to be on his way	0.578404
+la maraîchère le vit qui s 'appuyait en chancelant sur le brancard de la voiture	but madame françois noticed him trying to steady himself against one of the wagon shafts	0.451679
+<p>	<p>	0
+— vous êtes las ?	“you 're tired ?”	0.278571
+<p>	<p>	0
+— oui , bien las , murmura-t-il	“very tired,” he mumbled	0.245455
+<p>	<p>	0
+alors , elle prit une voix brusque et comme mécontente	adopting a gruff tone , as though annoyed , and giving him a shove , she shouted , “go on , move it !	0.902964
+elle le poussa , en disant :	get up in my wagon !	0.597321
+<p>		0
+— allons , vite , montez dans ma voiture !	you 're wasting my time	0.09
+vous nous faites perdre un temps , là !… je vais aux halles , je vous déballerai avec mes légumes	i 'm going to les halles , and i can drop you off with my vegetables.”	0.706197
+<p>	<p>	0
+et , comme il refusait , elle le hissa presque , de ses gros bras , le jeta sur les carottes et les navets , tout à fait fâchée , criant :	when he refused , she practically threw him onto the turnips and carrots in the back with her thick arms and shouted impatiently , “that 's enough ! ~~~ no more trouble from you	0.187452
+<p>		0
+— a la fin , voulez-vous nous ficher la paix !	you 're beginning to annoy me , my friend	0.573529
+vous m 'embêtez , mon brave… puisque je vous dis que je vais aux halles !	didn 't i tell you that i 'm headed to the market anyway ? ~~~ go to sleep up there	0.0576087
+dormez , je vous réveillerai	i 'll wake you when we get there.”	0.264
+<p>	<p>	0
+elle remonta , s 'adossa contre la planchette , assise de biais , tenant les guides de balthazar , qui se remit en marche , se rendormant , dodelinant des oreilles	she climbed back up , sat sideways with her back against the plank again , and took balthazar 's reins ~~~ he started up sleepily , twitching his ears ~~~ the other carts followed	0.0309524
+les autres voitures suivirent , la file reprit son allure lente dans le noir , battant de nouveau du cahot des roues les façades endormies	the column resumed its slow march in the dark , the sound of wheels on the paving stones again thudding against the sleeping housefronts	0.657368
+les charretiers recommencèrent leur somme sous leurs limousines	the wagoneers , wrapped in their coats , returned to their snoozing	0.3
+celui qui avait interpellé la maraîchère , s 'allongea , en grondant :	the one who had called out to madame françois grumbled as he lay down , “damn , does she have to take care of every bum ?	0.540436
+<p>		0
+— ah !		-0.3
+malheur ! ~~~ s 'il fallait ramasser les ivrognes !… vous avez de la constance , vous , la mère !	you are something , lady.”	-0.0369565
+<p>	<p>	0
+les voitures roulaient , les chevaux allaient tout seuls , la tête basse	the carts rolled on , the horses , with their heads bowed , leading themselves	0.708899
+l 'homme que madame françois venait de recueillir , couché sur le ventre , avait ses longues jambes perdues dans le tas des navets qui emplissaient le cul de la voiture ; sa face s 'enfonçait au beau milieu des carottes , dont les bottes montaient et s 'épanouissaient ; et , les bras élargis , exténué , embrassant la charge énorme des légumes , de peur d 'être jeté à terre par un cahot , il regardait , devant lui , les deux lignes interminables des becs de gaz qui se rapprochaient et se confondaient , tout là-haut , dans un pullulement d 'autres lumières	the man madame françois had picked up was lying on his stomach , his long legs lost in the turnips , which filled the back of the cart , while his head was buried in the spreading carrot bunches ~~~ with weary outstretched arms he seemed to hug his bed of vegetables for fear a jolt of the cart would send him sprawling in the road ~~~ he watched the two endless columns of gaslights ahead of him , which vanished in the distance into a confusion of other lights	-0.0232804
+à l 'horizon , une grande fumée blanche flottait , mettait paris dormant dans la buée lumineuse de toutes ces flammes	a large white cloud nuzzled the horizon , so that paris appeared to be sleeping in a glowing mist illuminated by all the lamps	0.827087
+<p>	<p>	0
+— je suis de nanterre , je me nomme madame françois , dit la maraîchère , au bout d 'un instant	“i 'm from nanterre ~~~ my name is madame françois,” the woman said after a moment 's silence	0.107143
+depuis que j 'ai perdu mon pauvre homme , je vais tous les matins aux halles	“ever since i lost my poor husband , i go to les halles every morning	0.830357
+c 'est dur , allez !… et vous ?	it 's a hard life , but what can you do ~~~ and you ?”	0.125
+<p>	<p>	0
+— je me nomme florent , je viens de loin… , répondit l 'inconnu avec embarras	“my name is florent , i come from far away,” the stranger replied awkwardly	0.7
+je vous demande excuse ; je suis si fatigué , que cela m 'est pénible de parler	“i 'm really sorry , but i 'm so exhausted that it 's hard to talk.”	0.597386
+<p>	<p>	0
+il ne voulait pas causer ~~~ alors , elle se tut , lâchant un peu les guides sur l 'échine de balthazar , qui suivait son chemin en bête connaissant chaque pavé	he did not want to say any more , so madame françois became silent too , letting the reins fall loosely on the back of balthazar , who seemed to know every paving stone along the route	0.274455
+	<p>	0
+florent , les yeux sur l 'immense lueur de paris , songeait à cette histoire qu 'il cachait	in the meantime , florent , staring at the broadening sparkle of paris in the distance , contemplated the story that he had decided not to tell the woman	1.04337
+échappé de cayenne , où les journées de décembre l 'avaient jeté , rôdant depuis deux ans dans la guyane holandaise , avec l 'envie folle du retour et la peur de la police impériale , il avait enfin devant lui la chère grande ville , tant regrettée , tant désirée	sentenced to cayenne1 for his involvement in the events of december,2 he had escaped to dutch guiana , where he had drifted for two years , filled with a passion to return to france but also afraid of the imperial police ~~~ he was about to enter the great city that he had so deeply missed and longed for	0.222652
+il s 'y cacherait , il y vivrait de sa vie paisible d 'autrefois	he told himself that he would hide there , returning to the peaceful existence he had once lived	0.338462
+la police n 'en saurait rien	the police knew nothing	0.857143
+d 'ailleurs , il serait mort , là-bas	everyone would assume that he had died over there	0.193548
+et il se rappelait son arrivée au havre , lorsqu 'il ne trouva plus que quinze francs dans le coin de son mouchoir	he thought about his arrival at le havre , where he had landed with only fifteen francs hidden in the corner of a handkerchief	0.889516
+jusqu 'à rouen , il put prendre la voiture ~~~ de rouen , comme il lui restait à peine trente sous , il repartit à pied	it had been enough for a coach to rouen , but from there he had had to make his way on foot , having only thirty sous left	0.342901
+mais , à vernon , il acheta ses deux derniers sous de pain	at vernon he had spent his last two sous on bread	0.4975
+puis , il ne savait plus	after that he couldn 't remember anything	0.06
+il croyait avoir dormi plusieurs heures dans un fossé ~~~ il avait dû montrer à un gendarme les papiers dont il s 'était pourvu	he thought he had slept in a ditch for several hours , and he might have shown a policeman the papers with which he had supplied himself	-0.0100962
+tout cela dansait dans sa tête	but these images danced vaguely in his head	0.601648
+il était venu de vernon sans manger , avec des rages et des désespoirs brusques qui le poussaient à mâcher les feuilles des haies qu 'il longeait ; et il continuait à marcher , pris de crampes et de souleurs , le ventre plié , la vue troublée , les pieds comme tirés , sans qu 'il en eût conscience , par cette image de paris , au loin , très-loin , derrière l 'horizon , qui l 'appelait , qui l 'attendait	he had come all the way from vernon with nothing to eat , accompanied by fits of anger and sudden despondency that had made him chew the leaves on the hedges he passed along the way ~~~ he had kept walking despite stomach cramps , his belly knotted , his vision blurred , his feet advancing , unconsciously drawn by the image of paris , so far away , beyond the horizon , calling to him , waiting for him	0.317758
+	<p>	0
+quand il arriva à courbevoie , la nuit était très-sombre	on a very dark night , he finally reached courbevoie	0.818182
+paris , pareil à un pan de ciel étoilé tombé sur un coin de la terre noire , lui apparut sévère et comme fâché de son retour	paris looked like a patch of starry sky that had fallen onto a blackened corner of the earth ~~~ it had a stern look , as though angered by florent 's return	0.191447
+alors , il eut une faiblesse , il descendit la côte , les jambes cassées	then he felt faint , his wobbly legs almost collapsing as he walked down the hill	0.634322
+en traversant le pont de neuilly , il s 'appuyait au parapet , il se penchait sur la seine roulant des flots d 'encre , entre les masses épaissies des rives ; un fanal rouge , sur l 'eau , le suivait d 'un oeil saignant	while crossing the pont de neuilly he supported himself , clinging to the stone railings , and leaned over to look at the inky waves of the rolling seine between the thickly grown banks ~~~ a red signal lantern on the water followed him with its bloodshot eye	0.278431
+maintenant , il lui fallait monter , atteindre paris , tout en haut	now he had to pull himself up to climb to paris at the top of the hill	0.508831
+l 'avenue lui paraissait démesurée	but the boulevard seemed endless	0.27931
+les centaines de lieues qu 'il venait de faire n 'étaient rien ; ce bout de route le désespérait , jamais il n 'arriverait à ce sommet , couronné de ces lumières	the hundreds of leagues he had already traveled seemed as nothing compared to this ~~~ in this last stretch he was losing faith that he would ever reach the top of the hill with its crown of lights	0.0917939
+	<p>	0
+l 'avenue plate s 'étendait , avec ses lignes de grands arbres et de maisons basses , ses larges trottoirs grisâtres , tachés de l 'ombre des branches , les trous sombres des rues transversales , tout son silence et toutes ses ténèbres ; et les becs de gaz , droits , espacés régulièrement , mettaient seuls la vie de leurs courtes flammes jaunes , dans ce désert de mort	the flat boulevard stretched before him with its lines of tall trees and squat houses ~~~ its wide grayish sidewalks were blotchy with the shadows of branches ~~~ the darkened gaps where the boulevard met the side streets were all in silence and shade ~~~ only the stumpy little yellow flames of the gas lamps standing straight at regular intervals gave some life to this desolate wasteland	-0.106534
+florent n 'avançait plus , l 'avenue s 'allongeait toujours , reculait paris au fond de la nuit	and florent seemed to be making no progress , the boulevard growing longer and longer and carrying paris away into the depths of the night	0.79487
+il lui sembla que les becs de gaz , avec leur oeil unique , couraient à droite et à gauche , en emportant la route ; il trébucha , dans ce tournoiement ; il s 'affaissa comme une masse sur les pavés	in time he began hallucinating that the gas lamps on both sides of him were running away , carrying the road off with them , until , completely losing his bearings , he fell on a pile of paving stones	0.950942
+<p>	<p>	0
+à présent , il roulait doucement sur cette couche de verdure , qu 'il trouvait d 'une mollesse de plume	and now he was gently tossing and turning on his bed of vegetables , which felt more like a soft feather bed	0.717983
+il avait levé un peu le menton , pour voir la buée lumineuse qui grandissait , au-dessus des toits noirs devinés à l 'horizon	he raised his head a little to watch the incandescent mist spread over the black silhouettes of the rooftops just visible along the horizon	0.379223
+il arrivait , il était porté , il n 'avait qu 'à s 'abandonner aux secousses ralenties de la voiture ; et cette approche sans fatigue ne le laissait plus souffrir que de la faim	he was approaching his destination , being carried there with nothing more to do than absorb the slow-motion bumps of the wagon , and , freed from the pain of fatigue , he now suffered only hunger	0.764583
+la faim s 'était réveillée , intolérable , atroce	but his hunger was reawakened and becoming unbearable	0.264286
+ses membres dormaient ; il ne sentait en lui que son estomac , tordu , tenaillé comme par un fer rouge	his limbs had fallen asleep , and he could feel only his stomach , cramped and twisted as though by a red-hot iron	0.80931
+l 'odeur fraîche des légumes dans lesquels il était enfoncé , cette senteur pénétrante des carottes , le troublait jusqu 'à l 'évanouissement	the ripe smell of vegetables that surrounded him , the piercing freshness of the carrots , made him almost faint	0.502736
+	<p>	0
+il appuyait de toutes ses forces sa poitrine contre ce lit profond de nourriture , pour se serrer l 'estomac , pour l 'empêcher de crier	with all his might he pushed his chest into this deep bed of food , trying to pull in his stomach as tightly as he could to suppress its loud rumblings	0.495437
+et , derrière , les neuf autres tombereaux , avec leurs montagnes de choux , leurs montagnes de pois , leurs entassements d 'artichauts , de salades , de céleris , de poireaux , semblaient rouler lentement sur lui et vouloir l 'ensevelir , dans l 'agonie de sa faim , sous un éboulement de mangeaille	behind him , the nine other wagons piled high with cabbages , mountains of peas , heaps of artichokes , lettuce , celery , and leeks , seemed to be slowly gaining on him as though to overtake him as he was racked with starvation and bury him in an avalanche of food	1.14403
+	<p>	0
+il y eut un arrêt , un bruit de grosses voix ; c 'était la barrière , les douaniers sondaient les voitures	they came to a stop , and deep voices could be heard ~~~ it was customs inspectors examining the wagons	-0.00357143
+puis , florent entra dans paris , évanoui , les dents serrées , sur les carottes	and so florent , his teeth clenched , at last entered paris , passed out on a pile of carrots	1.31791
+<p>	<p>	0
+— eh !		-0.3
+l 'homme , là-haut ! ~~~ cria brusquement madame françois	“hey , you up there !” madame françois abruptly shouted	0.515
+<p>		0
+et , comme il ne bougeait pas , elle monta , le secoua	as he didn 't move , she climbed up and shook him	0.961538
+alors , florent se mit sur son séant	florent propped himself up	0.825
+il avait dormi , il ne sentait plus sa faim ; il était tout hébété	as he had slept , the hunger pains had stopped , but he was disoriented	0.459198
+la maraîchère le fit descendre , en lui disant :		-0.3
+<p>	<p>	0
+— vous allez m 'aider à décharger , hein ?	the woman made him get down , saying , “can you help me unload ?”	0.413904
+<p>	<p>	0
+il l 'aida	he helped her	0.2
+	<p>	0
+un gros homme , avec une canne et un chapeau de feutre , qui portait une plaque au revers gauche de son paletot , se fâchait , tapait du bout de sa canne sur le trottoir	a heavyset man with a walking stick and a felt hat , with a badge on the left lapel of his coat , was growing angry and tapping the tip of his stick on the sidewalk	0.856029
+<p>		0
+— allons donc , allons donc , plus vite que ça !	“come on , come on , faster than that	1.12
+faites avancer la voiture… combien avez-vous de mètres ?	how many meters do you have there ?	0.426437
+quatre , n 'est-ce pas ?	four , isn 't it ?”	0.628571
+<p>	<p>	0
+il délivra un bulletin à madame françois , qui sortit des gros sous d 'un petit sac de toile	he gave madame françois a ticket , and she took a large coin out of her canvas bag	0.89067
+et il alla se fâcher et taper de sa canne un peu plus loin	he moved on to vent his anger and tap the tip of his stick farther down the line	0.582609
+la maraîchère avait pris balthazar par la bride , le poussant , acculant la voiture , les roues contre le trottoir	the market woman took balthazar by the bridle and backed him up until the wagon wheels were against the curb	0.711905
+puis , la planche de derrière enlevée , après avoir marqué ses quatre mètres sur le trottoir avec des bouchons de paille , elle pria florent de lui passer les légumes , bottes par bottes	then she opened the back of the wagon , marked off her four meters of curb with pieces of straw , and asked florent to start passing the vegetables down	0.907258
+elle les rangea méthodiquement sur le carreau , parant la marchandise , disposant les fanes de façon à encadrer les tas d 'un filet de verdure , dressant avec une singulière promptitude tout un étalage , qui ressemblait , dans l 'ombre , à une tapisserie aux couleurs symétriques	she arranged them in her alotted space with an artistic flair , so that the tops formed a green wreath around the bunches	0.279
+quand florent lui eut donné une énorme brassée de persil , qu 'il trouva au fond , elle lui demanda encore un service	she arranged the display with dazzling speed in the dank morning light that made it resemble a tapestry with geometric splashes of color	0.365625
+<p>	<p>	0
+— vous seriez bien gentil de garder ma marchandise , pendant que je vais remiser la voiture…	after florent handed her a huge bouquet of parsley that he had found on the wagon floor , she asked him one more favor : “i would really appreciate it if you could keep an eye on my goods while i park the wagon	0.445455
+c 'est à deux pas , rue montorgueil , au compas d 'or	it 's very close , at the compas d 'or on rue montorgueil.”3	1.32143
+<p>	<p>	0
+il lui assura qu 'elle pouvait être tranquille	he told her not to worry	0
+le mouvement ne lui valait rien ; il sentait sa faim se réveiller , depuis qu 'il se remuait	in truth , he was happy to sit there because moving around had started to revive his hunger	0.457895
+il s 'assit contre un tas de choux , à côté de la marchandise de madame françois , en se disant qu 'il était bien là , qu 'il ne bougerait plus , qu 'il attendrait	he sat down , leaning against a mound of cabbages by madame françois 's stand	0.932812
+sa tête lui paraissait toute vide , et il ne s 'expliquait pas nettement où il se trouvait	he told himself that he would be just fine sitting there , waiting and not moving	0.621598
+dès les premiers jours de septembre , les matinées sont toutes noires	his mind was a void , and he could not even say exactly where he was	0.502991
+des lanternes , autour de lui , filaient doucement , s 'arrêtaient dans les ténèbres	in the beginning of september the early morning was already remaining dark	0.728726
+il était au bord d 'une large rue , qu 'il ne reconnaissait pas	the lanterns around him flickered in the dusky shadows	0.274468
+elle s 'enfonçait en pleine nuit , très-loin	he was sitting by the side of a major street , which he did not recognize	0.467544
+	it vanished into the night 's blackness	-0.3
+lui , ne distinguait guère que la marchandise qu 'il gardait	he could see hardly anything except the produce he had been entrusted to watch	0.211765
+	down the market lanes he could make out only the outline of other heaps like a flock of sheep	-0.3
+au delà , confusément , le long du carreau , des amoncellements vagues moutonnaient	in the middle of the route , blocking the street , he could see the outline of carts	0.686765
+au milieu de la chaussée , de grands profils grisâtres de tombereaux barraient la rue ; et , d 'un bout à l 'autre , un souffle qui passait faisait deviner une file de bêtes attelées qu 'on ne voyait point	from one end to the other , he could smell what he could not exactly see , a line of horses breathing in the dark	0.508205
+des appels , le bruit d 'une pièce de bois ou d 'une chaîne de fer tombant sur le pavé , l 'éboulement sourd d 'une charretée de légumes , le dernier ébranlement d 'une voiture buttant contre la bordure d 'un trottoir , mettaient dans l 'air encore endormi le murmure doux de quelque retentissant et formidable réveil , dont on sentait l 'approche , au fond de toute cette ombre frémissante	shouts , a piece of wood or an iron chain hitting the pavement , the thumping of vegetables unloaded from wagons , and wheels scraping as carts were backed against the curb—these sounds loaded the still air with the exciting promise of dawn awakening	0.739904
+	<p>	0
+florent , en tournant la tête , aperçut , de l 'autre côté de ses choux , un homme qui ronflait , roulé comme un paquet dans une limousine , la tête sur des paniers de prunes	turning his head , florent noticed , on the other side of the cabbage , a snoring man wrapped like a package in his overcoat , his head resting on a basket of plums	1.05552
+plus près , à gauche , il reconnut un enfant d 'une dizaine d 'années , assoupi avec un sourire d 'ange , dans le creux de deux montagnes de chicorées	a little closer on the left side , he could see a ten-year-old child with an angel 's smile fast asleep between two stacks of endive	0.597222
+et , au ras du trottoir , il n 'y avait encore de bien éveillé que les lanternes dansant au bout de bras invisibles , enjambant d 'un saut le sommeil qui traînait là , gens et légumes en tas , attendant le jour	looking down the pavement , he could see nothing that seemed awake except maybe the lanterns hanging from invisible arms , their light bouncing over all the sleeping vegetables and people spread out in piles , awaiting daybreak	0.720467
+	<p>	0
+mais ce qui le surprenait , c 'était , aux deux bords de la rue , de gigantesques pavillons , dont les toits superposés lui semblaient grandir , s 'étendre , se perdre , au fond d 'un poudroiement de lueurs	what was surprising was the glimpse of two enormous pavilions on either side of the street , with grand roofs that seemed to rise out of sight amid a flurry of lights	0.595254
+il rêvait , l 'esprit affaibli , à une suite de palais , énormes et réguliers , d 'une légèreté de cristal , allumant sur leurs façades les mille raies de flamme de personnes continues et sans fin	in his weariness he imagined he was seeing an array of palaces , huge and orderly and light as crystal with streaks of light filtering through endless rows of venetian blinds	0.831466
+entre les arêtes fines des piliers , ces minces barres jaunes mettaient des échelles de lumière , qui montaient jusqu 'à la ligne sombre des premiers toits , qui gravissaient l 'entassement des toits supérieurs , posant dans leur carrure les grandes carcasses à jour de salles immenses , où traînaient , sous le jaunissement du gaz , un pêle-mêle de formes grises , effacées et dormantes	between slender pillars , ladders of light rose into the shadow of the lower roof and then soared above it to a higher roof , giving the outline of large square halls where gray , slumbering heaps gathered under the glare of brilliant gaslight	0.78607
+	<p>	0
+il tourna la tête , fâché d 'ignorer où il était , inquiété par cette vision colossale et fragile ; et , comme il levait les yeux , il aperçut le cadran lumineux de saint-eustache , avec la masse grise de l 'église	florent turned away , enraged that he could not grasp where he was , disturbed by this fragile but gigantic specter , and as he looked up he glimpsed the luminous clock dial of the massive gray church of saint eustache	0.932453
+cela l 'étonna profondément ~~~ il était à la pointe saint-eustache	he was suddenly jolted by the realization that he was near saint eustache—he was at pointe saint-eustache !	0.138249
+<p>	<p>	0
+cependant , madame françois était revenue ~~~ elle discutait violemment avec un homme qui portait un sac sur l 'épaule , et qui voulait lui payer ses carottes un sou la botte	just then madame françois came back , vehemently arguing with a man who was carrying a sack on his shoulders and offering only a sou per bunch for the carrots	0.273462
+<p>	<p>	0
+— tenez , vous n 'êtes pas raisonnable , lacaille… . vous les revendez quatre et cinq sous aux parisiens , ne dites pas non… à deux sous , si vous voulez	“come on , lacaille , you 're not being fair ~~~ you 're going to sell them to the parisians for four or five sous	0.045
+<p>		0
+et , comme l 'homme s 'en allait :	i 'll sell them to you for two.”	0.288462
+<p>	<p>	0
+— les gens croient que ça pousse tout seul , vraiment… il peut en chercher , des carottes à un sou , cet ivrogne de lacaille… vous verrez qu 'il reviendra	as he left she said , “i swear , they act as though these things grow on their own	0.323077
+<p>		0
+elle s 'adressait à florent	let him go look for carrots at a sou a bunch	0.1625
+puis , s 'asseyant près de lui :	he 'll be back , the drunk.”	0.63587
+<p>	<p>	0
+— dites donc , s 'il y a longtemps que vous êtes absent de paris , vous ne connaissez peut-être pas les nouvelles halles ?	she was saying this to florent as she sat down next to him ~~~ “so , if you haven 't been in paris in a long time , you probably don 't know the new markets	0.207445
+voici cinq ans au plus que c 'est bâti… là , tenez , le pavillon qui est à côté de nous , c 'est le pavillon aux fruits et aux fleurs ; plus loin , la marée , la volaille , et , derrière , les gros légumes , le beurre , le fromage… il y a six pavillons , de ce côté-là ; puis , de l 'autre côté , en face , il y en a encore quatre : la viande , la triperie , la vallée… c 'est très-grand , mais il y fait rudement froid , l 'hiver	it 's only been at most five years since they were built ~~~ over there , you see , the pavilion next to us , that 's for fruit and flowers ~~~ further down is the fish market and poultry , and behind us , there , vegetables , then butter and cheese	0.094313
+on dit qu 'on bâtira encore deux pavillons , en démolissant les maisons , autour de la halle au blé	there are six pavilions on this side and over on the opposite side , another four : the meat market , tripe and organs	0.673016
+est-ce que vous connaissiez tout ça ?	it 's huge , but the problem is that it 's freezing in the winter	0.4875
+	i heard they 're going to tear down the buildings around the grain market and build another two pavilions	-0.3
+	did you know about all this ?”	-0.3
+<p>	<p>	0
+— non , répondit florent , j 'étais à l 'étranger… et cette grande rue , celle qui est devant nous , comment la nomme-t-on ?	“no,” florent answered , “i 've been abroad ~~~ and this main street here , what 's it called ?”	0.205195
+<p>	<p>	0
+— c 'est une rue nouvelle , la rue du pont-neuf , qui part de la seine et qui arrive jusqu 'ici , à la rue montmartre et à la rue montorgueil… s 'il avait fait jour , vous vous seriez tout de suite reconnu	“it 's a new street called rue du pont-neuf ~~~ it starts at the seine and goes all the way to rue montmartre and rue montorgueil	0.40496
+<p>		0
+elle se leva , en voyant une femme penchée sur ses navets	you could have figured it out in daylight.” she got up , seeing a woman eyeing her turnips	0.589198
+<p>		0
+— c 'est vous , mère chantemesse ? ~~~ dit-elle amicalement	“is that you , mère chantemesse ?” she said pleasantly	0.403571
+<p>	<p>	0
+florent regardait le bas de la rue montorgueil	florent looked down to the foot of rue montorgueil	1.61083
+c 'était là qu 'une bande de sergents de ville l 'avait pris , dans la nuit du 4 décembre	it was there that a group of sergents de ville had grabbed him on the night of december 4	2.54577
+il suivait le boulevard montmartre , vers deux heures , marchant doucement au milieu de la foule , souriant de tous ces soldats que l 'élysée promenait sur le pavé pour se faire prendre au sérieux , lorsque les soldats avaient balayé les trottoirs , à bout portant , pendant un quart d 'heure	he had been strolling boulevard montmartre at about two in the afternoon , slowly ambling with the crowd , smiling at all the soldiers the government had posted in the streets so that it would be taken seriously , when suddenly the military had started making a sweep of the boulevard	0.697463
+lui , poussé , jeté à terre , tomba au coin de la rue vivienne ; et il ne savait plus , la foule affolée passait sur son corps , avec l 'horreur affreuse des coups de feu	it had gone on for a good quarter of an hour ~~~ then someone had pushed him and he had been thrown to the ground at the corner of rue vivienne	0.263961
+	he wasn 't sure what had happened after that because gunshots had rung out and the crowd had panicked and trampled him	-0.3
+	<p>	0
+quand il n 'entendit plus rien , il voulut se relever	when he heard no more noise , he tried to get up but realized that a young woman in a pink bonnet was lying on top of him	0.202273
+il avait sur lui une jeune femme , en chapeau rose , dont le châle glissait , découvrant une guimpe plissée à petits plis	her shawl had slipped off her shoulders , and he could see her undergarment , a bodice tucked in little pleats	0.682717
+au-dessus de la gorge , dans la guimpe , deux balles étaient entrées ; et , lorsqu 'il repoussa doucement la jeune femme , pour dégager ses jambes , deux filets de sang coulèrent des trous sur ses mains	just above her breasts were two holes where bullets had entered , and when he tried to move her gently to free his legs , two dribbles of blood had leaked out of the holes and over his hands	0.651471
+alors , il se releva d 'un bond , il s 'en alla , fou , sans chapeau , les mains humides	he had leapt to his feet and bolted , without a hat , blood moist on his hands	0.744652
+jusqu 'au soir , il rôda , la tête perdue , voyant toujours la jeune femme , en travers sur ses jambes , avec sa face toute pâle , ses grands yeux bleus ouverts , ses lèvres souffrantes , son étonnement d 'être morte , là , si vite	he had wandered around , delirious , until evening fell , constantly seeing the woman who had lain across his legs , her face so pale , her eyes so blue and large , her lips grimacing at the shock of being there , dead so soon	0.795028
+	<p>	0
+il était timide ; à trente ans , il n 'osait regarder en face les visages de femme , et il avait celui-là , pour la vie , dans sa mémoire et dans son coeur	at the age of thirty , he was a bashful young man who could barely bring himself to look a woman in the face , and now he would be seeing her face , carrying it in his heart and memory , for the rest of his life	1.19426
+c 'était comme une femme à lui qu 'il aurait perdue	it was as though she had been his beloved wife	0.541148
+	<p>	0
+le soir , sans savoir comment , encore dans l 'ébranlement des scènes horribles de l 'après-midi , il se trouva rue montorgueil , chez un marchand de vin , où des hommes buvaient en parlant de faire des barricades	in the evening , his mind still blurred by the afternoon 's horror , he had somehow , not really knowing how , found himself in a wine shop on the rue montorgueil , where men were drinking and threatening to throw up barricades	1.01456
+il les accompagna , les aida à arracher quelques pavés , s 'assit sur la barricade , las de sa course dans les rues , se disant qu 'il se battrait , lorsque les soldats allaient venir	he had gone with them , helping them pull up a few paving stones ~~~ he had sat on the barricade , worn out from wandering the streets , and he had vowed to himself that when the soldiers came he would fight	0.210406
+il n 'avait pas même un couteau sur lui ; il était toujours nu-tête	he wasn 't even carrying a knife , and his head was still hatless	0.288679
+vers onze heures , il s 'assoupit ; il voyait les deux trous de la guimpe blanche à petits plis , qui le regardaient comme deux yeux rouges de larmes et de sang	around eleven o 'clock , he nodded off , and in his sleep he saw the two holes in the white bodice staring at him like two bloodshot , tearstained eyes	0.564037
+lorsqu 'il se réveilla , il était tenu par quatre sergents de ville qui le bourraient de coups de poings	when he woke up , he was being taken by four sergents de ville , who were beating him with their fists	0.856794
+les hommes de la barricade avaient pris la fuite	the men at the barricade had all fled	0.536559
+mais les sergents de ville devinrent furieux et faillirent l 'étrangler , quand ils s 'aperçurent qu 'il avait du sang aux mains	the sergents had become enraged and almost strangled him when they found that he had blood on his hands	0.526744
+c 'était le sang de la jeune femme	it was the young woman 's blood	0.276923
+<p>	<p>	0
+florent , plein de ces souvenirs , levait les yeux sur le cadran lumineux de saint-eustache , sans même voir les aiguilles	florent , lost in all these memories , looked up at saint eustache without noticing the hands of the clock	0.966558
+il était près de quatre heures	it was almost four o 'clock	0.26087
+les halles dormaient toujours	les halles was still asleep	1.4625
+madame françois causait avec la mère chantemesse , debout , discutant le prix de la botte de navets	madame françois was standing and arguing with mère chantemesse about the price of a bunch of turnips	1.45944
+et florent se rappelait qu 'on avait manqué le fusiller là , contre le mur de saint-eustache	florent was remembering how he had almost been executed right there , against a wall of saint eustache	0.931602
+un peloton de gendarmes venait d 'y casser la tête à cinq malheureux , pris à une barricade de la rue grenéta	there a police detachment had just blown the heads off five unlucky souls , taken at a barricade on rue grenéta	0.835342
+les cinq cadavres traînaient sur le trottoir , à un endroit où il croyait apercevoir aujourd 'hui des tas de radis roses	five bodies had been piled on the sidewalk at a spot where he now saw what seemed to be a heap of bright pink radishes	0.675515
+lui , échappa aux fusils , parce que les sergents de ville n 'avaient que des épées	he had avoided being shot only because sergents de ville carried only swords	0.714725
+on le conduisit à un poste voisin , en laissant au chef du poste cette ligne écrite au crayon sur un chiffon de papier : « pris les mains couvertes de sang	they had taken him to the nearest police station and left him with the precinct chief , who was given a note written in pencil on a scrap of paper ~~~ it said , “taken with his hands covered in blood	0.233037
+très-dangereux	very dangerous.”	0.28
+	<p>	0
+» jusqu 'au matin , il fut traîné de poste en poste	he had been dragged from station to station until morning	0.241463
+le chiffon de papier l 'accompagnait	everywhere he was taken , the scrap of paper had accompanied him	0.522321
+on lui avait mis les menottes , on le gardait comme un fou furieux	he had been handcuffed and guarded as though he were a raving lunatic	0.492063
+au poste de la rue de la lingerie , des soldats ivres voulurent le fusiller ; ils avaient déjà allumé le falot , quand l 'ordre vint de conduire les prisonniers au dépôt de la préfecture de police	on rue de la lingerie , some drunken soldiers had wanted to shoot him and had already lit a lantern in preparation when the order had come to take him to the prison at police headquarters	0.69168
+le surlendemain , il était dans une casemate du fort de bicêtre	two days later he was in a dungeon at fort bicêtre	0.962195
+c 'était depuis ce jour qu 'il souffrait de la faim ; il avait eu faim dans la casemate , et la faim ne l 'avait plus quitté	he had been suffering from hunger ever since ~~~ the pangs of hunger that had visited him in that dungeon had never left	0.166667
+	<p>	0
+ils se trouvaient une centaine parqués au fond de cette cave , sans air , dévorant les quelques bouchées de pain qu 'on leur jetait , ainsi qu 'à des bêtes enfermées	he had been one of a hundred men at the bottom of that cellar , where there was barely air enough to breathe , scrambling like captive animals for the few pieces of bread thrown to them	0.721212
+lorsqu 'il parut devant un juge d 'instruction , sans témoins d 'aucune sorte , sans défenseur , il fut accusé de faire partie d 'une société secrète ; et , comme il jurait que ce n 'était pas vrai , le juge tira de son dossier le chiffon de papier : « pris les mains couvertes de sang	when he had been brought before the judge without any witnesses and with no opportunity to defend himself , he had been accused of belonging to an underground group , and when he swore that it was not true , the judge had pulled the scrap of paper from a file	0.735824
+très-dangereux ~~~ » cela suffit	“taken with his hands covered in blood	-0.0267857
+	very dangerous.” that was all they had needed	-0.3
+on le condamna à la déportation	he had been sentenced to deportation to the penal colony	0.495238
+	<p>	0
+au bout de six semaines , en janvier , un geôlier le réveilla , une nuit , l 'enferma dans une cour , avec quatre cents et quelques autres prisonniers	on a january night six weeks later , a guard had awakened him and taken him to a courtyard with about four hundred other prisoners	0.719482
+une heure plus tard , ce premier convoi partait pour les pontons et l 'exil , les menottes aux poignets , entre deux files de gendarmes , fusils chargés	an hour later this first convoy had been marched in handcuffs between two columns of gendarmes with loaded rifles , to be shipped into exile	0.741026
+ils traversèrent le pont d 'austerlitz , suivirent la ligne des boulevards , arrivèrent à la gare du havre	they had crossed the austerlitz bridge and followed the boulevards to the gare du havre	1.17669
+	<p>	0
+c 'était une nuit heureuse de carnaval ; les fenêtres des restaurants du boulevard luisaient ; à la hauteur de la rue vivienne , à l 'endroit où il voyait toujours la morte inconnue dont il emportait l 'image , florent aperçut , au fond d 'une grande calèche , des femmes masquées , les épaules nues , la voix rieuse , se fâchant de ne pouvoir passer , faisant les dégoûtées devant « ces forçats qui n 'en finissaient plus	it was a festive carnival night ~~~ the windows of the restaurants along the boulevards were open ~~~ at the top of the rue vivienne , right where he had found the dead woman—that unknown woman whose face he always carried with him—there was now a large carriage full of masked women , bare-shouldered and with laughing voices , irritated by being held up and appalled by “this interminable line of prisoners.”	0.0348094
+	<p>	0
+» de paris au havre , les prisonniers n 'eurent pas une bouchée de pain , pas un verre d 'eau ; on avait oublié de leur distribuer des rations avant le départ	from paris to le havre the prisoners had not been given a drink of water or a mouthful of bread ~~~ someone had forgotten to distribute rations before they left	0.188312
+ils ne mangèrent que trente-six heures plus tard , quand on les eut entassés dans la cale de la frégate le canada	for thirty-six hours they had had nothing to eat , until they were packed into the hold of the frigate canada	0.699091
+<p>	<p>	0
+non , la faim ne l 'avait plus quitté	the hunger had never left him	0.24
+il fouillait ses souvenirs , ne se rappelait pas une heure de plénitude	florent searched through his past and could not recall a moment of plenty	0.504286
+il était devenu sec , l 'estomac rétréci , la peau collée aux os	he had become dry and emaciated , with a shrunken stomach and skin that drooped from his bones	0.35
+et il retrouvait paris , gras , superbe , débordant de nourriture , au fond des ténèbres ; il y rentrait , sur un lit de légumes : il y roulait , dans un inconnu de mangeailles , qu 'il sentait pulluler autour de lui et qui l 'inquiétait	and now that he was back in paris , it seemed to him to be fat , haughty , and overloaded with food , while surrounded by sadness	0.874188
+la nuit heureuse de carnaval avait donc continué pendant sept ans	he had returned on a bed of vegetables , rolling into town on a huge wave of food that troubled him	0.421429
+	<p>	0
+il revoyait les fenêtres luisantes des boulevards , les femmes rieuses , la ville gourmande qu 'il avait laissée par cette lointaine nuit de janvier ; et il lui semblait que tout cela avait grandi , s 'était épanoui dans cette énormité des halles , dont il commençait à entendre le souffle colossal , épais encore de l 'indigestion de la veille	had that festive carnival night continued all these seven years ? ~~~ again he saw the open windows of the boulevard restaurants , laughing women , the city of gluttony he had left on that january day long ago ~~~ it seemed to him that everything had expanded and enlarged as though to keep up with the huge market , les halles , whose heavy breathing he was beginning to hear , still sluggish with yesterday 's indigestion	0.077163
+<p>	<p>	0
+la mère chantemesse s 'était décidée à acheter douze bottes de navets	mère chantemesse had finally decided on a dozen turnip bunches	0.817677
+elle les tenait dans son tablier , sur son ventre , ce qui arrondissait encore sa large taille ; et elle restait là , causant toujours , de sa voix traînante	she gathered them up in her apron , pressing them to her midriff , which made her look even plumper than usual , and she stayed on to chat some more in her drawling voice	0.841406
+quand elle fut partie , madame françois vint se rasseoir à coté de florent , en disant :	when she finally left , madame françois sat beside florent again	1.20727
+<p>	<p>	0
+— cette pauvre mère chantemesse , elle a au moins soixante-douze ans	“poor old mère chantemesse,” she said ~~~ “she must be at least seventy-two	0.100649
+j 'étais gamine , qu 'elle achetait déjà ses navets à mon père	i remember when i was a kid , her buying turnips from my father	0.514286
+et pas un parent avec ça , rien qu 'une coureuse qu 'elle a ramassée je ne sais où , et qui la fait damner… eh bien , elle vivote , elle vend au petit tas , elle se fait encore ses quarante sous par jour… moi , je ne pourrais pas rester dans ce diable de paris , toute la journée , sur un trottoir	and she has no family , only some little waif that she picked up god knows where , who gives her nothing but grief ~~~ but she gets by , selling a little and making a couple of francs ' profit a day	0.105962
+si l 'on y avait quelques parents , au moins !	if it were me , i could never spend all my days on the streets of paris	0.645946
+<p>		0
+et , comme florent ne causait guère :	she doesn 't even have relatives.”	0.29
+<p>	<p>	0
+— vous avez de la famille à paris , n 'est-ce pas ? demanda-t-elle	seeing that florent was not talking , she asked , “do you have relatives in paris ?”	0.616667
+<p>	<p>	0
+il parut ne pas entendre	he seemed not to hear her	0.3
+sa méfiance revenait	his old mistrust returned	0.236842
+il avait la tête pleine d 'histoires de police , d 'agents guettant à chaque coin de rue , de femmes vendant les secrets qu 'elles arrachaient aux pauvres diables	his mind was swirling with old tales of police , their undercover agents on every street corner , and women selling the secrets they had pried loose from sad souls they took in	0.759244
+elle était tout près de lui , elle lui semblait pourtant bien honnête , avec sa grande figure calme , serrée au front par un foulard noir et jaune	as he sat beside madame françois , she looked honest enough with her full , calm face and the black-and-yellow scarf around her head	0.755455
+elle pouvait avoir trente-cinq ans , un peu forte , belle de sa vie en plein air et de sa virilité adoucie par des yeux noirs d 'une tendresse charitable	she seemed about thirty-five , sturdy , with handsome good looks from her outdoor life ~~~ her masculine bearing was softened by kind , soft dark eyes	0.18629
+elle était certainement très-curieuse , mais d 'une curiosité qui devait être toute bonne	she was a bit nosy , but it was a good-natured curiosity	0.559365
+<p>	<p>	0
+elle reprit , sans s 'offenser du silence de florent :	“i have a nephew in paris,” she said , continuing the one-sided conversation , not the least offended by florent 's silence	0.663333
+<p>		0
+— moi , j 'ai eu un neveu à paris	“he hasn 't turned out to be any good	0.54
+il a mal tourné , il s 'est engagé… enfin , c 'est heureux quand on sait où descendre	now he 's enlisted … it 's always good to have somewhere to go	0.192
+vos parents , peut-être , vont être bien surpris de vous voir	i suppose your parents will be surprised to see you	0.516913
+et c 'est une joie quand on revient , n 'est-ce pas ?	it feels good to get home , doesn 't it ?”	0.468182
+<p>	<p>	0
+tout en parlant , elle ne le quittait pas des yeux , apitoyée sans doute par son extrême maigreur , sentant que c 'était un « monsieur , » sous sa lamentable défroque noire , n 'osant lui mettre une pièce blanche dans la main	all the while she talked , she never took her eyes off florent , probably feeling sorry for him because he was so skinny ~~~ then too , she guessed that there was a gentleman somewhere inside that tattered black overcoat , which was why she did not dare press a silver coin into his palm	0.0853618
+<p>		0
+enfin , timidement :		-0.3
+<p>		0
+— si , en attendant , murmura-t-elle , vous aviez besoin de quelque chose…	but finally she did say , “you know , if you ever need anything—”	0.849057
+<p>	<p>	0
+mais il refusa avec une fierté inquiète ; il dit qu 'il avait tout ce qu 'il lui fallait , qu 'il savait où aller	but florent cut her off with clumsy pride , saying that he had everything he needed and knew exactly where he was going	0.648333
+elle parut heureuse , elle répéta plusieurs fois , comme pour se rassurer elle-même sur son sort :	this seemed to please her , and she repeated several times , as though to reassure herself , “oh good , then you just have to wait for daybreak.”	0.799872
+<p>	<p>	0
+— ah ! ~~~ bien , alors , vous n 'avez qu 'à attendre le jour	a huge bell at the corner of the fruit market , right above florent 's head , started ringing	0.0957692
+<p>		0
+une grosse cloche , au-dessus de la tête de florent , au coin du pavillon des fruits , se mit à sonner	its slow , regular notes seemed to awaken the market little by little	0.604433
+les coups , lents et réguliers , semblaient éveiller de proche en proche le sommeil traînant sur le carreau	the carts kept coming with the growing ruckus of shouting wagoneers , the cracks of their whips , the iron wheel bands and horseshoes grinding into the stone pavement	0.736667
+les voitures arrivaient toujours ; les cris des charretiers , les coups de fouet , les écrasements du pavé sous le fer des roues et le sabot des bêtes , grandissaient ; et les voitures n 'avançaient plus que par secousses , prenant la file , s 'étendant au delà des regards , dans des profondeurs grises , d 'où montait un brouhaha confus	the wagons , unable to move forward except in sudden jolts , lined up and slowly faded into the distant gray	0.215117
+tout le long de la rue du pont-neuf , on déchargeait , les tombereaux acculés aux ruisseaux , les chevaux immobiles et serrés , rangés comme dans une foire	all along rue du pont-neuf the carts unloaded , pulled close to the sidewalk , where the horses stood motionless in a line as though at a horse fair	0.982645
+	<p>	0
+florent s 'intéressa à une énorme voiture de boueux , pleine de choux superbes , qu 'on avait eu grand 'peine à faire reculer jusqu 'au trottoir ; la charge dépassait un grand diable de bec de gaz planté à côté , éclairant en plein l 'entassement des larges feuilles , qui se rabattaient comme des pans de velours gros vert , découpé et gaufré	florent examined a cart filled with magnificent cabbages ~~~ it had been backed up to the sidewalk with great care and effort , and its leafy pile rose above a gas lamp whose light fell on the large leaves , making them look like crimped pieces of green velvet	0.118553
+une petite paysanne de seize ans , en casaquin et en bonnet de toile bleue , montée dans le tombereau , ayant des choux jusqu 'aux épaules , les prenait un à un , les lançait à quelqu 'un que l 'ombre cachait , en bas	a young farm girl of about sixteen , wearing a blue linen coat and cap , climbed up on the cart and was up to her shoulders in cabbages ~~~ she began tossing them one by one to someone hidden in shadow below	0.209722
+la petite , par moments , perdue , noyée , glissait , disparaissait sous un éboulement ; puis , son nez rose reparaissait au milieu des verdures épaisses ; elle riait , et les choux se remettaient à voler , à passer entre le bec de gaz et florent	every now and then the girl would slip and disappear in a cabbage avalanche ~~~ then her pink nose would be seen sticking out of the green and she would be heard laughing as the cabbages were tossed between florent and the gaslight	0.192063
+il les comptait machinalement ~~~ quand le tombereau fut vide , cela l 'ennuya	he counted them automatically until the cart was empty , which left him feeling somehow disappointed	-0.0484615
+<p>	<p>	0
+sur le carreau , les tas déchargés s 'étendaient maintenant jusqu 'à la chaussée		-0.3
+entre chaque tas , les maraîchers ménageaient un étroit sentier pour que le monde pût circuler	the piles of vegetables were now spilling into the road , with narrow paths between them so that people could pass	0.773162
+tout le large trottoir , couvert d 'un bout à l 'autre , s 'allongeait , avec les bosses sombres des légumes	the sidewalk was covered end to end with the dark vegetable mounds	0.59011
+on ne voyait encore , dans la clarté brusque et tournante des lanternes , que l 'épanouissement charnu d 'un paquet d 'artichauts , les verts délicats des salades , le corail rose des carottes , l 'ivoire mat des navets ; et ces éclairs de couleurs intenses filaient le long des tas , avec les lanternes	but in the flicker of lantern light , you could barely make out the lush fullness of a bouquet of artichokes , the delicate green of the lettuce , the flush coral of carrots , the soft ivory finish of turnips ~~~ flashes of the bright colors skipped across the mounds with the flickering of the light	0.185041
+	<p>	0
+le trottoir s 'était peuplé ; une foule s 'éveillait , allait entre les marchandises , s 'arrêtant , causant , appelant	a crowd had awakened , and people were starting to fill up the sidewalk , scrambling among the vegetables , sometimes stopping , at times chattering , occasionally shouting	0.682345
+une voix forte , au loin , criait : « eh !	a loud voice could be heard in the distance screaming , “chicory !”	0.305769
+	<p>	0
+la chicorée ! ~~~ » on venait d 'ouvrir les grilles du pavillon aux gros légumes ; les revendeuses de ce pavillon , en bonnets blancs , avec un fichu noué sur leur caraco noir , et les jupes relevées par des épingles pour ne pas se salir , faisaient leur provision du jour , chargeaient de leurs achats les grandes hottes des porteurs posées à terre	the gates of the vegetable pavilion had just been opened , and the retailers who had stalls there , white caps on their heads , shawls knotted over their black coats , and skirts pinned up to protect them from getting dirty , began gathering their day 's provisions in roomy baskets that stood on the floor	0.273128
+du pavillon à la chaussée , le va-et-vient des hottes s 'animait , au milieu des têtes cognées , des mots gras , du tapage des voix s 'enrouant à discuter un quart d 'heure pour un sou	these baskets were seen darting in and out between the road and the pavilion , bumping into the heads of bystanders in the thick crowds , the bystanders expressing their displeasure with coarse complaints that were lost in the growing clamor of increasingly hoarse voices	0.291684
+	<p>	0
+	they could spend a quarter of an hour fighting over one sou	-0.3
+et florent s 'étonnait du calme des maraîchères , avec leurs madras et leur teint hâlé , dans ce chipotage bavard des halles	florent was surprised at the calm of the marketers with their plaid clothing and tanned faces in the middle of the long-winded haggling of the market	0.735922
+<p>	<p>	0
+derrière lui , sur le carreau de la rue rambuteau , on vendait les fruits	behind him on the sidewalk of the rue rambuteau , fruit was being sold	1.48966
+des rangées de bourriches , de paniers bas , s 'alignaient , couverts de toile ou de paille ; et une odeur de mirabelles trop mûres traînait	hampers and smaller baskets were lined up , covered with canvas or straw giving off a strong odor of overripe mirabelle plums	0.793168
+une voix douce et lente , qu 'il entendait depuis longtemps , lui fit tourner la tête	after listening for some time to a soft , slow voice , florent had to turn his head and look	0.782857
+il vit une adorable petite femme brune , assise par terre , qui marchandait	he saw a charming woman , small and dark , sitting on the ground and bargaining	0.690476
+<p>	<p>	0
+— dis donc , marcel , vends-tu pour cent sous , dis ?	“oh , come on , marcel,” she said	0.8
+<p>		0
+l 'homme , enfoui dans une limousine , ne répondait pas , et la jeune femme , au bout de cinq grandes minutes , reprenait :	“you can take a hundred sous , won 't you ?” she was speaking to a man who kept his coat closely wrapped around him and did not answer	0.49798
+	after about five very long minutes the woman went back on the attack	-0.3
+<p>		0
+— dis , marcel , cent sous ce panier-là , et quatre francs l 'autre , ça fait-il neuf francs qu 'il faut le donner ?	“come on , marcel , one hundred sous for that basket there and four francs for the other one ~~~ that 'll make nine francs i owe you.”	0.341
+<p>	<p>	0
+un nouveau silence se fit :	more silence	1.025
+<p>	<p>	0
+— alors qu 'est-ce qu 'il faut te donner ?	“all right , what 's your price ?”	0.235714
+<p>	<p>	0
+— eh !	“ten francs , as you well know because i already told you	-0.6
+dix francs , tu le sais bien , je te l 'ai dit… et ton jules , qu 'est-ce que tu en fais , la sarriette ?	and what have you done with your jules this morning , la sarriette ?” the young woman started laughing as she grabbed a fistful of small change from her pocket	0.644464
+<p>	<p>	0
+la jeune femme se mit à rire , en tirant une grosse poignée de monnaie	“oh,” she said , “jules is having his beauty rest this morning	0.501923
+<p>		0
+— ah bien ! ~~~ reprit-elle , jules dort sa grasse matinée… il prétend que les hommes , ce n 'est pas fait pour travailler	he claims that men are not made for work.”	0.0728571
+<p>	<p>	0
+elle paya , elle emporta les deux paniers dans le pavillon aux fruits qu 'on venait d 'ouvrir	she paid for the two baskets and carried them into the newly opened fruit pavilion	0.265217
+les halles gardaient leur légèreté noire , avec les mille raies de flamme des persiennes ; sous les grandes rues couvertes , du monde passait , tandis que les pavillons , au loin , restaient déserts , au milieu du grouillement grandissant de leurs trottoirs	les halles was still wrapped in artfully lit dankness , with thousands of stripes from jalousies beneath the awnings of the long covered street already heavily trafficked with pedestrians , while the distant pavilions were still deserted	0.83481
+à la pointe saint-eustache , les boulangers et les marchands de vins ôtaient leurs volets ; les boutiques rouges , avec leurs becs de gaz allumés , trouaient les ténèbres , le long des maisons grises	at the pointe saint-eustache the bakers and wine merchants were busy taking down their shutters ; their red shops , gaslights aglow , were brilliant against the grayness that still covered the other buildings	0.794286
+florent regardait une boulangerie , rue montorgueil , à gauche , toute pleine et toute dorée de la dernière cuisson , et il croyait sentir la bonne odeur du pain chaud	florent looked at a boulangerie4 on the left-hand side of rue montorgueil , all full and golden with a fresh batch of bread , and he thought he could smell the fragrance of warm bread	1.02391
+il était quatre heures et demie	it was 4 : 30 in the morning	0.231818
+<p>	<p>	0
+cependant , madame françois s 'était débarrassée de sa marchandise	meanwhile , madame françois had sold all her produce	1.11333
+il lui restait quelques bottes de carottes , quand lacaille reparut , avec son sac	when lacaille reappeared with his bag , only a few carrot bunches were left	0.871429
+<p>	<p>	0
+— eh bien , ça va-t-il à un sou ? dit-il	“how about a sou for that ?” he asked	0.59
+<p>	<p>	0
+— j 'étais bien sûre de vous revoir , vous , répondit tranquillement la maraîchère	“i knew i 'd be seeing you again,” she answered quietly	0.15
+voyons , prenez mon reste	“go ahead ~~~ take the rest	0
+il y a dix-sept bottes	there are seventeen bunches.”	0.173684
+<p>	<p>	0
+— ça fait dix-sept sous	“so that makes seventeen sous.”	0.18
+<p>	<p>	0
+— non , trente-quatre	“no thirty-four.”	0.264706
+<p>	<p>	0
+ils tombèrent d 'accord à vingt-cinq	they settled on twenty-five	0.216
+madame françois était pressée de s 'en aller	madame françois was in a hurry to leave	0.921212
+lorsque lacaille se fut éloigné , avec ses carottes dans son sac :	once lacaille had wandered off with the carrots in his bag she said to florent , “see that , he was watching me	0.966234
+<p>		0
+— voyez-vous , il me guettait , dit-elle à florent	the old bastard drifts around the market	0.24
+ce vieux-là râle sur tout le marché ; il attend quelquefois le dernier coup de cloche , pour acheter quatre sous de marchandise… ah !	sometimes he waits till the last second to buy four sous ' worth of goods	0.2375
+ces parisiens !	oh these parisians !	0.964286
+ça se chamaille pour deux liards , et ça va boire le fond de sa bourse chez le marchand de vin	they 'll bicker over a few sous and then empty their pockets drinking at the wine shop.”	0.458447
+<p>	<p>	0
+quand madame françois parlait de paris , elle était pleine d 'ironie et de dédain ; elle le traitait en ville très-éloignée , tout à fait ridicule et méprisable , dans laquelle elle ne consentait à mettre les pieds que la nuit	when madame françois spoke of paris , her voice was full of irony and disdain ~~~ she talked about it as though it were a distant city so ridiculous and contemptible that she condescended to set foot there only in the dark of night	0.370312
+<p>	<p>	0
+— à présent , je puis m 'en aller , reprit-elle en s 'asseyant de nouveau près de florent , sur les légumes d 'une voisine	“now i can get out of here,” she said , sitting down next to florent on a neighbor 's vegetable pile	0.918855
+<p>	<p>	0
+florent baissait la tête , il venait de commettre un vol	florent bowed his head	0.495
+quand lacaille s 'en était allé , il avait aperçu une carotte par terre	he had just stolen something	-0.108
+il l 'avait ramassée , il la tenait serrée dans sa main droite	just as lacaille had left , florent had spied a piece of carrot lying on the ground , picked it up , and was grasping it tightly in his right hand	0.340336
+derrière lui , des paquets de céleris , des tas de persil mettaient des odeurs irritantes qui le prenaient à la gorge	behind him , celery stalks and parsley bunches gave off a smell that was nauseating him	0.554311
+<p>	<p>	0
+— je vais m 'en aller , répéta madame françois	“i 'm going to get out of here,” madame françois repeated	0.766507
+<p>		0
+elle s 'intéressait à cet inconnu , elle le sentait souffrir , sur ce trottoir , dont il n 'avait pas remué	this stranger touched her , and her senses told her that he was suffering , sitting there on the sidewalk motionless	0.674608
+elle lui fit de nouvelles offres de service ; mais il refusa encore , avec une fierté plus âpre	she offered again to help him , but he again refused with an even more biting pride	0.755882
+il se leva même , se tint debout , pour prouver qu 'il était gaillard	he even stood up and remained on his feet to prove that he had regained his strength	0.230357
+et , comme elle tournait la tête , il mit la carotte dans sa bouche	then , as madame françois turned away , he stuffed the carrot into his mouth	0.8125
+mais il dut la garder un instant , malgré l 'envie terrible qu 'il avait de serrer les dents ; elle le regardait de nouveau en face , elle l 'interrogeait , avec sa curiosité de brave femme	but despite his terrible longing to sink his teeth into it , he was forced to take it out of his mouth again , because she started examining his face again	0.891964
+lui , pour ne pas parler , répondait par des signes de tête	she started to question him further with a kindhearted curiosity	0.25
+puis , doucement , lentement , il mangea la carotte	florent simply answered with nods and head shakes	0.3
+<p>		0
+la maraîchère allait décidément partir , lorsqu 'une voix forte dit tout à côté d 'elle :	then , slowly , he began to eat the carrot	0.492513
+<p>	<p>	0
+— bonjour , madame françois	she was finally about to leave when a powerful voice right behind her exclaimed , “good morning , madame françois !”	0.8875
+<p>	<p>	0
+c 'était un garçon maigre , avec de gros os , une grosse tête , barbu , le nez très-fin , les yeux minces et clairs	the voice came from a skinny young man with big bones and a huge head ~~~ his face was bearded , with a delicate nose and sparkling clear eyes	0.231955
+il portait un chapeau de feutre noir , roussi , déformé , et se boutonnait au fond d 'un immense paletot , jadis marron tendre , que les pluies avaient déteint en larges traînées verdâtres	he wore a rusty , beat-up black felt hat and was buttoned up in an enormous overcoat , once a soft chestnut but now discolored with long greenish streaks from the rain	0.62422
+un peu courbé , agité d 'un frisson d 'inquiétude nerveuse qui devait lui être habituel , il restait planté dans ses gros souliers lacés ; et son pantalon trop court montrait ses bas bleus	somewhat bent and shaking with nervous energy that seemed chronic , he stood in a pair of heavy laced shoes , the shortness of his pant legs revealing his blue hose	0.630556
+<p>	<p>	0
+— bonjour , monsieur claude , répondit gaiement la maraîchère	“oh , hello , monsieur claude,” she responded cheerfully	1.17551
+vous savez , je vous ai attendu , lundi ; et comme vous n 'êtes pas venu , j 'ai garé votre toile ; je l 'ai accrochée à un clou , dans ma chambre	“you know , i was expecting you on monday , and when you didn 't show up i took care of your canvas for you , hanging it on a nail in my room.”	0.80888
+<p>	<p>	0
+— vous êtes trop bonne , madame françois , j 'irai terminer mon étude , un de ces jours… lundi , je n 'ai pas pu… est-ce que votre grand prunier a encore toutes ses feuilles ?	“oh , madame françois , you 're too kind ~~~ i 'll finish that study of mine one of these days ~~~ i wasn 't able to make it monday ~~~ does your big plum tree still have all its leaves ?”	-0.0918919
+<p>	<p>	0
+— certainement	“absolutely.”	0.3
+<p>	<p>	0
+— c 'est que , voyez-vous , je le mettrai dans un coin du tableau	“i wondered because i wanted it for a corner of my painting	0.281633
+il fera bien , à gauche du poulailler	it would be perfect by the side of the chicken coop	0.193548
+j 'ai réfléchi à ça toute la semaine… hein !	i 've been thinking about it all week … ah , what beautiful vegetables this morning !	0.289394
+les beaux légumes , ce matin je suis descendu de bonne heure , me doutant qu 'il y aurait un lever de soleil superbe sur ces gredins de choux	i came down very early this morning , looking for the rays of a beautiful sunrise landing on the cabbages.” he demonstrated with a sweep of his arm that took in the full length of the sidewalk	0.686842
+<p>	<p>	0
+il montrait du geste toute la longueur du carreau	madame françois answered , “well , i 'm leaving	0.285
+la maraîchère reprit :		-0.3
+<p>		0
+— eh bien , je m 'en vais	good-bye	-0.0333333
+adieu… à bientôt , monsieur claude !	see you soon , monsieur claude.” as she was leaving she introduced florent to the young painter	0.950806
+<p>		0
+et comme elle partait , présentant florent au jeune peintre :		-0.3
+<p>		0
+— tenez , voilà monsieur qui revient de loin , paraît-il	“this gentleman seems to have come from far away	0.256098
+il ne se reconnaît plus dans votre gueux de paris	he 's no longer at home in your pigsty called paris	0.838137
+vous pourriez peut-être lui donner un bon renseignement	maybe you could fill him in a bit.”	0.0931034
+<p>	<p>	0
+elle s 'en alla enfin , heureuse de laisser les deux hommes ensemble	at last she was off , happy to have left the two of them together	0.699725
+claude regardait florent avec intérêt ; cette longue figure , mince et flottante , lui semblait originale	claude studied florent with interest ; his gaunt , diffident face seemed to claude to be an original	1.1119
+la présentation de madame françois suffisait ; et , avec la familiarité d 'un flâneur habitué à toutes les rencontres de hasard , il lui dit tranquillement :	madame françois 's introduction was all he needed , and with the familiarity of a street hustler experienced in chance encounters , he calmly said , “i think i 'll join you	0.998947
+<p>		0
+— je vous accompagne	where are you going ?”	0.283333
+où allez-vous ?		-0.3
+<p>	<p>	0
+florent resta gêné	florent was still awkward	0.944118
+il se livrait moins vite ; mais , depuis son arrivée , il avait une question sur les lèvres	he did not open up so quickly ~~~ on the other hand , he had had a question on his lips ever since his arrival	0.218033
+il se risqua , il demanda , avec la peur d 'une réponse fâcheuse :	deciding to risk it , though he feared a disagreeable response , he asked , “does the rue pirouette still exist ?”	0.442925
+<p>	<p>	0
+— est-ce que la rue pirouette existe toujours ?	“it certainly does,” the painter answered	0.275676
+<p>		0
+— mais oui , dit le peintre		-0.3
+un coin bien curieux du vieux paris , cette rue-là !	“that street is a curious corner of old paris	0.560526
+elle tourne comme une danseuse , et les maisons y ont des ventres de femme grosse… j 'en ai fait une eau-forte pas trop mauvaise	it bends and turns like a dancer , and the houses have huge bellies like fat women … i did a pretty good etching of it	0.611047
+quand vous viendrez chez moi , je vous la montrerai… c 'est là que vous allez ?	i 'll show it to you when you come by my place … is that where you 're going ?”	0.451913
+<p>	<p>	0
+florent , soulagé , ragaillardi par la nouvelle que la rue pirouette existait , jura que non , assura qu 'il n 'avait nulle part à aller	florent , heartened by the news that the rue pirouette still existed , admitted that it was not his destination and that in fact , he had no place to go	1.339
+toute sa méfiance se réveillait devant l 'insistance de claude	but his distrust was reawakened by claude 's insistence ~~~ “who cares ?” said claude	0.13125
+<p>		0
+— ça ne fait rien , dit celui-ci , allons tout de même rue pirouette	“let 's go to rue pirouette anyway	0.781034
+la nuit , elle est d 'une couleur !… venez donc , c 'est à deux pas .	it 's the most wonderful color at night … let 's go , it 's just a short hop.”	0.412612
+<p>	<p>	0
+il dut le suivre	florent had to follow him	0.128571
+ils marchaient côte à côte , comme deux camarades , enjambant les paniers et les légumes	they walked side by side , like two old friends , stepping over baskets and piles of vegetables	0.809141
+sur le carreau de la rue rambuteau , il y avait des tas gigantesques de choux-fleurs , rangés en piles comme des boulets , avec une régularité surprenante	on the pavement at rue rambuteau , there were mounds of gigantic cauliflowers , stacked with surprising orderliness like cannonballs	1.26316
+les chairs blanches et tendres des choux s 'épanouissaient , pareilles à d 'énormes roses , au milieu des grosses feuilles vertes , et les tas ressemblaient à des bouquets de mariée , alignés dans des jardinières colossales	the delicate white cauliflower flesh opened like enormous roses , surrounded by large green leaves , so that the mounds resembled bridal bouquets on display on a flower stand	0.618367
+claude s 'était arrêté , en poussant de petits cris d 'admiration	claude stopped and emitted little whimpers of appreciation	0.949359
+<p>	<p>	0
+puis , en face , rue pirouette , il montra , expliqua chaque maison	then , in front of them , was the rue pirouette , where he pointed to the houses , one by one , with stories and information about them	1.41091
+un seul bec de gaz brûlait dans un coin	one gas lamp burned by itself in a corner	0.58125
+les maisons , tassées , renflées , avançaient leurs auvents comme « des ventres de femme grosse , » selon l 'expression du peintre , penchaient leurs pignons en arrière , s 'appuyaient aux épaules les unes des autres	the peeling houses crammed together , their overhangs protruding above the ground floor , as the painter had said , like the bellies of fat women , while the gables above them tilted back as though leaning on their neighbors for support	0.721508
+trois ou quatre , au contraire , au fond de trous d 'ombre , semblaient près de tomber sur le nez	three or four others , placed farther back at the edge of the shadows , leaned forward as if about to fall on their faces	0.904895
+le bec de gaz en éclairait une , très-blanche , badigeonnée à neuf , avec sa taille de vieille femme cassée et avachie , toute poudrée à blanc , peinturlurée comme une jeunesse	the gas lamp lit one house , making it appear very white , newly whitewashed , but still resembling a decrepit old woman freshly powdered and made up to look young	0.744123
+puis la file bossuée des autres s 'en allait , s 'enfonçant en plein noir , lézardée , verdie par les écoulements des pluies , dans une débandade de couleurs et d 'attitudes telle , que claude en riait d 'aise	the other houses stretched into the darkness , cracked and green-streaked from the rain in the gutters , in such a hodgepodge of different colors and attitudes that it made claude laugh	0.99824
+	<p>	0
+florent s 'était arrêté au coin de la rue de mondétour , en face de l 'avant-dernière maison , à gauche	florent had stopped at rue de mondétour , in front of the next to last house on the left	1.29507
+les trois étages dormaient , avec leurs deux fenêtres sans persiennes , leurs petits rideaux blancs bien tirés derrière les vitres ; en haut , sur les rideaux de l 'étroite fenêtre du pignon , une lumière allait et venait	all three stories , each with two shutterless windows neatly covered by white curtains , appeared to be asleep ~~~ on the top floor , a faint light could be seen through the curtain moving back and forth	0.209639
+	<p>	0
+mais la boutique , sous l 'auvent , paraissait lui causer une émotion extraordinaire	the shop beneath the overhang seemed to have a tremendous effect on florent	0.2625
+elle s 'ouvrait	it was starting to open , a shop with prepared greens	-0.342857
+c 'était un marchand d 'herbes cuites ; au fond , des bassines luisaient ; sur la table d 'étalage , des pâtés d 'épinards et de chicorée , dans des terrines , s 'arrondissaient , se terminaient en pointe , coupés , derrière , par de petites pelles , dont on ne voyait que le manche de métal blanc	at the far end , shiny bowls could be seen , while on the display shelf in front , round domes and conical towers of spinach and chicory were placed in bowls , each notched in the back to leave space for flat serving spatulas , showing only their white metal handles	0.834093
+	<p>	0
+	florent felt as though he had been struck motionless , riveted to the pavement by this sight	-0.3
+cette vue clouait florent de surprise ; il devait ne pas reconnaître la boutique ; il lut le nom du marchand , godeboeuf , sur une enseigne rouge , et resta consterné	he did not recognize the shop ~~~ reading the merchant 's name on a red sign , godebœuf , he felt even more dismayed	0.0955224
+les bras ballants , il examinait les pâtés d 'épinards , de l 'air désespéré d 'un homme auquel il arrive quelque malheur suprême	with his arms hanging limp at his sides , he studied the cooked spinach with the air of a cursed man	0.476431
+<p>	<p>	0
+cependant , la fenêtre du pignon s 'était ouverte , une petite vieille se penchait , regardait le ciel , puis les halles , au loin	from the opened window above , a little old woman leaned out and looked up at the sky and then at the market in the distance	0.393111
+<p>	<p>	0
+— tiens ! ~~~ mademoiselle saget est matinale , dit claude qui avait levé la tête	“ah , mademoiselle saget is an early bird,” said claude , looking up	0.461538
+<p>		0
+et il ajouta , en se tournant vers son compagnon :	and he added , turning to florent , “i once had an aunt living in that house	1.15366
+<p>		0
+— j 'ai eu une tante , dans cette maison-là	that place is a nest of gossip	0.18
+c 'est une boîte à cancans… ah !	ah , now the méhudins are starting to stir	0.862821
+voilà les méhudin qui se remuent ; il y a de la lumière au second	there 's a light on the second floor.”	0.779167
+<p>	<p>	0
+florent allait le questionner , mais il le trouva inquiétant , dans son grand paletot déteint ; il le suivit , sans mot dire , tandis que l 'autre lui parlait des méhudin	florent was about to ask claude a question , but there was something unnerving about him in his baggy , faded overcoat	0.826664
+c 'étaient des poissonnières ; l 'aînée était superbe ; la petite , qui vendait du poisson d 'eau douce , ressemblait à une vierge de murillo , toute blonde au milieu de ses carpes et de ses anguilles	florent followed him without saying a word while claude went on about the méhudins ~~~ they were fishmongers ; the elder woman was superb	-0.0644737
+et il en vint à dire , en se fâchant , que murillo peignait comme un polisson	the younger one , who sold freshwater fish , resembled a virgin in a murillo painting , this blonde among all the carp and eels	0.930108
+puis , brusquement , s 'arrêtant au milieu de la vue :	then he started asserting , with growing anger , that murillo was a third-rate painter	0.563811
+<p>		0
+— voyons , où allez-vous , à la fin !	suddenly he stopped in the middle of the street and asked , “so where are you going ?”	0.148589
+<p>	<p>	0
+— je ne vais nulle part , à présent , dit florent accablé	“at the moment , i 'm not going anywhere,” florent said wearily	0.715886
+allons où vous voudrez	“we can go wherever you like.”	0.21
+<p>	<p>	0
+comme il sortait de la rue pirouette , une voix appela claude , du fond de la boutique d 'un marchand de vin , qui faisait le coin	as they were leaving rue pirouette , a voice called out to claude from the wine shop on the corner	0.924286
+claude entra , traînant florent à sa suite	claude entered , with florent behind him	1.41643
+	they had still taken off the shutters on only one side	-0.3
+il n 'y avait qu 'un côté des volets enlevé	the gas burned in the shop 's still-sleepy air	0.265714
+le gaz brûlait dans l 'air encore endormi de la salle ; un torchon oublié , les cartes de la veille , traînaient sur les tables , et le courant d 'air de la porte grande ouverte mettait sa pointe fraîche au milieu de l 'odeur chaude et renfermée du vin	a forgotten dish towel and cards from a game the night before were scattered on the table , while a breeze from the wide-open door blew freshness into the stale warm smell of wine	0.528571
+le patron , monsieur lebigre servait les clients , en gilet à manches , son collier de barbe tout chiffonné , sa grosse figure régulière toute blanche de sommeil	the owner , monsieur lebigre , was serving a customer in his long-sleeved waistcoat , with his sloppy beard and fat , even features still pale with sleep	1.0076
+des hommes , debout , par groupes , buvaient devant le comptoir , toussant , crachant , les yeux battus , achevant de s 'éveiller dans le vin blanc et dans l 'eau-de-vie ~~~ florent reconnut lacaille , dont le sac , à cette heure , débordait de légumes	men with deepset eyes were standing in groups drinking at the counter , coughing , spitting , and trying to wake themselves up with white wine and eau-de-vie.5 florent recognized lacaille , whose sack was now bursting with vegetables	0.260192
+il en était à la troisième tournée , avec un camarade , qui racontait longuement l 'achat d 'un panier de pommes de terre	he was on his third round with a friend , who was telling a story at great length about the acquisition of a basket of potatoes	0.767879
+quand il eut vidé son verre , il alla causer avec monsieur lebigre , dans un petit cabinet vitré , au fond , où le gaz n 'était pas allumé	then , after emptying his glass , he went to chat with monsieur lebigre in a small glassed-in office in the back where the gas had not yet been lit	0.8561
+<p>	<p>	0
+— que voulez-vous prendre ? ~~~ demanda claude à florent	“what 'll you have ?” claude asked florent	0.504545
+<p>	<p>	0
+en entrant , il avait serré la main de l 'homme qui l 'invitait	when they had entered , claude had shaken hands with the man who had called out to him	0.388235
+c 'était un fort , un beau garçon de vingt-deux ans au plus , rasé , ne portant que de petites moustaches , l 'air gaillard , avec son vaste chapeau enduit de craie et son colletin de tapisserie , dont les bretelles serraient son bourgeron bleu	he was a fort,6 a handsome young man of no more than twenty-two , clean-shaven except for a trim mustache , with a hearty demeanor , wearing a broad-brimmed chalk-covered hat and a wool scarf with floppy laces for tightening his blue work shirt	0.695477
+claude l 'appelait alexandre , lui tapait sur les bras , lui demandait quand ils iraient à charentonneau	claude called him alexandre , clapped him on the arm , and demanded to know when they were going back to charentonneau	1.37117
+et ils parlaient d 'une grande partie qu 'ils avaient faite ensemble , en canot , sur la marne	then they reminisced about the great boat trip they had made together on the marne	0.640217
+le soir , ils avaient mangé un lapin	that evening they had eaten rabbit	0.3
+<p>	<p>	0
+— voyons , que prenez-vous ? ~~~ répéta claude	“so what are you drinking ?” claude asked florent again	0.107692
+<p>	<p>	0
+florent regardait le comptoir , très-embarrassé	florent stared at the counter , feeling embarrassed	1.14319
+au bout , des théières de punch et de vin chaud , cerclées de cuivre , chauffaient sur les courtes flammes bleues et roses d 'un appareil à gaz	at the end were brass-ringed pots of punch and mulled wine , simmering over a gas burner 's short blue-and-pink jets of flame	0.890385
+il confessa enfin qu 'il prendrait volontiers quelque chose de chaud	finally , he admitted that he would love to have a hot drink	0.238776
+monsieur lebigre servit trois verres de punch	monsieur lebigre served them three glasses of punch	1.7625
+il y avait , près des théières , dans une corbeille , des petits pains au beurre qu 'on venait d 'apporter et qui fumaient	near the pots was a basket of little butter rolls that had just been brought in and were still steaming	0.536303
+mais les autres n 'en prirent pas , et florent but son verre de punch ; il le sentit qui tombait dans son estomac vide , comme un filet de plomb fondu	but the others didn 't take any , so florent just drank his glass of punch ~~~ he felt it falling into his stomach like a drizzle of molten lead	0.291176
+	<p>	0
+ce fut alexandre qui paya	alexandre paid	1.12857
+<p>	<p>	0
+— un bon garçon , cet alexandre , dit claude , quand ils se retrouvèrent tous les deux sur le trottoir de la rue rambuteau	“he 's a good guy , alexandre,” said claude after the two of them were back on the rue rambuteau ~~~ “he 's a lot of fun when we go to the country	0.388187
+	he does amazing feats of strength	-0.3
+	what a build , the oaf	-0.3
+il est très-amusant à la campagne ; il fait des tours de force ; puis , il est superbe , le gredin ; je l 'ai vu nu , et s 'il voulait me poser des académies , en plein air… maintenant , si cela vous plaît , nous allons faire un tour dans les halles	i 've seen him stripped ~~~ if he would only pose for me nude in the open air … now , if you 'd like , we could do a little tour through the market.”	0.0888298
+<p>	<p>	0
+florent le suivait , s 'abandonnait	florent followed passively	0.978
+une lueur claire , au fond de la rue rambuteau , annonçait le jour	the glow of light at the end of rue rambuteau announced daybreak	0.992308
+la grande voix des halles grondait plus haut ; par instants , des volées de cloche , dans un pavillon éloigné , coupaient cette clameur roulante et montante	the great voice of les halles grumbled in the distance ; the occasional peal of bells7 from some far-off pavilion competed with the rising bedlam	0.741866
+ils entrèrent sous une des rues couvertes , entre le pavillon de la marée et le pavillon de la volaille	claude and florent turned into one of the covered streets between the fish and poultry pavilions	0.818436
+florent levait les yeux , regardait la haute voûte , dont les boiseries intérieures luisaient , entre les dentelles noires des charpentes de fonte	florent looked up into the vaulted roof overhead , at the glistening wooden beams in between the black iron struts	0.641071
+quand il déboucha dans la grande rue du milieu , il songea à quelque ville étrange , avec ses quartiers distincts , ses faubourgs , ses villages , ses promenades et ses routes , ses places et ses carrefours , mise tout entière sous un hangar , un jour de pluie , par quelque caprice gigantesque	as they turned onto the main thoroughfare , he imagined being in some unknown town with its various neighborhoods and suburbs , its boulevards and roads , plazas and intersections , all suddenly sheltered from a rainy day by a huge roof dropped into place as though by the whimsy of some giant	0.853056
+	<p>	0
+l 'ombre , sommeillant dans les creux des toitures , multipliait la forêt des piliers , élargissait à l 'infini les nervures délicates , les galeries découpées , les persiennes transparentes ; et c 'était , au-dessus de la ville , jusqu 'au fond des ténèbres , toute une végétation , toute une floraison , monstrueux épanouissement de métal , dont les tiges qui montaient en fusée , les branches qui se tordaient et se nouaient , couvraient un monde avec les légèretés de feuillage d 'une futaie séculaire	the shadows that lingered in the crevices of the roof multiplied the forest of pillars and expanded the delicate ribbing , the fretwork balconies , the slatted windows ~~~ and there , high above the town , nestled in the shadows , was an immense metal jungle , with stems and vines and tangled branches covering this little world that resembled the foliage of an age-old forest	0.258737
+	<p>	0
+des quartiers dormaient encore , clos de leurs grilles	some sections of the market were still sleeping behind iron gates	0.542553
+les pavillons du beurre et de la volaille alignaient leurs petites boutiques treillagées , allongeaient leurs ruelles désertes sous les files des becs de gaz	the butter and poultry stands had long rows of trellised stalls that the gas lighting showed to be deserted	0.453333
+le pavillon de la marée venait d 'être ouvert ; des femmes traversaient les rangées de pierres blanches , tachées de l 'ombre des paniers et des linges oubliés	the fish pavilion was opening , and women were scurrying among the white stone slabs , which were littered with baskets and forgotten rags	0.498621
+aux gros légumes , aux fleurs et aux fruits , le vacarme allait grandissant	the noise and activity were slowly picking up over at the vegetables , the fruit , and the flowers	0.814286
+de proche en proche , le réveil gagnait la ville , du quartier populeux où les choux s 'entassent dès quatre heures du matin , au quartier paresseux et riche qui n 'accroche des poulardes et des faisans à ses maisons que vers les huit heures	little by little morning was coming , from the working-class neighborhood , where the cabbage was piled at four in the morning , to the lazy , privileged zone , which began hanging its chickens and pheasants at eight	0.794832
+<p>	<p>	0
+mais , dans les grandes rues couvertes , la vie affluait	the main covered passageways teemed with life	0.2475
+le long des trottoirs , aux deux bords , des maraîchers étaient encore là , de petits cultivateurs , venus des environs de paris , étalant sur des paniers leur récolte de la veille au soir , bottes de légumes , poignées de fruits	all along the sidewalks there were many produce sellers , including small-scale gardeners from the outskirts of paris showing their little harvests of vegetable bunches and fruit bundles from the previous night	0.65197
+au milieu du va-et-vient incessant de la foule , des voitures entraient sous les voûtes , en ralentissant le trot sonnant de leurs chevaux	in the midst of the crowd 's incessant comings and goings , carts pulled in under the vaulted roof , the clop of the horses ' hooves slowing down	1.13483
+deux de ces voitures , laissées en travers , barraient la rue	two of the wagons blocked the intersection , and in order to get around them florent had to press against some shabby bundles that looked like coal sacks and were so heavy that they bowed the axle of the wagon carrying them	0.215837
+florent , pour passer , dut s 'appuyer contre un des sacs grisâtres , pareils à des sacs de charbon , et dont l 'énorme charge faisait plier les essieux ; les sacs , mouillés , avaient une odeur fraîche d 'algues marines ; un d 'eux , crevé par un bout , laissait couler un tas noir de grosses moules	they were damp and gave off a scent of seaweed , and huge black mussels were spilling out of the split end of one sack	0.300486
+	<p>	0
+à tous les pas , maintenant , ils devaient s 'arrêter	at every step they took , claude and florent were forced to stop for something	0.656818
+la marée arrivait , les camions se succédaient , charriant les hautes cages de bois pleines de bourriches , que les chemins de fer apportent toutes chargées de l 'océan	the seafood was arriving , and , one after another , railroad carts pulled up with tall wooden cages loaded with the bins and hampers that had been shipped by train from the coast	0.768871
+et , pour se garer des camions de la marée de plus en plus pressés et inquiétants , ils se jetaient sous les roues des camions du beurre , des oeufs et des fromages , de grands chariots jaunes , à quatre chevaux , à lanternes de couleur ; des forts enlevaient les caisses d 'oeufs , les paniers de fromages et de beurre , qu 'ils portaient dans le pavillon de la criée , où des employés en casquette écrivaient sur des calepins , à la lueur du gaz	trying to get out of the way of the fish carts , which were coming with increasing urgency , claude and florent practically dived under the wheels of the wagons filled with butter , eggs , and cheese , huge yellow chariots drawn by four-horse teams and decorated with colored lanterns	0.949394
+claude était ravi de ce tumulte ; il s 'oubliait à un effet de lumière , à un groupe de blouses , au déchargement d 'une voiture	workers were bringing down cases of eggs and baskets of cheeses and butter , which they carried into the auction room , where men in caps made entries in notebooks by gaslight	0.606241
+	claude was enthralled by the scene , lost in admiration for the lighting on a group in overalls unloading a cart	-0.3
+enfin , ils se dégagèrent	finally they moved on	0.252632
+	<p>	0
+comme ils longeaient toujours la grande rue , ils marchèrent dans une odeur exquise qui traînait autour d 'eux et semblait les suivre	still traveling down the main route , they walked in a heady fragrance that surrounded them and seemed to follow them	0.666234
+ils étaient au milieu du marché des fleurs coupées	they were in the midst of the cut flower market	0.269231
+sur le carreau , à droite et à gauche , des femmes assises avaient devant elles des corbeilles carrées , pleines de bottes de roses , de violettes , de dahlias , de marguerites	on the ground , to the right and left , women sat with square baskets in front of them filled with bunches of roses , violets , dahlias , and daisies	1.5525
+les bottes s 'assombrissaient , pareilles à des taches de sang , pâlissaient doucement avec des gris argentés d 'une grande délicatesse	some bunches were darker , like bloodstains ; others brightened into delicate , silvery grays	0.54375
+près d 'une corbeille , une bougie allumée mettait là , sur tout le noir d 'alentour , une chanson aiguë de couleur , les panachures vives des marguerites , le rouge saignant des dahlias , le bleuissement des violettes , les chairs vivantes des roses	a lighted candle near one of the baskets gave the surrounding blackness a sudden burst of color , the bright plumage of the daisies , the bloodred of the dahlias , the rich blueness of violets , the brilliant tints of roses	0.750667
+et rien n 'était plus doux ni plus printanier que les tendresses de ce parfum rencontrées sur un trottoir , au sortir des souffles âpres de la marée et de la senteur pestilentielle des beurres et des fromages	and nothing was more like spring than the tenderness of this perfume on the pavement after the biting breath of seafood and the pungent scent of butter and cheese	0.917778
+<p>	<p>	0
+claude et florent revinrent sur leurs pas , flânant , s 'attardant au milieu des fleurs	the two men went on their way meandering among the flowers	0.403061
+ils s 'arrêtèrent curieusement devant des femmes qui vendaient des bottes de fougère et des paquets de feuilles de vigne , bien réguliers , attachés par quarterons	out of curiosity they stopped in front of the women selling bunches of ferns and vine leaves , neatly tied-up bundles with twenty-five pieces in each	1.04658
+puis ils tournèrent dans un bout de rue couverte , presque désert , où leurs pas sonnaient comme sous la voûte d 'une église	then they went down a nearly deserted alley , where their footsteps echoed as though they were in a church	0.680844
+ils y trouvèrent , attelé à une voiture grande comme une brouette , un tout petit âne qui s 'ennuyait sans doute , et qui se mit à braire en les voyant , d 'un ronflement si fort et si prolongé , que les vastes toitures des halles en tremblaient	there they found a small cart the size of a wheelbarrow with an undersized donkey hitched to it , which was probably bored because when he saw them , he began braying so loudly that his groans echoed in the great vaulted roofs of les halles , which seemed to shake from the sound	0.783726
+des hennissements de chevaux répondirent ; il y eut des piétinements , tout un vacarme au loin , qui grandit , roula , alla se perdre	the horses answered with neighing , then a stamping and scraping of hooves , a distant fracas that swelled , rolled , and then faded	0.876923
+	<p>	0
+cependant , en face d 'eux , rue berger , les boutiques nues des commissionnaires , grandes ouvertes , montraient , sous la clarté vive du gaz , des amas de paniers et de fruits , entre les trois murs sales couverts d 'additions au crayon	in front of claude and florent on rue berger they saw , in the glow of gaslight , bare retail shops , open on one side , with baskets and fruit surrounded by three grimy walls covered with arithmetical calculations scribbled in pencil	0.980264
+et comme ils étaient là , ils aperçurent une dame bien mise , pelotonnée d 'un air de lassitude heureuse dans le coin d 'un fiacre , perdu au milieu de l 'encombrement de la chaussée , et filant sournoisement	as they stood there they saw a well-dressed woman curled up with an air of weary contentment in the corner of a cab that looked misplaced in the procession of carts as it made its way along	0.742515
+<p>	<p>	0
+— c 'est cendrillon qui rentre sans pantoufles , dit claude avec un sourire	“there 's cinderella heading home without her slippers,” said claude with a smile	0.909524
+<p>	<p>	0
+ils causaient maintenant , en retournant sous les halles	they chatted now as they went back to the market	0.2325
+claude , les mains dans les poches , sifflant , racontait son grand amour pour ce débordement de nourriture , qui monte au beau milieu de paris , chaque matin	claude , his hands in his pockets , whistled and expounded on his love for this great mountain of food that rose up every morning in the heart of paris	1.05712
+il rôdait sur le carreau des nuits entières , rêvant des natures mortes colossales , des tableaux extraordinaires	he roamed the streets every night dreaming of colossal still lifes , extraordinary works ~~~ he had even begun one	0.0585526
+il en avait même commencé un ; il avait fait poser son ami marjolin et cette gueuse de cadine ; mais c 'était dur , c 'était trop beau , ces diables de légumes , et les fruits , et les poissons , et la viande !	he had made his friend marjolin and that slut cadine pose , but it was hard ~~~ those damn vegetables and the fruit and fish and meat—it was all too beautiful !	0.33314
+	<p>	0
+florent écoutait , le ventre serré , cet enthousiasme d 'artiste	florent listened to the artist 's exuberance with his own belly aching from hunger	0.468182
+et il était évident que claude , en ce moment-là , ne songeait même pas que ces belles choses se mangeaient	it was obvious that it had not occurred to claude at that moment that all those beautiful objects were there for people to eat	0.654545
+il les aimait pour leur couleur	he loved them for their colors	0.717033
+brusquement , il se tut , serra d 'un mouvement qui lui était habituel la longue ceinture rouge qu 'il portait sous son paletot verdâtre , et reprit d 'un air fin :	but suddenly he stopped talking and tightened the long red belt that he wore under his greenish coat , an old habit ~~~ then he continued with a sly look	0.135652
+<p>	<p>	0
+— puis , je déjeune ici , par les yeux au moins , et cela vaut encore mieux que de ne rien prendre	“and here , this is where i have my breakfast , at least with my eyes , which is better than nothing at all	0.643831
+quelquefois , quand j 'oublie de dîner , la veille , je me donne une indigestion , le lendemain , à regarder arriver toutes sortes de bonnes choses	sometimes when i forget dinner the night before , i work myself into indigestion the next morning by watching the carts come in here , filled with all sorts of good things	0.664206
+ces matins-là , j 'ai encore plus de tendresses pour mes légumes… non , tenez , ce qui est exaspérant , ce qui n 'est pas juste , c 'est que ces gredins de bourgeois mangent tout ça !	on such a morning i love my vegetables more than ever ~~~ oh , the thing that exasperates me , the real injustice of it , is that those good-for-nothing bourgeois actually eat all this.”	0.320327
+<p>	<p>	0
+il raconta un souper qu 'un ami lui avait payé chez baratte , un jour de splendeur ; ils avaient eu des huîtres , du poisson , du gibier	he remembered a dinner that a friend had bought him at baratte 's8 one glorious day ~~~ they had had oysters , fish , and game	0.0763541
+mais baratte était bien tombé ; tout le carnaval de l 'ancien marché des innocents se trouvait enterré , à cette heure ; on en était aux halles centrales , à ce colosse de fonte , à cette ville nouvelle , si originale	but baratte 's had gone under and all the carnival life of the old marché des innocents was now buried , and everything had been replaced by the huge central market , a steel giant of a new town	0.938694
+les imbéciles avaient beau dire , toute l 'époque était là	“fools can say what they like , but this was the quintessence of the era.”	0.476531
+	<p>	0
+et florent ne savait plus s 'il condamnait le côté pittoresque ou la bonne chère de baratte	at first florent could not decide if he was criticizing the picturesqueness of baratte 's or its cheerful atmosphere	0.875877
+puis , claude déblatéra contre le romantisme ; il préférait ses tas de choux aux guenilles du moyen âge	but claude was on a rant against romanticism ~~~ he preferred his piles of cabbage to the rags of the middle ages	0.14386
+il finit par s 'accuser de son eau-forte de la rue pirouette comme d 'une faiblesse	and he wound up by denouncing the weakness of an etching he had done of rue pirouette	1.17801
+on devait flanquer les vieilles cambuses par terre et faire du moderne	“all those grubby old places ought to be torn down and replaced by modern ones.”	0.726538
+<p>	<p>	0
+— tenez , dit-il en s 'arrêtant , regardez , au coin du trottoir	“listen,” he said , stopping ~~~ “look over there in the corner	0.214286
+n 'est-ce pas un tableau tout fait , et qui serait plus humain que leurs sacrées peintures poitrinaires ?	isn 't that a ready-made painting , infinitely more human than all their beloved pretentious paintings ?”	0.626515
+<p>	<p>	0
+	along the covered street women were selling coffee and hot soup	-0.3
+le long de la rue couverte , maintenant , des femmes vendaient du café , de la soupe	in a corner a crowd of customers had gathered around a man selling cabbage soup	0.478409
+au coin du trottoir , un large rond de consommateurs s 'était formé autour d 'une marchande de soupe aux choux	the galvanized tin bucket full of broth was steaming on the little heater , whose holes emitted the pale glow of embers	0.682717
+le seau de fer-blanc étamé , plein de bouillon , fumait sur le petit réchaud bas , dont les trous jetaient une lueur pâle de braise , la femme , armée d 'une cuiller à pot , prenant de minces tranches de pain au fond d 'une corbeille garnie d 'un linge , trempait la soupe dans des tasses jaunes	the woman , armed with a ladle , took thin slices of bread out of a cloth-lined basket and dipped yellow cups into the soup	0.350538
+il y avait là des marchandes très-propres , des maraîchers en blouse , des porteurs sales , le paletot gras des charges de nourriture qui avaient traîné sur les épaules , de pauvres diables déguenillés , toutes les faims matinales des halles , mangeant , se brûlant , écartant un peu le menton pour ne pas se tacher de la bavure des cuillers	she was surrounded by tidy saleswomen , farmers in overalls , forts with coats stained by the foods they had carried and their backs bent by the weight of the loads , poor ragged drifters—the entire hungry early-morning crowd of les halles , eating , scalding themselves , sticking their chins forward so that the trickle from their spoons would not stain their clothes	0.786696
+	<p>	0
+et le peintre ravi clignait les yeux , cherchait le point de vue , afin de composer le tableau dans un bon ensemble	and the passionate painter blinked his eyes , thrilled by the scene , looking for the best vantage point , working out the painting 's best composition	0.697872
+mais cette diablesse de soupe aux choux avait une odeur terrible	but the goddamn cabbage soup smelled impressive	0.582143
+	<p>	0
+florent tournait la tête , gêné par ces tasses pleines , que les consommateurs vidaient sans mot dire , avec un regard de côté d 'animaux méfiants	florent turned his head , unable to watch the customers emptying their soup cups in silence like a cluster of distrustful animals feeding	0.662069
+alors , comme la femme servait un nouvel arrivé , claude lui-même fut attendri par la vapeur forte d 'une cuillerée qu 'il reçut en plein visage	claude himself was overwhelmed by pungent steam rising from someone 's spoon that struck him in the face	0.668002
+<p>	<p>	0
+il serra sa ceinture , souriant , fâché ; puis , se remettant à marcher , faisant allusion au verre de punch d 'alexandre , il dit à florent d 'une voix un peu basse :	he tightened his belt , smiling as though he was annoyed	0.00106383
+<p>		0
+— c 'est drôle , vous avez dû remarquer cela , vous ?… on trouve toujours quelqu 'un pour vous payer à boire , on ne rencontre jamais personne qui vous paye à manger	then , as they continued their stroll , he alluded to the punch alexandre had bought them , saying in a low voice : “it 's a funny thing , but have you ever noticed that you can always find someone to buy you a drink but there is never anyone who will pay for something to eat ?”	0.613534
+<p>	<p>	0
+le jour se levait	it was daybreak	0.278571
+au bout de la rue de la cossonnerie , les maisons du boulevard sébastopol étaient toutes noires ; et , au-dessus de la ligne nette des ardoises , le cintre élevé de la grande rue couverte taillait , dans le bleu pâle , une demi-lune de clarté	the houses at the end of rue de la cossonnerie along boulevard sébastopol were still black , but above the clean line of their slate roofs , a patch of blue sky framed in the arches of the covered street shone like a half-moon	1.0788
+claude , qui s 'était penché au-dessus de certains regards , garnis de grilles , s 'ouvrant , au ras du trottoir , sur des profondeurs de cave où brûlaient des lueurs louches de gaz , regardait en l 'air maintenant , entre les hauts piliers , cherchant sur les toits bleuis , au bord du ciel clair	claude , who had been bending down to look through some ground-level gratings , peering down into the glimmering gaslight of deep cellars , glanced up at the opening between the pillars , as though studying the dark roofs on the edge of the clear sky	0.823497
+il finit par s 'arrêter encore , les yeux levés sur une des minces échelles de fer qui relient les deux étages de toitures et permettent de les parcourir	then he stopped again , this time to inspect an iron ladder , one of those that connected the two levels of roofing	0.572872
+florent lui demanda ce qu 'il voyait là-haut	florent asked him what he was looking at up there	0.609649
+<p>	<p>	0
+— c 'est ce diable de marjolin , dit le peintre sans répondre	“it 's that bastard marjolin,” said the painter , not in answer to florent 's question	0.382286
+il est , pour sûr , dans quelque gouttière , à moins qu 'il n 'ait passé la nuit avec les bêtes de la cave aux volailles… j 'ai besoin de lui pour une étude	“you can bet he 's lying in some gutter , unless he spent the night with the animals in the poultry cellar ~~~ i need him to do a study.”	0.166667
+<p>	<p>	0
+et il raconta que son ami marjolin fut trouvé , un matin , par une marchande , dans un tas de choux , et qu 'il poussa sur le carreau , librement	and he told the story of how his friend marjolin had been found by the market women one morning on a pile of cabbages and how he had grown up wild on the neighborhood streets	0.777628
+quand on voulut l 'envoyer à l 'école , il tomba malade , il fallut le ramener aux halles	when they wanted to send him to school , he would suddenly become ill and they had to take him back to the markets	0.516667
+il en connaissait les moindres recoins , les aimait d 'une tendresse de fils , vivait avec des agilités d 'écureuil , au milieu de cette forêt de fonte	he knew the most hidden nooks and loved them as if they were his family moving with squirrellike agility through his ironwork forest	0.389865
+ils faisaient un joli couple , lui et cette gueuse de cadine , que la mère chantemesse avait ramassée , un soir , au coin de l 'ancien marché des innocents	what a pretty couple they made—he and the slutty cadine , whom mère chantemesse had picked up one night at the old marché des innocents	1.30096
+lui , était splendide , ce grand bêta , doré comme un rubens , avec un duvet roussâtre qui accrochait le jour ; elle , la petite , futée et mince , avait un drôle de museau , sous la broussaille noire de ses cheveux crépus	he was beautiful , this big oaf , golden as a rubens with a reddish down that caught the light ; she was a little thing , lithe and slender , with an odd face beneath a tangle of frizzy black hair	0.955367
+<p>	<p>	0
+claude , tout en causant , hâtait le pas ~~~ il ramena son compagnon à la pointe saint-eustache	claude , engrossed in his talk , walked quickly , bringing his companion to the pointe saint-eustache	0.484615
+celui-ci se laissa tomber sur un banc , près du bureau des omnibus , les jambes cassées de nouveau	but florent , whose legs were starting to buckle again , finally collapsed on a bench near the horse trolley station	0.690741
+l 'air fraîchissait	there was a cool breeze	0.266667
+au fond de la rue rambuteau , des lueurs roses marbraient le ciel laiteux , sabré , plus haut , par de grandes déchirures grises	at the bottom of the rue rambuteau , a bright pink light was streaking the milky sky , which higher up was cut by broad gray patches	0.986593
+cette aube avait une odeur si balsamique , que florent se crut un instant en pleine campagne , sur quelque colline	with the dawn came such a sweet balsamic scent that for a minute florent thought he was sitting on a hillside in the country	0.823349
+mais claude lui montra , de l 'autre côté du banc , le marché aux aromates	but claude pointed out to him that on the other side of the bench was the herb market	0.784412
+le long du carreau de la triperie , on eût dit des champs de thym , de lavande , d 'ail , d 'échalote ; et les marchandes avaient enlacé , autour des jeunes platanes du trottoir , de hautes branches de laurier qui faisaient des trophées de verdure	all along the walkway , around the triperie9 there were , in a manner of speaking , fields of thyme , lavender , garlic , and shallot ~~~ the merchants had adorned the young plane trees all along the walkway with long branches heavy with bay leaves as thick and green as a victor 's wreath	0.354365
+c 'était l 'odeur puissante du laurier qui dominait	the strong perfume of bay leaf dominated	0.222857
+<p>	<p>	0
+le cadran lumineux de saint-eustache pâlissait , agonisait , pareil à une veilleuse surprise par le matin	the luminous face of the clock on saint eustache turned pale , a night-light surprised by the dawn	0.770732
+chez les marchands de vin , au fond des rues voisines , les becs de gaz s 'éteignaient un à un , comme des étoiles tombant dans de la lumière	one by one , the gaslights in the wine shops in the neighborhood were extinguished , like stars faded away by a bright sky	0.741
+et florent regardait les grandes halles sortir de l 'ombre , sortir du rêve , où il les avait vues , allongeant à l 'infini leurs palais à jour	and florent looked at the huge market emerging from the shadows , coming out of a dreamland in which they had been held , the palaces sprawling along the streets	0.756034
+elles se solidifiaient , d 'un gris verdâtre , plus géantes encore , avec leur mâture prodigieuse , supportant les nappes sans fin de leurs toits	they seemed to solidify into a greenish gray color with their columns holding up an endless expanse of roof	0.496667
+elles entassaient leurs masses géométriques ; et , quand toutes les clartés intérieures furent éteintes , qu 'elles baignèrent dans le jour levant , carrées , uniformes , elles apparurent comme une machine moderne , hors de toute mesure , quelque machine à vapeur , quelque chaudière destinée à la digestion d 'un peuple , gigantesque ventre de métal , boulonné , rivé , fait de bois , de verre et de fonte , d 'une élégance et d 'une puissance de moteur mécanique , fonctionnant là , avec la chaleur du chauffage , l 'étourdissement , le branle furieux des roues	they rose in a geometrical mass , and once all the lights had been extinguished and the matching square buildings were bathed in dawn light , they seemed like some kind of oversize modern machine , a kind of steam engine with a cauldron designed to serve all mankind , a huge riveted and bolted metal belly built of wood , glass , and iron with the power and grace of a machine with glowing furnaces and dizzily spinning wheels	0.868672
+<p>	<p>	0
+mais claude était monté debout sur le banc , d 'enthousiasme ~~~ il força son compagnon à admirer le jour se levant sur les légumes	claude had enthusiastically leapt to his feet on the bench and forced his companion to admire daybreak on the vegetables	0.206933
+c 'était une mer ~~~ elle s 'étendait de la pointe saint-eustache à la rue des halles , entre les deux groupes de pavillons	there was a sea of vegetables between the rows of pavilions from pointe saint-eustache to rue des halles	0.705232
+et , aux deux bouts , dans les deux carrefours , le flot grandissait encore , les légumes submergeaient les pavés	at the two intersections at either end the seas grew higher , completely flooding the pavement	0.423971
+le jour se levait lentement , d 'un gris très-doux , lavant toutes choses d 'une teinte claire d 'aquarelle	dawn rose slowly in soft grays , coloring everything with a light wash of watercolors	0.416667
+ces tas moutonnants comme des flots pressés , ce fleuve de verdure qui semblait couler dans l 'encaissement de la chaussée , pareil à la débâcle des pluies d 'automne , prenaient des ombres délicates et perlées , des violets attendris , des roses teintées de lait , des verts noyés dans des jaunes , toutes les pâleurs qui font du ciel une soie changeante au lever du soleil ; et , à mesure que l 'incendie du matin montait en jets de flammes au fond de la rue rambuteau , les légumes s 'éveillaient davantage , sortaient du grand bleuissement traînant à terre	the mounting piles , like a swelling sea , the river of greenery rushing through the streets like an autumnal torrent , took on delicate shadows and hues : tender violet , milk-blushed rose , a green steeped in yellows—all the soft , pale hues that change the sky into silk at sunrise ~~~ step by step the fire of dawn rose higher , shooting up bursts of flame at the far end of rue rambuteau as the vegetables brightened and grew more distinct from the bluish darkness that clung to the ground	0.256882
+les salades , les laitues , les scaroles , les chicorées , ouvertes et grasses encore de terreau , montraient leurs coeurs éclatants ; les paquets d 'épinards , les paquets d 'oseille , les bouquets d 'artichauts , les entassements de haricots et de pois , les empilements de romaines , liées d 'un brin de paille , chantaient toute la gamme du vert , de la laque verte des cosses au gros vert des feuilles ; gamme soutenue qui allait en se mourant , jusqu 'aux panachures des pieds de céleris et des bottes de poireaux	lettuce , escarole , and chicory , with rich earth still stuck to them , opened to expose swelling hearts ~~~ bundles of spinach , bunches of sorrel , packets of artichokes , piles of peas and beans , mountains of romaine tied with straw , sang the full greenery repertoire from the shiny green lacquered pods to the deep green leaves—a continuous range of ascending and descending scales that faded away in the variegated heads of celery and bundles of leeks	0.342497
+mais les notes aiguës , ce qui chantait plus haut , c 'étaient toujours les taches vives des carottes , les taches pures des navets , semées en quantité prodigieuse le long du marché , l 'éclairant du bariolage de leurs deux couleurs	but the most piercing note of all came from the flaming carrots and the snowy splotches of turnips , strewn in ample quantities all along the market and lighting it with their colors	0.571484
+	<p>	0
+au carrefour de la rue des halles , les choux faisaient des montagnes ; les énormes choux blancs , serrés et durs comme des boulets de métal pâle ; les choux frisés , dont les grandes feuilles ressemblaient à des vasques de bronze ; les choux rouges , que l 'aube changeait en des floraisons superbes , lie de vin , avec des meurtrissures de carmin et de pourpre sombre	at the intersection of rue des halles were mountains of cabbages ~~~ there were enormous white cabbages that were hard and compact like metal balls , curly savoys whose great leaves made them look like basins of greening bronze , and red cabbages that the dawn seemed to change into exquisite flowery masses the color of wine , crimson and deep purple	0.288428
+à l 'autre bout , au carrefour de la pointe saint-eustache , l 'ouverture de la rue rambuteau était barrée par une barricade de potirons orangés , sur deux rangs , s 'étalant , élargissant leurs ventres	at the other end , where pointe saint-eustache intersects rue rambuteau , the route was blocked by swollen-bellied orange pumpkins crawling across the ground in two lines	1.00448
+et le vernis mordoré d 'un panier d 'oignons , le rouge saignant d 'un tas de tomates , l 'effacement jaunâtre d 'un lot de concombres , le violet sombre d 'une grappe d 'aubergines , çà et là , s 'allumaient ; pendant que de gros radis noirs , rangés en nappes de deuil , laissaient encore quelques trous de ténèbres au milieu des joies vibrantes du réveil	the varnished brown of onions shone here and there in baskets and the bloodred heaps of tomatoes , the muted yellow of cucumbers , and the deep purple of eggplants , while thick black radishes in funereal drapes still held memories of the night amid this vibrant , jubilant new day	0.918601
+<p>	<p>	0
+claude battait des mains , à ce spectacle	claude clapped his hands at the sight	0.646875
+il trouvait « ces gredins de légumes » extravagants , fous , sublimes	he found something extravagant , crazy , and sublime in all the jaunty vegetables	0.671675
+et il soutenait qu 'ils n 'étaient pas morts , qu 'arrachés de la veille , ils attendaient le soleil du lendemain pour lui dire adieu sur le pavé des halles	he insisted that they were absolutely not dead but , after being pulled from the earth the day before , were awaiting the next sunrise to make their farewells from the cobblestones of les halles	0.594685
+il les voyait vivre , ouvrir leurs feuilles , comme s 'ils eussent encore les pieds tranquilles et chauds dans le fumier	he saw them as alive , their leaves wide open , as though their roots were still embedded in warm , well-manured soil	0.809239
+il disait entendre là le râle de tous les potagers de la banlieue	he also claimed to hear in the market the death rattle of all the little gardens on the outskirts of the city	0.534127
+	<p>	0
+cependant , la foule des bonnets blancs , des caracos noirs , des blouses bleues , emplissait les étroits sentiers , entre les tas	a crowd of white caps , black jackets , and blue overalls was converging in the narrow passages between piles	0.672527
+c 'était toute une campagne bourdonnante		-0.3
+les grandes hottes des porteurs filaient lourdement au-dessus des têtes	the forts ' huge baskets made their way slowly over the heads of the crowd	0.290164
+les revendeuses , les marchands des quatre saisons , les fruitiers , achetaient , se hâtaient	the saleswomen , grocers , and fruit sellers were doing a brisk business	0.640047
+il y avait des caporaux et des bandes de religieuses autour des montagnes de choux ; tandis que des cuisiniers de collège flairaient , cherchant les bonnes aubaines	a group of corporals and a few nuns were huddled around mountains of cabbages , and institutional cooks were hunting for bargains	0.741923
+on déchargeait toujours ; des tombereaux jetaient leur charge à terre , comme une charge de pavés , ajoutant un flot aux autres flots , qui venaient maintenant battre le trottoir opposé	the unloading continued , the carts tossing their loads to the ground as though they were shipments of cobblestones , adding more and more waves to the sea of produce that was now spreading to the opposite pathway	0.711965
+et , du fond de la rue du pont-neuf , des files de voitures arrivaient , éternellement	and from the far end of the rue du pont-neuf , carts kept coming in a line without end	1.2913
+<p>	<p>	0
+— c 'est crânement beau tout de même , murmurait claude en extase	“it is phenomenally beautiful,” cooed the enraptured claude	0.627673
+<p>	<p>	0
+florent souffrait	but florent was in pain	1.24706
+il croyait à quelque tentation surhumaine	he believed himself to be tested by some supernatural temptation and turned to look at the side facade of saint eustache , unable to look at the market any longer	-0.0579151
+il ne voulait plus voir , il regardait saint-eustache , posé de biais , comme lavé à la sépia sur le bleu du ciel , avec ses rosaces , ses larges fenêtres cintrées , son clocheton , ses toits d 'ardoises	from this view it seemed washed in sepia against the blue sky with its rosettes and broad arched windows , its bell turret and slate roof	0.386824
+il s 'arrêtait à l 'enfoncement sombre de la rue montorgueil , où éclataient des bouts d 'enseignes violentes , au pan coupé de la rue montmartre , dont les balcons luisaient , chargés de lettres d 'or	then his eyes rested on the somber depths of rue montorgueil , where gaudy signs stood out ~~~ on the corner of rue montmartre , gilded balconies gleamed in the sunlight	0.305276
+et , quand il revenait au carrefour , il était sollicité par d 'autres enseignes , des droguerie et pharmacie , des farines et légumes secs , aux grosses majuscules rouges ou noires , sur des fonds déteints	when he looked back at the intersection , his eyes were drawn to other signboards with inscriptions such as druggist and pharmacy and flour and dried beans in large red and black letters on dull backgrounds	0.701876
+	<p>	0
+les maisons des angles , à fenêtres étroites , s 'éveillaient , mettaient , dans l 'air large de la nouvelle rue du pont-neuf , quelques jaunes et bonnes vieilles façades de l 'ancien paris	by now the households in the corner buildings with their narrow windows were waking up , and the airy new rue du pont-neuf was showing a touch of the remaining facades of old paris , yellowing and sturdy	1.11218
+au coin de la rue rambuteau , debout au milieu des vitrines vides du grand magasin de nouveautés , des commis bien mis , en gilet , avec leur pantalon collant et leurs larges manchettes éblouissantes , faisaient l 'étalage	standing at the empty windows of the large store at the corner of rue rambuteau , smart-looking attendants in tight pants with large cuffs were arranging their displays	0.935406
+plus loin , la maison guillout , sévère comme une caserne , étalait délicatement , derrière ses glaces , des paquets dorés de biscuits et des compotiers pleins de petits-fours	further away , in the maison guillout , severe as a barracks , cookies in gilded wrappers and ornate petits fours were artistically set out in glass cases	0.979607
+toutes les boutiques s 'étaient ouvertes		-0.3
+des ouvriers en blouses blanches , tenant leurs outils sous le bras , pressaient le pas , traversaient la chaussée	all the shops were now open , and workers in white smocks carrying tools under their arms were hurrying up the street	0.725446
+<p>	<p>	0
+claude n 'était pas descendu de son banc ~~~ il se grandissait , pour voir jusqu 'au fond des rues	claude was still standing on the bench on his tiptoes , trying to see farther down the streets	0.123077
+brusquement , il aperçut , dans la foule qu 'il dominait , une tête blonde aux larges cheveux , suivie d 'une petite tête noire , toute crépue et ébouriffée	suddenly , coming from the crowd that he was not even focusing on , he caught a glimpse of a head draped in blond hair , followed by a smaller one covered in frizzy black curls	0.654284
+<p>	<p>	0
+— eh ! ~~~ marjolin !	“hey , marjolin !	0.925
+eh ! ~~~ cadine ! cria-t-il	hi , cadine !” he shouted	0.339706
+<p>	<p>	0
+et , comme sa voix se perdait au milieu du brouhaha , il sauta à terre , il prit sa course	since his voice was lost in the noise of the crowd , he jumped off the bench and took off	0.585714
+puis , il songea qu 'il oubliait florent ; il revint d 'un saut ; il dit rapidement :	then he remembered that he had left florent behind and came back	0.452991
+<p>		0
+— vous savez , au fond de l 'impasse des bourdonnais… mon nom est écrit à la craie sur la porte , claude lantier… venez voir l 'eau-forte de la rue pirouette	“you know , i live at the end of the impasse des bourdonnais,” he said ~~~ “my name 's written in chalk on the door : claude lantier ~~~ come and see my etching of the rue pirouette.”	0.0328938
+<p>	<p>	0
+il disparut	then he vanished	0.190909
+il ignorait le nom de florent ; il le quittait comme il l 'avait pris , au bord d 'un trottoir , après lui avoir expliqué ses préférences artistiques	he did not even know florent 's name ~~~ after having offered him his views on art , he disappeared in the street the same way he had appeared	0.132331
+<p>	<p>	0
+florent était seul	now florent was alone	1.01471
+il fut d 'abord heureux de cette solitude	at first he welcomed this solitude	0.678571
+depuis que madame françois l 'avait recueilli , dans l 'avenue de neuilly , il marchait au milieu d 'une somnolence et d 'une souffrance qui lui ôtaient l 'idée exacte des choses	ever since madame françois had picked him up on avenue de neuilly he had been moving in a world part sleep and part pain , which had kept him from completely grasping anything	0.911397
+il était libre enfin , il voulut se secouer , secouer ce rêve intolérable de nourritures gigantesques dont il se sentait poursuivi	finally he was free to do exactly what he felt like and to shake himself free of this nightmare of overflowing food following him everywhere	0.411344
+mais sa tête restait vide , il n 'arriva qu 'à retrouver au fond de lui une peur sourde	but his mind remained blank , and he could find nothing within him except a vague sense of fear	0.715714
+le jour grandissait , ou pouvait le voir maintenant ; et il regardait son pantalon et sa redingote lamentables	the day had brightened , and everything could be seen clearly now ~~~ he looked at his pants and his pathetic coat	0.15
+il boutonna la redingote , épousseta le pantalon , essaya un bout de toilette , croyant entendre ces loques noires dire tout haut d 'où il venait	he buttoned the first , dusted off the second , and attempted to straighten himself up , afraid that his black rags would scream out from where he had come	0.603929
+il était assis au milieu du banc , à côté de pauvres diables , de rôdeurs échoués là , en attendant le soleil	he was seated in the middle of a bench alongside some homeless people who had settled there to wait for sunrise	0.695455
+les nuits des halles sont douces pour les vagabonds	the nights at les halles are good to drifters and vagabonds	1.15909
+	<p>	0
+deux sergents de ville , encore en tenue de nuit , avec la capote et le képi , marchant côte à côte , les mains derrière le dos , allaient et venaient le long du trottoir ; chaque fois qu 'ils passaient devant le banc , ils jetaient un coup d 'oeil sur le gibier qu 'ils y flairaient	two sergents de ville , still in night uniforms with their greatcoats and képis,10 paced back and forth on the sidewalk , side by side , with their hands folded behind their backs	1.11248
+florent s 'imagina qu 'ils le reconnaissaient , qu 'ils se consultaient pour l 'arrêter	each time they passed the bench , they cast a glance at the prey whose presence they could sense	0.46723
+alors l 'angoisse le prit	florent thought they recognized him and were about to arrest him	-0.15
+il eut une envie folle de se lever , de courir	anxiety overtook him , and he was gripped by a mad compulsion to run	0.395946
+mais il n 'osait plus , il ne savait de quelle façon s 'en aller	but he didn 't dare and had no idea how to get away	0.431786
+et les coups d 'oeil réguliers des sergents de ville , cet examen lent et froid de la police , le mettait au supplice	the frequent glances shot at him by the sergents de ville , their slow and icy perusal , kept him on the verge of panic	1.01684
+enfin , il quitta le banc , se retenant pour ne pas fuir de toute la longueur de ses grandes jambes , s 'éloignant pas à pas , serrant les épaules , avec l 'horreur de sentir les mains rudes des sergents de ville le prendre au collet , par derrière	finally he got up from the bench and , fighting the urge to flee as fast as his long legs would carry him , managed to stroll away quietly , though his shoulders trembled with the fear that at any second he would feel a rough hand grabbing the back of his collar	0.628063
+<p>	<p>	0
+il n 'eut plus qu 'une pensée , qu 'un besoin , s 'éloigner des halles	now he had but one thought , one idea , and that was to get away from the market as fast as he could	0.535084
+il attendrait , il chercherait encore , plus tard , quand le carreau serait libre	he would put off his research until later , when the area had emptied out	0.4475
+les trois rues du carrefour , la rue montmartre , la rue montorgueil , la rue turbigo , l 'inquiétèrent : elles étaient encombrées de voitures de toutes sortes ; des légumes couvraient les trottoirs	the three streets that intersected here , rue montmartre , rue montorgueil , and rue de turbigo , worried him ~~~ they were blocked by all kinds of vehicles , and the sidewalks were clogged with vegetables	0.592308
+alors , il alla devant lui , jusqu 'à la rue pierre-lescot , où le marché au cresson et le marché aux pommes de terre lui parurent infranchissables	florent continued until rue pierre-lescot , but there he ran into the watercress and potato markets , and it seemed to him there was no way past them	0.812283
+il préféra suivre la rue rambuteau	it looked better to take rue rambuteau	1.12714
+mais , an boulevard sébastopol , il se heurta contre un tel embarras de tapissières , de charrettes , de chars à bancs , qu 'il revint prendre la rue saint-denis	but once he reached boulevard sébastopol he ran into such a barricade of carriages , wagons , and carts that he turned off to rue saint-denis	1.26154
+là , il rentra dans les légumes	but there he was back with the vegetables	0.196154
+aux deux bords , les marchands forains venaient d 'installer leurs étalages , des planches posées sur de hauts paniers , et le déluge de choux , de carottes , de navets , recommençaient	retailers had just set up their stands—thick planks propped up on tall baskets—and the flood of cabbages , carrots , and turnips started again	0.8175
+les halles débordaient	les halles overflowed	1.785
+il essaya de sortir de ce flot qui l 'atteignait dans sa fuite ; il tenta la rue de la cossonnerie , la rue berger , le square des innocents , la rue de la ferronnerie , la rue des halles	he tried to escape the flood , but it ran after him ~~~ he tried rue de la cossonnerie , rue berger , the square des innocents , rue de la ferronerie , rue des halles	0.963062
+et il s 'arrêta , découragé , effaré , ne pouvant se dégager de cette infernale ronde d 'herbes qui finissaient par tourner autour de lui en le liant aux jambes de leurs minces verdures	he was trapped , disheartened , afraid that he was unable to hop off this carousel of vegetables , which would end up prancing around him , thin vines wrapping around his legs	0.636275
+	<p>	0
+au loin , jusqu 'à la rue de rivoli , jusqu 'à la place de l 'hôtel-de-ville , les éternelles files de roues et de bêtes attelées se perdaient dans le pêle-mêle des marchandises qu 'on chargeaient ; de grandes tapissières emportaient les lots des fruitiers de tout un quartier ; des chars à bancs dont les flancs craquaient , partaient pour la banlieue	the eternal trail of carts and horses stretched all the way to rue de rivoli and place de l 'hôtel de ville ~~~ huge vans were hauling away supplies for all the district 's grocers and fruit sellers	0.106522
+rue du pont-neuf , il s 'égara tout à fait ; il vint trébucher au milieu d 'une remise de voitures à bras ; des marchands des quatre saisons y paraient leur étalage roulant	large covered wagons with straining , groaning flanks were starting for the suburbs ~~~ in rue du pont-neuf , florent became completely disoriented	0.346154
+	he stumbled upon a row of handcarts where numerous vendors were arranging their goods	-0.3
+parmi eux , il reconnut lacaille , qui prit la rue saint-honoré , en poussant devant lui une brouettée de carottes et de choux-fleurs	among them , heading off down rue saint-honoré pushing a cart of carrots and cauliflower , he sighted lacaille	1.29194
+	<p>	0
+il le suivit , espérant qu 'il l 'aiderait à sortir de la cohue	florent followed him , hoping he would help him find his way out	0.502521
+le pavé était devenu gras , bien que le temps fût sec : des tas de queues d 'artichauts , des feuilles et des fanes , rendaient la chaussée périlleuse	even though the weather was dry , the pavement was very slippery , and discarded artichoke stalks and leaves of all kinds made walking a bit perilous	0.723653
+il butait à chaque pas	he slid with each step	0.3
+il perdit lacaille rue vauvilliers	he lost track of lacaille in rue vauvilliers and , heading into the grain market , once again found his route blocked by vehicles	1.06452
+du côté de la halle-aux-blé , les bouts de rue se barricadaient d 'un nouvel obstacle de charrettes et de tombereaux	he no longer tried to fight	-0.6
+il ne tenta plus de lutter , il était repris par les halles , le flot le ramenait	les halles had defeated him , the tide had overtaken him	0.935106
+il revint lentement , il se retrouva à la pointe saint-eustache	slowly he worked his way back to pointe saint-eustache	1.15532
+<p>	<p>	0
+maintenant il entendait le long roulement qui partait des halles	now he heard the loud rumbling of the wagons setting out from the market	0.278571
+paris mâchait les bouchées à ses deux millions d 'habitants	paris was dispersing the mouthfuls that would feed its two million inhabitants	0.472727
+c 'était comme un grand organe central battant furieusement , jetant le sang de la vie dans toutes les veines	these markets were like a huge central organ , furiously pulsating and pumping the blood of life through the city 's veins	0.692308
+bruit de mâchoires colossales , vacarme fait du tapage de l 'approvisionnement , depuis les coups de fouet des gros revendeurs partant pour les marchés de quartier , jusqu 'aux savates traînantes des pauvres femmes qui vont de porte en porte offrir des salades , dans des paniers	the uproar from all the stocking and provisioning was like the chomping of the jaws of a colossus , at one end the cracking of whips of the big buyers driving their wagons to the local markets , at the other the plodding clogs of the poor women who sold lettuce from door to door carrying off their baskets	0.769195
+<p>	<p>	0
+il entra sous une rue couverte , à gauche , dans le groupe des quatre pavillons , dont il avait remarqué la grande ombre silencieuse pendant la nuit	florent entered a covered passage on the left between a group of four pavilions , which , he had noticed when it was nighttime , had no lights on	0.600175
+il espérait s 'y réfugier , y trouver quelque trou	there he hoped to find refuge , some corner in which he could hide	0.487013
+mais , à cette heure , ils s 'étaient éveillés comme les autres	but now these pavilions were as packed and lively as everywhere else	0.726923
+il alla jusqu 'au bout de la rue	he went to the end of the street	0.633333
+des camions arrivaient au trot , encombrant le marché de la vallée de cageaux pleins de volailles vivantes , et de paniers carrés où des volailles mortes étaient rangées par lits profonds	wagons were arriving at a quick rate , congesting the market with cages of live poultry and deep square baskets in which dead birds were laid	0.530769
+sur le trottoir opposé , d 'autres camions déchargeaient des veaux entiers , emmaillottés d 'une nappe , couchés tout du long , comme des enfants , dans des mannes qui ne laissaient passer que les quatre moignons , écartés et saignants	on the opposite sidewalk , other wagons were unloading whole calves , lying on their sides like children wrapped in shrouds so tailored that only the bloody stumps of their chopped-off legs were showing ~~~ there were also whole sheep and sides of beef , legs and shoulders	0.192227
+il y avait aussi des moutons entiers , des quartiers de boeuf , des cuisseaux , des épaules	butchers in long white aprons stamped the meat , carried it off , weighed it , and hung it on hooks in the auction room	0.689684
+	<p>	0
+les bouchers , avec de grands tabliers blancs , marquaient la viande d 'un timbre , la voituraient , la pesaient , l 'accrochaient aux barres de la criée ; tandis que , le visage collé aux grilles , il regardait ces files de corps pendus , les boeufs et les moutons rouges , les veaux plus pâles , tachés de jaune par la graisse et les tendons , le ventre ouvert	with his face close to the grating , florent studied the rows of hanging cadavers—the red cattle and sheep , the pale calves flecked with the yellow of fat and tendons and with gaping bellies	0.712236
+il passa au carreau de la triperie , parmi les têtes et les pieds de veau blafards , les tripes proprement roulées en paquets dans des boîtes , les cervelles rangées délicatement sur des paniers plats , les foies saignants , les rognons violâtres	then he passed along the sidewalk by the triperie with its calves ' feet and heads , the rolled tripe neatly packed in boxes , the brains fastidiously laid in flat baskets , the bloody livers , the purplish kidneys	0.837639
+il s 'arrêta aux longues charrettes à deux roues , couvertes d 'une bâche ronde , qui apportent des moitiés de cochon , accrochées des deux côtés aux ridelles , au-dessus d 'un lit de paille ; les culs des charrettes ouverts montraient des chapelles ardentes , des enfoncements de tabernacle , dans les lueurs flambantes de ces chairs régulières et nues ; et , sur le lit de paille , il y avait des boîtes de fer-blanc , pleines du sang des cochons	he paused to inspect long two-wheeled carts covered with a round tarpaulin loaded with halved pigs hung on either side over a bed of straw ~~~ seen from behind , the inside of the cart looked like a tabernacle lit by the rows of naked flesh ~~~ on the straw were tin cans catching the dripping blood	-0.0723077
+	<p>	0
+alors florent fut pris d 'une rage sourde ; l 'odeur fade de la boucherie , l 'odeur acre de la triperie , l 'exaspéraient	florent was gripped by a fever ~~~ the bland smell of the butchers and the pungent smell of the tripe agitated him	0.177823
+il sortit de la rue couverte , il préféra revenir une fois encore sur le trottoir de la rue du pont-neuf	he got out of the covered passageway , preferring the open air of rue du pont-neuf	1.28382
+<p>	<p>	0
+c 'était l 'agonie	he was in misery	0.257143
+le frisson du matin le prenait ; il claquait des dents , il avait peur de tomber là et de rester par terre	shuddering suddenly in the morning air , his teeth chattering , he was afraid that he was about to faint	0.439328
+il chercha , ne trouva pas un coin sur un banc ; il y aurait dormi , quitte à être réveillé par les sergents de ville	he looked for but could not find even a corner of a bench to sit on , a place to sleep , even if it meant being awakened by the sergents de ville	1.12115
+puis , comme un éblouissement l 'aveuglait , il s 'adossa à un arbre , les yeux fermés , les oreilles bourdonnantes	about to pass out , he propped himself against a tree , his eyes closed , and a humming sound filled his ears	0.797875
+la carotte crue qu 'il avait avalée , sans presque la mâcher , lui déchirait l 'estomac , et le verre de punch l 'avait grisé	the raw carrot he had eaten , barely chewing it , was now wrenching his stomach , while the punch befuddled his head	0.781053
+il était gris de misère , de lassitude , de faim	he was drunk with illness , exhaustion , and hunger	0.814685
+un feu ardent le brûlait de nouveau au creux de la poitrine ; il y portait les deux mains , par moments , comme pour boucher un trou par lequel il croyait sentir tout son être s 'en aller	once again a flame burned in his chest , and he clutched at his body as though trying to block an opening through which his entire being might slip away	0.430645
+le trottoir avait un large balancement ; sa souffrance devenait si intolérable , qu 'il voulut marcher encore pour la faire taire	the pavement seemed to be listing sharply ~~~ his pain grew so unbearable that he tried to keep walking in order to distract himself	0
+il marcha devant lui , entra dans les légumes ~~~ il s 'y perdit	he walked straight ahead and became lost in the vegetables	0.0889952
+il prit un étroit sentier , tourna dans un autre , dut revenir sur ses pas , se trompa , se trouva au milieu des verdures	he followed one narrow path , turned down another , tried to retrace his steps , but took a wrong turn and was once again lost in the greens	0.69496
+certains tas étaient si haut , que les gens circulaient entre deux murailles , bâties de paquets et de bottes	the heaps were piled so high that people were walking between two walls of bundles and bunches	0.921097
+les têtes dépassaient un peu ; on les voyait filer avec la tache blanche ou noire de la coiffure ; et les grandes hottes , balancées , ressemblaient , au ras des feuilles , à des nacelles d 'osier nageant sur un lac de mousse	only their heads could be seen over these battlements , white or black depending on the color of their hats , gliding by while enormous swinging baskets , at the same height as the top of the piles , looked like wicker boats adrift on a stagnant mossy lake	0.842451
+	<p>	0
+florent se heurtait à mille obstacles , à des porteurs qui se chargeaient , à des marchandes qui discutaient de leurs voix rudes ; il glissait sur le lit épais d 'épluchures et de trognons qui couvrait la chaussée , il étouffait dans l 'odeur puissante des feuilles écrasées	florent stumbled over a thousand obstructions—forts hefting their loads and market women arguing in coarse voices ~~~ he slipped on a bed of discarded leaves and stalks lying thickly on the sidewalk and nearly choked on the scent of crushed greens	0.225507
+alors , stupide , il s 'arrêta , il s 'abandonna aux poussées des uns , aux injures des autres ; il ne fut plus qu 'une chose battue , roulée , au fond de la mer montante	at last falling into a stupor , he stopped and gave in to the shoving and insults , reduced to flotsam adrift on ocean swells	0.436652
+<p>	<p>	0
+une grande lâcheté l 'envahissait	cowardice was breaking his spirit	0.3
+il aurait mendié ~~~ sa sotte fierté de la nuit l 'exaspérait	he could easily have stooped to begging , and he was infuriated by his stupid pride of the night before	-0.0583333
+s 'il avait accepté l 'aumône de madame françois , s 'il n 'avait point eu peur de claude comme un imbécile , il ne se trouverait pas là , à râler parmi ces choux	if he had accepted the charity of madame françois , if he had not been so foolishly intimidated by claude , he would not now be at nearly his last breath , here among the cabbages	0.846124
+et il s 'irritait surtout de ne pas avoir questionné le peintre , rue pirouette	what particularly annoyed him was that he had not questioned the painter about rue pirouette	0.615909
+à cette heure , il était seul , il pouvait crever , sur le pavé , comme un chien perdu	and now he might very well drop dead on the pavement like a stray dog	0.423214
+<p>	<p>	0
+il leva une dernière fois les yeux , il regarda les halles ~~~ elles flambaient dans le soleil	for the last time he raised his eyes and looked at the market glittering in the sun	0.0357143
+un grand rayon entrait par le bout de la rue couverte , au fond , trouant la masse des pavillons d 'un portique de lumière ; et , battant la nappe des toitures , une pluie ardente tombait	bright sunshine was streaming through the covered passageway from the other end , splitting the pavilions with a beam of light , while fiery shafts poured down on the distant expanse of roofs	0.63506
+l 'énorme charpente de fonte se noyait , bleuissait , n 'était plus qu 'un profil sombre sur les flammes d 'incendie du levant	the great iron framework grew less clear and turned bluish , a mere silhouette outlined against the flaming sunlight	0.434848
+en haut , une vitre s 'allumait , une goutte de clarté roulait jusqu 'aux gouttières , le long de la pente des larges plaques de zinc	high above , a windowpane caught fire and flame dripped down the sloping zinc roof all the way to the gutter	0.508682
+ce fut alors une cité tumultueuse dans une poussière d 'or volante	below , the tumultuous metropolis was lit by a cloud of golden dust	0.3
+	<p>	0
+le réveil avait grandi , du ronflement des maraîchers , couchés sous leurs limousines , au roulement plus vif des arrivages	the day 's awakening was spreading from the snoring of the market gardeners , wrapped in their thick coats , to the rolling wagons , more active than ever	0.642745
+	now the entire city had opened its gratings , the sidewalks were humming , the pavilions were abuzz	-0.3
+maintenant , la ville entière repliait ses grilles ; les carreaux bourdonnaient , les pavillons grondaient ; toutes les voix donnaient , et l 'on eût dit l 'épanouissement magistral de cette phrase que florent , depuis quatre heures du matin , entendait se traîner et se grossir dans l 'ombre	the air was thick with voices ~~~ it was as though the mutterings florent had heard in the shadowy early hours from four o 'clock on were now blossoming into full sentences	0.0061204
+	<p>	0
+à droite , à gauche , de tous côtés , des glapissements de criée mettaient des notes aiguës de petite flûte , au milieu des basses sourdes de la foule	to the right , to the left , everywhere , the shrill cries sent the treble notes of a flute into the bass rumble of the crowd	1.09114
+c 'était la marée , c 'étaient les beurres , c 'était la volaille , c 'était la viande	it was the sound of seafood , butter , poultry , and meat being sold	0.786136
+des volées de cloche passaient , secouant derrière elles le murmure des marchés qui s 'ouvraient	the pealing of bells sent added vibrations through the noisy market	0.425862
+autour de lui , le soleil enflammait les légumes	all around florent , sunlight set vegetables on fire with color	0.504878
+il ne reconnaissait plus l 'aquarelle tendre des pâleurs de l 'aube	the pale water-color he had seen at dawn had vanished ~~~ the ample hearts of lettuce were aflame	0.0860294
+les coeurs élargis des salades brûlaient , la gamme du vert éclatait en vigueurs superbes , les carottes saignaient , les navets devenaient incandescents , dans ce brasier triomphal	the hues of the greenery had turned brilliant , the carrots glowed bloodred , the turnips turned incandescent in the triumphal sunlight	0.589565
+	<p>	0
+à sa gauche , des tombereaux de choux s 'éboulaient encore	loads of cabbage were being unloaded to the left of florent	0.793878
+il tourna les yeux , il vit , au loin , des camions qui débouchaient toujours de la rue turbigo	he turned away and saw in the distance even more wagons being unloaded on rue de turbigo	0.616895
+la mer continuait à monter	the tide was still rising	0.286364
+il l 'avait sentie à ses chevilles , puis à son ventre ; elle menaçait , à cette heure , de passer par-dessus sa tête	at first he had felt it around his ankles , then at stomach height , and now it was threatening to rise over his head	0.646154
+aveuglé , noyé , les oreilles sonnantes , l 'estomac écrasé par tout ce qu 'il avait vu , devinant de nouvelles et incessantes profondeurs de nourriture , il demanda grâce , et une douleur folle le prit , de mourir ainsi de faim , dans paris gorgé , dans ce réveil fulgurant des halles	blinded , drowning , his ears ringing , his stomach demolished by all that he had seen and guessing that there were even greater , unfathomable depths of food to come , he asked for mercy	0.793747
+de grosses larmes chaudes jaillirent de ses yeux	mad sorrow gripped him at the thought that he would starve to death here at the heart of glutted paris , in the midst of the market 's resplendent daybreak	0.359524
+	fat , hot tears dripped from his eyes	-0.3
+<p>	<p>	0
+il était arrivé à une allée plus large	now he reached one of the wider alleys	0.3
+deux femmes , une petite vieille et une grande sèche , passèrent devant lui , causant , se dirigeant vers les pavillons	two women , a small elderly one and a tall withered one , walked by him , headed toward the pavilions	0.783259
+<p>	<p>	0
+— et vous êtes venue faire vos provisions , mademoiselle saget ? ~~~ demanda la grande sèche	“so you have come to do your shopping , mademoiselle saget ?” the tall withered one asked	0.290598
+<p>	<p>	0
+— oh ! ~~~ madame lecoeur , si on peut dire… vous savez , une femme seule	“well , madame lecœur , if you can call it shopping ~~~ you know how it is for a woman alone , living on almost nothing	0.317857
+je vis de rien… j 'aurais voulu un petit chou-fleur , mais tout est si cher… et le beurre , à combien , aujourd 'hui ?	i wanted a nice little cauliflower ~~~ but it 's too expensive ~~~ what about the butter , how much is that today ?”	-0.070765
+<p>	<p>	0
+— trente-quatre sous… j 'en ai du bien bon	“thirty-four sous ~~~ i have some that is very nice	-0.03
+si vous voulez venir me voir…	come with me and i 'll show you.”	0.276
+<p>	<p>	0
+— oui , oui , je ne sais pas , j 'ai encore un peu de graisse…	“yes , well , i don 't know ~~~ i still have a little lard left …”	0.147619
+<p>	<p>	0
+florent , faisant un effort suprême , suivait les deux femmes	florent , with a supreme effort , followed the two women	1.26809
+il se souvenait d 'avoir entendu nommer la petite vieille par claude , rue pirouette ; il se disait qu 'il la questionnerait , quand elle aurait quitté la grande sèche	he remembered having heard claude mention the little elderly woman ~~~ he told himself that after she left the tall woman , he would go up and question her	0.0659552
+<p>	<p>	0
+— et votre nièce ? ~~~ demanda mademoiselle saget	“and how is your niece ?” mademoiselle saget asked	0.642
+<p>	<p>	0
+— la sarriette fait ce qu 'il lui plaît , répondit aigrement madame lecoeur	“la sarriette does what she wants,” madame lecœur answered bitterly	0.825116
+elle a voulu s 'établir ~~~ ça ne me regarde plus	“she 's decided to go off on her own , and her business is no longer my problem	-0.0923077
+quand les hommes l 'auront grugée , ce n 'est pas moi qui lui donnerai un morceau de pain	when all her boyfriends have cleaned her out , don 't expect me to give her a bite of bread.”	0.5875
+<p>	<p>	0
+	“you were so good to her	-0.3
+— vous étiez si bonne pour elle… elle devrait gagner de l 'argent ; les fruits sont avantageux , cette année… et votre beau-frère ?	she ought to be doing well this year ~~~ fruits are getting good prices ~~~ and how is your brother-in-law ?”	-0.0466165
+<p>		0
+— oh ! lui…		-0.3
+<p>	<p>	0
+madame lecoeur pinça les lèvres et parut ne pas vouloir en dire davantage	“oh , he—” madame lecœur bit her lips and did not seem to want to say anything else	0.704378
+<p>	<p>	0
+— toujours le même , hein ? ~~~ continua mademoiselle saget	“the same as always , huh ?” mademoiselle saget continued	0.617308
+c 'est un bien brave homme… je me suis laissé dire qu 'il mangeait son argent d 'une façon…	“he 's a decent man ~~~ but i 've heard it said that he goes through money …”	-0.035
+<p>	<p>	0
+— est-ce qu 'on sait s 'il mange son argent !	“who knows how he spends his money ?” madame lecœur said abruptly	0.141667
+dit brutalement madame lecoeur	“he 's very secretive and also stingy	0.257143
+c 'est un cachotier , c 'est un ladre , c 'est un homme , voyez-vous , mademoiselle , qui me laisserait crever plutôt que de me prêter cent sous… il sait parfaitement que les beurres , pas plus que les fromages et les oeufs , n 'ont marché cette saison	you know , he 's the kind of man who would let you drop dead before he 'd loan you a hundred sous ~~~ he knows perfectly well that butter , not to mention cheese and eggs , have not had a good season	0.0798077
+lui , vend toute la volaille qu 'il veut… eh bien , pas une fois , non , pas une fois , il ne m 'aurait offert ses services	he 's selling poultry as fast as he can get them ~~~ but never , not once , not one time , has he offered to help me	0.120828
+je suis bien trop fière pour accepter , vous comprenez , mais ça m 'aurait fait plaisir	of course , i 'm too proud to accept it , you understand , but i would have appreciated the gesture.”	0.758333
+<p>	<p>	0
+— eh ! ~~~ le voilà , votre beau-frère , reprit mademoiselle saget , en baissant la voix .	“oh , look , here he is now,” said mademoiselle saget in a low voice	0.43875
+<p>	<p>	0
+les deux femmes se tournèrent , regardèrent quelqu 'un qui traversait la chaussée pour entrer sous la grande rue couverte	the two women turned around to look at someone crossing the street to enter the covered passage	0.21375
+<p>	<p>	0
+— je suis pressée , murmura madame lecoeur , j 'ai laissé ma boutique toute seule	“i 'm in a hurry,” madame lecœur muttered ~~~ “i left my shop with no one watching it	0.0295238
+puis , je ne veux pas lui parler	but also , i don 't want to talk to him.”	0.564103
+<p>	<p>	0
+florent s 'était aussi retourné , machinalement	florent too had mechanically turned to see the man	0.667857
+il vit un petit homme , carré , l 'air heureux , les cheveux gris et taillés en brosse , qui tenait sous chacun de ses bras une oie grasse , dont la tête pendait et lui tapait sur les cuisses	he was a short , burly man with a cheerful demeanor and grayish stubble for hair ~~~ he carried a fat goose under each arm with their heads hanging down and bumping into his legs	0.149561
+et , brusquement , il eut un geste de joie ; il courut derrière cet homme , oubliant sa fatigue ~~~ quand il l 'eut rejoint :	suddenly florent opened his arms in pleasure and , completely forgetting his exhaustion , ran after the man	0.209569
+<p>		0
+— gavard ! ~~~ dit-il , en lui frappant sur l 'épaule	when he caught up with him , he shouted , “gavard !” and slapped him on the back	0.183333
+<p>	<p>	0
+l 'autre leva la tête , examina d 'un air surpris cette longue figure noire qu 'il ne reconnaissait pas ~~~ puis , tout d 'un coup :	the other man looked up and , caught by surprise , studied this tall black figure whom he did not recognize	0.137563
+<p>	<p>	0
+— vous !		-0.3
+vous ! ~~~ s 'écria-t-il au comble de la stupéfaction ~~~ comment , c 'est vous !	then , all of a sudden , he shouted , “it 's you !” seemingly confused , he added , “is it really you ?”	-0.0171053
+<p>	<p>	0
+il manqua laisser tomber ses oies grasses	he almost dropped his fat geese	0.2
+il ne se calmait pas	he still could not control his amazement	-0.0176471
+mais , ayant aperçu sa belle-soeur et mademoiselle saget , qui assistaient curieusement de loin à leur rencontre , il se remit à marcher , en disant :	but then , seeing his sister-in-law and mademoiselle saget , who were observing the encounter from a distance with interest , he continued walking	1.14
+<p>	<p>	0
+	“don 't stand there	-0.3
+— ne restons pas là , venez… il y a des yeux et des langues de trop	come on ~~~ there are too many eyes and tongues around here.”	0.114286
+<p>	<p>	0
+et , sous la rue couverte , ils causèrent	once under the covered passage , they began talking	0.811765
+florent raconta qu 'il était allé rue pirouette	florent told how he had gone to the rue pirouette , which seemed to amuse gavard greatly	1.06585
+gavard trouva cela très-drôle ; il rit beaucoup , il lui apprit que son frère quenu avait déménagé et rouvert sa charcuterie à deux pas , rue rambuteau , en face des halles ~~~ ce qui l 'amusa encore prodigieusement , ce fut d 'entendre que florent s 'était promené tout le matin avec claude lantier , un drôle de corps , qui était justement le neveu de madame quenu	then he told florent that florent 's brother , quenu , had moved his charcuterie11 nearby , to rue rambuteau , across from les halles.12 what amused him even more was that florent had just spent the morning walking around with claude lantier , an oddball who by chance was the nephew of madame quenu	0.357881
+il allait le conduire à la charcuterie ~~~ puis , quand il sut qu 'il était rentré en france avec de faux papiers , il prit toutes sortes d 'airs mystérieux et graves	gavard was going to take florent to the charcuterie , but when florent told him that he had entered france with false papers , he became very serious and secretive	0.287342
+il voulut marcher devant lui , à cinq pas de distance , pour ne pas éveiller l 'attention	he tried to keep about five steps ahead of him so as not to attract attention	0.605322
+après avoir passé par le pavillon de la volaille , où il accrocha ses deux oies à son étalage , il traversa la rue rambuteau , toujours suivi par florent	after passing by the poultry pavilion , where he dropped off his two geese on a counter , he crossed rue rambuteau with florent following close behind	1.05
+là , au milieu de la chaussée , du coin de l 'oeil , il lui désigna une grande et belle boutique de charcuterie	stopping in the middle of the street , he glanced knowingly at a large , handsome charcuterie	0.924359
+<p>	<p>	0
+le soleil enfilait obliquement la rue rambuteau , allumant les façades , an milieu desquelles l 'ouverture de la rue pirouette faisait un trou noir	diagonal sunbeams struck rue rambuteau , lighting up the fronts of the buildings , with the entrance to rue pirouette in the center of the block appearing like a black hole	1.06172
+à l 'autre bout , le grand vaisseau de saint-eustache était tout doré dans la poussière du soleil , comme une immense châsse	at the other end , the great hulk of saint eustache glittered in the sunlight like a sparkling casket	0.682143
+et , au milieu de la cohue , du fond du carrefour , une armée de balayeurs s 'avançait , sur une ligne , à coups réguliers de balai ; tandis que des boueux jetaient les ordures à la fourche dans des tombereaux qui s 'arrêtaient , tous les vingt pas , avec des bruits de vaisselles cassées	in the middle of the crowd , an army of street sweepers emerged from a distant intersection , marching forward in a line and swinging their brooms in unison ~~~ at the same time , cleaners were picking up trash on their forks and tossing it into carts that stopped every twenty paces with a sound like smashing pottery	0.231897
+mais florent n 'avait d 'attention que pour la grande charcuterie , ouverte et flambante au soleil levant	but florent noticed nothing but the sight of the large charcuterie sparkling in the sunlight	0.824525
+<p>	<p>	0
+elle faisait presque le coin de la rue pirouette ~~~ elle était une joie pour le regard	he was almost at the corner of the rue pirouette , and the shop was a joy to behold	0.358537
+elle riait , toute claire , avec des pointes de couleurs vives qui chantaient au milieu de la blancheur de ses marbres	it was filled with laughter and bright light and brilliant colors that popped out next to the white of the marble countertops	0.539441
+l 'enseigne , où le nom de quenu-gradelle luisait en grosses lettres d 'or , dans un encadrement de branches et de feuilles , dessiné sur un fond tendre , était faite d 'une peinture recouverte d 'une glace	there was a sign ; a painting covered with glass with the name quenu-gradelle in large gilded letters framed in leafy branches	0.643437
+les deux panneaux latéraux de la devanture , également peints et sous verre , représentaient de petits amours joufflus , jouant au milieu de hures , de côtelettes de porc , de guirlandes de saucisses ; et ces natures mortes , ornées d 'enroulements et de rosaces , avaient une telle tendresse d 'aquarelle , que les viandes crues y prenaient des tons roses de confitures ~~~ puis , dans ce cadre aimable , l 'étalage montait	the two side panels of the storefront , also glass-covered paintings , depicted chubby cupids frolicking amid animal heads , with pork chops and garlands of sausages , and these still lifes , adorned with rolls and rosettes , were such pretty paintings that the raw meat looked like reddish fruit preserves	0.310326
+il était posé sur un lit de fines rognures de papier bleu ; par endroits , des feuilles de fougère , délicatement rangées , changeaient certaines assiettes en bouquets entourés de verdure	within this lovely frame was the window display on a bed of delicately shredded blue paper , with a few well-placed sprigs of fern making plates of food look like bouquets with greenery	0.83961
+c 'était un monde de bonnes choses , de choses fondantes , de choses grasses	it was a world of good things , mouthwatering things , rich things	0.899221
+	<p>	0
+d 'abord , tout en bas , contre la glace , il y avait une rangée de pots de rillettes , entremêlés de pots de moutarde	first of all , close to the windowpane , was a row of crocks full of rillettes13 alternating with jars of mustard	1.07938
+les jambonneaux désossés venaient au-dessus , avec leur bonne figure ronde , jaune de chapelure , leur manche terminé par un pompon vert	the next row was nice round boned jambonneaux14 with golden breadcrumb coatings	0.330769
+ensuite arrivaient les grands plats : les langues fourrées de strasbourg , rouges et vernies , saignantes à côté de la pâleur des saucisses et des pieds de cochon ; les boudins , noirs , roulés comme des couleuvres bonnes filles ; les andouilles , empilées deux à deux , crevant de santé ; les saucissons , pareils à des échines de chantre , dans leurs chapes d 'argent ; les pâtés , tout chauds , portant les petits drapeaux de leurs étiquettes ; les gros jambons , les grosses pièces de veau et de porc , glacées , et dont la gelée avait des limpidités de sucre candi	behind these were platters : stuffed strasbourg tongues all red and looking as if they had been varnished , appearing almost bloody next to the pale sausages and pigs ' feet ; boudin15 coiled like snakes ; andouilles16 piled two by two and plump with health ; dried sausages in silvery casings lined up like choirboys ; pâtés,17 still warm , with little labels stuck on them like flags ; big , fat hams ; thick cuts of veal and pork whose juices had jellied clear as crystal candy	0.847328
+il y avait encore de larges terrines au fond desquelles dormaient des viandes et des hachis , dans des lacs de graisse figée	in the back were other dishes and earthenware casseroles in which minced and sliced meats slept under blankets of fat	0.71645
+entre les assiettes , entre les plats , sur le lit de rognures bleues , se trouvaient jetés des bocaux d 'aschards , de coulis , de truffes conservées , des terrines de foies gras , des boîtes moirées de thon et de sardines	between the plates and dishes , on a bed of blue paper , were pickling jars of sauces and stocks and preserved truffles , terrines of foie gras , and tins of tuna and sardines	1.38427
+une caisse de fromages laiteux , et une autre caisse , pleine d 'escargots bourrés de beurre persillé , étaient posées aux deux coins , négligemment	a box of creamy cheeses and one of escargot , wood snails with parsley and butter , were casually strewn in opposite corners	0.863835
+	<p>	0
+enfin , tout en haut , tombant d 'une barre à dents de loup , des colliers de saucisses , de saucissons , de cervelas , pendaient , symétriques , semblables à des cordons et à des glands de tentures riches ; tandis que , derrière , des lambeaux de crépine mettaient leur dentelle , leur fond de guipure blanche et charnue	at the top of the window display , draped with symmetry on a bar armed with sharp wolves ' teeth , were links of sausages , dried saucissons18 and cervelas,19 their lacy membranes hanging like cords and tassels	0.688462
+et là , sur le dernier gradin de cette chapelle du ventre , au milieu des bouts de la crépine , entre deux bouquets de glaïeuls pourpres , le reposoir se couronnait d 'un aquarium carré , garni de rocailles , où deux poissons rouges nageaient , continuellement	on the highest rung in this gourmand 's chapel , amid the membranes and between two bunches of purple gladioli , the window was crowned by a small , square aquarium decorated with rocks and housing two goldfish that never stopped swimming	0.833897
+<p>	<p>	0
+florent sentit un frisson à fleur de peau ; et il aperçut une femme , sur le seuil de la boutique , dans le soleil	the sight gave florent goose bumps ~~~ he noticed a woman in the doorway standing in the sunlight	0.104375
+elle mettait un bonheur de plus , une plénitude solide et heureuse , au milieu de toutes ces gaietés grasses	she had a prosperous , contented look that went with the cheerful displays of fat food	0.577941
+c 'était une belle femme ~~~ elle tenait la largeur de la porte , point trop-grosse pourtant , forte de la gorge , dans la maturité de la trentaine	a handsome woman , she nearly filled the doorway not too large but full-busted and ample for a woman of only thirty	0.127277
+elle venait de se lever , et déjà ses cheveux , lissés , collés et comme vernis , lui descendaient en petits bandeaux plats sur les tempes	it was early in the morning , but her hair was well brushed and arranged over her temples— a tidy-looking woman	0.640613
+cela la rendait très-propre ~~~ sa chairpaisible , avait cette blancheur transparente , cette peau fine et robée des personnes qui vivent d 'ordinaire dans les graisses et les viandes crues	she had that fine shine and milky pink complexion of people who spend their days around fats and raw meat	0.134975
+elle était sérieuse plutôt , très-calme et très-lente , s 'égayant du regard , les lèvres graves	she had a slightly grave demeanor , very calm and slow , with eyes that smiled while her lips remained serious	0.762963
+son col de linge empesé bridant sur son cou , ses manches blanches qui lui montaient jusqu 'aux coudes , son tablier blanc cachant la pointe de ses souliers , ne laissaient voir que des bouts de la robe de cachemire noir , les épaules rondes , le corsage plein , dont le corset tendait l 'étoffe , extrêmement	a white starched collar encircled her neck , white cuffs reached up to her elbows , and a white apron covered her to the tips of her shoes , all of which allowed only an occasional glimpse of her black cashmere dress , round shoulders , and ample bosom	0.71122
+dans tout ce blanc , le soleil brûlait	the sun glared on all this white	0.244444
+mais , trempée de clarté , les cheveux bleus , la chair rose , les manches et la jupe éclatantes , elle ne clignait pas les paupières , elle prenait en toute tranquillité béate son bain de lumière matinale , les yeux doux , riant aux halles débordantes	but despite the glow from her bluish black hair , her pink complexion , and her glaring sleeves and apron , she never blinked ~~~ she bathed herself in the morning sun , her soft eyes taking in the overflowing les halles	0.277374
+elle avait un air de grande honnêteté	the woman was visibly respectable	0.28
+<p>	<p>	0
+— c 'est la femme de votre frère , votre belle-soeur lisa , dit gavard à florent .	“that 's your brother 's wife , your sister-in-law , lisa,” gavard told florent	1.09545
+<p>		0
+il l 'avait saluée d 'un léger signe de tête ~~~ puis , il s 'enfonça dans l 'allée , continuant à prendre des précautions minutieuses , ne voulant pas que florent entrât par la boutique qui était vide pourtant	he had acknowledged her with a slight nod but then ducked down an alleyway , continuing to take every precaution , not wanting florent to enter the shop even though it was empty	0.186567
+il était évidemment très-heureux de se mettre dans une aventure qu 'il croyait compromettante	he was clearly thrilled to be having this slight adventure , enjoying the intrigue	0.252857
+<p>	<p>	0
+— attendez , dit-il , je vais voir si votre frère est seul… vous entrerez , quand je taperai dans mes mains	“wait here,” he said ~~~ “i 'll go see if your brother is alone ~~~ when i clap my hands , you can come in.”	-0.0450284
+<p>	<p>	0
+il poussa une porte , au fond de l 'allée	he pushed open a door at the end of the alley	0.545455
+mais , lorsque florent entendit la voix de son frère , derrière cette porte , il entra d 'un bond	but the minute florent heard his brother 's voice behind the door , he bounded in	0.952151
+quenu , qui l 'adorait , se jeta à son cou	quenu , who adored him , threw his arms round florent 's neck	0.895455
+	they kissed like children	-0.3
+ils s 'embrassaient comme des enfants	“oh my god , it 's really you !” quenu stammered	0.245455
+<p>		0
+— ah !	“i can 't believe it	-0.42
+saperlotte , ah !	i thought you were dead !	0.78
+c 'est toi , balbutiait quenu , si je m 'attendais , par exemple !… je t 'ai cru mort , je le disais hier encore à lisa : « ce pauvre florent… »	just yesterday i was saying to lisa , ‘poor florent’”	0.671515
+<p>	<p>	0
+il s 'arrêta , il cria , en penchant la tête dans la boutique :	he stopped , turned his head toward the shop , and shouted , “hey , lisa !	0.621
+<p>		0
+— eh !		-0.3
+lisa !… lisa !…		-0.3
+<p>		0
+puis , se tournant vers une petite fille qui s 'était réfugiée dans un coin :	lisa !” then he turned to a little girl hiding in a corner	0.626444
+<p>		0
+— pauline , va donc chercher ta mère	“pauline , go find your mother.”	0.707143
+<p>	<p>	0
+mais la petite ne bougea pas	but the little girl did not move	0.691071
+c 'était une superbe enfant de cinq ans , ayant une grosse figure ronde , d 'une grande ressemblance avec la belle charcutière	she was a beautiful five-year-old with a chubby round build , who looked very much like the beautiful charcuterie woman	0.573833
+elle tenait , entre ses bras , un énorme chat jaune , qui s 'abandonnait d 'aise , les pattes pendantes ; et elle le serrait de ses petites mains , pliant sous la charge , comme si elle eût craint que ce monsieur si mal habillé ne le lui volât	she held in her arms an enormous tabby cat , which had contentedly surrendered to the child 's embrace , its paws hanging loose while the little girl squeezed it tightly in her little arms , as though afraid that this badly dressed man would try to steal her pet	0.56319
+<p>	<p>	0
+lisa arriva lentement	slowly lisa came over to them	0.975
+<p>	<p>	0
+— c 'est florent , c 'est mon frère , répétait quenu	“this is florent ~~~ my brother,” quenu repeated	0.296341
+<p>	<p>	0
+elle l 'appela « monsieur , » fut très-bonne	lisa addressed him as “monsieur” and welcomed him	0.251351
+elle le regardait paisiblement , de la tête aux pieds , sans montrer aucune surprise malhonnête	she quietly studied him from head to foot without showing any unpleasant surprise	0.681429
+ses lèvres seules avaient un léger pli	only her lips showed a slight downward curl	0.263636
+et elle resta debout , finissant par sourire des embrassades de son mari	she just stood there until she started to smile at the way her husband was embracing him	0.240984
+celui-ci pourtant parut se calmer ~~~ alors il vit la maigreur , la misère de florent	as quenu calmed down , he noticed florent 's emaciated , wretched appearance	0.172727
+<p>	<p>	0
+— ah !	“oh , poor fellow,” he said	-0.6
+mon pauvre ami , dit-il , tu n 'as pas embelli , là bas… moi , j 'ai engraissé , que veux-tu !	“that place didn 't agree with you ~~~ look at me , you see how i 've fattened up.”	-0.0184615
+<p>	<p>	0
+il était gras , en effet , trop gras pour ses trente ans	he was fat , too , quite fat for a man of only thirty	0.913589
+il débordait dans sa chemise , dans son tablier , dans ses linges blancs qui l 'emmaillotaient comme un énorme poupon	he was bursting out of his shirt and apron , all wrapped up in white linen like a big stuffed doll	0.500575
+sa face rasée s 'était allongée , avait pris à la longue une lointaine ressemblance avec le groin de ces cochons , de cette viande , où ses mains s 'enfonçaient et vivaient , la journée entière	his clean-shaven face was sticking out , slightly resembling the snout of one of the pigs he was with all day	0.755152
+florent le reconnaissait à peine	florent had barely recognized him	0.789655
+il s 'était assis , il passait de son frère à la belle lisa , à la petite pauline	seated , quenu cast a glance at the lovely lisa and little pauline	0.893766
+ils suaient la santé ; ils étaient superbes , carrés , luisants ; ils le regardaient avec l 'étonnement de gens très-gras pris d 'une vague inquiétude en face d 'un maigre	they looked brimming with good health , solidly built , fit , and trim ~~~ the two in their turn looked at florent with that uneasiness that fleshy people always feel in the presence of someone who is extremely skinny	0.145346
+et le chat lui-même , dont la peau pétait de graisse , arrondissait ses yeux jaunes , l 'examinait d 'un air défiant	even their cat was puffed up with fat and stared at florent suspiciously with dilated yellow eyes	0.419106
+<p>	<p>	0
+— tu attendras le déjeuner , n 'est-ce pas ? ~~~ demanda quenu	“you can wait until we have breakfast , can 't you ?” asked quenu	0.127364
+nous mangeons de bonne heure , à dix heures	“we eat early , about ten o 'clock.”	0.573333
+<p>	<p>	0
+une odeur forte de cuisine traînait	the shop was filled with the smells of cooking	0.651152
+florent revit sa nuit terrible , son arrivée dans les légumes , son agonie au milieu des halles , cet éboulement continu de nourriture auquel il venait d 'échapper	florent thought back on the horrible night he had just passed , how he had arrived with the vegetables , his agony in the heart of les halles , drowning in the endless sea of food that he had just escaped	1.03603
+alors , il dit à voix basse , avec un sourire doux :	then , in a low voice with a sweet smile , he said :	1.36393
+<p>	<p>	0
+	“no , i can 't wait	-0.3
+— non , j 'ai faim , vois-tu	you see , i 'm really hungry.”	0.634091
+		0.3

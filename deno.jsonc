@@ -1,0 +1,7 @@
+{
+  "importMap": "import_map.json",
+  "tasks": {
+    "fmt": "deno fmt src test",
+    "test": "deno test --allow-read=./ --allow-run=./resources/punkt src"
+  }
+}
