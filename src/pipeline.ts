@@ -17,13 +17,18 @@ export async function main() {
   // this is slow here, but should be faster once punkt is just wasm
   const splitParagraphs: string[][] = [];
   for await (const [number, splitParagraph] of enumerate(tokenized)) {
-    console.log(`${number}: ${splitParagraph}`);
+    console.log(number);
     splitParagraphs.push(splitParagraph);
   }
 
-  console.log(splitParagraphs);
-  console.log(splitParagraphs.length);
-  console.log(separated.length);
+  if (splitParagraphs.length !== separated.length) {
+    console.error(`assumed splitParagraphs ${splitParagraphs.length} and separated ${separated.length} would be equal`)
+    Deno.exit(1);
+  }
+
+  for (const [i, paragraph] of separated.entries()) {
+    console.log(`${paragraph}: ${splitParagraphs[i]}`);
+  }
 }
 
 async function* enumerate<T>(ts: AsyncIterable<T>): AsyncIterable<[number, T]> {
