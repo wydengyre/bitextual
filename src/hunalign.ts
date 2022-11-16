@@ -2,19 +2,20 @@ import { resourcePath } from "./resources.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 import { spawnText } from "./utils.ts";
 
+type Ladder = Rung[];
+type SourceIndex = number;
+type TargetIndex = number;
+type Confidence = number;
+type Rung = [SourceIndex, TargetIndex, Confidence];
+
 const HUNALIGN_BIN_PATH = resourcePath("hunalign");
 
 async function main() {
   const aligned = await hunalign();
-
-  const outPath = fromFileUrl(
-    import.meta.resolve("../test/chapteraligned.txt"),
-  );
-  await Deno.writeTextFile(outPath, aligned);
+  console.log(aligned);
 }
 
-export async function hunalign(): Promise<string> {
-  // TODO: ladder format support
+export async function hunalign(): Promise<Ladder> {
   const dictPath = resourcePath("hunapertium-eng-fra.dic");
   const fraSentencesPath = fromFileUrl(
     import.meta.resolve("../test/chapitre.sentences.txt"),
@@ -31,7 +32,8 @@ export async function hunalign(): Promise<string> {
 
   const { out } = await spawnText(HUNALIGN_BIN_PATH, {
     args: [
-      "-text",
+      // enabling the option below switches to text format (from ladder)
+      // "-text",
       // see command documentation for thresholds
       // "-thresh=5",
       // "-ppthresh=10",
@@ -42,7 +44,16 @@ export async function hunalign(): Promise<string> {
       engSentencesPath,
     ],
   });
-  return out;
+  return parseLadder(out);
+}
+
+function parseLadder(ladderStr: string): Ladder {
+  const BASE_10 = 10;
+  const intify = (s: string): number => parseInt(s, BASE_10);
+
+  return ladderStr.split("\n")
+    .map((rungStr) => rungStr.split("\t"))
+    .map(([l, r, c]) => [intify(l), intify(r), intify(c)]);
 }
 
 if (import.meta.main) {
