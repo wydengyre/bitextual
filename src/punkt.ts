@@ -33,8 +33,6 @@ export async function sentences(
 
   const outText = new TextDecoder().decode(out);
 
-  // for now we trim whitespace here...
-  // in theory we could (should?) do this in Rust
-  return outText.split("\n")
+  return outText.trim().split("\n")
     .map((line) => line.trim());
 }

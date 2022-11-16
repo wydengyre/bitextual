@@ -13,8 +13,24 @@ export async function main() {
     separated,
     (paragraph: string) => sentences(LANG, paragraph),
   );
-  for await (const splitParagraph of tokenized) {
-    console.log(splitParagraph);
+
+  // this is slow here, but should be faster once punkt is just wasm
+  const splitParagraphs: string[][] = [];
+  for await (const [number, splitParagraph] of enumerate(tokenized)) {
+    console.log(`${number}: ${splitParagraph}`);
+    splitParagraphs.push(splitParagraph);
+  }
+
+  console.log(splitParagraphs);
+  console.log(splitParagraphs.length);
+  console.log(separated.length);
+}
+
+async function* enumerate<T>(ts: AsyncIterable<T>): AsyncIterable<[number, T]> {
+  let i = 0;
+  for await (const t of ts) {
+    yield [i, t];
+    i++;
   }
 }
 
