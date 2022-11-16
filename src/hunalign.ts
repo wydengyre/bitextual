@@ -2,11 +2,11 @@ import { resourcePath } from "./resources.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 import { spawnText } from "./utils.ts";
 
-type Ladder = Rung[];
-type SourceIndex = number;
-type TargetIndex = number;
-type Confidence = number;
-type Rung = [SourceIndex, TargetIndex, Confidence];
+export type Ladder = Rung[];
+export type SourceIndex = number;
+export type TargetIndex = number;
+export type Confidence = number;
+export type Rung = [SourceIndex, TargetIndex, Confidence];
 
 const HUNALIGN_BIN_PATH = resourcePath("hunalign");
 
