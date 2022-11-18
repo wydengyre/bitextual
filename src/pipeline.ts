@@ -2,33 +2,62 @@ import { readFixtureString } from "../test/util.ts";
 import { paragraphs } from "./textreader.ts";
 import { pooledMap } from "std/async/pool.ts";
 import { sentences } from "./punkt.ts";
+import {align} from "./hunalign.ts";
+
+const ENGLISH = "en";
+const FRENCH = "fr";
 
 export async function main() {
-  const LANG = "fr";
-  const text = await readFixtureString("chapitre.txt");
-  const separated = paragraphs(text);
+  const [frenchText, englishText] = await Promise.all([
+    readFixtureString("chapitre.txt"),
+    readFixtureString("chapter.txt"),
+  ]);
+
+  const frenchParagraphs = paragraphs(frenchText);
+  const englishParagraphs = paragraphs(englishText);
+
   const concurrency = navigator.hardwareConcurrency;
-  const tokenized: AsyncIterableIterator<string[]> = pooledMap(
+  const frenchTokenized: AsyncIterableIterator<string[]> = pooledMap(
     concurrency,
-    separated,
-    (paragraph: string) => sentences(LANG, paragraph),
+    frenchParagraphs,
+    (paragraph: string) => sentences(FRENCH, paragraph),
+  );
+  const englishTokenized: AsyncIterableIterator<string[]> = pooledMap(
+    concurrency,
+    englishParagraphs,
+    (paragraph: string) => sentences(ENGLISH, paragraph),
   );
 
   // this is slow here, but should be faster once punkt is just wasm
-  const splitParagraphs: string[][] = [];
-  for await (const [number, splitParagraph] of enumerate(tokenized)) {
+  const frenchSplitParagraphs: string[][] = [];
+  for await (const [number, splitParagraph] of enumerate(frenchTokenized)) {
     console.log(number);
-    splitParagraphs.push(splitParagraph);
+    frenchSplitParagraphs.push(splitParagraph);
+  }
+  const englishSplitParagraphs: string[][] = [];
+  for await (const [number, splitParagraph] of enumerate(englishTokenized)) {
+    console.log(number);
+    englishSplitParagraphs.push(splitParagraph);
   }
 
-  if (splitParagraphs.length !== separated.length) {
-    console.error(`assumed splitParagraphs ${splitParagraphs.length} and separated ${separated.length} would be equal`)
+  if (frenchSplitParagraphs.length !== frenchParagraphs.length) {
+    console.error(
+      `assumed splitParagraphs ${frenchSplitParagraphs.length} and separated ${frenchParagraphs.length} would be equal`,
+    );
+    Deno.exit(1);
+  }
+  if (englishSplitParagraphs.length !== englishParagraphs.length) {
+    console.error(
+      `assumed splitParagraphs ${englishSplitParagraphs.length} and separated ${englishParagraphs.length} would be equal`,
+    );
     Deno.exit(1);
   }
 
-  for (const [i, paragraph] of separated.entries()) {
-    console.log(`${paragraph}: ${splitParagraphs[i]}`);
-  }
+  const aligned = await align(frenchSplitParagraphs, englishSplitParagraphs);
+  console.log(aligned);
+
+  // TODO: paragraph alignment
+  // const alignedParagraphs: [string[], string[]][] = [];
 }
 
 async function* enumerate<T>(ts: AsyncIterable<T>): AsyncIterable<[number, T]> {
