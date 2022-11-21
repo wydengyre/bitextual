@@ -61,21 +61,34 @@ export async function main() {
   const alignedParagraphs: [string[], string[]][] = [];
   let leftPos = 0;
   let rightPos = 0;
+  let rightParagraphsCount = 0;
   for (const [leftLines, rightLines] of aligned) {
     const leftParagraphsCount = countElements(leftLines, PARAGRAPH_MARKER);
-    const rightParagraphsCount = countElements(rightLines, PARAGRAPH_MARKER);
+    rightParagraphsCount += countElements(rightLines, PARAGRAPH_MARKER);
 
     const leftParagraphsToPush =
-      (frenchParagraphs.slice(leftPos, leftPos + leftParagraphsCount));
-    const rightParagraphsToPush =
-      (englishParagraphs.slice(rightPos, rightPos + rightParagraphsCount));
-    leftPos += leftParagraphsCount;
-    rightPos += rightParagraphsCount;
+      frenchParagraphs.slice(leftPos, leftPos + leftParagraphsCount);
     if (leftParagraphsToPush.length > 0) {
+      const rightParagraphsToPush =
+        englishParagraphs.slice(rightPos, rightPos + rightParagraphsCount);
       alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
+      leftPos += leftParagraphsCount;
+      rightPos += rightParagraphsCount;
+      rightParagraphsCount = 0;
     }
   }
 
+  // this is probably the case, since we won't end with a <p>
+  if (leftPos < frenchParagraphs.length) {
+    const leftParagraphsToPush = frenchParagraphs.slice(leftPos);
+    const rightParagraphsToPush = englishParagraphs.slice(rightPos);
+    alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
+  }
+
+  // console.log(englishParagraphs[2]);
+  // console.log("ALIGNED");
+  // console.log(alignedParagraphs[1][0][0]);
+  // console.log(alignedParagraphs[1][1][0]);
   const rendered = render(alignedParagraphs);
   console.log(rendered);
 }
