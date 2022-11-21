@@ -58,19 +58,22 @@ export async function main() {
   );
 
   // Paragraph alignment. Sentences require more data.
+  // TODO: Refine this algo... Sometimes two paragraphs on the left correspond to only one on the right.
+  // The important thing should be which <p> elements align
   const alignedParagraphs: [string[], string[]][] = [];
   let leftPos = 0;
   let rightPos = 0;
+  let leftParagraphsCount = 0;
   let rightParagraphsCount = 0;
   for (const [leftLines, rightLines] of aligned) {
-    const leftParagraphsCount = countElements(leftLines, PARAGRAPH_MARKER);
+    leftParagraphsCount += countElements(leftLines, PARAGRAPH_MARKER);
     rightParagraphsCount += countElements(rightLines, PARAGRAPH_MARKER);
 
-    const leftParagraphsToPush = frenchParagraphs.slice(
-      leftPos,
-      leftPos + leftParagraphsCount,
-    );
-    if (leftParagraphsToPush.length > 0) {
+    if (leftParagraphsCount > 0 && rightParagraphsCount > 0) {
+      const leftParagraphsToPush = frenchParagraphs.slice(
+        leftPos,
+        leftPos + leftParagraphsCount,
+      );
       const rightParagraphsToPush = englishParagraphs.slice(
         rightPos,
         rightPos + rightParagraphsCount,
@@ -78,11 +81,12 @@ export async function main() {
       alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
       leftPos += leftParagraphsCount;
       rightPos += rightParagraphsCount;
+      leftParagraphsCount = 0;
       rightParagraphsCount = 0;
     }
   }
 
-  // this is probably the case, since we won't end with a <p>
+  // // this is probably the case, since we won't end with a <p>
   if (leftPos < frenchParagraphs.length) {
     const leftParagraphsToPush = frenchParagraphs.slice(leftPos);
     const rightParagraphsToPush = englishParagraphs.slice(rightPos);

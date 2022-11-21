@@ -30,6 +30,7 @@ const TEMPLATE = `<!doctype html>
     td {
       vertical-align: top;
       width: 50%;
+      padding: 0 1em 1em;
     }
   </style>
   </head>
