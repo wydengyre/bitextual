@@ -11,7 +11,7 @@ export type Rung = [SourceIndex, TargetIndex, Confidence];
 
 const HUNALIGN_BIN_PATH = resourcePath("hunalign");
 
-const PARAGRAPH_MARKER = "<p>";
+export const PARAGRAPH_MARKER = "<p>";
 
 async function main() {
   // TODO: bring this back

@@ -2,7 +2,8 @@ import { readFixtureString } from "../test/util.ts";
 import { paragraphs } from "./textreader.ts";
 import { pooledMap } from "std/async/pool.ts";
 import { sentences } from "./punkt.ts";
-import {align} from "./hunalign.ts";
+import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
+import { render } from "./render.ts";
 
 const ENGLISH = "en";
 const FRENCH = "fr";
@@ -13,8 +14,8 @@ export async function main() {
     readFixtureString("chapter.txt"),
   ]);
 
-  const frenchParagraphs = paragraphs(frenchText);
-  const englishParagraphs = paragraphs(englishText);
+  const frenchParagraphs: string[] = paragraphs(frenchText);
+  const englishParagraphs: string[] = paragraphs(englishText);
 
   const concurrency = navigator.hardwareConcurrency;
   const frenchTokenized: AsyncIterableIterator<string[]> = pooledMap(
@@ -31,12 +32,10 @@ export async function main() {
   // this is slow here, but should be faster once punkt is just wasm
   const frenchSplitParagraphs: string[][] = [];
   for await (const [number, splitParagraph] of enumerate(frenchTokenized)) {
-    console.log(number);
     frenchSplitParagraphs.push(splitParagraph);
   }
   const englishSplitParagraphs: string[][] = [];
   for await (const [number, splitParagraph] of enumerate(englishTokenized)) {
-    console.log(number);
     englishSplitParagraphs.push(splitParagraph);
   }
 
@@ -53,11 +52,38 @@ export async function main() {
     Deno.exit(1);
   }
 
-  const aligned = await align(frenchSplitParagraphs, englishSplitParagraphs);
-  console.log(aligned);
+  const aligned: [string[], string[]][] = await align(
+    frenchSplitParagraphs,
+    englishSplitParagraphs,
+  );
 
-  // TODO: paragraph alignment
-  // const alignedParagraphs: [string[], string[]][] = [];
+  // Paragraph alignment. Sentences require more data.
+  const alignedParagraphs: [string[], string[]][] = [];
+  let leftPos = 0;
+  let rightPos = 0;
+  for (const [leftLines, rightLines] of aligned) {
+    const leftParagraphsCount = countElements(leftLines, PARAGRAPH_MARKER);
+    const rightParagraphsCount = countElements(rightLines, PARAGRAPH_MARKER);
+
+    const leftParagraphsToPush =
+      (frenchParagraphs.slice(leftPos, leftPos + leftParagraphsCount));
+    const rightParagraphsToPush =
+      (englishParagraphs.slice(rightPos, rightPos + rightParagraphsCount));
+    leftPos += leftParagraphsCount;
+    rightPos += rightParagraphsCount;
+    if (leftParagraphsToPush.length > 0) {
+      alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
+    }
+  }
+
+  const rendered = render(alignedParagraphs);
+  console.log(rendered);
+}
+
+function countElements<T>(ts: T[], t: T): number {
+  let count = 0;
+  for (const e of ts) if (e === t) count++;
+  return count;
 }
 
 async function* enumerate<T>(ts: AsyncIterable<T>): AsyncIterable<[number, T]> {
