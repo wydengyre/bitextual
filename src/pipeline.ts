@@ -66,11 +66,15 @@ export async function main() {
     const leftParagraphsCount = countElements(leftLines, PARAGRAPH_MARKER);
     rightParagraphsCount += countElements(rightLines, PARAGRAPH_MARKER);
 
-    const leftParagraphsToPush =
-      frenchParagraphs.slice(leftPos, leftPos + leftParagraphsCount);
+    const leftParagraphsToPush = frenchParagraphs.slice(
+      leftPos,
+      leftPos + leftParagraphsCount,
+    );
     if (leftParagraphsToPush.length > 0) {
-      const rightParagraphsToPush =
-        englishParagraphs.slice(rightPos, rightPos + rightParagraphsCount);
+      const rightParagraphsToPush = englishParagraphs.slice(
+        rightPos,
+        rightPos + rightParagraphsCount,
+      );
       alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
       leftPos += leftParagraphsCount;
       rightPos += rightParagraphsCount;
