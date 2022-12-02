@@ -60,13 +60,30 @@ function process(dict: string): [string, string] {
   const defs: [unknown, unknown][] = es.map((
     { p: { l, r } },
   ) => [l, r]);
+
   const stringDefs: [string, string][] = defs.filter((
     def,
   ): def is [string, string] =>
     typeof def[0] === "string" && typeof def[1] === "string"
-  );
-  console.log(stringDefs);
-  return ["foo", "bar"];
+  )
+    .map(([l, r]) => [normalizeWord(l), normalizeWord(r)]);
+
+  const uniqueStringDefs = [...new Set(stringDefs)];
+  // TODO: look into locale-based sorting
+  uniqueStringDefs.sort();
+
+  const lToR = uniqueStringDefs.map(([l, r]) => `${l} @ ${r}`).join("\n");
+  const rToL = uniqueStringDefs.map(([l, r]) => `${r} @ ${l}`).sort().join("\n");
+  return [lToR, rToL];
+}
+
+// https://stackoverflow.com/a/5002161
+const HTML_TAG_RE = /<\/?[^>]+(>|$)/g
+function normalizeWord(word: string): string {
+  const SPACE = String.raw`<b/>`;
+  return word
+    .replaceAll(SPACE, " ")
+    .replaceAll(HTML_TAG_RE, "");
 }
 
 if (import.meta.main) {
