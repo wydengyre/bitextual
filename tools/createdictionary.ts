@@ -9,8 +9,9 @@ const apertiumSchema = z.object({
     section: z.object({
       e: z.object({
         p: z.object({
-          l: z.string().or(z.object({}).passthrough()),
-          r: z.string().or(z.object({}).passthrough()),
+          // the objects that end up here are confusing.
+          l: z.string().or(z.object({})),
+          r: z.string().or(z.object({})),
         }),
       }).array(),
     }),
@@ -54,7 +55,9 @@ function process(dict: string): [string, string] {
   const dictXml = xml.parse(dict);
   const parsed = apertiumSchema.parse(dictXml);
   const es = parsed.dictionary.section.e;
-  const defs: [string | object, string | object][] = es.map((
+
+  // there are a couple of objects that end up in here. Maybe worth investigating.
+  const defs: [unknown, unknown][] = es.map((
     { p: { l, r } },
   ) => [l, r]);
   const stringDefs: [string, string][] = defs.filter((
