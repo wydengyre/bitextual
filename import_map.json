@@ -1,5 +1,7 @@
 {
   "imports": {
-    "std/": "https://deno.land/std@0.164.0/"
+    "std/": "https://deno.land/std@0.164.0/",
+    "xml": "https://deno.land/x/xml@2.0.4/mod.ts",
+    "zod": "https://deno.land/x/zod@v3.19.1/mod.ts"
   }
 }
