@@ -10,9 +10,10 @@ const apertiumSchema = z.object({
       e: z.object({
         p: z.object({
           // the objects that end up here are confusing.
-          l: z.string().or(z.object({})),
-          r: z.string().or(z.object({})),
-        }),
+          l: z.string().or(z.object({})).nullable(),
+          r: z.string().or(z.object({})).nullable(),
+        }).or(z.array(z.unknown())).optional(),
+        // looks like instead of p there can be i
       }).array(),
     }),
   }),
@@ -51,34 +52,34 @@ async function go(inPath: string, outPath1: string, outPath2: string) {
   ]);
 }
 
+// currently very naïve. we could handle inflection
+// https://wiki.apertium.org/wiki/Monodix_basics
 function process(dict: string): [string, string] {
   const dictXml = xml.parse(dict);
   const parsed = apertiumSchema.parse(dictXml);
   const es = parsed.dictionary.section.e;
 
-  // there are a couple of objects that end up in here. Maybe worth investigating.
-  const defs: [unknown, unknown][] = es.map((
-    { p: { l, r } },
-  ) => [l, r]);
+  // have had to really relax the schema and filter
+  const defs: [string, string][] = es
+    .filter((e): e is { p: { l: string; r: string } } =>
+      e.p !== undefined && !Array.isArray(e.p) && typeof e.p.l === "string" &&
+      typeof e.p.r === "string"
+    )
+    .map((
+      { p: { l, r } },
+    ) => [normalizeWord(l), normalizeWord(r)]);
 
-  const stringDefs: [string, string][] = defs.filter((
-    def,
-  ): def is [string, string] =>
-    typeof def[0] === "string" && typeof def[1] === "string"
-  )
-    .map(([l, r]) => [normalizeWord(l), normalizeWord(r)]);
-
-  const uniqueStringDefs = [...new Set(stringDefs)];
+  const uniqueDefs = [...new Set(defs)];
   // TODO: look into locale-based sorting
-  uniqueStringDefs.sort();
+  uniqueDefs.sort();
 
-  const lToR = uniqueStringDefs.map(([l, r]) => `${l} @ ${r}`).join("\n");
-  const rToL = uniqueStringDefs.map(([l, r]) => `${r} @ ${l}`).sort().join("\n");
+  const lToR = uniqueDefs.map(([l, r]) => `${l} @ ${r}`).join("\n");
+  const rToL = uniqueDefs.map(([l, r]) => `${r} @ ${l}`).sort().join("\n");
   return [lToR, rToL];
 }
 
 // https://stackoverflow.com/a/5002161
-const HTML_TAG_RE = /<\/?[^>]+(>|$)/g
+const HTML_TAG_RE = /<\/?[^>]+(>|$)/g;
 function normalizeWord(word: string): string {
   const SPACE = String.raw`<b/>`;
   return word
