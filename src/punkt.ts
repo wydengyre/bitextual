@@ -5,7 +5,7 @@ import { resourcePath } from "./resources.ts";
 
 const PUNKT_BIN_PATH = resourcePath("punkt");
 
-export type Language = "en" | "es" | "fr";
+export type Language = "en" | "es" | "fr" | "it";
 
 export async function sentences(
   language: Language,

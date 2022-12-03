@@ -19,6 +19,7 @@ async function main() {
   // console.log(aligned);
 }
 
+// TODO: take dictionary as string
 export async function align(
   frenchSplitParagraphs: string[][],
   englishSplitParagraphs: string[][],
@@ -26,7 +27,8 @@ export async function align(
   const frenchText = textifySplitParagraphs(frenchSplitParagraphs);
   const englishText = textifySplitParagraphs(englishSplitParagraphs);
 
-  const dictPath = resourcePath("hunapertium-eng-fra.dic");
+  // TODO: specify dictionary
+  const dictPath = resourcePath("ita-eng.dic");
 
   const [frenchTextPath, englishTextPath] = await Promise.all([
     Deno.makeTempFile(),

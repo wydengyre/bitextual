@@ -7,54 +7,55 @@ import { render } from "./render.ts";
 
 const ENGLISH = "en";
 const FRENCH = "fr";
+const ITALIAN = "it";
 
 export async function main() {
-  const [frenchText, englishText] = await Promise.all([
-    readFixtureString("chapitre.txt"),
-    readFixtureString("chapter.txt"),
+  const [englishText, italianText] = await Promise.all([
+    readFixtureString("goosebumps.chapter.txt"),
+    readFixtureString("goosebumps.capitolo.txt"),
   ]);
 
-  const frenchParagraphs: string[] = paragraphs(frenchText);
   const englishParagraphs: string[] = paragraphs(englishText);
+  const italianParagraphs: string[] = paragraphs(italianText);
 
   const concurrency = navigator.hardwareConcurrency;
-  const frenchTokenized: AsyncIterableIterator<string[]> = pooledMap(
-    concurrency,
-    frenchParagraphs,
-    (paragraph: string) => sentences(FRENCH, paragraph),
-  );
   const englishTokenized: AsyncIterableIterator<string[]> = pooledMap(
     concurrency,
     englishParagraphs,
     (paragraph: string) => sentences(ENGLISH, paragraph),
   );
+  const italianTokenized: AsyncIterableIterator<string[]> = pooledMap(
+    concurrency,
+    italianParagraphs,
+    (paragraph: string) => sentences(ITALIAN, paragraph),
+  );
 
   // this is slow here, but should be faster once punkt is just wasm
-  const frenchSplitParagraphs: string[][] = [];
-  for await (const [number, splitParagraph] of enumerate(frenchTokenized)) {
-    frenchSplitParagraphs.push(splitParagraph);
-  }
   const englishSplitParagraphs: string[][] = [];
   for await (const [number, splitParagraph] of enumerate(englishTokenized)) {
     englishSplitParagraphs.push(splitParagraph);
   }
-
-  if (frenchSplitParagraphs.length !== frenchParagraphs.length) {
-    console.error(
-      `assumed splitParagraphs ${frenchSplitParagraphs.length} and separated ${frenchParagraphs.length} would be equal`,
-    );
-    Deno.exit(1);
+  const italianSplitParagraphs: string[][] = [];
+  for await (const [number, splitParagraph] of enumerate(italianTokenized)) {
+    italianSplitParagraphs.push(splitParagraph);
   }
+
   if (englishSplitParagraphs.length !== englishParagraphs.length) {
     console.error(
       `assumed splitParagraphs ${englishSplitParagraphs.length} and separated ${englishParagraphs.length} would be equal`,
     );
     Deno.exit(1);
   }
+  if (italianSplitParagraphs.length !== italianParagraphs.length) {
+    console.error(
+      `assumed splitParagraphs ${italianSplitParagraphs.length} and separated ${italianParagraphs.length} would be equal`,
+    );
+    Deno.exit(1);
+  }
 
   const aligned: [string[], string[]][] = await align(
-    frenchSplitParagraphs,
     englishSplitParagraphs,
+    italianSplitParagraphs,
   );
 
   // Paragraph alignment. Sentences require more data.
@@ -70,11 +71,11 @@ export async function main() {
     rightParagraphsCount += countElements(rightLines, PARAGRAPH_MARKER);
 
     if (leftParagraphsCount > 0 && rightParagraphsCount > 0) {
-      const leftParagraphsToPush = frenchParagraphs.slice(
+      const leftParagraphsToPush = englishParagraphs.slice(
         leftPos,
         leftPos + leftParagraphsCount,
       );
-      const rightParagraphsToPush = englishParagraphs.slice(
+      const rightParagraphsToPush = italianParagraphs.slice(
         rightPos,
         rightPos + rightParagraphsCount,
       );
@@ -87,13 +88,13 @@ export async function main() {
   }
 
   // // this is probably the case, since we won't end with a <p>
-  if (leftPos < frenchParagraphs.length) {
-    const leftParagraphsToPush = frenchParagraphs.slice(leftPos);
-    const rightParagraphsToPush = englishParagraphs.slice(rightPos);
+  if (leftPos < englishParagraphs.length) {
+    const leftParagraphsToPush = englishParagraphs.slice(leftPos);
+    const rightParagraphsToPush = italianParagraphs.slice(rightPos);
     alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
   }
 
-  // console.log(englishParagraphs[2]);
+  // console.log(italianParagraphs[2]);
   // console.log("ALIGNED");
   // console.log(alignedParagraphs[1][0][0]);
   // console.log(alignedParagraphs[1][1][0]);
