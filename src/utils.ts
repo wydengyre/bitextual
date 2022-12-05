@@ -12,3 +12,13 @@ export async function spawnText(
   const out = td.decode(stdout);
   return { out, err };
 }
+
+// this appears to no longer be used...
+async function* enumerate<T>(ts: AsyncIterable<T>): AsyncIterable<[number, T]> {
+  let i = 0;
+  for await (const t of ts) {
+    yield [i, t];
+    i++;
+  }
+}
+

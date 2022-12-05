@@ -108,14 +108,6 @@ function countElements<T>(ts: T[], t: T): number {
   return count;
 }
 
-async function* enumerate<T>(ts: AsyncIterable<T>): AsyncIterable<[number, T]> {
-  let i = 0;
-  for await (const t of ts) {
-    yield [i, t];
-    i++;
-  }
-}
-
 if (import.meta.main) {
   await main();
 }
