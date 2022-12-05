@@ -69,8 +69,10 @@ function process(dict: string): [string, string] {
       { p: { l, r } },
     ) => [normalizeWord(l), normalizeWord(r)]);
   // awfully inefficient and gross
-  const uniqueDefs: [string, string][] = [...new Set(defs.map(def => JSON.stringify(def)))]
-    .map(jsonDef => JSON.parse(jsonDef));
+  const uniqueDefs: [string, string][] = [
+    ...new Set(defs.map((def) => JSON.stringify(def))),
+  ]
+    .map((jsonDef) => JSON.parse(jsonDef));
   // TODO: look into locale-based sorting
   uniqueDefs.sort();
 

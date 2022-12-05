@@ -4,101 +4,101 @@ import { pooledMap } from "std/async/pool.ts";
 import { sentences } from "./punkt.ts";
 import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
+import { Language } from "./types.ts";
 
-const ENGLISH = "en";
-const FRENCH = "fr";
-const ITALIAN = "it";
+// outputs alignment HTML
 
-export async function main() {
-  const [englishText, italianText] = await Promise.all([
-    readFixtureString("goosebumps.chapter.txt"),
-    readFixtureString("goosebumps.capitolo.txt"),
-  ]);
-
-  const englishParagraphs: string[] = paragraphs(englishText);
-  const italianParagraphs: string[] = paragraphs(italianText);
+type LanguageTaggedText = [Language, string];
+async function renderAlignment(
+  [sourceLang, sourceText]: LanguageTaggedText,
+  [targetLang, targetText]: LanguageTaggedText,
+): Promise<string> {
+  const sourceParagraphs: string[] = paragraphs(sourceText);
+  const targetParagraphs: string[] = paragraphs(targetText);
 
   const concurrency = navigator.hardwareConcurrency;
-  const englishTokenized: AsyncIterableIterator<string[]> = pooledMap(
+  const sourceTokenized: AsyncIterableIterator<string[]> = pooledMap(
     concurrency,
-    englishParagraphs,
-    (paragraph: string) => sentences(ENGLISH, paragraph),
+    sourceParagraphs,
+    (paragraph: string) => sentences(sourceLang, paragraph),
   );
-  const italianTokenized: AsyncIterableIterator<string[]> = pooledMap(
+  const targetTokenized: AsyncIterableIterator<string[]> = pooledMap(
     concurrency,
-    italianParagraphs,
-    (paragraph: string) => sentences(ITALIAN, paragraph),
+    targetParagraphs,
+    (paragraph: string) => sentences(targetLang, paragraph),
   );
 
   // this is slow here, but should be faster once punkt is just wasm
-  const englishSplitParagraphs: string[][] = [];
-  for await (const [number, splitParagraph] of enumerate(englishTokenized)) {
-    englishSplitParagraphs.push(splitParagraph);
+  const sourceSplitParagraphs: string[][] = [];
+  for await (const splitParagraph of sourceTokenized) {
+    sourceSplitParagraphs.push(splitParagraph);
   }
-  const italianSplitParagraphs: string[][] = [];
-  for await (const [number, splitParagraph] of enumerate(italianTokenized)) {
-    italianSplitParagraphs.push(splitParagraph);
+  const targetSplitParagraphs: string[][] = [];
+  for await (const splitParagraph of targetTokenized) {
+    targetSplitParagraphs.push(splitParagraph);
   }
 
-  if (englishSplitParagraphs.length !== englishParagraphs.length) {
-    console.error(
-      `assumed splitParagraphs ${englishSplitParagraphs.length} and separated ${englishParagraphs.length} would be equal`,
-    );
-    Deno.exit(1);
+  if (sourceSplitParagraphs.length !== sourceParagraphs.length) {
+    throw `assumed splitParagraphs ${sourceSplitParagraphs.length} and separated ${sourceParagraphs.length} would be equal`;
   }
-  if (italianSplitParagraphs.length !== italianParagraphs.length) {
-    console.error(
-      `assumed splitParagraphs ${italianSplitParagraphs.length} and separated ${italianParagraphs.length} would be equal`,
-    );
-    Deno.exit(1);
+  if (targetSplitParagraphs.length !== targetParagraphs.length) {
+    throw `assumed splitParagraphs ${targetSplitParagraphs.length} and separated ${targetParagraphs.length} would be equal`;
   }
 
   const aligned: [string[], string[]][] = await align(
-    englishSplitParagraphs,
-    italianSplitParagraphs,
+    sourceSplitParagraphs,
+    targetSplitParagraphs,
   );
 
   // Paragraph alignment. Sentences require more data.
-  // TODO: Refine this algo... Sometimes two paragraphs on the left correspond to only one on the right.
+  // TODO: Refine this algo... Sometimes two paragraphs on the source correspond to only one on the target.
   // The important thing should be which <p> elements align
   const alignedParagraphs: [string[], string[]][] = [];
-  let leftPos = 0;
-  let rightPos = 0;
-  let leftParagraphsCount = 0;
-  let rightParagraphsCount = 0;
-  for (const [leftLines, rightLines] of aligned) {
-    leftParagraphsCount += countElements(leftLines, PARAGRAPH_MARKER);
-    rightParagraphsCount += countElements(rightLines, PARAGRAPH_MARKER);
+  let sourcePos = 0;
+  let targetPos = 0;
+  let sourceParagraphsCount = 0;
+  let targetParagraphsCount = 0;
+  for (const [sourceLines, targetLines] of aligned) {
+    sourceParagraphsCount += countElements(sourceLines, PARAGRAPH_MARKER);
+    targetParagraphsCount += countElements(targetLines, PARAGRAPH_MARKER);
 
-    if (leftParagraphsCount > 0 && rightParagraphsCount > 0) {
-      const leftParagraphsToPush = englishParagraphs.slice(
-        leftPos,
-        leftPos + leftParagraphsCount,
+    if (sourceParagraphsCount > 0 && targetParagraphsCount > 0) {
+      const sourceParagraphsToPush = sourceParagraphs.slice(
+        sourcePos,
+        sourcePos + sourceParagraphsCount,
       );
-      const rightParagraphsToPush = italianParagraphs.slice(
-        rightPos,
-        rightPos + rightParagraphsCount,
+      const targetParagraphsToPush = targetParagraphs.slice(
+        targetPos,
+        targetPos + targetParagraphsCount,
       );
-      alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
-      leftPos += leftParagraphsCount;
-      rightPos += rightParagraphsCount;
-      leftParagraphsCount = 0;
-      rightParagraphsCount = 0;
+      alignedParagraphs.push([sourceParagraphsToPush, targetParagraphsToPush]);
+      sourcePos += sourceParagraphsCount;
+      targetPos += targetParagraphsCount;
+      sourceParagraphsCount = 0;
+      targetParagraphsCount = 0;
     }
   }
 
   // // this is probably the case, since we won't end with a <p>
-  if (leftPos < englishParagraphs.length) {
-    const leftParagraphsToPush = englishParagraphs.slice(leftPos);
-    const rightParagraphsToPush = italianParagraphs.slice(rightPos);
-    alignedParagraphs.push([leftParagraphsToPush, rightParagraphsToPush]);
+  if (sourcePos < sourceParagraphs.length) {
+    const sourceParagraphsToPush = sourceParagraphs.slice(sourcePos);
+    const targetParagraphsToPush = targetParagraphs.slice(targetPos);
+    alignedParagraphs.push([sourceParagraphsToPush, targetParagraphsToPush]);
   }
 
-  // console.log(italianParagraphs[2]);
-  // console.log("ALIGNED");
-  // console.log(alignedParagraphs[1][0][0]);
-  // console.log(alignedParagraphs[1][1][0]);
-  const rendered = render(alignedParagraphs);
+  return render(alignedParagraphs);
+}
+
+export async function main() {
+  const [sourceText, targetText] = await Promise.all([
+    readFixtureString("goosebumps.chapter.txt"),
+    readFixtureString("goosebumps.capitolo.txt"),
+  ]);
+
+  const rendered = await renderAlignment([Language.english, sourceText], [
+    Language.french, // no training data for italian yet
+    targetText,
+  ]);
   console.log(rendered);
 }
 

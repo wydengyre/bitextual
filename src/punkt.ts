@@ -2,10 +2,9 @@
 
 import { writeAll } from "std/streams/conversion.ts";
 import { resourcePath } from "./resources.ts";
+import { Language } from "./types.ts";
 
 const PUNKT_BIN_PATH = resourcePath("punkt");
-
-export type Language = "en" | "es" | "fr" | "it";
 
 export async function sentences(
   language: Language,
