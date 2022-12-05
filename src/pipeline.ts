@@ -5,6 +5,7 @@ import { sentences } from "./punkt.ts";
 import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
 import { Language } from "./types.ts";
+import {resourcePath} from "./resources.ts";
 
 // outputs alignment HTML
 
@@ -48,6 +49,8 @@ async function renderAlignment(
   const aligned: [string[], string[]][] = await align(
     sourceSplitParagraphs,
     targetSplitParagraphs,
+    // TODO: awful
+    resourcePath("ita-eng.dic")
   );
 
   // Paragraph alignment. Sentences require more data.

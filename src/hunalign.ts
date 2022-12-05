@@ -1,7 +1,5 @@
 import { resourcePath } from "./resources.ts";
-import { fromFileUrl } from "std/path/mod.ts";
 import { spawnText } from "./utils.ts";
-import { Symbol } from "https://deno.land/x/ts_morph@13.0.2/ts_morph.js";
 
 export type Ladder = Rung[];
 export type SourceIndex = number;
@@ -19,42 +17,39 @@ async function main() {
   // console.log(aligned);
 }
 
-// TODO: take dictionary as string
 export async function align(
-  frenchSplitParagraphs: string[][],
-  englishSplitParagraphs: string[][],
+  sourceSplitParagraphs: string[][],
+  targetSplitParagraphs: string[][],
+  dictPath: string,
 ): Promise<[string[], string[]][]> {
-  const frenchText = textifySplitParagraphs(frenchSplitParagraphs);
-  const englishText = textifySplitParagraphs(englishSplitParagraphs);
+  const sourceText = textifySplitParagraphs(sourceSplitParagraphs);
+  const targetText = textifySplitParagraphs(targetSplitParagraphs);
 
-  // TODO: specify dictionary
-  const dictPath = resourcePath("ita-eng.dic");
-
-  const [frenchTextPath, englishTextPath] = await Promise.all([
+  const [sourceTextPath, targetTextPath] = await Promise.all([
     Deno.makeTempFile(),
     Deno.makeTempFile(),
   ]);
   await Promise.all([
-    Deno.writeTextFile(frenchTextPath, frenchText),
-    Deno.writeTextFile(englishTextPath, englishText),
+    Deno.writeTextFile(sourceTextPath, sourceText),
+    Deno.writeTextFile(targetTextPath, targetText),
   ]);
 
-  const ladder = await hunalign(dictPath, frenchTextPath, englishTextPath);
+  const ladder = await hunalign(dictPath, sourceTextPath, targetTextPath);
 
-  const frenchLines = frenchText.split("\n");
-  const englishLines = englishText.split("\n");
+  const sourceLines = sourceText.split("\n");
+  const targetLines = targetText.split("\n");
   const matches: [string[], string[]][] = [];
   for (let i = 0, l = 0, r = 0; i < ladder.length; i++) {
     const [lPrime, rPrime] = ladder[i];
 
     const leftLines: string[] = [];
     for (; l <= lPrime; l++) {
-      leftLines.push(frenchLines[l]);
+      leftLines.push(sourceLines[l]);
     }
 
     const rightLines: string[] = [];
     for (; r <= rPrime; r++) {
-      rightLines.push(englishLines[r]);
+      rightLines.push(targetLines[r]);
     }
 
     matches.push([leftLines, rightLines]);
@@ -70,8 +65,8 @@ function textifySplitParagraphs(split: string[][]): string {
 
 export async function hunalign(
   dictPath: string,
-  frenchPath: string,
-  englishPath: string,
+  sourcePath: string,
+  targetPath: string,
 ): Promise<Ladder> {
   const { out } = await spawnText(HUNALIGN_BIN_PATH, {
     args: [
@@ -83,8 +78,8 @@ export async function hunalign(
       // "-headerthresh=100",
       // "-topothresh=10",
       dictPath,
-      frenchPath,
-      englishPath,
+      sourcePath,
+      targetPath,
     ],
   });
   return parseLadder(out);

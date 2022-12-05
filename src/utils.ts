@@ -21,4 +21,3 @@ async function* enumerate<T>(ts: AsyncIterable<T>): AsyncIterable<[number, T]> {
     i++;
   }
 }
-
