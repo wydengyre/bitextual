@@ -1,37 +1,10 @@
-// TODO: WASM
-
-import { writeAll } from "std/streams/conversion.ts";
-import { resourcePath } from "./resources.ts";
 import { Language } from "./types.ts";
-
-const PUNKT_BIN_PATH = resourcePath("punkt");
+import init, { split } from "../resources/punkt/punkt.js";
 
 export async function sentences(
   language: Language,
-  text: string,
-): Promise<string[]> {
-  const process = Deno.run({
-    cmd: [PUNKT_BIN_PATH, language],
-    stdin: "piped",
-    stdout: "piped",
-  });
-
-  const textBytes = new TextEncoder().encode(text);
-  if (!process.stdin) {
-    throw "process stdin undefined: this should be impossible";
-  }
-  await writeAll(process.stdin, textBytes);
-  process.stdin.close();
-
-  const out = await process.output();
-  const { success, code } = await process.status();
-  if (!success) {
-    throw `failed with code ${code}`;
-  }
-  process.close();
-
-  const outText = new TextDecoder().decode(out);
-
-  return outText.trim().split("\n")
-    .map((line) => line.trim());
+  paragraphs: string[],
+): Promise<string[][]> {
+  await init();
+  return split(language, paragraphs);
 }

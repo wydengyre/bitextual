@@ -1,6 +1,5 @@
 import { readFixtureString } from "../test/util.ts";
 import { paragraphs } from "./textreader.ts";
-import { pooledMap } from "std/async/pool.ts";
 import { sentences } from "./punkt.ts";
 import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
@@ -17,17 +16,10 @@ async function renderAlignment(
   const sourceParagraphs: string[] = paragraphs(sourceText);
   const targetParagraphs: string[] = paragraphs(targetText);
 
-  const concurrency = navigator.hardwareConcurrency;
-  const sourceTokenized: AsyncIterableIterator<string[]> = pooledMap(
-    concurrency,
-    sourceParagraphs,
-    (paragraph: string) => sentences(sourceLang, paragraph),
-  );
-  const targetTokenized: AsyncIterableIterator<string[]> = pooledMap(
-    concurrency,
-    targetParagraphs,
-    (paragraph: string) => sentences(targetLang, paragraph),
-  );
+  const [sourceTokenized, targetTokenized] = await Promise.all([
+    sentences(sourceLang, sourceParagraphs),
+    sentences(targetLang, targetParagraphs)
+  ]);
 
   // this is slow here, but should be faster once punkt is just wasm
   const sourceSplitParagraphs: string[][] = [];
