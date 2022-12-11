@@ -1,12 +1,11 @@
-import { Language } from "./types.ts";
 import init, { split } from "../resources/punkt/punkt.js";
 
 export class Punkt {
   private constructor() {
   }
 
-  sentences(language: Language, paragraphs: string[]) {
-    return split(language, paragraphs);
+  sentences(trainingData: Uint8Array, paragraphs: string[]) {
+    return split(trainingData, paragraphs);
   }
 
   static async create(): Promise<Punkt> {
