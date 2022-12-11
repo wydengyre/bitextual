@@ -1,10 +1,16 @@
 import { Language } from "./types.ts";
 import init, { split } from "../resources/punkt/punkt.js";
 
-export async function sentences(
-  language: Language,
-  paragraphs: string[],
-): Promise<string[][]> {
-  await init();
-  return split(language, paragraphs);
+export class Punkt {
+  private constructor() {
+  }
+
+  sentences(language: Language, paragraphs: string[]) {
+    return split(language, paragraphs);
+  }
+
+  static async create(): Promise<Punkt> {
+    await init();
+    return new Punkt();
+  }
 }

@@ -1,10 +1,10 @@
 import { readFixtureString } from "../test/util.ts";
 import { paragraphs } from "./textreader.ts";
-import { sentences } from "./punkt.ts";
+import { Punkt } from "./punkt.ts";
 import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
 import { Language } from "./types.ts";
-import {resourcePath} from "./resources.ts";
+import { resourcePath } from "./resources.ts";
 
 // outputs alignment HTML
 
@@ -16,10 +16,9 @@ async function renderAlignment(
   const sourceParagraphs: string[] = paragraphs(sourceText);
   const targetParagraphs: string[] = paragraphs(targetText);
 
-  const [sourceTokenized, targetTokenized] = await Promise.all([
-    sentences(sourceLang, sourceParagraphs),
-    sentences(targetLang, targetParagraphs)
-  ]);
+  const punkt = await Punkt.create();
+  const sourceTokenized = punkt.sentences(sourceLang, sourceParagraphs);
+  const targetTokenized = punkt.sentences(targetLang, targetParagraphs);
 
   // this is slow here, but should be faster once punkt is just wasm
   const sourceSplitParagraphs: string[][] = [];
@@ -42,7 +41,7 @@ async function renderAlignment(
     sourceSplitParagraphs,
     targetSplitParagraphs,
     // TODO: awful
-    resourcePath("ita-eng.dic")
+    resourcePath("ita-eng.dic"),
   );
 
   // Paragraph alignment. Sentences require more data.
