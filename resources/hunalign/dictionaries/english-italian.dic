@@ -2,11 +2,11 @@
 'ndrangheta @ 'ndrangheta
 , @ ,
 - @ -
-2-3-5 system @ sistema 2-3-5
+2-3-5 system @ sistema
 20th Century Fox @ 20th Century Fox
-4-2-4 system @ sistema 4-2-4
-4-3-3 system @ sistema 4-3-3
-4-4-2 system @ sistema 4-4-2
+4-2-4 system @ sistema
+4-3-3 system @ sistema
+4-4-2 system @ sistema
 A/H1N1 @ A/H1N1
 A/H5N1 @ A/H5N1
 AIDS @ AIDS
@@ -180,8 +180,8 @@ Austria @ Austria
 Austrian @ austriaco
 Austro-Hungarian Empire @ Impero austro-ungarico
 Avilés @ Avilés
-Avogadro constant @ numero di Avogadro
-Avogadro number @ numero di Avogadro
+Avogadro constant @ numero
+Avogadro number @ numero
 Ayman al-Zawahiri @ Ayman al-Zawahiri
 Azerbaijan @ Azerbaigian
 Azerbaijani @ azerbaigiano
@@ -314,8 +314,8 @@ Bratislava @ Bratislava
 Brazil @ Brasile
 Breen @ Breen
 Breton @ bretone
-Bretton Woods Agreement @ accordo di Bretton Woods
-Bretton Woods system @ sistema di Bretton Woods
+Bretton Woods Agreement @ accordo
+Bretton Woods system @ sistema
 Bretton Woods @ Bretton Woods
 Britain @ Bretagna
 British Isles @ Arcipelago britannico
@@ -555,7 +555,7 @@ Diez @ Diez
 Dimas @ Dimas
 Dior @ Dior
 Diouf @ Diouf
-Dirac constant @ costante di Dirac
+Dirac constant @ costante
 Disney @ Disney
 Djibouti @ Gibuti
 Dolly @ Dolly
@@ -663,7 +663,7 @@ FTSE 100 @ FTSE 100
 Facebook @ Facebook
 Falkland Islands @ Isole Falkland
 Falklands @ Isole Falkland
-Faraday constant @ costante di Faraday
+Faraday constant @ costante
 Faraday @ Faraday
 Faroe Islands @ Isole Faeroer
 Farrell @ Farrell
@@ -870,7 +870,7 @@ Homer @ Omero
 Honduras @ Honduras
 Hong Kong @ Hong Kong
 Horace @ Orazio
-House of Representatives @ Camera dei Rappresentanti
+House @ Camera
 Houston @ Houston
 Huegun @ Huegun
 Huelva @ Huelva
@@ -1151,7 +1151,7 @@ Lyons @ Lyons
 Lérida @ Lérida
 López @ López
 M @ M
-MP3 player @ lettore MP3
+MP3 player @ lettore
 MacDermott @ MacDermott
 MacDonald @ MacDonald
 MacGyver @ MacGyver
@@ -1289,8 +1289,8 @@ Moldova @ Moldavia
 Molina @ Molina
 Mollerussa @ Mollerussa
 Molony @ Molony
-Molotov cocktail @ bomba Molotov
-Molotov cocktail @ bottiglia Molotov
+Molotov cocktail @ bomba
+Molotov cocktail @ bottiglia
 Molotov @ Molotov
 Monaco @ Monaco
 Monday @ lunedì
@@ -1384,8 +1384,8 @@ Nigeria @ Nigeria
 Nigerian @ nigeriano
 Nizza @ Nizza
 Noah @ Noè
-Nobel Peace prize @ premio Nobel per la pace
-Nobel prize @ premio Nobel
+Nobel Peace prize @ premio
+Nobel prize @ premio
 Nobel @ Nobel
 Norberto @ Norberto
 Normandy @ Normandia
@@ -1506,8 +1506,8 @@ Piera @ Piera
 Pilar @ Pilar
 Pinochet @ Pinochet
 Pizarro @ Pizarro
-Planck constant @ costante di Planck
-Planck's constant @ costante di Planck
+Planck constant @ costante
+Planck's constant @ costante
 Planck @ Planck
 Plato @ Platone
 Pliny @ Plinio
@@ -2066,9 +2066,9 @@ absurdly @ assurdamente
 abundance @ abbondanza
 abundant @ abbondante
 abundantly @ abbondantemente
-abuse of power @ sopraffazione
 abuse @ abusare
 abuse @ abuso
+abuse @ sopraffazione
 abusively @ abusivamente
 abusiveness @ abusivismo
 abysmal @ abissale
@@ -2130,7 +2130,7 @@ accordingly @ di conseguenza
 accordion @ fisarmonica
 accordionist @ fisarmonicista
 accost @ adescare
-account number @ numero di conto
+account number @ numero
 account @ conto
 account @ relazione
 accountancy @ contabilità
@@ -2196,10 +2196,9 @@ acronym @ sigla
 acrosome @ acrosoma
 across @ attraverso a
 acrylic @ acrilico
-act of God @ causa di forza maggiore
-act of nature @ causa di forza maggiore
 act @ agire
 act @ atto
+act @ causa
 act @ legge
 actin @ actina
 acting @ supplente
@@ -2576,7 +2575,7 @@ alluvium @ alluvione
 ally @ alleare
 ally @ alleato
 almanac @ almanacco
-almond paste @ pasta di mandorle
+almond paste @ pasta
 almond @ mandorla
 almond @ mandorlo
 almost @ quasi
@@ -2627,7 +2626,7 @@ altruism @ altruismo
 altruist @ altruista
 altruistic @ altruista
 alum @ allume
-alumina @ ossido di alluminio
+alumina @ ossido
 aluminium @ alluminio
 aluminothermy @ alluminotermia
 alumna @ alunno
@@ -2753,7 +2752,7 @@ ancestor @ antenato
 ancestor @ ascendente
 ancestor @ avo
 ancestral @ ancestrale
-anchor currency @ valuta di reserva
+anchor currency @ valuta
 anchor @ ancora
 anchor @ ancorare
 anchovy @ acciuga
@@ -2953,7 +2952,7 @@ apocalypse @ apocalisse
 apocope @ apòcope
 apologetic @ apologetico
 apologia @ apologia
-apologise @ chiedere scusa
+apologise @ chiedere
 aporia @ aporia
 apostle @ apostolo
 apostrophe @ apostrofo
@@ -2966,7 +2965,7 @@ apparently @ apparentemente
 apparition @ apparizione
 appeal @ appello
 appeal @ attrazione
-appeal @ fare appello
+appeal @ fare
 appealable @ appellabile
 appear @ apparire
 appear @ figurare
@@ -2991,9 +2990,9 @@ applicability @ applicabilità
 applicable @ applicabile
 applicant @ aspirante
 application @ applicazione
-apply for @ sollecitare
 apply @ adoperare
 apply @ applicare
+apply @ sollecitare
 appoint @ nominare
 appointment @ appuntamento
 apposition @ apposizione
@@ -3214,7 +3213,6 @@ ashtray @ portacenere
 asian @ asiatico
 aside @ a parte
 aside @ da parte
-ask for @ chiedere
 ask @ chiedere
 ask @ domandare
 askance @ di sfuggita
@@ -3404,7 +3402,7 @@ attribute @ attribuire
 attribute @ attributo
 attribution @ attribuzione
 auction @ asta
-auction @ vendere all'asta
+auction @ vendere
 auctioneer @ banditore
 audacious @ audace
 audacity @ audacia
@@ -3419,7 +3417,7 @@ audit @ controllo
 audit @ verificare
 auditing @ controllo
 audition @ audizione
-auditor @ revisore dei conti
+auditor @ revisore
 auditorium @ auditorium
 aug. @ ago.
 augite @ augite
@@ -3577,8 +3575,8 @@ bake @ infornare
 bakelite @ bachelite
 baker @ panettiere
 bakery @ panetteria
-baking powder @ lievito in polvere
-baking soda @ bicarbonato di sodio
+baking powder @ lievito
+baking soda @ bicarbonato
 balance @ bilancio
 balance @ consuntivo
 balance @ equilibrare
@@ -3599,7 +3597,7 @@ ballet dancer @ ballerino classico
 ballet @ balletto
 ballistic @ balistico
 balloon @ pallone
-ballroom dancer @ ballerino di liscio
+ballroom dancer @ ballerino
 balm @ balsamo
 balneotherapy @ balneoterapia
 balsam @ balsamo
@@ -3615,7 +3613,7 @@ bandage @ bendaggio
 bandage @ fasciatura
 bandit @ bandito
 banditry @ banditismo
-bandwidth @ larghezza di banda
+bandwidth @ larghezza
 bang @ colpire
 bang @ colpo
 bangle @ braccialetto
@@ -3640,8 +3638,8 @@ banquet @ convito
 baptise @ battezzare
 baptism @ battesimo
 baptistery @ battistero
-bar code reader @ lettore di codice a barre
-bar code @ codice a barre
+bar code reader @ lettore
+bar code @ codice
 bar @ bancone
 bar @ bar
 bar @ barra
@@ -3656,7 +3654,7 @@ barber @ barbiere
 barbiturate @ barbiturico
 barcarole @ barcarola
 barcelonan @ barcellonese
-barcode @ codice a barre
+barcode @ codice
 bard @ bardo
 barely @ appena
 barely @ malapena
@@ -3722,7 +3720,7 @@ batch @ lotto
 bath @ bagno
 bathe @ bagnare
 bathing @ balneazione
-bathroom @ sala da bagno
+bathroom @ sala
 batiste @ batista
 batman @ attendente
 baton @ bastone
@@ -3738,26 +3736,22 @@ bauxite @ bauxite
 bavarian @ bavarese
 bay @ baia
 bayonet @ baionetta
-be born @ nascere
-be distant @ distare
-be dying @ agonizzare
-be enough @ bastare
-be equivalent @ equivalere
-be hungry @ avere fame
-be in decline @ agonizzare
-be jacketless @ scamiciare
-be left @ restare
-be missing @ mancare
-be necessary @ essere necessario
-be possible @ essere possibile
-be shipwrecked @ naufragare
-be sorry @ dispiacere
-be used to @ solere
-be very sorry @ dispiacere molto
-be worth @ valere
-be worthwhile @ essere utile
+be @ agonizzare
+be @ avere
+be @ bastare
+be @ dispiacere
+be @ distare
+be @ equivalere
 be @ essere
+be @ essere necessario
+be @ mancare
+be @ nascere
+be @ naufragare
+be @ restare
+be @ scamiciare
+be @ solere
 be @ stare
+be @ valere
 beach @ spiaggia
 bead @ conto
 beak @ becco
@@ -3832,7 +3826,7 @@ bell @ campana
 bell-ringer @ campanaro
 belligerency @ belligeranza
 belligerent @ belligerante
-belly dancer @ danzatrice del ventre
+belly dancer @ danzatrice
 belly @ pancia
 belong @ appartenere
 belonging @ appartenenza
@@ -4029,7 +4023,7 @@ blame @ biasimare
 blame @ biasimo
 blame @ colpa
 blandishment @ blandimento
-blank cheque @ assegno in bianco
+blank cheque @ assegno
 blank @ spazio
 blanket @ coperta
 blasphemy @ blasfemia
@@ -4070,7 +4064,7 @@ blogger @ blogger
 blond @ biondo
 blood @ sangue
 bloodletting @ salasso
-bloodshed @ spargimento di sangue
+bloodshed @ spargimento
 bloodsucker @ sanguisuga
 bloodthirsty @ sanguinario
 bloody @ cruento
@@ -4087,7 +4081,7 @@ bluff @ bluff
 bluish @ bluastro
 blurred @ sfocato
 boa @ boa
-board game @ gioco da tavolo
+board game @ gioco
 board @ abbordare
 board @ asse
 board @ bordo
@@ -4103,7 +4097,7 @@ bodice @ corpino
 bodily @ corporalmente
 body @ cadavere
 body @ corpo
-bodyguard @ guardia del corpo
+bodyguard @ guardia
 bodywork @ carrozzeria
 boil @ bollire
 boil @ bollore
@@ -4131,8 +4125,8 @@ bonobo @ bonobo
 bonsai @ bonsai
 bonus @ bonus
 bonze @ bonzo
-book cover @ copertina del libro
-book jacket @ copertina di libro
+book cover @ copertina
+book jacket @ copertina
 book @ blocchetto
 book @ libro
 book @ riservare
@@ -4250,7 +4244,7 @@ breakfast @ colazione
 breast @ petto
 breast @ seno
 breastbone @ sterno
-breaststroke @ nuoto a rana
+breaststroke @ nuoto
 breath @ afflato
 breath @ alito
 breath @ respirazione
@@ -4288,10 +4282,10 @@ brilliant @ brillante
 brilliantly @ brillantemente
 brimstone @ zolfo
 brine @ salamoia
-bring back @ riportare
-bring down @ scendere
-bring together @ riunire
 bring @ portare
+bring @ riportare
+bring @ riunire
+bring @ scendere
 brink @ orlo
 british @ britannico
 brittle @ fragile
@@ -4401,7 +4395,7 @@ burse @ borsa
 burst @ esplodere
 burst @ esplosione
 bury @ sotterrare
-bus pass @ tessera dell'autobus
+bus pass @ tessera
 bus @ autobus
 bus @ pullman
 bush @ cespuglio
@@ -4510,9 +4504,9 @@ californian @ californiano
 californium @ californio
 caliph @ califfo
 caliphate @ califfato
-call for @ chiedere
 call @ appellare
 call @ chiamare
+call @ chiedere
 call @ richiamo
 called @ chiamato
 calligraphist @ calligrafo
@@ -4541,7 +4535,7 @@ camouflage @ camuffamento
 camp @ accampamento
 camp @ accampare
 campaign @ campagna
-campaign @ fare una campagna
+campaign @ fare
 camper @ campeggiatore
 camper @ camper
 camphor @ canfora
@@ -4561,7 +4555,6 @@ cancer @ cancro
 candela @ candela
 candelabrum @ candelabro
 candid @ candido
-candidate for the presidency @ candidato alla presidenza
 candidate @ candidato
 candidature @ candidatura
 candidly @ candidamente
@@ -4603,7 +4596,7 @@ caper @ cappero
 capillarity @ capillarità
 capillary @ capillare
 capital letter @ maiuscola
-capital punishment @ pena di morte
+capital punishment @ pena
 capital @ capitale
 capital @ capitello
 capital @ capoluogo
@@ -4696,7 +4689,7 @@ carriageway @ carreggiata
 carrier @ portatore
 carrion @ carogna
 carrot @ carota
-carry out @ effettuare
+carry @ effettuare
 carry @ portare
 carryall @ borsone
 cart @ carro
@@ -4870,7 +4863,6 @@ certain @ sicuro
 certainly @ certamente
 certainly @ eccome
 certainty @ certezza
-certificate of conformity @ certificato di conformità
 certificate @ attestato
 certificate @ certificato
 certification @ certificazione
@@ -4909,10 +4901,10 @@ chance @ possibilità
 chancellery @ cancelleria
 chancellor @ cancelliere
 chancellorship @ cancellierato
-change rhythm @ ritmare
 change @ cambiamento
 change @ cambiare
 change @ cambio
+change @ ritmare
 changeable @ cambiabile
 changing room @ vestiario
 channel @ canale
@@ -4965,11 +4957,11 @@ cheapening @ deprezzamento
 cheat @ baro
 cheat @ ingannare
 cheat @ trappola
-check out @ lasciare
 check @ accertamento
 check @ controllo
+check @ lasciare
 check @ verificare
-checklist @ lista di controllo
+checklist @ lista
 checkmate @ scacco matto
 cheek @ guancia
 cheekbone @ zigomo
@@ -4991,11 +4983,11 @@ chemist @ farmacista
 chemometrics @ chemiometria
 chemotherapy @ chemioterapia
 cheque @ assegno
-chequebook @ libretto degli assegni
+chequebook @ libretto
 cherimoya @ cerimolia
 cherry @ ciliegia
 cherub @ cherubino
-chess piece @ pezzo degli scacchi
+chess piece @ pezzo
 chess player @ scacchista
 chess @ scacchi
 chessboard @ scacchiera
@@ -5003,7 +4995,7 @@ chest @ petto
 chestnut tree @ castagno
 chevron @ gallone
 chew @ masticare
-chewing gum @ gomma da masticare
+chewing gum @ gomma
 chiasmus @ chiasmo
 chick @ pulcino
 chicken @ pollo
@@ -5235,7 +5227,7 @@ closing @ chiusura
 closure @ chiusura
 clot @ coagulo
 clot @ grumo
-cloth pulp @ pasta di stracci
+cloth pulp @ pasta
 cloth @ tessuto
 clothes @ vestito
 clothing @ abbigliamento
@@ -5284,7 +5276,7 @@ cochlea @ coclea
 cochlear @ cocleare
 cockroach @ blatta
 cocktail @ cocktail
-coconut @ noce di cocco
+coconut @ noce
 cocoon @ bozzolo
 cod @ baccalà
 coda @ coda
@@ -5301,8 +5293,8 @@ coefficient @ coefficiente
 coercion @ coercizione
 coercive @ coattivo
 coexistence @ coesistenza
-coffee with milk @ caffè con latte
 coffee @ caffè
+coffee @ caffè con latte
 coffer @ cofano
 coffin @ bara
 cofounder @ cofondatore
@@ -5421,11 +5413,11 @@ combine harvester @ mietitrebbia
 combine @ assommare
 combine @ combinare
 combustion @ combustione
-come across @ trovare
-come back @ tornare
-come close @ avvicinarsi
-come in @ entrare
-come out @ uscire
+come @ avvicinarsi
+come @ entrare
+come @ tornare
+come @ trovare
+come @ uscire
 come @ venire
 comedy @ commedia
 comet @ cometa
@@ -5708,14 +5700,14 @@ conglomerate @ agglomerato
 conglomerate @ conglomerato
 congolese @ congolese
 congratulate @ congratulare
-congratulate @ congratularsi con
+congratulate @ congratularsi
 congratulation @ congratulazione
 congratulations @ complimento
 congregate @ congregare
 congregation @ congregazione
 congress @ congresso
-congressman @ membro del Congresso
-congresswoman @ membro del Congresso
+congressman @ membro
+congresswoman @ membro
 congruence @ congruenza
 congruent @ congruente
 congruently @ congruamente
@@ -5934,7 +5926,7 @@ converge @ confluire
 converge @ convergere
 convergence @ convergenza
 convergent @ convergente
-conversation piece @ tema di conversazione
+conversation piece @ tema
 conversation @ conversazione
 conversational @ conversazione
 conversationalist @ conversatore
@@ -5983,11 +5975,10 @@ coordination @ coordinazione
 coordinator @ coordinatore
 copal @ copale
 copartnership @ compartecipazione
-cope with @ sopportare
 cope @ sopportare
 copolymer @ copolimero
 copper @ rame
-coppersmithing @ forgiatura del rame
+coppersmithing @ forgiatura
 coprecipitation @ coprecipitazione
 coprocessor @ coprocessore
 coproducer @ coproduttore
@@ -6007,7 +5998,7 @@ cordially @ cordialmente
 cordillera @ cordigliera
 cordovan @ cordovese
 corduroy @ corduroy
-corduroy @ velluto a coste
+corduroy @ velluto
 core @ nucleo
 coriander @ coriandolo
 cork @ sughero
@@ -6115,7 +6106,6 @@ counterweight @ contrappeso
 country @ paese
 countryside @ campo
 county @ contea
-coup d'état @ colpo di stato
 coup leader @ golpista
 coup @ colpo
 couple @ accoppiare
@@ -6171,7 +6161,7 @@ cramp @ crampo
 cranberry @ mirtillo
 crane @ gru
 cranial @ cranico
-crankshaft @ albero a gomiti
+crankshaft @ albero
 crap @ cagare
 crash @ cozzo
 crash @ scontrarsi
@@ -6205,7 +6195,7 @@ cretin @ cretino
 cretinous @ cretino
 crevasse @ crepaccio
 crew @ equipaggio
-crewman @ membro di equipaggio
+crewman @ membro
 crib @ presepe
 cricket @ cricket
 crime @ crimine
@@ -6228,10 +6218,10 @@ crocodile @ coccodrillo
 croft @ campetto
 croissant @ cornetto
 crop @ raccolto
-cross out @ sbarrare
 cross @ attraversare
 cross @ croce
 cross @ cross
+cross @ sbarrare
 crossbow @ balestra
 crosshead @ testacroce
 crossing @ attraversamento
@@ -6273,7 +6263,7 @@ crypt @ cripta
 cryptography @ crittografia
 cryptorchidism @ criptorchidismo
 crystal @ cristallo
-crystalline alum @ allume di rocca
+crystalline alum @ allume
 crystalline @ cristallino
 crystallisation @ cristallizzazione
 crystallise @ cristallizzare
@@ -6456,7 +6446,6 @@ deadline @ scadenza
 deadly @ mortale
 deaf @ sordo
 deaf-mute @ sordomuto
-deal with @ trattare
 deal @ abbriccare
 deal @ trattare
 dealer @ commerciante
@@ -6465,7 +6454,7 @@ dean @ decano
 dear @ caro
 dearly @ caramente
 dearly @ molto
-death threat @ minaccia di morte
+death threat @ minaccia
 death @ morte
 debatable @ discutibile
 debate @ dibattere
@@ -6700,7 +6689,7 @@ depalatalisation @ depalatalizzazione
 departamental @ dipartimentale
 department @ assessorato
 department @ dipartimento
-departure lounge @ sala partenze
+departure lounge @ sala
 departure @ partenza
 depend @ dipendere
 dependence @ dipendenza
@@ -6981,13 +6970,13 @@ directional @ direzionale
 directive @ direttiva
 directly @ direttamente
 director @ direttore
-directorate general @ direzione generale
+directorate @ direzione generale
 directory @ directory
 dirty clothes @ abito sporco
 dirty @ sporco
 disability @ disabilità
 disable @ disabilitare
-disable @ rendere incapace
+disable @ rendere
 disabled @ disabilitato
 disadvantage @ svantaggio
 disagree @ discordare
@@ -7304,12 +7293,10 @@ dressing @ condimento
 dressing @ fasciatura
 dribble @ bava
 dried @ disseccazione
-drift @ andare alla deriva
+drift @ andare
 drill @ trapano
 drilling @ perforazione
 drily @ asciuttamente
-drink like a fish @ bere come un pesce
-drink like a fish @ bere come una spugna
 drink @ bere
 drink @ bevanda
 drinkable @ potabile
@@ -7334,9 +7321,7 @@ drowning @ annegamento
 drug addict @ tossicomane
 drug addiction @ tossicodipendenza
 drug trafficking @ narcotraffico
-drug trafficking @ traffico della droga
-drug trafficking @ traffico di droga
-drug trafficking @ traffico di stupefacent
+drug trafficking @ traffico
 drug @ droga
 drug @ drogare
 drugstore @ farmacia
@@ -7522,7 +7507,7 @@ effluent @ effluente
 effort @ sforzo
 effortlessly @ facilmente
 egalitarianism @ egualitarismo
-egg pasta @ pasta all'uovo
+egg pasta @ pasta
 egg @ uovo
 eggplant @ melanzana
 ego @ ego
@@ -8098,7 +8083,7 @@ exceptionally @ eccezionalmente
 excess @ eccesso
 excessive @ eccessivo
 excessively @ eccessivamente
-exchange rate @ tasso di cambio
+exchange rate @ tasso
 exchange @ cambio
 exchange @ scambiare
 exchangeable @ intercambiabile
@@ -8276,7 +8261,7 @@ exuberance @ esuberanza
 exudate @ essudato
 exudation @ essudazione
 eye drop @ collirio
-eye examination @ esame della vista
+eye examination @ esame
 eye @ occhio
 eyebrow @ sopracciglio
 eyelash @ ciglio
@@ -8322,7 +8307,6 @@ fake @ contraffazione
 fake @ falsificare
 falangist @ falangista
 falconry @ falconeria
-fall down @ cadere
 fall @ cadere
 fall @ caduta
 fallacy @ fallacia
@@ -8404,7 +8388,7 @@ fearless @ osato
 fearsome @ temibile
 feasibility @ fattibilità
 feasible @ fattibile
-feather duster @ piumino per la polvere
+feather duster @ piumino
 feather @ piuma
 feature film @ lungometraggio
 feature @ caratteristica
@@ -8477,7 +8461,7 @@ fewer @ meno
 fiancé @ fidanzato
 fiancée @ fidanzato
 fiasco @ fiasco
-fiat currency @ valuta a corso forzoso
+fiat currency @ valuta
 fibre @ fibra
 fibrillation @ fibrillazione
 fibrin @ fibrina
@@ -8534,7 +8518,6 @@ file @ file
 file @ lima
 filial @ filiale
 filigree @ filigrana
-fill up @ riempire
 fill @ riempire
 film festival @ festival cinematografico
 film frame @ fotogramma
@@ -8552,11 +8535,11 @@ finally @ finalmente
 finally @ infine
 finance @ finanza
 finance @ finanziare
-financial rescue plan @ piano di salvataggio finanziario
+financial rescue plan @ piano
 financial @ finanziario
 financially @ finanziariamente
-find out @ scoprire
 find @ incontrare
+find @ scoprire
 find @ trovare
 finding @ constatazione
 fine @ ammenda
@@ -8576,12 +8559,12 @@ fir @ abete
 fire @ fuoco
 fire @ incendio
 fire @ sparare
-firefighter @ vigile del fuoco
-fireman @ vigile del fuoco
+firefighter @ vigile
+fireman @ vigile
 fireplace @ caminetto
 fireplace @ camino
 firewall @ firewall
-firewoman @ vigile del fuoco
+firewoman @ vigile
 firewood @ legna
 firm @ fermo
 firm @ impresa
@@ -8592,7 +8575,7 @@ firmness @ fermezza
 firn @ firn
 first and foremost @ in primo luogo
 first @ primo
-first-aid kit @ cassetta di pronto soccorso
+first-aid kit @ cassetta
 firstly @ in primo luogo
 firstly @ primamente
 fiscal @ fiscale
@@ -8785,7 +8768,6 @@ foresee @ prevedere
 forest @ foresta
 forestry @ forestale
 forge @ fucina
-forget about @ dimenticare
 forget @ dimenticare
 forging @ forgiatura
 forgive @ perdonare
@@ -9161,30 +9143,28 @@ gestation @ gestazione
 gesticulation @ gesto
 gestural @ gestuale
 gesture @ gesto
-get across @ comunicare
-get along with @ andare d'accordo con
-get along @ andare d'accordo
-get away @ scappare
-get back @ tornare
-get better @ migliorare
-get bigger @ crescere
-get dark @ oscurare
-get dirty @ sporcarsi
-get down @ scendere
-get dressed @ vestirsi
-get hold of @ conseguire
-get in trouble @ essere nei guai
-get in @ entrare
-get married @ sposarsi
-get off @ scendere
-get on @ subire
-get out @ uscire
-get sick @ vomitare
-get started @ iniziare
-get up @ alzarsi
-get worse @ peggiorare
+get @ alzarsi
+get @ andare
+get @ comunicare
+get @ conseguire
+get @ crescere
+get @ entrare
+get @ essere
+get @ iniziare
+get @ migliorare
+get @ oscurare
+get @ peggiorare
 get @ raggiungere
 get @ ricevere
+get @ scappare
+get @ scendere
+get @ sporcarsi
+get @ sposarsi
+get @ subire
+get @ tornare
+get @ uscire
+get @ vestirsi
+get @ vomitare
 geyser @ geyser
 ghetto @ ghetto
 ghost @ fantasma
@@ -9206,11 +9186,11 @@ giraffe @ giraffa
 girl @ bambino
 girl @ ragazzo
 girlfriend @ fidanzato
-give back @ ridare
-give up smoking @ smettere di fumare
-give up @ lasciare
 give @ dare
+give @ lasciare
 give @ regalare
+give @ ridare
+give @ smettere
 giver @ datore
 giving @ dazione
 gizzard @ ventriglio
@@ -9264,16 +9244,16 @@ glycolipid @ glicolipide
 glycoprotein @ glicoproteina
 gnome @ gnomo
 gnomon @ gnomone
-go Dutch @ fare alla Romana
-go back @ tornare
-go down @ abbassare
-go down @ scendere
-go in @ entrare
-go on @ continuare
-go out @ uscire
-go through @ passare per
-go up @ risalire
+go @ abbassare
 go @ andare
+go @ continuare
+go @ entrare
+go @ fare
+go @ passare
+go @ risalire
+go @ scendere
+go @ tornare
+go @ uscire
 goal @ goal
 goal @ obiettivo
 goat @ capra
@@ -9287,7 +9267,7 @@ godfather @ padrino
 godmother @ madrina
 godson @ figlioccio
 goitre @ gozzo
-gold exchange standard @ sistema a cambio aureo
+gold exchange standard @ sistema
 gold standard @ gold standard
 gold standard @ sistema aureo
 gold @ oro
@@ -9316,8 +9296,7 @@ gothic @ gotico
 gouge @ sgorbia
 govern @ governare
 governess @ governante
-government head @ capo del governo
-government head @ capo di governo
+government head @ capo
 government @ governo
 governmental @ governativo
 governor @ governatore
@@ -9389,7 +9368,7 @@ gravely @ gravemente
 gravestone @ lapide
 gravimetry @ gravimetria
 gravitation @ gravitazione
-gravitational constant @ costante di gravitazione
+gravitational constant @ costante
 gravitational @ gravitazionale
 gravitationally @ gravitazionalmente
 gravity @ gravità
@@ -9454,7 +9433,7 @@ grumpy @ scontroso
 guanine @ guanina
 guarantee @ avallo
 guarantee @ garantire
-guard dog @ cane da guardia
+guard dog @ cane
 guard @ guardia
 guardian @ curatore
 guatemalan @ guatemalteco
@@ -9486,7 +9465,7 @@ gum @ gengiva
 gun @ pistola
 gunboat @ cannoniera
 gunner @ cannoniere
-gunpowder @ polvere da sparo
+gunpowder @ polvere
 gunsmith @ armaiolo
 gutter punk @ punkabbestia
 guttural @ gutturale
@@ -9557,7 +9536,7 @@ handbag @ borsa
 handball @ pallamano
 handcuffs @ manetta
 handicap @ handicap
-handicapped person @ portatore di handicap
+handicapped person @ portatore
 handicapped @ andicappato
 handicrafts @ artigianato
 handkerchief @ fazzoletto
@@ -9566,7 +9545,7 @@ handle @ manipolare
 handlebar @ manubrio
 handmade @ artigiano
 handrail @ corrimano
-handshake @ stretta di mano
+handshake @ stretta
 handsome @ bello
 handsomely @ bellamente
 handsomely @ profumatamente
@@ -9634,9 +9613,8 @@ hateful @ odioso
 hatred @ avversione
 haulier @ autotrasportatore
 haustorium @ austorio
-have got @ avere
-have to @ dovere
 have @ avere
+have @ dovere
 haven @ rifugio
 hawk @ falco
 hawser @ canapo
@@ -9647,11 +9625,10 @@ haze @ foschia
 hazel @ nocciolo
 hazelnut @ nocciola
 he who laughs last laughs longest @ ride bene chi ride ultimo
-head of government @ capo del governo
-head of state @ capo del Stato
-head of state @ capo di Stato
 head office @ centrale
 head @ aprire
+head @ capo
+head @ capo del governo
 head @ testa
 headache @ mal di testa
 headband @ fascia
@@ -9821,7 +9798,6 @@ hip @ anca
 hippocampus @ ippocampo
 hippodrome @ ippodromo
 hippopotamus @ ippopotamo
-hire out @ affittare
 hire @ affittare
 hire @ affitto
 his @ il suo
@@ -9849,8 +9825,8 @@ hoarfrost @ galaverna
 hobby @ hobby
 hockey @ hockey
 hoist @ argano
-hold responsible @ ritenere responsabile
 hold @ controllo
+hold @ ritenere
 hold @ tenere
 holder @ intestatario
 hole @ buca
@@ -9899,7 +9875,7 @@ honestly @ onestamente
 honestly @ rettamente
 honesty @ onestà
 honey @ miele
-honeymoon @ luna di miele
+honeymoon @ luna
 honorably @ onoratamente
 honorific @ onorifico
 honour @ onorare
@@ -9909,10 +9885,10 @@ honourable @ onorabile
 honourary @ onorario
 hook @ gancio
 hoopoe @ upupa
-hope that @ sperare che
 hope @ aspettare
 hope @ auspicare
 hope @ speranza
+hope @ sperare
 hopeless @ disperato
 hopelessly @ perdutamente
 hopelessly @ totalmente
@@ -9936,7 +9912,7 @@ horticulture @ orticoltura
 hospice @ ospizio
 hospital @ ospedale
 hospitalisation @ ospedalizzazione
-hospitality industry @ industria dell'ospitalità
+hospitality industry @ industria
 hospitality @ ospitalità
 host @ anfitrione
 hostage @ ostaggio
@@ -10063,7 +10039,7 @@ hyperplasia @ iperplasia
 hyperpyrexia @ iperpiressia
 hyperthermia @ ipertermia
 hyphen @ trattino
-hyphenated @ scritto con un trattino
+hyphenated @ scritto
 hypnosis @ ipnosi
 hypnotic @ ipnotico
 hypochondria @ ipocondria
@@ -10112,7 +10088,7 @@ ideally @ idealmente
 ideation @ ideazione
 identical @ identico
 identifiable @ identificabile
-identification badge @ distintivo di identificazione
+identification badge @ distintivo
 identification @ identificazione
 identifier @ identificatore
 identify @ identificare
@@ -10403,7 +10379,7 @@ included @ incluso
 inclusion @ inclusione
 incoherent @ incoerente
 incoherently @ incoerentemente
-income tax @ imposta sul reddito
+income tax @ imposta
 income @ reddito
 incommensurable @ incommensurabile
 incommunicable @ incomunicabile
@@ -10470,7 +10446,7 @@ indication @ indicazione
 indicative @ indicativo
 indicatively @ indicativamente
 indicator @ indicatore
-indictment @ atto d'accusa
+indictment @ atto
 indifference @ indifferenza
 indifferent @ indifferente
 indifferently @ indifferentemente
@@ -11074,7 +11050,7 @@ jewelery @ gioiello
 jewellery @ gioielleria
 jewellery @ gioiello
 jewish @ ebreo
-job centre @ ufficio di collocamento
+job centre @ ufficio
 job @ lavoro
 join @ unire
 joining @ congiungimento
@@ -11150,9 +11126,9 @@ kayak @ kayak
 kebab @ kebab
 keen @ entusiasta
 keenly @ vivamente
-keep on @ continuare
-keep watch @ vigilare
+keep @ continuare
 keep @ mantenere
+keep @ vigilare
 keeper @ custode
 keloid @ cheloide
 kennel @ canile
@@ -11190,7 +11166,7 @@ kimberlite @ kimberlite
 kimono @ kimono
 kind @ classe
 kind @ gentile
-kindergarten @ asilo nido
+kindergarten @ asilo
 kindly @ amabilmente
 kindly @ cortesemente
 kindly @ gentilmente
@@ -11215,10 +11191,9 @@ knee @ ginocchio
 kneel @ inginocchiarsi
 kneepad @ ginocchiera
 knife @ coltello
-knight of the Round Table @ cavaliere della Tavola Rotonda
 knight @ cavaliere
-knit @ lavorare a maglia
-knock down @ abbattere
+knit @ lavorare
+knock @ abbattere
 knock @ colpire
 knock @ colpo
 knot @ capannello
@@ -11250,8 +11225,8 @@ labour @ lavoro
 labyrinth @ labirinto
 lace @ cordonare
 lace @ merletto
-lack of respect @ mancanza di rispetto
 lack @ carenza
+lack @ mancanza
 lack @ mancare
 lacking @ carente
 lacquer @ laccare
@@ -11281,7 +11256,7 @@ landlord @ proprietario
 landscape @ paesaggio
 landslide @ frana
 lane @ cammino
-language professional @ professionista delle lingue
+language professional @ professionista
 language @ lingua
 language @ linguaggio
 lantern @ lanterna
@@ -11378,9 +11353,9 @@ least @ meno
 least @ minimamente
 least @ quantomeno
 leather @ pelle
-leave aside @ prescindere
 leave @ congedo
 leave @ lasciare
+leave @ prescindere
 lebanese @ libanese
 lecture @ conferenza
 lecturer @ conferenziere
@@ -11394,7 +11369,7 @@ lefthand @ sinistro
 leg @ cosciotto
 leg @ gamba
 legal person @ persona giuridica
-legal tender @ moneta a corso legale
+legal tender @ moneta
 legal @ legale
 legalisation @ legalizzazione
 legalise @ legalizzare
@@ -11487,10 +11462,10 @@ lid @ palpebra
 lie @ bugia
 lie @ mentire
 lieutenant @ tenente
-life style @ stile di vita
+life style @ stile
 life @ vita
 lifeguard @ bagnino
-lifestyle @ stile di vita
+lifestyle @ stile
 lift @ ascensore
 lift @ impulso
 ligament @ legamento
@@ -11515,7 +11490,7 @@ lightning @ fulmine
 lightweight @ leggero
 lignin @ lignina
 lignite @ lignite
-ligroin @ etere di petrolio
+ligroin @ etere
 like this @ così
 like @ come
 like @ gustare
@@ -11539,7 +11514,6 @@ limousine @ limousine
 limp @ arrancare
 limp @ zoppicare
 linden @ tiglio
-line up @ allineare
 line @ allineare
 line @ linea
 lineage @ casata
@@ -11595,8 +11569,6 @@ lithology @ litologia
 lithosphere @ litosfera
 lithuanian @ lituano
 litigate @ litigare
-litre of alcohol @ litro di alcool
-litre of spirits @ litro di alcool
 litre @ litro
 litter @ sporcare
 little by little @ poco a poco
@@ -11657,13 +11629,12 @@ longevity @ longevità
 longhand @ a mano
 longitudinal @ longitudinale
 longshore @ litorale
-look after @ vigilare
-look for @ buscare
-look like @ parere
-look like @ sembrare
 look @ aspetto
+look @ buscare
 look @ guardare
 look @ parere
+look @ sembrare
+look @ vigilare
 lookout @ vedetta
 loom @ telaio
 loom @ tessere
@@ -11750,7 +11721,7 @@ machination @ macchinazione
 machine translation @ traduzione automatica
 machine @ macchina
 machinery @ macchinario
-machining centre @ centro di lavoro
+machining centre @ centro
 mackerel @ sgombro
 macrobiotic diet @ macrobiotica
 macrocephaly @ macrocefalia
@@ -11759,7 +11730,7 @@ macronucleus @ macronucleo
 macroscopic @ macroscopico
 macula @ macula
 mad @ pazzo
-madden @ fare impazzire
+madden @ fare
 madly @ follemente
 madly @ pazzamente
 madness @ pazzia
@@ -11813,12 +11784,8 @@ majorcan @ maiorchino
 majordomo @ maggiordomo
 majority @ maggioranza
 majority @ maggioritario
-make a mistake @ fare un errore
-make money @ fare soldi
-make possible @ fare possibile
-make up @ fare
-make up @ inventare
 make @ fare
+make @ inventare
 make @ marchio
 make-up @ cosmetico
 make-up @ makeup
@@ -12070,7 +12037,7 @@ medical @ medico
 medically @ medicalmente
 medication @ farmaco
 medicinal @ medicinale
-medicine cabinet @ armadietto dei medicinali
+medicine cabinet @ armadietto
 medicine @ farmaco
 medicine @ medicina
 mediocre @ mediocre
@@ -12102,8 +12069,6 @@ melody @ melodia
 melomaniac @ melomane
 melon @ melone
 melt @ fondere
-member of parliament @ membro del parlamento
-member of the European Parliament @ membro del Parlamento Europeo
 member @ appartenente
 member @ membro
 membership @ affiliazione
@@ -12239,7 +12204,7 @@ microsome @ microsoma
 microstate @ microstato
 microstructure @ microstruttura
 microtubule @ microtubulo
-microwave oven @ forno a microonde
+microwave oven @ forno
 microwave @ microonde
 midday @ mezzogiorno
 middle finger @ dito medio
@@ -12399,7 +12364,7 @@ mole @ talpa
 molecular @ molecolare
 molecule @ molecola
 mollusc @ mollusco
-molten glass @ pasta di vetro
+molten glass @ pasta
 molybdenum @ molibdeno
 moment @ attimo
 moment @ momento
@@ -12480,7 +12445,7 @@ more @ più
 moreover @ oltretutto
 moreover @ peraltro
 morganatic @ morganatico
-morning star @ stella del mattino
+morning star @ stella
 morning @ domani
 morning @ mattina
 morning @ mattutino
@@ -12739,7 +12704,7 @@ necklace @ collana
 necropolis @ necropoli
 necrosis @ necrosi
 nectar @ nettare
-need to @ avere bisogno che
+need @ avere bisogno che
 need @ avere bisogno di
 need @ bisogno
 need @ fabbisogno
@@ -12909,7 +12874,7 @@ nitrogen @ nitrogeno
 nitrogenous @ nitrogenato
 nitroglycerine @ nitroglicerina
 no doubt @ senza dubbio
-no man's land @ terra di nessuno
+no man's land @ terra
 no one @ nessuno
 no sooner @ appena
 no @ nessuno
@@ -12984,9 +12949,9 @@ notarise @ autenticare
 notary @ notaio
 notation @ notazione
 notch @ intaccare
-note down @ puntare
 note @ annotare
 note @ nota
+note @ puntare
 notebook @ taccuino
 notepad @ bloc notes
 nothing @ niente
@@ -13614,8 +13579,8 @@ pantograph @ pantografo
 pantomime @ pantomima
 pants @ pantalone
 papal @ papale
-paper plate @ piatto di carta
-paper towel @ asciugamano di carta
+paper plate @ piatto
+paper towel @ asciugamano
 paper @ articolo
 paper @ carta
 paperboard @ cartoncino
@@ -13782,13 +13747,12 @@ pause @ pausa
 pause @ sostare
 pavilion @ bandiera
 paving @ pavimentazione
-pay cash @ pagare in contanti
-pay slip @ busta paga
-pay slip @ cedolino paga
-pay slip @ prospetto paga
+pay slip @ busta
+pay slip @ cedolino
+pay slip @ prospetto
 pay @ paga
 pay @ pagare
-payday @ giorno di paga
+payday @ giorno
 payment @ corresponsione
 payment @ pagamento
 pc @ pc
@@ -13982,7 +13946,7 @@ pessimism @ pessimismo
 pessimist @ pessimista
 pessimistic @ pessimista
 pest @ piaga
-pet @ animale da compagnia
+pet @ animale
 petal @ petalo
 petalite @ petalite
 petanque @ petanque
@@ -14088,7 +14052,7 @@ pianist @ pianista
 piano @ piano
 piano @ pianoforte
 picaresque @ picaresco
-pick up @ captare
+pick @ captare
 pick @ scegliere
 pickaxe @ piccone
 picket @ picchetto
@@ -14104,9 +14068,9 @@ picture @ quadro
 picture @ tabella
 pie @ pasticcio
 pie @ torta
-piece of furniture @ mobile
 piece @ aggiustare
 piece @ brano
+piece @ mobile
 piece @ pezzo
 piercing @ penetrante
 piercing @ piercing
@@ -14279,7 +14243,6 @@ poetry @ poesia
 pogrom @ pogrom
 poignant @ patetico
 poikilothermal @ poichilotermo
-point of view @ punto di vista
 point @ puntare
 point @ punto
 point @ segnalare
@@ -14372,7 +14335,7 @@ pool @ gruppo
 pool @ piscina
 poor @ povero
 poorly @ poveramente
-pop @ fare scoppiare
+pop @ fare
 pop @ pop
 pope @ papa
 popular @ divulgativo
@@ -14459,8 +14422,8 @@ potentiometry @ potenziometria
 potion @ pozione
 pouch @ borsa
 poultice @ cataplasma
-pound sterling @ lira sterlina
 pound @ libbra
+pound @ lira sterlina
 pour @ versare
 poverty @ povertà
 powder @ impolverare
@@ -14589,9 +14552,9 @@ preservation @ preservazione
 preservative @ conservante
 preserve @ preservare
 presidency @ presidenza
-president of the Basque Country @ lehendakari
+president @ lehendakari
 president @ presidente
-presidential candidate @ candidato alla presidenza
+presidential candidate @ candidato
 presidential @ presidenziale
 press conference @ conferenza stampa
 press @ pulsare
@@ -14656,10 +14619,10 @@ printable @ stampabile
 printer @ stampante
 printing @ stampa
 prior @ previo
-prioritise @ assegnare una priorità
+prioritise @ assegnare
 priority @ priorità
 prismatic @ prismatico
-prison camp @ campo di prigionia
+prison camp @ campo
 prison @ prigione
 prisoner @ carcerato
 prisoner @ prigioniero
@@ -14912,7 +14875,7 @@ publicity @ pubblicità
 publicly @ pubblicamente
 publish @ pubblicare
 publisher @ editoriale
-publishing house @ casa editrice
+publishing house @ casa
 publishing @ editoria
 publishing @ editoriale
 pudding @ budino
@@ -14920,9 +14883,9 @@ pudding @ pudding
 puddle @ pozzanghera
 puerile @ puerile
 pugilism @ pugilato
-pull down @ abbattere
-pull out @ togliere
+pull @ abbattere
 pull @ tirare
+pull @ togliere
 pulley @ carrucola
 pulmonary @ polmonare
 pulpit @ pulpito
@@ -14994,7 +14957,7 @@ pyrometer @ pirometro
 pyrotechnics @ pirotecnica
 pythagorean @ pitagorico
 python @ pitone
-pâte brisée @ pasta brisée
+pâte brisée @ pasta
 pâté @ patè
 pâté @ pâté
 quadrangular @ quadrangolare
@@ -15046,7 +15009,6 @@ quiet @ tranquillo
 quietly @ tranquillamente
 quinine @ chinino
 quintet @ quintetto
-quit smoking @ smettere di fumare
 quit @ smettere
 quite a lot of @ un bel po' di
 quite a lot @ abbastanza
@@ -15131,7 +15093,7 @@ rank @ grado
 rank @ rango
 rape @ stupro
 rape @ violentare
-rapeseed oil @ olio di colza
+rapeseed oil @ olio
 rapeseed @ colza
 rapid @ rapido
 rapidity @ rapidità
@@ -15168,7 +15130,7 @@ ray @ fulmine
 ray @ raggio
 razor @ rasoio
 re-create @ ricreare
-reach for @ prendere
+reach @ prendere
 reach @ riuscire
 react @ reagire
 reactance @ reattanza
@@ -15263,7 +15225,7 @@ reconvert @ riconvertire
 record @ record
 record @ registrare
 record @ registro
-recording studio @ studio di registrazione
+recording studio @ studio
 recording @ registrazione
 recourse @ ricorso
 recover @ recuperare
@@ -15346,7 +15308,7 @@ refrain @ astenersi
 refrigeration @ refrigerazione
 refrigerator @ frigorifero
 refuge @ rifugio
-refugee camp @ campo per rifugiati
+refugee camp @ campo
 refugee @ rifugiato
 refund @ rimborso
 refundable @ rimborsabile
@@ -15561,7 +15523,7 @@ rerun @ rieseguire
 rescheduling @ riprogrammazione
 rescission @ rescissione
 rescript @ rescritto
-rescue plan @ piano di salvataggio
+rescue plan @ piano
 rescue @ salvare
 rescue @ salvataggio
 research @ ricerca
@@ -15571,7 +15533,7 @@ resemblance @ simile
 resemble @ assomigliare
 resentment @ risentimento
 reservation @ riservazione
-reserve currency @ valuta di reserva
+reserve currency @ valuta
 reserve @ prenotare
 reserve @ riserva
 reserve @ riservare
@@ -15734,7 +15696,7 @@ rhomboidal @ romboidale
 rhombus @ rombo
 rhotacism @ rotacismo
 rhubarb @ rabarbaro
-rhyme @ fare rima
+rhyme @ fare
 rhyme @ rima
 rhythm @ ritmo
 rhythmical @ ritmico
@@ -15860,13 +15822,13 @@ rouge @ rossetto
 rough @ ruvido
 roughly @ approssimativamente
 roulette @ roulette
-round off @ terminare
 round @ arrotondare
 round @ intorno a
 round @ ronda
 round @ rotondo
+round @ terminare
 roundabout @ rotonda
-rounding off @ arrotondamento
+rounding @ arrotondamento
 roundly @ completamente
 route @ rotta
 routing @ instradamento
@@ -15878,7 +15840,7 @@ rpm @ rpm
 rub @ strofinare
 rubber @ gomma
 rubber @ pneumatico
-rubbish bag @ busta dell'immondizia
+rubbish bag @ busta
 rubbish @ ciarpame
 rubbish @ immondizia
 rubbish @ rifiuto
@@ -15947,7 +15909,7 @@ safe @ sicuro
 safe-conduct @ salvacondotto
 safeguard @ salvaguardare
 safekeeping @ custodia
-safety pin @ spilla di sicurezza
+safety pin @ spilla
 safety @ sicurezza
 safflower @ cartamo
 saffron @ zafferano
@@ -15955,7 +15917,7 @@ saga @ saga
 sage @ salvia
 sail @ navigare
 sail @ vela
-sailboat @ barca a vela
+sailboat @ barca
 sailing @ navigazione
 sailor @ marinaio
 saint @ santo
@@ -16083,7 +16045,7 @@ schizophrenia @ schizofrenia
 schizophrenic @ schizofrenico
 scholar @ erudito
 scholarly @ erudito
-scholarship @ borsa di studio
+scholarship @ borsa
 scholastic @ scolastico
 school child @ collegiale
 school @ allievo
@@ -16134,13 +16096,12 @@ sculpture @ scultura
 scut @ codino
 sea @ mare
 seaboard @ litorale
-seafood @ frutto di mare
+seafood @ frutto
 seagull @ gabbiano
 seal @ foca
 seal @ francobollo
 seal @ sigillare
-search engine @ motore di ricerca
-search for @ cercare
+search engine @ motore
 search @ cercare
 search @ ricerca
 searcher @ cercatore
@@ -16164,8 +16125,8 @@ secondly @ secondariamente
 secrecy @ segretezza
 secret @ segreto
 secretariat @ segreteria
-secretary general @ segretario generale
 secretary @ segretario
+secretary @ segretario generale
 secretary-general @ segretario generale
 secrete @ secernere
 secretion @ secrezione
@@ -16202,7 +16163,6 @@ seed @ seminare
 seeing eye dog @ cane guida
 seeing-eye dog @ cane guida
 seek @ cercare
-seem like @ sembrare
 seem @ sembrare
 seemingly @ apparentemente
 segment @ segmento
@@ -16266,9 +16226,8 @@ semolina @ semolino
 senate @ senato
 senator @ senatore
 senatorial @ senatoriale
-send back @ ridare
-send in @ inviare
 send @ inviare
+send @ ridare
 sending @ spedizione
 senegalese @ senegalese
 seneschal @ siniscalco
@@ -16278,7 +16237,7 @@ sensation @ sensazione
 sensational @ sensazionale
 sensationalism @ sensazionalismo
 sensationalistic @ sensazionalista
-sense of smell @ olfatto
+sense @ olfatto
 sense @ senso
 sense @ sentire
 sensitisation @ sensibilizzazione
@@ -16331,10 +16290,10 @@ servile @ servile
 servitude @ servitù
 servomechanism @ servomeccanismo
 sesame @ sesamo
-set up @ convocare
-set up @ montare
+set @ convocare
 set @ insieme
 set @ mettere
+set @ montare
 setscrew @ prigioniero
 setter @ alzatore
 setter @ setter
@@ -16423,12 +16382,11 @@ sharply @ bruscamente
 shaving @ rasatura
 sheaf @ covone
 shearing @ tosatura
-shed light on @ chiarire
 shed @ capanna
+shed @ chiarire
 shedding @ spargimento
 sheep dog @ cane pastore
 sheep @ pecora
-sheet of paper @ foglio
 sheet @ foglio
 sheet @ lenzuolo
 sheik @ sceicco
@@ -16494,14 +16452,14 @@ shortly @ tra poco
 shortness @ brevità
 shorts @ calzoncino
 shot @ tiro
-shotgun @ fucile da caccia
+shotgun @ fucile
 should @ dovere
 shoulder @ spalla
 shout @ gridare
 shout @ grido
 shovel @ badile
-show up @ apparire
 show @ affacciare
+show @ apparire
 show @ dimostrare
 show @ mostrare
 show @ show
@@ -16520,7 +16478,6 @@ shrub @ arbusto
 shudder @ brivido
 shudder @ rabbrividire
 shun @ evitare
-shut down @ chiudere
 shut @ chiudere
 shutter @ battente
 shy @ timido
@@ -16618,7 +16575,7 @@ singular @ singolare
 singularity @ singolarità
 singularly @ singolarmente
 sinister @ sinistro
-sink @ colare a picco
+sink @ colare
 sinking @ affondamento
 sinking @ cedimento
 sintering @ sinterizzazione
@@ -16631,7 +16588,6 @@ sir @ signore
 sirocco @ scirocco
 sisal @ sisal
 sister @ sorella
-sit down @ sedere
 sit @ sedere
 site @ posto
 situate @ situare
@@ -16675,9 +16631,9 @@ skeleton @ scheletro
 skeptical @ scettico
 sketch @ bozzetto
 skew @ inclinare
-ski jump @ salto con gli sci
-ski jumper @ saltatore con gli sci
-ski race @ gara di sci
+ski jump @ salto
+ski jumper @ saltatore
+ski race @ gara
 ski @ sci
 skier @ sciatore
 skill @ abilità
@@ -16730,7 +16686,6 @@ slip @ scivolata
 slippery @ scivoloso
 slogan @ slogan
 slope @ pendenza
-slow down @ rallentare
 slow @ lento
 slow @ piano
 slow @ rallentare
@@ -16774,7 +16729,7 @@ sniper @ cecchino
 snob @ snob
 snow grain @ nevischio
 snow @ neve
-snowman @ pupazzo di neve
+snowman @ pupazzo
 so many @ tanto
 so much @ tanto
 so that @ affinché
@@ -16930,7 +16885,7 @@ speciality @ specialità
 specially @ specialmente
 specialty @ specialità
 speciation @ speciazione
-species barrier @ barriera delle specie
+species barrier @ barriera
 species @ specie
 specific @ specifico
 specifically @ concretamente
@@ -16960,11 +16915,11 @@ speculative @ speculativo
 speculator @ borsista
 speech @ allocuzione
 speechless @ muto
-speed of light @ velocità della luce
-speed up @ sollecitare
 speed @ accelerare
 speed @ rapidità
+speed @ sollecitare
 speed @ velocità
+speed @ velocità della luce
 spell @ compitare
 spell @ periodo
 spelling @ ortografia
@@ -16991,8 +16946,7 @@ spine @ spina
 spinet @ spinetta
 spinning @ filatura
 spiral @ spirale
-spirit level @ livella a bolla
-spirit level @ livella a bolla d'aria
+spirit level @ livella
 spirit @ alcool
 spirit @ spirito
 spiritism @ spiritismo
@@ -17146,8 +17100,7 @@ stellar @ stellare
 stem @ radice
 stench @ afrore
 stenography @ stenografia
-step forward @ passo avanti
-step into @ entrare
+step @ entrare
 step @ passo
 stepbrother @ fratellastro
 stepchild @ figliastro
@@ -17192,11 +17145,11 @@ stingy @ avaro
 stink @ puzzare
 stipulate @ stipulare
 stipulation @ stipulazione
-stir up @ rimuovere
 stir @ agitamento
 stir @ mescolare
+stir @ rimuovere
 stochastic @ stocastico
-stock exchange @ borsa valori
+stock exchange @ borsa
 stock market @ borsa
 stock market @ borsistico
 stock @ scorta
@@ -17242,7 +17195,7 @@ stratification @ stratificazione
 stratigraphy @ stratigrafia
 stratopause @ stratopausa
 stratosphere @ stratosfera
-straw pulp @ pasta di paglia
+straw pulp @ pasta
 straw @ paglia
 stream @ corrente
 streamlining @ razionalizzazione
@@ -17261,8 +17214,8 @@ stretcher @ barella
 stretcher-bearer @ barelliere
 strictly @ rigorosamente
 strident @ stridente
-strike out @ sbarrare
 strike @ colpire
+strike @ sbarrare
 strike @ sciopero
 strikebreaker @ crumiro
 striker @ attaccante
@@ -17638,8 +17591,7 @@ systematisation @ sistematizzazione
 systematise @ sistematizzare
 t-shirt @ maglietta
 tabernacle @ altarino
-table a motion @ presentare una mozione
-table the motion @ presentare la mozione
+table @ presentare
 table @ tavola
 table @ tavolo
 tableware @ vasellame
@@ -17662,22 +17614,22 @@ tail @ coda
 tailcoat @ frac
 tailor @ sarto
 taiwanese @ taiwanese
-take advantage of @ usufruire di
-take away @ distogliere
-take care @ badare
-take for granted @ dare per scontato
-take into account @ mettere in conto
-take off @ decollare
-take off @ togliere
-take out @ cavare
-take part @ mediare
-take part @ partecipare
-take place @ avvenire
-take refuge @ rifugiarsi
-take responsibility @ responsabilizzarsi
+take @ avvenire
+take @ badare
+take @ cavare
+take @ dare
+take @ decollare
+take @ distogliere
+take @ mediare
+take @ mettere
+take @ partecipare
 take @ portare
 take @ prendere
+take @ responsabilizzarsi
+take @ rifugiarsi
 take @ tardare
+take @ togliere
+take @ usufruire
 takeoff @ decollo
 talc @ talco
 tale @ racconto
@@ -17701,7 +17653,7 @@ tank @ carro armato
 tank @ contenitore
 tanned @ abbronzato
 tantalum @ tantalio
-tap dancer @ ballerino di tip tap
+tap dancer @ ballerino
 tap @ colpetto
 tap @ rubinetto
 tap @ toccare
@@ -17742,7 +17694,7 @@ teach @ insegnare
 teacher's pet @ beniamino
 teacher @ maestro
 teacher @ professore
-teaching staff @ corpo insegnante
+teaching staff @ corpo
 teaching @ insegnamento
 team @ maestranze
 team @ squadra
@@ -17828,7 +17780,7 @@ tenth @ decimo
 teratoma @ teratoma
 terbium @ terbio
 tercet @ terzina
-term of office @ legislatura
+term @ legislatura
 term @ termine
 terminal @ terminale
 terminate @ terminare
@@ -18077,8 +18029,8 @@ through @ attraverso a
 through @ attraverso di
 throughout @ da tutte le parti
 throughout @ durante
-throw off balance @ sbilanciare
 throw @ gettare
+throw @ sbilanciare
 throw @ tirare
 thrower @ lanciatore
 thrust @ spingere
@@ -18167,7 +18119,7 @@ toaster @ tostapane
 tobacco @ tabacco
 today @ oggi
 toddler @ bimbetto
-toe @ dito del piede
+toe @ dito
 toenail @ unghia
 toga @ toga
 together with @ insieme a
@@ -18204,7 +18156,7 @@ too @ troppo
 tool @ arnese
 tool @ utensile
 tooth @ dente
-toothbrush @ spazzolino da denti
+toothbrush @ spazzolino
 toothpaste @ dentifricio
 toothpaste @ pasta dentifricia
 toothpick @ stuzzicadenti
@@ -18212,7 +18164,6 @@ top @ cima
 top @ cocuzzolo
 top @ superiore
 top @ tazza
-topic of conversation @ tema di conversazione
 topic @ tema
 topical @ topico
 topographical @ topografico
@@ -18268,8 +18219,8 @@ toxicology @ tossicologia
 toxin @ tossina
 toy @ giocattolo
 trabecula @ trabecola
-trace back @ risalire
 trace @ localizzare
+trace @ risalire
 trace @ traccia
 traceable @ tracciabile
 tracheal @ tracheale
@@ -18378,16 +18329,16 @@ trap @ trappola
 trapeze @ trapezio
 trapezoid @ trapezio
 trapezoidal @ trapezoidale
-trash bag @ busta dell'immondizia
+trash bag @ busta
 trauma @ trauma
 traumatic @ traumatico
 traumatism @ traumatismo
 traumatologist @ traumatologo
 traumatology @ traumatologia
-travel across @ ricorrere
+travel @ ricorrere
 travel @ viaggiare
 travel @ viaggio
-traveller's cheque @ assegno di viaggio
+traveller's cheque @ assegno
 traveller @ viaggiatore
 tray @ vassoio
 tread @ calcare
@@ -18523,13 +18474,13 @@ turbulent @ turbolento
 tureen @ zuppiera
 turkey @ tacchino
 turkish @ turco
-turn off @ spegnere
-turn out @ risultare
 turn signal @ svolta
-turn up @ apparire
 turn @ adibire
+turn @ apparire
 turn @ girare
+turn @ risultare
 turn @ ritorno
+turn @ spegnere
 turn @ turno
 turn @ virare
 turncoat @ opportunista
@@ -18730,7 +18681,7 @@ unitarily @ unitariamente
 unite @ unire
 united @ unito
 unity @ unità
-universal gravitational constant @ costante di gravitazione universale
+universal gravitational constant @ costante
 universal @ universale
 universalism @ universalismo
 universality @ universalità
@@ -19146,9 +19097,8 @@ wait @ aspettare
 wait @ attesa
 waiter @ cameriere
 waitress @ cameriere
-wake up @ svegliare
-wake up @ svegliarsi
 wake @ svegliare
+wake @ svegliarsi
 waken @ svegliare
 walk @ camminare
 walk @ passeggio
@@ -19164,7 +19114,6 @@ walrus @ morsa
 wand @ bacchetta
 wander @ vagare
 wandering @ vagabondo
-want to @ volere
 want @ volere
 wanton @ malizioso
 war @ guerra
@@ -19195,13 +19144,13 @@ waste @ cascame
 waste @ residuo
 waste @ sprecare
 waste @ spreco
-watch television @ guardare la televisione
+watch @ guardare
 watch @ orologio
 watch @ vigilare
 watchdog @ cerbero
 watchdog @ sorvegliante
 watchmaking @ orologeria
-watchtower @ torre di guardia
+watchtower @ torre
 water polo @ pallanuoto
 water @ abbeverare
 water @ acqua
@@ -19219,9 +19168,9 @@ watt @ watt
 wave @ agitare
 wave @ ondata
 wax @ cera
-way of life @ modo di vita
 way @ cammino
 way @ maniera
+way @ modo
 waystation @ stazione secondaria
 wayward @ capriccioso
 weak @ debole
@@ -19232,7 +19181,6 @@ weakly @ debolmente
 weakness @ debolezza
 wealth @ ricchezza
 wealthy @ ricco
-weapon of mass destruction @ arma di distruzione di massa
 weapon @ arma
 wear @ portare
 wear @ sperpero
@@ -19242,10 +19190,9 @@ weathercock @ banderuola
 weave @ tramare
 web @ ragnatela
 web @ web
-website @ sito web
-wedding anniversary @ anniversario di matrimonio
-wedding anniversary @ anniversario di nozze
-wedding day @ giorno di nozze
+website @ sito
+wedding anniversary @ anniversario
+wedding day @ giorno
 wedding @ nozze
 wedge @ cuneo
 week in week out @ continuamente
@@ -19259,7 +19206,7 @@ weeping willow @ salice piangente
 weevil @ curculione
 weigh @ pesare
 weight @ peso
-weightlifting @ sollevamento pesi
+weightlifting @ sollevamento
 weird @ strano
 welcome @ benvenuto
 weld @ saldare
@@ -19358,8 +19305,8 @@ willingly @ di buon grado
 willingness @ disposizione
 willow @ salice
 win @ vincere
-wind direction @ direzione del vento
-wind instrument @ strumento a fiato
+wind direction @ direzione
+wind instrument @ strumento
 wind speed @ velocità del vento
 wind @ vento
 winding @ avvolgimento
@@ -19420,15 +19367,15 @@ witness @ testimone
 witness @ testimoniare
 wizard @ stregone
 wolf @ lupo
-woman in labour @ partoriente
 woman @ donna
+woman @ partoriente
 wonder @ domandarsi
 wonder @ meraviglia
 wonderful @ meraviglioso
 wonderfully @ meravigliosamente
 wonderfully @ stupendamente
-wood paste @ pasta da carta
-wood pulp @ pasta di legno
+wood paste @ pasta
+wood pulp @ pasta
 wood @ bosco
 wood @ legname
 wood @ legno
@@ -19437,20 +19384,20 @@ woodcutter @ boscaiolo
 woodworm @ tarlo
 wool @ lana
 word @ parola
-work bench @ banco di lavoro
-work centre @ ufficio di collocamento
-work day @ giorno di lavoro
-work out @ uscire
+work bench @ banco
+work centre @ ufficio
+work day @ giorno
 work @ lavorare
 work @ lavoro
 work @ opera
+work @ uscire
 workable @ fattibile
-workbench @ banco di lavoro
-workday @ giorno di lavoro
+workbench @ banco
+workday @ giorno
 worker @ lavorante
 worker @ operaio
 working day @ giorno lavorativo
-working time @ giornata di lavoro
+working time @ giornata
 working time @ giorno lavorativo
 working @ operaio
 workshop @ workshop

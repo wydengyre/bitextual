@@ -47,7 +47,7 @@ async function renderAlignment(
     sourceSplitParagraphs,
     targetSplitParagraphs,
     // TODO: awful
-    resourcePath("ita-eng.dic"),
+    resourcePath("hunalign/dictionaries/italian-english.dic"),
   );
 
   // Paragraph alignment. Sentences require more data.
