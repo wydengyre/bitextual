@@ -1,13 +1,10 @@
 import { DenoHunalign } from "../resources/hunalign/deno/hunalign.js";
-import {fromFileUrl} from "std/path/mod.ts";
-
-export type SourceIndex = number;
-export type TargetIndex = number;
-export type Confidence = number;
-export type Rung = [SourceIndex, TargetIndex, Confidence];
+import { fromFileUrl } from "std/path/mod.ts";
 
 export const PARAGRAPH_MARKER = "<p>";
-const WASM_BINARY_PATH = fromFileUrl(import.meta.resolve("../resources/hunalign/deno/hunalign.wasm"));
+const WASM_BINARY_PATH = fromFileUrl(
+  import.meta.resolve("../resources/hunalign/deno/hunalign.wasm"),
+);
 
 async function main() {
   // TODO: bring this back

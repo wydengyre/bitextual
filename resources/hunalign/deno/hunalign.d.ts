@@ -1,5 +1,5 @@
-import { Ladder } from "../ts/hunalign.ts";
-export type { Ladder, Rung } from "../ts/hunalign.ts";
+export type Rung = [number, number, number];
+export type Ladder = Rung[];
 export declare class DenoHunalign {
     #private;
     private constructor();
