@@ -4,7 +4,7 @@ export class Punkt {
   private constructor() {
   }
 
-  sentences(trainingData: Uint8Array, paragraphs: string[]) {
+  sentences(trainingData: Uint8Array, paragraphs: string[]): string[][] {
     return split(trainingData, paragraphs);
   }
 
