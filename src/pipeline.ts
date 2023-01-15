@@ -26,7 +26,6 @@ async function renderAlignment(
   const sourceTokenized = punkt.sentences(sourceTrainingData, sourceParagraphs);
   const targetTokenized = punkt.sentences(targetTrainingData, targetParagraphs);
 
-  // this is slow here, but should be faster once punkt is just wasm
   const sourceSplitParagraphs: string[][] = [];
   for await (const splitParagraph of sourceTokenized) {
     sourceSplitParagraphs.push(splitParagraph);

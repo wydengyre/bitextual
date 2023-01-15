@@ -3,6 +3,7 @@ const TABLE_MARKER = "<!-- TABLE -->";
 export function render(aligned: [string[], string[]][]): string {
   const tableCell = (paras: string[]): string =>
     `<td>${paras.join("<p>")}</td>`;
+
   const tableBody = aligned
     .map(([leftParas, rightParas]) =>
       `<tr>${tableCell(leftParas)}${tableCell(rightParas)}</tr>`
