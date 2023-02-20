@@ -9,13 +9,13 @@ update-deps:
     deno run -A https://deno.land/x/udd/main.ts import_map.json
 
 ci-fmt:
-    deno fmt --check deno tools test
+    deno fmt --check deno lib tools test
 
 fmt:
-    deno fmt deno tools test
+    deno fmt deno lib tools test
 
 lint:
-    deno lint deno tools test
+    deno lint deno lib tools test
 
 test:
-    deno test --allow-read=./ --allow-run=./resources/punkt deno
+    deno test --allow-read=./ --allow-run=./resources/punkt deno lib
