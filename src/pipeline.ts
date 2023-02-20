@@ -101,7 +101,7 @@ export async function main() {
   console.log(rendered);
 }
 
-async function getTrainingData(l: Language): Promise<Uint8Array> {
+function getTrainingData(l: Language): Promise<Uint8Array> {
   const languageData: Map<Language, string> = new Map([
     ["en", "english"],
     ["fr", "french"],
