@@ -3,6 +3,9 @@
 default:
     just --list --justfile {{justfile()}}
 
+update-deps:
+    deno run -A https://deno.land/x/udd/main.ts import_map.json
+
 fmt:
     deno fmt src tools test
 
