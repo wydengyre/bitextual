@@ -3,8 +3,13 @@
 default:
     just --list --justfile {{justfile()}}
 
+ci: ci-fmt lint test
+
 update-deps:
     deno run -A https://deno.land/x/udd/main.ts import_map.json
+
+ci-fmt:
+    deno fmt --check src test
 
 fmt:
     deno fmt src tools test
