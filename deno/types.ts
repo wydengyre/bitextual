@@ -5,5 +5,11 @@ export const Language = {
   spanish: "es",
 } as const;
 
-type LanguageName = keyof typeof Language;
+export type LanguageName = keyof typeof Language;
 export type Language = typeof Language[LanguageName];
+
+export const languages: Set<Language> = new Set(Object.values(Language));
+
+export function isLanguage(l: string): l is Language {
+  return languages.has(l as Language);
+}

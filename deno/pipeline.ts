@@ -1,4 +1,3 @@
-import { readFixtureString } from "../test/util.ts";
 import { paragraphs } from "../lib/textreader.ts";
 import { Punkt } from "./punkt.ts";
 import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
@@ -8,9 +7,8 @@ import { resourcePath } from "./resources.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 
 // outputs alignment HTML
-
 type LanguageTaggedText = [Language, string];
-async function renderAlignment(
+export async function renderAlignment(
   [sourceLang, sourceText]: LanguageTaggedText,
   [targetLang, targetText]: LanguageTaggedText,
 ): Promise<string> {
@@ -88,19 +86,6 @@ async function renderAlignment(
   return render(alignedParagraphs);
 }
 
-export async function main() {
-  const [sourceText, targetText] = await Promise.all([
-    readFixtureString("goosebumps.chapter.txt"),
-    readFixtureString("goosebumps.capitolo.txt"),
-  ]);
-
-  const rendered = await renderAlignment([Language.english, sourceText], [
-    Language.french, // no training data for italian yet
-    targetText,
-  ]);
-  console.log(rendered);
-}
-
 function getTrainingData(l: Language): Promise<Uint8Array> {
   const languageData: Map<Language, string> = new Map([
     ["en", "english"],
@@ -122,8 +107,4 @@ function countElements<T>(ts: T[], t: T): number {
   let count = 0;
   for (const e of ts) if (e === t) count++;
   return count;
-}
-
-if (import.meta.main) {
-  await main();
 }
