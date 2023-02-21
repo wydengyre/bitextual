@@ -8,8 +8,7 @@ const importMeta = {
 };
 var mkHunalign = (()=>{
     var _scriptDir = importMeta.url;
-    return async function(mkHunalign) {
-        mkHunalign = mkHunalign || {};
+    return async function(mkHunalign = {}) {
         var Module = typeof mkHunalign != "undefined" ? mkHunalign : {};
         var readyPromiseResolve, readyPromiseReject;
         Module["ready"] = new Promise(function(resolve, reject) {
@@ -36,6 +35,12 @@ var mkHunalign = (()=>{
         function logExceptionOnExit(e) {
             if (e instanceof ExitStatus) return;
             let toLog = e;
+            if (e && typeof e == "object" && e.stack) {
+                toLog = [
+                    e,
+                    e.stack
+                ];
+            }
             err("exiting due to exception: " + toLog);
         }
         if (ENVIRONMENT_IS_NODE) {
@@ -66,25 +71,28 @@ var mkHunalign = (()=>{
                     else onload(data.buffer);
                 });
             };
-            if (process["argv"].length > 1) {
-                thisProgram = process["argv"][1].replace(/\\/g, "/");
+            if (process.argv.length > 1) {
+                thisProgram = process.argv[1].replace(/\\/g, "/");
             }
-            arguments_ = process["argv"].slice(2);
-            process["on"]("uncaughtException", function(ex) {
+            arguments_ = process.argv.slice(2);
+            process.on("uncaughtException", function(ex) {
                 if (!(ex instanceof ExitStatus)) {
                     throw ex;
                 }
             });
-            process["on"]("unhandledRejection", function(reason) {
-                throw reason;
-            });
+            var nodeMajor = process.versions.node.split(".")[0];
+            if (nodeMajor < 15) {
+                process.on("unhandledRejection", function(reason) {
+                    throw reason;
+                });
+            }
             quit_ = (status, toThrow)=>{
                 if (keepRuntimeAlive()) {
-                    process["exitCode"] = status;
+                    process.exitCode = status;
                     throw toThrow;
                 }
                 logExceptionOnExit(toThrow);
-                process["exit"](status);
+                process.exit(status);
             };
             Module["inspect"] = function() {
                 return "[Emscripten Module object]";
@@ -245,19 +253,18 @@ var mkHunalign = (()=>{
             }
             return len;
         }
-        var buffer, HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64;
-        function updateGlobalBufferAndViews(buf) {
-            buffer = buf;
-            Module["HEAP8"] = HEAP8 = new Int8Array(buf);
-            Module["HEAP16"] = HEAP16 = new Int16Array(buf);
-            Module["HEAP32"] = HEAP32 = new Int32Array(buf);
-            Module["HEAPU8"] = HEAPU8 = new Uint8Array(buf);
-            Module["HEAPU16"] = HEAPU16 = new Uint16Array(buf);
-            Module["HEAPU32"] = HEAPU32 = new Uint32Array(buf);
-            Module["HEAPF32"] = HEAPF32 = new Float32Array(buf);
-            Module["HEAPF64"] = HEAPF64 = new Float64Array(buf);
+        var HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64;
+        function updateMemoryViews() {
+            var b = wasmMemory.buffer;
+            Module["HEAP8"] = HEAP8 = new Int8Array(b);
+            Module["HEAP16"] = HEAP16 = new Int16Array(b);
+            Module["HEAP32"] = HEAP32 = new Int32Array(b);
+            Module["HEAPU8"] = HEAPU8 = new Uint8Array(b);
+            Module["HEAPU16"] = HEAPU16 = new Uint16Array(b);
+            Module["HEAPU32"] = HEAPU32 = new Uint32Array(b);
+            Module["HEAPF32"] = HEAPF32 = new Float32Array(b);
+            Module["HEAPF64"] = HEAPF64 = new Float64Array(b);
         }
-        Module["INITIAL_MEMORY"] || 16777216;
         var wasmTable;
         var __ATPRERUN__ = [];
         var __ATINIT__ = [];
@@ -378,23 +385,23 @@ var mkHunalign = (()=>{
                 abort(err);
             }
         }
-        function getBinaryPromise() {
+        function getBinaryPromise(binaryFile) {
             if (!wasmBinary && (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER)) {
-                if (typeof fetch == "function" && !isFileURI(wasmBinaryFile)) {
-                    return fetch(wasmBinaryFile, {
+                if (typeof fetch == "function" && !isFileURI(binaryFile)) {
+                    return fetch(binaryFile, {
                         credentials: "same-origin"
                     }).then(function(response) {
                         if (!response["ok"]) {
-                            throw "failed to load wasm binary file at '" + wasmBinaryFile + "'";
+                            throw "failed to load wasm binary file at '" + binaryFile + "'";
                         }
                         return response["arrayBuffer"]();
                     }).catch(function() {
-                        return getBinary(wasmBinaryFile);
+                        return getBinary(binaryFile);
                     });
                 } else {
                     if (readAsync) {
                         return new Promise(function(resolve, reject) {
-                            readAsync(wasmBinaryFile, function(response) {
+                            readAsync(binaryFile, function(response) {
                                 resolve(new Uint8Array(response));
                             }, reject);
                         });
@@ -402,62 +409,62 @@ var mkHunalign = (()=>{
                 }
             }
             return Promise.resolve().then(function() {
-                return getBinary(wasmBinaryFile);
+                return getBinary(binaryFile);
             });
+        }
+        function instantiateArrayBuffer(binaryFile, imports, receiver) {
+            return getBinaryPromise(binaryFile).then(function(binary) {
+                return WebAssembly.instantiate(binary, imports);
+            }).then(function(instance) {
+                return instance;
+            }).then(receiver, function(reason) {
+                err("failed to asynchronously prepare wasm: " + reason);
+                abort(reason);
+            });
+        }
+        function instantiateAsync(binary, binaryFile, imports, callback) {
+            if (!binary && typeof WebAssembly.instantiateStreaming == "function" && !isDataURI(binaryFile) && !isFileURI(binaryFile) && !ENVIRONMENT_IS_NODE && typeof fetch == "function") {
+                return fetch(binaryFile, {
+                    credentials: "same-origin"
+                }).then(function(response) {
+                    var result = WebAssembly.instantiateStreaming(response, imports);
+                    return result.then(callback, function(reason) {
+                        err("wasm streaming compile failed: " + reason);
+                        err("falling back to ArrayBuffer instantiation");
+                        return instantiateArrayBuffer(binaryFile, imports, callback);
+                    });
+                });
+            } else {
+                return instantiateArrayBuffer(binaryFile, imports, callback);
+            }
         }
         function createWasm() {
             var info = {
-                "a": asmLibraryArg
+                "a": wasmImports
             };
             function receiveInstance(instance, module) {
                 var exports = instance.exports;
                 Module["asm"] = exports;
                 wasmMemory = Module["asm"]["p"];
-                updateGlobalBufferAndViews(wasmMemory.buffer);
+                updateMemoryViews();
                 wasmTable = Module["asm"]["r"];
                 addOnInit(Module["asm"]["q"]);
                 removeRunDependency("wasm-instantiate");
+                return exports;
             }
             addRunDependency("wasm-instantiate");
             function receiveInstantiationResult(result) {
                 receiveInstance(result["instance"]);
             }
-            function instantiateArrayBuffer(receiver) {
-                return getBinaryPromise().then(function(binary) {
-                    return WebAssembly.instantiate(binary, info);
-                }).then(function(instance) {
-                    return instance;
-                }).then(receiver, function(reason) {
-                    err("failed to asynchronously prepare wasm: " + reason);
-                    abort(reason);
-                });
-            }
-            function instantiateAsync() {
-                if (!wasmBinary && typeof WebAssembly.instantiateStreaming == "function" && !isDataURI(wasmBinaryFile) && !isFileURI(wasmBinaryFile) && !ENVIRONMENT_IS_NODE && typeof fetch == "function") {
-                    return fetch(wasmBinaryFile, {
-                        credentials: "same-origin"
-                    }).then(function(response) {
-                        var result = WebAssembly.instantiateStreaming(response, info);
-                        return result.then(receiveInstantiationResult, function(reason) {
-                            err("wasm streaming compile failed: " + reason);
-                            err("falling back to ArrayBuffer instantiation");
-                            return instantiateArrayBuffer(receiveInstantiationResult);
-                        });
-                    });
-                } else {
-                    return instantiateArrayBuffer(receiveInstantiationResult);
-                }
-            }
             if (Module["instantiateWasm"]) {
                 try {
-                    var exports = Module["instantiateWasm"](info, receiveInstance);
-                    return exports;
+                    return Module["instantiateWasm"](info, receiveInstance);
                 } catch (e) {
                     err("Module.instantiateWasm callback failed with error: " + e);
                     readyPromiseReject(e);
                 }
             }
-            instantiateAsync().catch(readyPromiseReject);
+            instantiateAsync(wasmBinary, wasmBinaryFile, info, receiveInstantiationResult).catch(readyPromiseReject);
             return {};
         }
         var tempDouble;
@@ -1054,6 +1061,9 @@ var mkHunalign = (()=>{
                     return size;
                 },
                 write: function(stream, buffer, offset, length, position, canOwn) {
+                    if (buffer.buffer === HEAP8.buffer) {
+                        canOwn = false;
+                    }
                     if (!length) return 0;
                     var node = stream.node;
                     node.timestamp = Date.now();
@@ -1107,7 +1117,7 @@ var mkHunalign = (()=>{
                     var ptr;
                     var allocated;
                     var contents = stream.node.contents;
-                    if (!(flags & 2) && contents.buffer === buffer) {
+                    if (!(flags & 2) && contents.buffer === HEAP8.buffer) {
                         allocated = false;
                         ptr = contents.byteOffset;
                     } else {
@@ -2242,6 +2252,7 @@ var mkHunalign = (()=>{
             ensureErrnoError: ()=>{
                 if (FS.ErrnoError) return;
                 FS.ErrnoError = function ErrnoError(errno, node) {
+                    this.name = "ErrnoError";
                     this.node = node;
                     this.setErrno = function(errno) {
                         this.errno = errno;
@@ -2634,9 +2645,7 @@ var mkHunalign = (()=>{
             },
             DB_VERSION: 20,
             DB_STORE_NAME: "FILE_DATA",
-            saveFilesToDB: (paths, onload, onerror)=>{
-                onload = onload || (()=>{});
-                onerror = onerror || (()=>{});
+            saveFilesToDB: (paths, onload = ()=>{}, onerror = ()=>{})=>{
                 var indexedDB = FS.indexedDB();
                 try {
                     var openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION);
@@ -2674,9 +2683,7 @@ var mkHunalign = (()=>{
                 };
                 openRequest.onerror = onerror;
             },
-            loadFilesFromDB: (paths, onload, onerror)=>{
-                onload = onload || (()=>{});
-                onerror = onerror || (()=>{});
+            loadFilesFromDB: (paths, onload = ()=>{}, onerror = ()=>{})=>{
                 var indexedDB = FS.indexedDB();
                 try {
                     var openRequest = indexedDB.open(FS.DB_NAME(), FS.DB_VERSION);
@@ -2861,7 +2868,7 @@ var mkHunalign = (()=>{
                         }
                 }
             } catch (e) {
-                if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+                if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
                 return -e.errno;
             }
         }
@@ -2917,7 +2924,7 @@ var mkHunalign = (()=>{
                         return -28;
                 }
             } catch (e) {
-                if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+                if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
                 return -e.errno;
             }
         }
@@ -2929,7 +2936,7 @@ var mkHunalign = (()=>{
                 var mode = varargs ? SYSCALLS.get() : 0;
                 return FS.open(path, flags, mode).fd;
             } catch (e) {
-                if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+                if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
                 return -e.errno;
             }
         }
@@ -2939,13 +2946,35 @@ var mkHunalign = (()=>{
         function _emscripten_memcpy_big(dest, src, num) {
             HEAPU8.copyWithin(dest, src, src + num);
         }
-        function abortOnCannotGrowMemory(requestedSize) {
-            abort("OOM");
+        function getHeapMax() {
+            return 2147483648;
+        }
+        function emscripten_realloc_buffer(size) {
+            var b = wasmMemory.buffer;
+            try {
+                wasmMemory.grow(size - b.byteLength + 65535 >>> 16);
+                updateMemoryViews();
+                return 1;
+            } catch (e) {}
         }
         function _emscripten_resize_heap(requestedSize) {
-            HEAPU8.length;
+            var oldSize = HEAPU8.length;
             requestedSize = requestedSize >>> 0;
-            abortOnCannotGrowMemory(requestedSize);
+            var maxHeapSize = getHeapMax();
+            if (requestedSize > maxHeapSize) {
+                return false;
+            }
+            let alignUp = (x, multiple)=>x + (multiple - x % multiple) % multiple;
+            for(var cutDown = 1; cutDown <= 4; cutDown *= 2){
+                var overGrownHeapSize = oldSize * (1 + .2 / cutDown);
+                overGrownHeapSize = Math.min(overGrownHeapSize, requestedSize + 100663296);
+                var newSize = Math.min(maxHeapSize, alignUp(Math.max(requestedSize, overGrownHeapSize), 65536));
+                var replacement = emscripten_realloc_buffer(newSize);
+                if (replacement) {
+                    return true;
+                }
+            }
+            return false;
         }
         var ENV = {};
         function getExecutableName() {
@@ -3007,7 +3036,7 @@ var mkHunalign = (()=>{
                 FS.close(stream);
                 return 0;
             } catch (e) {
-                if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+                if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
                 return e.errno;
             }
         }
@@ -3021,6 +3050,9 @@ var mkHunalign = (()=>{
                 if (curr < 0) return -1;
                 ret += curr;
                 if (curr < len) break;
+                if (typeof offset !== "undefined") {
+                    offset += curr;
+                }
             }
             return ret;
         }
@@ -3031,7 +3063,7 @@ var mkHunalign = (()=>{
                 HEAPU32[pnum >> 2] = num;
                 return 0;
             } catch (e) {
-                if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+                if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
                 return e.errno;
             }
         }
@@ -3051,7 +3083,7 @@ var mkHunalign = (()=>{
                 if (stream.getdents && offset === 0 && whence === 0) stream.getdents = null;
                 return 0;
             } catch (e) {
-                if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+                if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
                 return e.errno;
             }
         }
@@ -3064,6 +3096,9 @@ var mkHunalign = (()=>{
                 var curr = FS.write(stream, HEAP8, ptr, len, offset);
                 if (curr < 0) return -1;
                 ret += curr;
+                if (typeof offset !== "undefined") {
+                    offset += curr;
+                }
             }
             return ret;
         }
@@ -3074,7 +3109,7 @@ var mkHunalign = (()=>{
                 HEAPU32[pnum >> 2] = num;
                 return 0;
             } catch (e) {
-                if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+                if (typeof FS == "undefined" || !(e.name === "ErrnoError")) throw e;
                 return e.errno;
             }
         }
@@ -3465,7 +3500,7 @@ var mkHunalign = (()=>{
         });
         FS.FSNode = FSNode;
         FS.staticInit();
-        var asmLibraryArg = {
+        var wasmImports = {
             "b": ___assert_fail,
             "a": ___cxa_throw,
             "d": ___syscall_fcntl64,
@@ -3483,20 +3518,20 @@ var mkHunalign = (()=>{
             "m": _strftime_l
         };
         createWasm();
-        var ___wasm_call_ctors = Module["___wasm_call_ctors"] = function() {
-            return (___wasm_call_ctors = Module["___wasm_call_ctors"] = Module["asm"]["q"]).apply(null, arguments);
+        var ___wasm_call_ctors = function() {
+            return (___wasm_call_ctors = Module["asm"]["q"]).apply(null, arguments);
         };
         var _main = Module["_main"] = function() {
             return (_main = Module["_main"] = Module["asm"]["s"]).apply(null, arguments);
         };
-        var ___errno_location = Module["___errno_location"] = function() {
-            return (___errno_location = Module["___errno_location"] = Module["asm"]["t"]).apply(null, arguments);
+        var ___errno_location = function() {
+            return (___errno_location = Module["asm"]["t"]).apply(null, arguments);
         };
-        var stackAlloc = Module["stackAlloc"] = function() {
-            return (stackAlloc = Module["stackAlloc"] = Module["asm"]["u"]).apply(null, arguments);
+        var stackAlloc = function() {
+            return (stackAlloc = Module["asm"]["u"]).apply(null, arguments);
         };
-        var ___cxa_is_pointer_type = Module["___cxa_is_pointer_type"] = function() {
-            return (___cxa_is_pointer_type = Module["___cxa_is_pointer_type"] = Module["asm"]["v"]).apply(null, arguments);
+        var ___cxa_is_pointer_type = function() {
+            return (___cxa_is_pointer_type = Module["asm"]["v"]).apply(null, arguments);
         };
         Module["callMain"] = callMain;
         Module["FS"] = FS;
@@ -3505,9 +3540,8 @@ var mkHunalign = (()=>{
             if (!calledRun) run();
             if (!calledRun) dependenciesFulfilled = runCaller;
         };
-        function callMain(args) {
-            var entryFunction = Module["_main"];
-            args = args || [];
+        function callMain(args = []) {
+            var entryFunction = _main;
             args.unshift(thisProgram);
             var argc = args.length;
             var argv = stackAlloc((argc + 1) * 4);
@@ -3524,8 +3558,7 @@ var mkHunalign = (()=>{
                 return handleException(e);
             }
         }
-        function run(args) {
-            args = args || arguments_;
+        function run(args = arguments_) {
             if (runDependencies > 0) {
                 return;
             }
