@@ -21,10 +21,20 @@ ci-fmt:
     deno fmt --check deno lib tools test
 
 fmt:
-    deno fmt deno lib tools test
+    deno fmt deno lib tools test web
 
 lint:
     deno lint deno lib tools test
 
 test:
     deno test --allow-read=./ --allow-run=./resources/punkt deno lib
+
+web-build:
+    deno run --allow-env --allow-read --allow-write --allow-run web/build.ts
+
+# run development web server for local QA
+web-serve:
+    deno run --allow-net --allow-read=. web/serve.ts
+
+# for faster iteration when running locally
+web-build-and-serve: web-build web-serve
