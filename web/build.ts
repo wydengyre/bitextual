@@ -5,13 +5,16 @@ import { configPath } from "./build-conf.ts";
 const distDir = configPath("distDir");
 
 const PATHS_TO_COPY = [
-  "./index.html",
   "./pico.min.css",
   "./pico.min.css.map",
 ].map((rel) => path.fromFileUrl(import.meta.resolve(rel)));
 
+const INDEX_TEMPLATE = path.fromFileUrl(import.meta.resolve("./index.template.html"));
+const INDEX_OUT_PATH = path.join(distDir, "index.html");
+
 const MAIN_PATH = path.fromFileUrl(import.meta.resolve("./main.ts"));
-const MAIN_OUT_PATH = path.join(distDir, "main.mjs");
+const MAIN_OUT_NAME = "main.mjs";
+const MAIN_OUT_PATH = path.join(distDir, MAIN_OUT_NAME);
 
 async function main() {
   await Deno.mkdir(distDir, { recursive: true });
@@ -21,6 +24,10 @@ async function main() {
     const outPath = path.join(distDir, bn);
     await Deno.copyFile(inPath, outPath);
   }
+
+  const indexTemplate = await Deno.readTextFile(INDEX_TEMPLATE);
+  const indexHtml = indexTemplate.replace("${MAIN_JS}", MAIN_OUT_NAME);
+  await Deno.writeTextFile(INDEX_OUT_PATH, indexHtml);
 
   await buildTs(MAIN_PATH, MAIN_OUT_PATH);
 }

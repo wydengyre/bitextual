@@ -9,6 +9,9 @@ default:
 
 ci: ci-fmt lint test
 
+clean:
+    rm -rf build dist
+
 deps:
     mkdir -p {{picoCssFilesPath}} build
     curl --show-error --location --fail {{picoCssUrl}} --output {{picoCssZipPath}}
