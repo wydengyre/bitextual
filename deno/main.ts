@@ -1,4 +1,4 @@
-import { isLanguage } from "./types.ts";
+import { isLanguage } from "../lib/types.ts";
 import { renderAlignment } from "./pipeline.ts";
 
 const USAGE = "[sourcelang] [targetlang] [sourcetext] [targettext]";
