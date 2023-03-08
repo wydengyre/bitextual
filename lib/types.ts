@@ -7,6 +7,7 @@ export const Language = {
 
 export type LanguageName = keyof typeof Language;
 export type Language = typeof Language[LanguageName];
+export type LanguageTaggedText = [Language, string];
 
 export const languages: Set<Language> = new Set(Object.values(Language));
 

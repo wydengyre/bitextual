@@ -2,12 +2,10 @@ import { paragraphs } from "../lib/textreader.ts";
 import { Punkt } from "./punkt.ts";
 import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "../lib/render.ts";
-import { Language } from "../lib/types.ts";
+import { Language, LanguageTaggedText } from "../lib/types.ts";
 import { resourcePath } from "./resources.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 
-// outputs alignment HTML
-type LanguageTaggedText = [Language, string];
 export async function renderAlignment(
   [sourceLang, sourceText]: LanguageTaggedText,
   [targetLang, targetText]: LanguageTaggedText,

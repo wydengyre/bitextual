@@ -9,12 +9,18 @@ const PATHS_TO_COPY = [
   "./pico.min.css.map",
 ].map((rel) => path.fromFileUrl(import.meta.resolve(rel)));
 
-const INDEX_TEMPLATE = path.fromFileUrl(import.meta.resolve("./index.template.html"));
+const INDEX_TEMPLATE = path.fromFileUrl(
+  import.meta.resolve("./index.template.html"),
+);
 const INDEX_OUT_PATH = path.join(distDir, "index.html");
 
 const MAIN_PATH = path.fromFileUrl(import.meta.resolve("./main.ts"));
 const MAIN_OUT_NAME = "main.mjs";
 const MAIN_OUT_PATH = path.join(distDir, MAIN_OUT_NAME);
+
+const WORKER_PATH = path.fromFileUrl(import.meta.resolve("./worker.ts"));
+const WORKER_OUT_NAME = "worker.js";
+const WORKER_OUT_PATH = path.join(distDir, WORKER_OUT_NAME);
 
 async function main() {
   await Deno.mkdir(distDir, { recursive: true });
@@ -29,16 +35,21 @@ async function main() {
   const indexHtml = indexTemplate.replace("${MAIN_JS}", MAIN_OUT_NAME);
   await Deno.writeTextFile(INDEX_OUT_PATH, indexHtml);
 
-  await buildTs(MAIN_PATH, MAIN_OUT_PATH);
+  await buildTs(MAIN_PATH, MAIN_OUT_PATH, "esm");
+  await buildTs(WORKER_PATH, WORKER_OUT_PATH, "iife");
 }
 
-async function buildTs(inPath: string, outfile: string) {
+async function buildTs(
+  inPath: string,
+  outfile: string,
+  format: esbuild.Format,
+) {
   const buildOptions: esbuild.BuildOptions = {
     entryPoints: [inPath],
     outfile,
     bundle: true,
     minify: true,
-    format: "esm",
+    format,
     sourcemap: true,
   };
   await esbuild.build(buildOptions);
