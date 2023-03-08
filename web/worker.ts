@@ -1,5 +1,5 @@
-import { LanguageTaggedText } from "../lib/types.ts";
-import { paragraphs } from "../lib/textreader.ts";
+import { LanguageTaggedText } from "../lib/types.js";
+import { paragraphs } from "../lib/textreader.js";
 
 self.onmessage = (
   e: MessageEvent<[LanguageTaggedText, LanguageTaggedText]>,
@@ -12,7 +12,7 @@ self.onmessage = (
 function renderAlignment(
   [sourceLang, sourceText]: LanguageTaggedText,
   [targetLang, targetText]: LanguageTaggedText,
-): [string, string] {
+): [string[], string[]] {
   const sourceParagraphs: string[] = paragraphs(sourceText);
   const targetParagraphs: string[] = paragraphs(targetText);
   return [sourceParagraphs, targetParagraphs];

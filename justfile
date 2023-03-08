@@ -32,6 +32,12 @@ lint:
 test:
     deno test --allow-read=./ --allow-run=./resources/punkt deno lib
 
+web-install-deps:
+    cd web && npm install
+
+web-check:
+    cd web && npx tsc
+
 web-build:
     deno run --allow-env --allow-read --allow-write --allow-run web/build.ts
 

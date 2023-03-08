@@ -1,0 +1,11 @@
+{
+  "name": "bitextual-web",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.ts",
+  "author": "Matthew Leon <matt@wydengyre.com>",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "typescript": "^4.9.5"
+  }
+}

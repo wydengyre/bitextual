@@ -1,4 +1,4 @@
-import { isLanguage, LanguageTaggedText } from "../lib/types.ts";
+import { isLanguage, LanguageTaggedText } from "../lib/types.js";
 
 performance.mark("worker_load_start");
 const worker = new Worker("worker.js");
@@ -10,7 +10,7 @@ const workerLoad = performance.measure(
 );
 console.debug(workerLoad);
 
-worker.onmessage = (e: MessageEvent<[string, string]>) => {
+worker.onmessage = (e: MessageEvent<[string[], string[]]>) => {
   console.log(e.data);
 };
 
@@ -26,20 +26,34 @@ let targetLanguageSelect: HTMLSelectElement | Unloaded = $unloaded;
 let submitButton: HTMLButtonElement | Unloaded = $unloaded;
 
 function loadDom() {
-  sourceTextArea = document.querySelector("#source-text")!;
-  sourceLanguageSelect = document.querySelector("#source-language")!;
-  targetTextArea = document.querySelector("#target-text")!;
-  targetLanguageSelect = document.querySelector("#target-language")!;
-  submitButton = document.querySelector("button")!;
+  sourceTextArea = document.querySelector("#source-text")!
+    .getElementsByTagName("textarea")[0]!;
+  sourceLanguageSelect = document.querySelector("#source-language")!
+    .getElementsByTagName("select")[0]!;
+  targetTextArea = document.querySelector("#target-text")!
+    .getElementsByTagName("textarea")[0]!;
+  targetLanguageSelect = document.querySelector("#target-language")!
+    .getElementsByTagName("select")[0]!;
+  submitButton = document.querySelector("button")!
+    .getElementsByTagName("button")[0]!;
   submitButton.addEventListener("click", submit);
 }
 
 function submit(e: Event) {
   e.preventDefault();
-  const selections = [
-    targetTextArea.value,
-    targetLanguageSelect.value,
-  ];
+
+  if (sourceLanguageSelect === $unloaded) {
+    throw "Source language selector DOM Unloaded. This should never happen.";
+  }
+  if (targetLanguageSelect === $unloaded) {
+    throw "Target language selector DOM Unloaded. This should never happen.";
+  }
+  if (sourceTextArea === $unloaded) {
+    throw "Source language DOM unloaded. This should never happen.";
+  }
+  if (targetTextArea === $unloaded) {
+    throw "Target language DOM unloaded. This should never happen.";
+  }
 
   if (!isLanguage(sourceLanguageSelect.value)) {
     throw `invalid source language: ${sourceLanguageSelect.value}`;
@@ -57,7 +71,6 @@ function submit(e: Event) {
     targetTextArea.value,
   ];
   worker.postMessage([source, target]);
-  console.log(selections.join("\n"));
 }
 
 if (document.readyState === "loading") {
