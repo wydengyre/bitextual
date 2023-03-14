@@ -1,4 +1,5 @@
 import { Language, LanguageTaggedText } from "../lib/types.js";
+import { Punkt } from "../lib/punkt.js";
 import { paragraphs } from "../lib/textreader.js";
 
 self.onmessage = async (
@@ -21,15 +22,16 @@ async function renderAlignment(
     getTrainingData(targetLang)
   ]);
 
-  // TODO: bring punkt from deno to lib
-  // const sourceTokenized = punkt.sentences(sourceTrainingData, sourceParagraphs);
-  // const targetTokenized = punkt.sentences(targetTrainingData, targetParagraphs);
-  // return [sourceTokenized, targetTokenized];
-
+  const punktWasm = await fetchBinary(`punkt/punkt_bg.wasm`);
+  const punkt = await Punkt.create(punktWasm);
+  const sourceTokenized = punkt.sentences(sourceTrainingData, sourceParagraphs);
+  const targetTokenized = punkt.sentences(targetTrainingData, targetParagraphs);
+  console.log(sourceTokenized);
+  console.log(targetTokenized);
   return [sourceParagraphs, targetParagraphs];
 }
 
-async function getTrainingData(l: Language): Promise<Uint8Array> {
+function getTrainingData(l: Language): Promise<Uint8Array> {
   const languageData: Map<Language, string> = new Map([
     ["en", "english"],
     ["fr", "french"],
@@ -38,7 +40,11 @@ async function getTrainingData(l: Language): Promise<Uint8Array> {
   ]);
   const languageName = languageData.get(l)!;
   const languageFileName = `${languageName}.json`;
-  const f = await fetch(`punkt/${languageFileName}`);
+  return fetchBinary(`punkt/data/${languageFileName}`);
+}
+
+async function fetchBinary(url: string): Promise<Uint8Array> {
+  const f = await fetch(url);
   const ab = await f.arrayBuffer();
   return new Uint8Array(ab);
 }

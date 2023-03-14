@@ -3,10 +3,6 @@ import * as path from "std/path/mod.ts";
 import { configPath } from "./build-conf.ts";
 
 const distDir = configPath("distDir");
-const PUNKT_DICTS_DIST_DIR = path.join(distDir, "punkt");
-const PUNKT_DICTS_SOURCE_DIR = path.fromFileUrl(
-  import.meta.resolve("../resources/punkt/data")
-);
 
 const PATHS_TO_COPY = [
   "./pico.min.css",
@@ -33,14 +29,6 @@ async function main() {
     const bn = path.basename(inPath);
     const outPath = path.join(distDir, bn);
     await Deno.copyFile(inPath, outPath);
-  }
-
-  // copy punkt dicts
-  await Deno.mkdir(PUNKT_DICTS_DIST_DIR, { recursive: true });
-  for await (const entry of Deno.readDir(PUNKT_DICTS_SOURCE_DIR)) {
-      const inPath = path.join(PUNKT_DICTS_SOURCE_DIR, entry.name);
-      const outPath = path.join(PUNKT_DICTS_DIST_DIR, entry.name);
-      await Deno.copyFile(inPath, outPath);
   }
 
   const indexTemplate = await Deno.readTextFile(INDEX_TEMPLATE);

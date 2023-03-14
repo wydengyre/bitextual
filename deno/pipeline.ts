@@ -1,5 +1,5 @@
 import { paragraphs } from "../lib/textreader.ts";
-import { Punkt } from "./punkt.ts";
+import { Punkt } from "../lib/punkt.ts";
 import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "../lib/render.ts";
 import { Language, LanguageTaggedText } from "../lib/types.ts";
