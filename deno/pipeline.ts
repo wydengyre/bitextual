@@ -6,6 +6,10 @@ import { Language, LanguageTaggedText } from "../lib/types.ts";
 import { resourcePath } from "./resources.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 
+const PUNKT_WASM_PATH = fromFileUrl(
+  import.meta.resolve("../dist/punkt/punkt_bg.wasm"),
+);
+
 export async function renderAlignment(
   [sourceLang, sourceText]: LanguageTaggedText,
   [targetLang, targetText]: LanguageTaggedText,
@@ -17,8 +21,9 @@ export async function renderAlignment(
     getTrainingData(sourceLang),
     getTrainingData(targetLang),
   ]);
+  const punktWasm = await Deno.readFile(PUNKT_WASM_PATH);
 
-  const punkt = await Punkt.create();
+  const punkt = await Punkt.create(punktWasm);
   const sourceTokenized = punkt.sentences(sourceTrainingData, sourceParagraphs);
   const targetTokenized = punkt.sentences(targetTrainingData, targetParagraphs);
 

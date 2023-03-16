@@ -19,7 +19,7 @@ async function renderAlignment(
 
   const [sourceTrainingData, targetTrainingData] = await Promise.all([
     getTrainingData(sourceLang),
-    getTrainingData(targetLang)
+    getTrainingData(targetLang),
   ]);
 
   const punktWasm = await fetchBinary(`punkt/punkt_bg.wasm`);

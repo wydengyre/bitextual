@@ -8,8 +8,8 @@ export class Punkt {
     return split(trainingData, paragraphs);
   }
 
-  static async create(punktWasm?: Uint8Array): Promise<Punkt> {
-    await (punktWasm ? init(punktWasm) : init());
+  static async create(punktWasm: Uint8Array): Promise<Punkt> {
+    await init(punktWasm);
     return new Punkt();
   }
 }

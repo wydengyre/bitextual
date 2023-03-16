@@ -3,6 +3,6 @@
   "files": ["main.ts", "worker.ts"],
   "compilerOptions": {
     "noEmit": true,
-    "target": "esnext",
-  },
+    "target": "esnext"
+  }
 }
