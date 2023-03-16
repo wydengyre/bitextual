@@ -1,14 +1,18 @@
 import { paragraphs } from "../lib/textreader.ts";
 import { Punkt } from "../lib/punkt.ts";
-import { align, PARAGRAPH_MARKER } from "./hunalign.ts";
+import { Hunalign, PARAGRAPH_MARKER } from "../lib/hunalign.ts";
 import { render } from "../lib/render.ts";
 import { Language, LanguageTaggedText } from "../lib/types.ts";
 import { resourcePath } from "./resources.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 
 const PUNKT_WASM_PATH = fromFileUrl(
-  import.meta.resolve("../dist/punkt/punkt_bg.wasm"),
+  import.meta.resolve("../resources/punkt/punkt_bg.wasm"),
 );
+
+const HUNALIGN_WASM_PATH = fromFileUrl(
+  import.meta.resolve("../resources/hunalign/web/hunalign.wasm"),
+)
 
 export async function renderAlignment(
   [sourceLang, sourceText]: LanguageTaggedText,
@@ -21,7 +25,10 @@ export async function renderAlignment(
     getTrainingData(sourceLang),
     getTrainingData(targetLang),
   ]);
-  const punktWasm = await Deno.readFile(PUNKT_WASM_PATH);
+  const [punktWasm, hunalignWasm] = await Promise.all([
+    Deno.readFile(PUNKT_WASM_PATH),
+    Deno.readFile(HUNALIGN_WASM_PATH),
+  ]);
 
   const punkt = await Punkt.create(punktWasm);
   const sourceTokenized = punkt.sentences(sourceTrainingData, sourceParagraphs);
@@ -43,11 +50,14 @@ export async function renderAlignment(
     throw `assumed splitParagraphs ${targetSplitParagraphs.length} and separated ${targetParagraphs.length} would be equal`;
   }
 
-  const aligned: [string[], string[]][] = await align(
+  // TODO: awful
+  const dictionaryPath = resourcePath("hunalign/dictionaries/italian-english.dic");
+  const dictionary = await Deno.readFile(dictionaryPath);
+  const hunalign = await Hunalign.create(hunalignWasm);
+  const aligned: [string[], string[]][] = hunalign.align(
+    dictionary,
     sourceSplitParagraphs,
     targetSplitParagraphs,
-    // TODO: awful
-    resourcePath("hunalign/dictionaries/italian-english.dic"),
   );
 
   // Paragraph alignment. Sentences require more data.
