@@ -3,6 +3,6 @@
     "esbuild": "https://deno.land/x/esbuild@v0.17.11/mod.js",
     "std/": "https://deno.land/std@0.179.0/",
     "xml": "https://deno.land/x/xml@2.1.0/mod.ts",
-    "zod": "https://deno.land/x/zod@v3.20.5/mod.ts"
+    "zod": "https://deno.land/x/zod@v3.21.4/mod.ts"
   }
 }
