@@ -24,11 +24,26 @@ async function renderAlignment(
 
   const punktWasm = await fetchBinary(`punkt/punkt_bg.wasm`);
   const punkt = await Punkt.create(punktWasm);
-  const sourceTokenized = punkt.sentences(sourceTrainingData, sourceParagraphs);
-  const targetTokenized = punkt.sentences(targetTrainingData, targetParagraphs);
-  console.log(sourceTokenized);
-  console.log(targetTokenized);
-  return [sourceParagraphs, targetParagraphs];
+  const sourcePunkt = punkt.sentences(sourceTrainingData, sourceParagraphs);
+  const targetPunkt = punkt.sentences(targetTrainingData, targetParagraphs);
+
+  const sourceSplitParagraphs: string[][] = [];
+  for await (const splitParagraph of sourcePunkt) {
+    sourceSplitParagraphs.push(splitParagraph);
+  }
+  const targetSplitParagraphs: string[][] = [];
+  for await (const splitParagraph of targetPunkt) {
+    targetSplitParagraphs.push(splitParagraph);
+  }
+
+  if (sourceSplitParagraphs.length !== sourceParagraphs.length) {
+    throw `assumed splitParagraphs ${sourceSplitParagraphs.length} and separated ${sourceParagraphs.length} would be equal`;
+  }
+  if (targetSplitParagraphs.length !== targetParagraphs.length) {
+    throw `assumed splitParagraphs ${targetSplitParagraphs.length} and separated ${targetParagraphs.length} would be equal`;
+  }
+
+  return [sourceSplitParagraphs, targetSplitParagraphs];
 }
 
 function getTrainingData(l: Language): Promise<Uint8Array> {
