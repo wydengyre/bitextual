@@ -39,6 +39,7 @@ web-check:
     cd web && npx tsc
 
 web-build:
+    mkdir -p dist/web
     cp -R resources/punkt dist/web/punkt
     deno run --allow-env --allow-read --allow-write --allow-run web/build.ts
 
