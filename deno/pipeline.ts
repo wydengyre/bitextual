@@ -50,10 +50,8 @@ export async function renderAlignment(
     throw `assumed splitParagraphs ${targetSplitParagraphs.length} and separated ${targetParagraphs.length} would be equal`;
   }
 
-  // TODO: awful
-  const dictionaryPath = resourcePath(
-    "hunalign/dictionaries/italian-english.dic",
-  );
+  const dictionaryName = `${targetLang}-${sourceLang}`;
+  const dictionaryPath = resourcePath(`hunalign/dictionaries/${dictionaryName}.dic`);
   const dictionary = await Deno.readFile(dictionaryPath);
   const hunalign = await Hunalign.create(hunalignWasm);
   const aligned: [string[], string[]][] = hunalign.align(
