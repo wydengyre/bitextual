@@ -1,9 +1,17 @@
-import { isLanguage } from "../lib/types.ts";
-import { renderAlignment } from "./pipeline.ts";
+import { isLanguage, Language } from "../lib/types.ts";
+import { fromFileUrl } from "std/path/mod.ts";
+import { align, AlignmentConfig } from "../lib/align.ts";
 
 const USAGE = "[sourcelang] [targetlang] [sourcetext] [targettext]";
 const EXAMPLE =
   "deno run --allow-read=. deno/main.ts en it test/goosebumps.chapter.txt test/goosebumps.capitolo.txt";
+
+const PUNKT_WASM_PATH = fromFileUrl(
+  import.meta.resolve("../resources/punkt/punkt_bg.wasm"),
+);
+const HUNALIGN_WASM_PATH = fromFileUrl(
+  import.meta.resolve("../resources/hunalign/web/hunalign.wasm"),
+);
 
 async function main() {
   const [sourceLang, targetLang, sourceTextPath, targetTextPath] = Deno.args;
@@ -22,16 +30,52 @@ async function main() {
     Deno.exit(1);
   }
 
+  const [punktWasm, hunalignWasm] = await Promise.all([
+    Deno.readFile(PUNKT_WASM_PATH),
+    Deno.readFile(HUNALIGN_WASM_PATH),
+  ]);
+
   const [sourceText, targetText] = await Promise.all([
     Deno.readTextFile(sourceTextPath),
     Deno.readTextFile(targetTextPath),
   ]);
 
-  const rendered = await renderAlignment([sourceLang, sourceText], [
-    targetLang,
-    targetText,
+  const [punktSourceTrainingData, punktTargetTrainingData] = await Promise.all([
+    getTrainingData(sourceLang),
+    getTrainingData(targetLang),
   ]);
-  console.log(rendered);
+
+  const hunalignDictData = await Deno.readFile(fromFileUrl(import.meta.resolve(
+    `../resources/hunalign/dictionaries/${targetLang}-${sourceLang}.dic`,
+  )));
+
+  const alignConfig: AlignmentConfig = {
+    punktWasm,
+    punktSourceTrainingData,
+    punktTargetTrainingData,
+    hunalignWasm,
+    hunalignDictData,
+  };
+
+  const renderedAlignedText = align(sourceText, targetText, alignConfig);
+  console.log(renderedAlignedText);
+}
+
+function getTrainingData(l: Language): Promise<Uint8Array> {
+  const languageData: Map<Language, string> = new Map([
+    ["en", "english"],
+    ["fr", "french"],
+    ["it", "italian"],
+    ["es", "spanish"],
+  ]);
+
+  const languageName = languageData.get(l)!;
+  const languageFileName = `${languageName}.json`;
+  const languagePath = fromFileUrl(import.meta.resolve(
+    `../resources/punkt/data/${languageFileName}`,
+  ));
+
+  return Deno.readFile(languagePath);
 }
 
 if (import.meta.main) {

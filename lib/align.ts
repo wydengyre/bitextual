@@ -1,38 +1,32 @@
-import { paragraphs } from "../lib/textreader.ts";
-import { Punkt } from "../lib/punkt.ts";
-import { Hunalign, PARAGRAPH_MARKER } from "../lib/hunalign.ts";
-import { render } from "../lib/render.ts";
-import { Language, LanguageTaggedText } from "../lib/types.ts";
-import { resourcePath } from "./resources.ts";
-import { fromFileUrl } from "std/path/mod.ts";
+import { Punkt } from "./punkt.ts";
+import { Hunalign, PARAGRAPH_MARKER } from "./hunalign.ts";
+import { render } from "./render.ts";
 
-const PUNKT_WASM_PATH = fromFileUrl(
-  import.meta.resolve("../resources/punkt/punkt_bg.wasm"),
-);
+export type AlignmentConfig = {
+  punktWasm: Uint8Array;
+  punktSourceTrainingData: Uint8Array;
+  punktTargetTrainingData: Uint8Array;
+  hunalignWasm: Uint8Array;
+  hunalignDictData: Uint8Array;
+};
 
-const HUNALIGN_WASM_PATH = fromFileUrl(
-  import.meta.resolve("../resources/hunalign/web/hunalign.wasm"),
-);
-
-export async function renderAlignment(
-  [sourceLang, sourceText]: LanguageTaggedText,
-  [targetLang, targetText]: LanguageTaggedText,
+export async function align(
+  sourceText: string,
+  targetText: string,
+  conf: AlignmentConfig,
 ): Promise<string> {
   const sourceParagraphs: string[] = paragraphs(sourceText);
   const targetParagraphs: string[] = paragraphs(targetText);
 
-  const [sourceTrainingData, targetTrainingData] = await Promise.all([
-    getTrainingData(sourceLang),
-    getTrainingData(targetLang),
-  ]);
-  const [punktWasm, hunalignWasm] = await Promise.all([
-    Deno.readFile(PUNKT_WASM_PATH),
-    Deno.readFile(HUNALIGN_WASM_PATH),
-  ]);
-
-  const punkt = await Punkt.create(punktWasm);
-  const sourceTokenized = punkt.sentences(sourceTrainingData, sourceParagraphs);
-  const targetTokenized = punkt.sentences(targetTrainingData, targetParagraphs);
+  const punkt = await Punkt.create(conf.punktWasm);
+  const sourceTokenized = punkt.sentences(
+    conf.punktSourceTrainingData,
+    sourceParagraphs,
+  );
+  const targetTokenized = punkt.sentences(
+    conf.punktTargetTrainingData,
+    targetParagraphs,
+  );
 
   const sourceSplitParagraphs: string[][] = [];
   for await (const splitParagraph of sourceTokenized) {
@@ -50,19 +44,13 @@ export async function renderAlignment(
     throw `assumed splitParagraphs ${targetSplitParagraphs.length} and separated ${targetParagraphs.length} would be equal`;
   }
 
-  const dictionaryName = `${targetLang}-${sourceLang}`;
-  const dictionaryPath = resourcePath(`hunalign/dictionaries/${dictionaryName}.dic`);
-  const dictionary = await Deno.readFile(dictionaryPath);
-  const hunalign = await Hunalign.create(hunalignWasm);
+  const hunalign = await Hunalign.create(conf.hunalignWasm);
   const aligned: [string[], string[]][] = hunalign.align(
-    dictionary,
+    conf.hunalignDictData,
     sourceSplitParagraphs,
     targetSplitParagraphs,
   );
 
-  // Paragraph alignment. Sentences require more data.
-  // TODO: Refine this algo... Sometimes two paragraphs on the source correspond to only one on the target.
-  // The important thing should be which <p> elements align
   const alignedParagraphs: [string[], string[]][] = [];
   let sourcePos = 0;
   let targetPos = 0;
@@ -99,21 +87,8 @@ export async function renderAlignment(
   return render(alignedParagraphs);
 }
 
-function getTrainingData(l: Language): Promise<Uint8Array> {
-  const languageData: Map<Language, string> = new Map([
-    ["en", "english"],
-    ["fr", "french"],
-    ["it", "italian"],
-    ["es", "spanish"],
-  ]);
-
-  const languageName = languageData.get(l)!;
-  const languageFileName = `${languageName}.json`;
-  const languagePath = fromFileUrl(import.meta.resolve(
-    `../resources/punkt/data/${languageFileName}`,
-  ));
-
-  return Deno.readFile(languagePath);
+export function paragraphs(plaintext: string): string[] {
+  return plaintext.trim().split("\n");
 }
 
 function countElements<T>(ts: T[], t: T): number {

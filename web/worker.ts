@@ -1,6 +1,6 @@
 import { Language, LanguageTaggedText } from "../lib/types.js";
 import { Punkt } from "../lib/punkt.js";
-import { paragraphs } from "../lib/textreader.js";
+import { paragraphs } from "../lib/align.ts";
 
 self.onmessage = async (
   e: MessageEvent<[LanguageTaggedText, LanguageTaggedText]>,
