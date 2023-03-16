@@ -12,7 +12,7 @@ const PUNKT_WASM_PATH = fromFileUrl(
 
 const HUNALIGN_WASM_PATH = fromFileUrl(
   import.meta.resolve("../resources/hunalign/web/hunalign.wasm"),
-)
+);
 
 export async function renderAlignment(
   [sourceLang, sourceText]: LanguageTaggedText,
@@ -51,7 +51,9 @@ export async function renderAlignment(
   }
 
   // TODO: awful
-  const dictionaryPath = resourcePath("hunalign/dictionaries/italian-english.dic");
+  const dictionaryPath = resourcePath(
+    "hunalign/dictionaries/italian-english.dic",
+  );
   const dictionary = await Deno.readFile(dictionaryPath);
   const hunalign = await Hunalign.create(hunalignWasm);
   const aligned: [string[], string[]][] = hunalign.align(

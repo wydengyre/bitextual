@@ -12,14 +12,22 @@ export class Hunalign {
     this.#hunalign = hunalign;
   }
 
-  private sentences(dictionary: Uint8Array, source: string, target: string): [number, number][] {
+  private sentences(
+    dictionary: Uint8Array,
+    source: string,
+    target: string,
+  ): [number, number][] {
     const te = new TextEncoder();
     const sourceBinary = te.encode(source);
     const targetBinary = te.encode(target);
     return this.#hunalign.run(dictionary, sourceBinary, targetBinary);
   }
 
-  align(dictionary: Uint8Array, sourceSplitParagraphs: string[][], targetSplitParagraphs: string[][]): [string[], string[]][] {
+  align(
+    dictionary: Uint8Array,
+    sourceSplitParagraphs: string[][],
+    targetSplitParagraphs: string[][],
+  ): [string[], string[]][] {
     const sourceText = textifySplitParagraphs(sourceSplitParagraphs);
     const targetText = textifySplitParagraphs(targetSplitParagraphs);
 
