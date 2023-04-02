@@ -1,8 +1,0 @@
-{
-  "extends": "@tsconfig/recommended/tsconfig.json",
-  "files": ["main.ts", "worker.ts"],
-  "compilerOptions": {
-    "noEmit": true,
-    "target": "esnext"
-  }
-}
