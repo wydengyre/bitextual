@@ -2,7 +2,7 @@ import { readFixtureString } from "../test/util.ts";
 import { assertStrictEquals } from "std/testing/asserts.ts";
 import { paragraphs } from "./align.ts";
 
-Deno.test("paragrapsh function separates paragraphs", async () => {
+Deno.test("paragraphs function separates paragraphs", async () => {
   const text = await readFixtureString("chapitre.txt");
   const separated = paragraphs(text);
   assertStrictEquals(separated.length, 205);
