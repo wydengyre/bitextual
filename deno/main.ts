@@ -14,7 +14,7 @@ const HUNALIGN_WASM_PATH = fromFileUrl(
 );
 
 async function main() {
-  const out = go(Deno.args);
+  const out = await go(Deno.args);
   console.log(out);
 }
 
