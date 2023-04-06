@@ -10,11 +10,11 @@ Deno.test("run main", async () => {
   const bovaryEnglish = fromFileUrl(
     import.meta.resolve("../test/bovary.english.edited.txt"),
   );
-  const result = await go([
+  const _result = await go([
     sourceLang,
     targetLang,
     bovaryFrench,
     bovaryEnglish,
   ]);
-  console.log(result);
+  // TODO: assert result
 });
