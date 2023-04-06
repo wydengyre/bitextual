@@ -11,7 +11,7 @@ difficulty of the text.
 The tool is written in TypeScript and currently supports [Deno](https://deno.land) as its runtime.
 The only dependency is Deno.
 
-For an example of output, see the included French-English copy of [Madame Bovary](test/bovary.aligned.html).
+For an example of output, see the included French-English copy of [Madame Bovary](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/test/bovary.aligned.html).
 
 That file is generated with the following command:
 
