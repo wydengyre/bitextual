@@ -11,7 +11,7 @@ async function main() {
 
 function processLineBreaks(text: string): string {
   const normalizedText = text.replace(/\r\n/g, "\n");
-  const collapsedParagraphs = normalizedText.replace(/(?<!\n)\n(?!\n)/g, "");
+  const collapsedParagraphs = normalizedText.replace(/(?<!\n)\n(?!\n)/g, " ");
   return collapsedParagraphs.replace(/\n+/g, "\n");
 }
 
