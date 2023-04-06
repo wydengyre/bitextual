@@ -1,5 +1,7 @@
 import { fromFileUrl } from "std/path/mod.ts";
 import { go } from "./main.ts";
+import { readFixtureString } from "../test/util.ts";
+import { assertStrictEquals } from "std/testing/asserts.ts";
 
 Deno.test("run main", async () => {
   const sourceLang = "fr";
@@ -10,11 +12,12 @@ Deno.test("run main", async () => {
   const bovaryEnglish = fromFileUrl(
     import.meta.resolve("../test/bovary.english.edited.txt"),
   );
-  const _result = await go([
+  const result = await go([
     sourceLang,
     targetLang,
     bovaryFrench,
     bovaryEnglish,
   ]);
-  // TODO: assert result
+  const expected = await readFixtureString("bovary.aligned.html");
+  assertStrictEquals(result, expected.trim());
 });
