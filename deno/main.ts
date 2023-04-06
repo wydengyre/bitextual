@@ -14,8 +14,13 @@ const HUNALIGN_WASM_PATH = fromFileUrl(
 );
 
 async function main() {
-  const [sourceLang, targetLang, sourceTextPath, targetTextPath] = Deno.args;
+  const out = await go(Deno.args);
+  console.log(out);
+}
 
+export async function go(
+  [sourceLang, targetLang, sourceTextPath, targetTextPath]: string[],
+): Promise<string> {
   if (!isLanguage(sourceLang)) {
     console.error(`Invalid source language: ${sourceLang}`);
     console.error(USAGE);
@@ -57,8 +62,7 @@ async function main() {
     hunalignDictData,
   };
 
-  const renderedAlignedText = align(sourceText, targetText, alignConfig);
-  console.log(renderedAlignedText);
+  return align(sourceText, targetText, alignConfig);
 }
 
 function getTrainingData(l: Language): Promise<Uint8Array> {
