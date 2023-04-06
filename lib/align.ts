@@ -1,7 +1,7 @@
 import { Punkt } from "./punkt.ts";
 import { Hunalign, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
-import {tokenizeWords} from "./tokenize-words.ts";
+import { tokenizeWords } from "./tokenize-words.ts";
 
 export type AlignmentConfig = {
   punktWasm: Uint8Array;
@@ -29,9 +29,11 @@ export async function align(
     targetParagraphs,
   );
   const sourceTokenized = sourcePunktTokenized.map((p) =>
-    p.map((s) => tokenizeWords(s)));
+    p.map((s) => tokenizeWords(s))
+  );
   const targetTokenized = targetPunktTokenized.map((p) =>
-    p.map((s) => tokenizeWords(s)));
+    p.map((s) => tokenizeWords(s))
+  );
 
   const sourceSplitParagraphs: string[][] = [];
   for await (const splitParagraph of sourceTokenized) {
