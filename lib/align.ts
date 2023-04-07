@@ -4,6 +4,8 @@ import { render } from "./render.ts";
 import { tokenizeWords } from "./tokenize-words.ts";
 
 export type AlignmentConfig = {
+  sourceLanguage: string;
+  targetLanguage: string;
   punktWasm: Uint8Array;
   punktSourceTrainingData: Uint8Array;
   punktTargetTrainingData: Uint8Array;
@@ -91,7 +93,11 @@ export async function align(
     alignedParagraphs.push([sourceParagraphsToPush, targetParagraphsToPush]);
   }
 
-  return render(alignedParagraphs);
+  return render(
+    conf.sourceLanguage,
+    conf.targetLanguage,
+    alignedParagraphs,
+  );
 }
 
 export function paragraphs(plaintext: string): string[] {

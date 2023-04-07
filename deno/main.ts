@@ -1,4 +1,4 @@
-import { isLanguage, Language } from "../lib/types.ts";
+import { isLanguage, Language, languageCodes } from "../lib/types.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 import { align, AlignmentConfig } from "../lib/align.ts";
 
@@ -55,6 +55,8 @@ export async function go(
   )));
 
   const alignConfig: AlignmentConfig = {
+    sourceLanguage: languageCodes.get(sourceLang)!,
+    targetLanguage: languageCodes.get(targetLang)!,
     punktWasm,
     punktSourceTrainingData,
     punktTargetTrainingData,
@@ -66,14 +68,7 @@ export async function go(
 }
 
 function getTrainingData(l: Language): Promise<Uint8Array> {
-  const languageData: Map<Language, string> = new Map([
-    ["en", "english"],
-    ["fr", "french"],
-    ["it", "italian"],
-    ["es", "spanish"],
-  ]);
-
-  const languageName = languageData.get(l)!;
+  const languageName = languageCodes.get(l)!;
   const languageFileName = `${languageName}.json`;
   const languagePath = fromFileUrl(import.meta.resolve(
     `../resources/punkt/data/${languageFileName}`,

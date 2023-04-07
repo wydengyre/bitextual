@@ -1,6 +1,10 @@
 const TABLE_MARKER = "<!-- TABLE -->";
 
-export function render(aligned: [string[], string[]][]): string {
+export function render(
+  sourceLanguage: string,
+  targetLanguage: string,
+  aligned: [string[], string[]][],
+): string {
   const tableCell = (paras: string[]): string =>
     `<td>${paras.join("<p>")}</td>`;
 
@@ -8,12 +12,10 @@ export function render(aligned: [string[], string[]][]): string {
     .map(([leftParas, rightParas]) =>
       `<tr>${tableCell(leftParas)}${tableCell(rightParas)}</tr>`
     ).join("");
-  const table = `<table>${tableBody}</table>`;
-  return addTable(table);
-}
 
-function addTable(tableHtml: string): string {
-  return TEMPLATE.replace(TABLE_MARKER, tableHtml);
+  const table =
+    `<table><thead><tr><th colspan="2">${sourceLanguage} to ${targetLanguage}</th></tr></thead>${tableBody}</table>`;
+  return TEMPLATE.replace(TABLE_MARKER, table);
 }
 
 const TEMPLATE = `<!doctype html>
@@ -27,6 +29,10 @@ const TEMPLATE = `<!doctype html>
     body {
       font-size: 23px;
       line-height: 33px;
+    }
+    th {
+      text-align: left;
+      padding: 1em;
     }
     td {
       vertical-align: top;
