@@ -18,9 +18,11 @@ export async function align(
   targetText: string,
   conf: AlignmentConfig,
 ): Promise<string> {
+  // consider each line of text a paragraph
   const sourceParagraphs: string[] = paragraphs(sourceText);
   const targetParagraphs: string[] = paragraphs(targetText);
 
+  // use punkt to split those paragraphs into sentences
   const punkt = await Punkt.create(conf.punktWasm);
   const sourcePunktTokenized = punkt.sentences(
     conf.punktSourceTrainingData,
@@ -30,6 +32,9 @@ export async function align(
     conf.punktTargetTrainingData,
     targetParagraphs,
   );
+
+  // Use a word tokenizer to split those sentences into words, joined by spaces.
+  // This gives a higher Hunalign score, as it will match more words.
   const sourceTokenized = sourcePunktTokenized.map((p) =>
     p.map((s) => tokenizeWords(s))
   );
@@ -44,6 +49,7 @@ export async function align(
     throw `assumed tokenized paragraphs ${targetTokenized.length} and separated ${targetParagraphs.length} would be equal`;
   }
 
+  // run hunalign on the tokenized sentences
   const hunalign = await Hunalign.create(conf.hunalignWasm);
   const aligned: [string[], string[]][] = hunalign.align(
     conf.hunalignDictData,
@@ -51,6 +57,7 @@ export async function align(
     targetTokenized,
   );
 
+  // use the aligned sentences to create alignments at the paragraph level
   const alignedParagraphs: [string[], string[]][] = [];
   let sourcePos = 0;
   let targetPos = 0;
@@ -77,7 +84,7 @@ export async function align(
     }
   }
 
-  // // this is probably the case, since we won't end with a <p>
+  // this is probably the case, since we won't end with a <p>
   if (sourcePos < sourceParagraphs.length) {
     const sourceParagraphsToPush = sourceParagraphs.slice(sourcePos);
     const targetParagraphsToPush = targetParagraphs.slice(targetPos);
