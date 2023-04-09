@@ -37,27 +37,18 @@ export async function align(
     p.map((s) => tokenizeWords(s))
   );
 
-  const sourceSplitParagraphs: string[][] = [];
-  for await (const splitParagraph of sourceTokenized) {
-    sourceSplitParagraphs.push(splitParagraph);
+  if (sourceTokenized.length !== sourceParagraphs.length) {
+    throw `assumed tokenized paragraphs ${sourceTokenized.length} and separated ${sourceParagraphs.length} would be equal`;
   }
-  const targetSplitParagraphs: string[][] = [];
-  for await (const splitParagraph of targetTokenized) {
-    targetSplitParagraphs.push(splitParagraph);
-  }
-
-  if (sourceSplitParagraphs.length !== sourceParagraphs.length) {
-    throw `assumed splitParagraphs ${sourceSplitParagraphs.length} and separated ${sourceParagraphs.length} would be equal`;
-  }
-  if (targetSplitParagraphs.length !== targetParagraphs.length) {
-    throw `assumed splitParagraphs ${targetSplitParagraphs.length} and separated ${targetParagraphs.length} would be equal`;
+  if (targetTokenized.length !== targetParagraphs.length) {
+    throw `assumed tokenized paragraphs ${targetTokenized.length} and separated ${targetParagraphs.length} would be equal`;
   }
 
   const hunalign = await Hunalign.create(conf.hunalignWasm);
   const aligned: [string[], string[]][] = hunalign.align(
     conf.hunalignDictData,
-    sourceSplitParagraphs,
-    targetSplitParagraphs,
+    sourceTokenized,
+    targetTokenized,
   );
 
   const alignedParagraphs: [string[], string[]][] = [];
