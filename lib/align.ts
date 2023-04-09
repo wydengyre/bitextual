@@ -91,10 +91,82 @@ export async function align(
     alignedParagraphs.push([sourceParagraphsToPush, targetParagraphsToPush]);
   }
 
+  // retrieve the alignments of the original sentences, which punkt gives us,
+  // using the alignments of the tokenized sentences, which hunalign gives us
+  const notParagraphMarker = (str: string): boolean => str !== PARAGRAPH_MARKER;
+  const filterOutParagraphMarker = (arr: string[]): string[] =>
+    arr.filter(notParagraphMarker);
+  const alignedWithoutParagraphs = aligned.map((
+    [left, right],
+  ) => [filterOutParagraphMarker(left), filterOutParagraphMarker(right)]);
+  const sentenceLeftCursor = [0, 0];
+  const sentenceRightCursor = [0, 0];
+  const alignedSentences: [string[], string[]][] = alignedWithoutParagraphs.map(
+    ([alignedLeft, alignedRight]) => {
+      const newLefts: string[] = [];
+      leftAlignedLoop:
+      for (let i = 0; i < alignedLeft.length; i++) {
+        let punktLeft = sourcePunktTokenized[sentenceLeftCursor[0]]
+          ?.[sentenceLeftCursor[1]];
+        while (punktLeft === undefined) {
+          sentenceLeftCursor[0]++;
+          if (sentenceLeftCursor[0] >= sourcePunktTokenized.length) {
+            break leftAlignedLoop;
+          }
+          sentenceLeftCursor[1] = 0;
+          punktLeft = sourcePunktTokenized[sentenceLeftCursor[0]]
+            ?.[sentenceLeftCursor[1]];
+        }
+        newLefts.push(punktLeft);
+        sentenceLeftCursor[1]++;
+      }
+
+      const newRights: string[] = [];
+      rightAlignedLoop:
+      for (let i = 0; i < alignedRight.length; i++) {
+        let punktRight = targetPunktTokenized[sentenceRightCursor[0]]
+          ?.[sentenceRightCursor[1]];
+        while (punktRight === undefined) {
+          sentenceRightCursor[0]++;
+          if (sentenceRightCursor[0] >= targetPunktTokenized.length) {
+            break rightAlignedLoop;
+          }
+          sentenceRightCursor[1] = 0;
+          punktRight = targetPunktTokenized[sentenceRightCursor[0]]
+            ?.[sentenceRightCursor[1]];
+        }
+        newRights.push(punktRight);
+        sentenceRightCursor[1]++;
+      }
+      const ret: [string[], string[]] = [newLefts, newRights];
+      return ret;
+    },
+  ).filter(([left, right]) => left.length > 0 && right.length > 0);
+
+  let leftIndex = 0;
+  let rightIndex = 0;
+  for (const [alignedLeft, alignedRight] of alignedSentences) {
+    for (const l of alignedLeft) {
+      const sourceIdx = sourceText.indexOf(l, leftIndex);
+      if (sourceIdx < 0) {
+        throw `Could not find left string: ${l}`;
+      }
+      leftIndex = sourceIdx + l.length;
+    }
+    for (const r of alignedRight) {
+      const targetIdx = targetText.indexOf(r, rightIndex);
+      if (targetIdx < 0) {
+        throw `Could not find right string: ${r}`;
+      }
+      rightIndex = targetIdx + r.length;
+    }
+  }
+
   return render(
     conf.sourceLanguage,
     conf.targetLanguage,
     alignedParagraphs,
+    alignedSentences,
   );
 }
 

@@ -36,8 +36,26 @@ export class Hunalign {
     const sourceLines = sourceText.split("\n");
     const targetLines = targetText.split("\n");
     const matches: [string[], string[]][] = [];
+    let oldLPrime = 0;
+    let oldRPrime = 0;
     for (let i = 0, l = 0, r = 0; i < ladder.length; i++) {
       const [lPrime, rPrime] = ladder[i];
+
+      if (lPrime === oldLPrime && rPrime !== oldRPrime) {
+        const [_, previousRight] = matches[matches.length - 1];
+        for (; r <= rPrime; r++) {
+          previousRight.push(targetLines[r]);
+        }
+        continue;
+      }
+
+      if (rPrime === oldRPrime && lPrime !== oldLPrime) {
+        const [previousLeft] = matches[matches.length - 1];
+        for (; l <= lPrime; l++) {
+          previousLeft.push(sourceLines[l]);
+        }
+        continue;
+      }
 
       const leftLines: string[] = [];
       for (; l <= lPrime; l++) {
@@ -50,6 +68,8 @@ export class Hunalign {
       }
 
       matches.push([leftLines, rightLines]);
+      oldLPrime = lPrime;
+      oldRPrime = rPrime;
     }
     return matches;
   }
