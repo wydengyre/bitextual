@@ -13,6 +13,10 @@ The only dependency is Deno.
 
 For an example of output, see the included French-English copy of [Madame Bovary](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/test/bovary.aligned.html).
 
+Alignment quality can vary significantly depending on the nature of the translation. Broadly speaking,
+more liberal translations, especially those where the translator has extensively modified sentence
+and paragraph breaks, will align more poorly.
+
 That file is generated with the following command:
 
 ```sh
