@@ -11,11 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # master
       - uses: denoland/setup-deno@9db7f66e8e16b5699a514448ce994936c63f0d54 # v1.1.1
+        with:
+          deno-version: 1.32.4
       - uses: extractions/setup-just@69d82fb0233557aec017ef13706851d0694e0f1d # v1.6.0
         with:
           just-version: '1.13.0'
       - name: Update dependencies
         run: just update-deps
+      - name: Remove lockfile
+        run: rm -f deno.lock
+      - name: Run full ci (will recreate lockfile)
+        run: just ci
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5b4a9f6a9e2af26e5f02351490b90d01eb8ec1e5 # v5.0.0
         with:
