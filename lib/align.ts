@@ -143,25 +143,6 @@ export async function align(
     },
   ).filter(([left, right]) => left.length > 0 && right.length > 0);
 
-  let leftIndex = 0;
-  let rightIndex = 0;
-  for (const [alignedLeft, alignedRight] of alignedSentences) {
-    for (const l of alignedLeft) {
-      const sourceIdx = sourceText.indexOf(l, leftIndex);
-      if (sourceIdx < 0) {
-        throw `Could not find left string: ${l}`;
-      }
-      leftIndex = sourceIdx + l.length;
-    }
-    for (const r of alignedRight) {
-      const targetIdx = targetText.indexOf(r, rightIndex);
-      if (targetIdx < 0) {
-        throw `Could not find right string: ${r}`;
-      }
-      rightIndex = targetIdx + r.length;
-    }
-  }
-
   return render(
     conf.sourceLanguage,
     conf.targetLanguage,
