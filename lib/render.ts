@@ -9,107 +9,17 @@ export function render(
   alignedParagraphs: [string[], string[]][],
   alignedSentences: [string[], string[]][],
 ): string {
-  const sentenceIdxDigits = Math.ceil(Math.log10(alignedSentences.length));
-  const maxColors = 4;
+  const leftParagraphs = alignedParagraphs.map(([leftParas]) => leftParas);
+  const rightParagraphs = alignedParagraphs.map(([, rightParas]) => rightParas);
+  const leftSentences = alignedSentences.map(([leftSentences]) =>
+    leftSentences
+  );
+  const rightSentences = alignedSentences.map(([, rightSentences]) =>
+    rightSentences
+  );
 
-  // label each sentence with an id on the left side
-  let color = 0;
-  let sentenceIdx = 0;
-  let alignedParaIdx = 0;
-  let innerParaIdx = 0;
-  let paraCursor = 0;
-  for (const [leftSentences] of alignedSentences) {
-    for (const leftSentence of leftSentences) {
-      // stringify sentenceIdx and pad with 0s to sentenceIdxDigits
-      const sentenceIdxStr = sentenceIdx.toString().padStart(
-        sentenceIdxDigits,
-        "0",
-      );
-
-      const replacementSentence =
-        `<span class="sentence s-${sentenceIdxStr} color-${color}">${leftSentence}</span>`;
-
-      // replace paraToCheck text starting at index paraCursor with replacementSentence
-      let paraToCheck = alignedParagraphs[alignedParaIdx][0][innerParaIdx];
-      let sentenceStart = paraToCheck.indexOf(leftSentence, paraCursor);
-
-      // we didn't find the sentence in this paragraph, so we need to move to the next one
-      while (sentenceStart < 0) {
-        innerParaIdx++;
-        paraCursor = 0;
-        if (innerParaIdx >= alignedParagraphs[alignedParaIdx][0].length) {
-          // we've reached the end of the paragraph, so we need to move to the next one
-          alignedParaIdx++;
-          innerParaIdx = 0;
-        }
-        paraToCheck = alignedParagraphs[alignedParaIdx][0][innerParaIdx];
-        sentenceStart = paraToCheck.indexOf(leftSentence, paraCursor);
-      }
-
-      const sentenceEnd = sentenceStart + leftSentence.length;
-      const before = paraToCheck.substring(0, sentenceStart);
-      const after = paraToCheck.substring(sentenceEnd);
-
-      alignedParagraphs[alignedParaIdx][0][innerParaIdx] = before +
-        replacementSentence + after;
-      paraCursor = sentenceEnd + replacementSentence.length -
-        leftSentence.length;
-    }
-    sentenceIdx++;
-    color++;
-    if (color === maxColors) {
-      color = 0;
-    }
-  }
-
-  // label each sentence with an id on the right side
-  sentenceIdx = 0;
-  alignedParaIdx = 0;
-  innerParaIdx = 0;
-  paraCursor = 0;
-  color = 0;
-  for (const [_, rightSentences] of alignedSentences) {
-    for (const rightSentence of rightSentences) {
-      // stringify sentenceIdx and pad with 0s to sentenceIdxDigits
-      const sentenceIdxStr = sentenceIdx.toString().padStart(
-        sentenceIdxDigits,
-        "0",
-      );
-      const replacementSentence =
-        `<span class="sentence s-${sentenceIdxStr} color-${color}">${rightSentence}</span>`;
-
-      // replace paraToCheck text starting at index paraCursor with replacementSentence
-      let paraToCheck = alignedParagraphs[alignedParaIdx][1][innerParaIdx];
-      let sentenceStart = paraToCheck.indexOf(rightSentence, paraCursor);
-
-      // we didn't find the sentence in this paragraph, so we need to move to the next one
-      while (sentenceStart < 0) {
-        innerParaIdx++;
-        paraCursor = 0;
-        if (innerParaIdx >= alignedParagraphs[alignedParaIdx][1].length) {
-          // we've reached the end of the paragraph, so we need to move to the next one
-          alignedParaIdx++;
-          innerParaIdx = 0;
-        }
-        paraToCheck = alignedParagraphs[alignedParaIdx][1][innerParaIdx];
-        sentenceStart = paraToCheck.indexOf(rightSentence, paraCursor);
-      }
-
-      const sentenceEnd = sentenceStart + rightSentence.length;
-      const before = paraToCheck.substring(0, sentenceStart);
-      const after = paraToCheck.substring(sentenceEnd);
-
-      alignedParagraphs[alignedParaIdx][1][innerParaIdx] = before +
-        replacementSentence + after;
-      paraCursor = sentenceEnd + replacementSentence.length -
-        rightSentence.length;
-    }
-    sentenceIdx++;
-    color++;
-    if (color === maxColors) {
-      color = 0;
-    }
-  }
+  labelSentences(leftSentences, leftParagraphs);
+  labelSentences(rightSentences, rightParagraphs);
 
   const tableCell = (paras: string[]): string =>
     `<td>${paras.join("<p>")}</td>`;
@@ -129,6 +39,64 @@ export function render(
     <tbody>${tableBody}</tbody>
 </table>`;
   return TEMPLATE.replace(TABLE_MARKER, table);
+}
+
+function labelSentences(
+  alignedSentences: string[][],
+  alignedParagraphs: string[][],
+) {
+  const sentenceIdxDigits = Math.ceil(Math.log10(alignedSentences.length));
+  const maxColors = 4;
+
+  let sentenceIdx = 0;
+  let alignedParaIdx = 0;
+  let innerParaIdx = 0;
+  let paraCursor = 0;
+  let color = 0;
+
+  // label each sentence with an id
+  for (const innerSentences of alignedSentences) {
+    for (const innerSentence of innerSentences) {
+      // stringify sentenceIdx and pad with 0s to sentenceIdxDigits
+      const sentenceIdxStr = sentenceIdx.toString().padStart(
+        sentenceIdxDigits,
+        "0",
+      );
+      const replacementSentence =
+        `<span class="sentence s-${sentenceIdxStr} color-${color}">${innerSentence}</span>`;
+
+      // replace paraToCheck text starting at index paraCursor with replacementSentence
+      let paraToCheck = alignedParagraphs[alignedParaIdx][innerParaIdx];
+      let sentenceStart = paraToCheck.indexOf(innerSentence, paraCursor);
+
+      // we didn't find the sentence in this paragraph, so we need to move to the next one
+      while (sentenceStart < 0) {
+        innerParaIdx++;
+        paraCursor = 0;
+        if (innerParaIdx >= alignedParagraphs[alignedParaIdx].length) {
+          // we've reached the end of the paragraph, so we need to move to the next one
+          alignedParaIdx++;
+          innerParaIdx = 0;
+        }
+        paraToCheck = alignedParagraphs[alignedParaIdx][innerParaIdx];
+        sentenceStart = paraToCheck.indexOf(innerSentence, paraCursor);
+      }
+
+      const sentenceEnd = sentenceStart + innerSentence.length;
+      const before = paraToCheck.substring(0, sentenceStart);
+      const after = paraToCheck.substring(sentenceEnd);
+
+      alignedParagraphs[alignedParaIdx][innerParaIdx] = before +
+        replacementSentence + after;
+      paraCursor = sentenceEnd + replacementSentence.length -
+        innerSentence.length;
+    }
+    sentenceIdx++;
+    color++;
+    if (color === maxColors) {
+      color = 0;
+    }
+  }
 }
 
 const TEMPLATE = `<!doctype html>
