@@ -26,5 +26,8 @@ deno run --allow-read deno/main.ts fr en test/bovary.french.edited.txt test/bova
 The command says
 "run the `main.ts` script on a French source file and an English target file, which have the following paths."
 
+An example of a somewhat more liberal translation leading to poor alignment quality is available
+in the `test/marianela.aligned.html` file.
+
 This project relies on WebAssembly forks of [rust-punkt](https://github.com/wydengyre/rust-punkt)
 for tokenization and [hunalign](https://github.com/wydengyre/hunalign) for text alignment.
