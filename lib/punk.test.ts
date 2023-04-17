@@ -10,15 +10,18 @@ const PUNKT_WASM_PATH = fromFileUrl(
 const TRAINING_DATA_PATH = fromFileUrl(
   import.meta.resolve("../resources/punkt/data"),
 );
+const ENGLISH_TRAINING_DATA_PATH = path.join(
+  TRAINING_DATA_PATH,
+  "english.json",
+);
+const FRENCH_TRAINING_DATA_PATH = path.join(TRAINING_DATA_PATH, "french.json");
 
 Deno.test("tokenizes english sentences", async () => {
   // const expectedSentencesStr = await readFixtureString("chapter.sentences.txt");
   // const expectedSentences = expectedSentencesStr.split("\n");
 
   const englishPromise = readFixtureString("bovary.english.edited.txt");
-  const trainingDataPromise = Deno.readFile(
-    path.join(TRAINING_DATA_PATH, "english.json"),
-  );
+  const trainingDataPromise = Deno.readFile(ENGLISH_TRAINING_DATA_PATH);
   const punktWasmPromise = Deno.readFile(PUNKT_WASM_PATH);
 
   const [chapter, trainingData, punktWasm] = await Promise.all([
@@ -39,9 +42,7 @@ Deno.test("tokenizes french sentences", async () => {
   // const expectedSentences = expectedSentencesStr.split("\n");
   //
   const frenchPromise = readFixtureString("bovary.french.edited.txt");
-  const trainingDataPromise = Deno.readFile(
-    path.join(TRAINING_DATA_PATH, "french.json"),
-  );
+  const trainingDataPromise = Deno.readFile(FRENCH_TRAINING_DATA_PATH);
   const punktWasmPromise = Deno.readFile(PUNKT_WASM_PATH);
 
   const [chapter, trainingData, punktWasm] = await Promise.all([
