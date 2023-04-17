@@ -1,4 +1,4 @@
-import { readAll } from "https://deno.land/std@0.182.0/streams/mod.ts";
+import { readAll } from "std/streams/mod.ts";
 
 // working with Deno 1.32.2
 
