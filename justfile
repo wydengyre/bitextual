@@ -22,3 +22,6 @@ lint:
 
 test:
     deno test --allow-read=./ --allow-run=./resources/punkt deno lib
+
+write-test-alignments:
+    deno run --allow-read=./ --allow-write=./ ./test/write-alignments.ts
