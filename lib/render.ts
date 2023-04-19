@@ -141,6 +141,15 @@ const TEMPLATE = `<!doctype html>
         border: 1px dashed #222;
     }
     
+    @media print{
+        thead {
+            display: none;
+        }
+        body {
+          font-size: 14px;
+          line-height: 18px;
+        }
+    }
   </style>
   </head>
 
