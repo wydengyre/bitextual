@@ -137,6 +137,10 @@ const TEMPLATE = `<!doctype html>
         background-color: rgb(178, 205, 251);
     }
     
+    .selected-sentence {
+        border: 1px dashed #222;
+    }
+    
   </style>
   </head>
 
@@ -177,8 +181,29 @@ const TEMPLATE = `<!doctype html>
       }
   }
   
+  const SELECTED_SENTENCE_CLASS = "selected-sentence";
+  let selectedSentences = null;
+  function surroundMatchingSentences(event) {
+      if (selectedSentences !== null) {
+        selectedSentences.forEach((sentence) => {
+            sentence.classList.remove(SELECTED_SENTENCE_CLASS);
+        })     
+      }
+      
+      const cl = Array(...event.target.classList);
+      const sentenceClass = cl.find((c) => c.startsWith("s-"));
+      const sentenceSelector = "." + sentenceClass;
+      selectedSentences = document.querySelectorAll(sentenceSelector);
+      selectedSentences.forEach((sentence) => {
+          sentence.classList.add(SELECTED_SENTENCE_CLASS);
+      });
+  }
+  
   document.getElementById("swap-columns").addEventListener("click", swapLangs);
   document.getElementById("highlight-sentences").addEventListener("click", highlightSentences);
+  document.querySelectorAll(".sentence").forEach((span) => {
+      span.addEventListener("mouseover", surroundMatchingSentences);
+  });
   </script>
   </body>
 </html>`;
