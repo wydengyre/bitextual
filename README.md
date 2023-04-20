@@ -32,3 +32,10 @@ translation.
 
 This project relies on WebAssembly forks of [rust-punkt](https://github.com/wydengyre/rust-punkt)
 for tokenization and [hunalign](https://github.com/wydengyre/hunalign) for text alignment.
+
+## Future direction
+
+The [bertalign](https://github.com/wydengyre/bertalign) algorithm produces superior alignments
+at the expense of requiring download of a large model file. The project relies on a Python-based
+toolchain. Converting this to TypeScript would result in significantly improved alignments,
+especially in the case of liberally translated texts.
