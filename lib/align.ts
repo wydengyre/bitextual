@@ -1,4 +1,5 @@
 import { Punkt } from "./punkt.ts";
+import * as HunalignLib from "../resources/hunalign/web/hunalign.d.ts";
 import { Hunalign, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
 import { tokenizeWords } from "./tokenize-words.ts";
@@ -9,7 +10,7 @@ export type AlignmentConfig = {
   punktWasm: Uint8Array;
   punktSourceTrainingData: Uint8Array;
   punktTargetTrainingData: Uint8Array;
-  hunalignWasm: Uint8Array;
+  hunalignLib: HunalignLib.Hunalign;
   hunalignDictData: Uint8Array;
 };
 
@@ -50,7 +51,7 @@ export async function align(
   }
 
   // run hunalign on the tokenized sentences
-  const hunalign = await Hunalign.create(conf.hunalignWasm);
+  const hunalign = await Hunalign.create(conf.hunalignLib);
   const aligned: [string[], string[]][] = hunalign.align(
     conf.hunalignDictData,
     sourceTokenized,

@@ -1,3 +1,4 @@
+import * as HunalignLib from "../resources/hunalign/web/hunalign.js";
 import { isLanguage, Language, languageCodes } from "../lib/types.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 import { align, AlignmentConfig } from "../lib/align.ts";
@@ -39,6 +40,7 @@ export async function go(
     Deno.readFile(PUNKT_WASM_PATH),
     Deno.readFile(HUNALIGN_WASM_PATH),
   ]);
+  const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
 
   const [sourceText, targetText] = await Promise.all([
     Deno.readTextFile(sourceTextPath),
@@ -60,7 +62,7 @@ export async function go(
     punktWasm,
     punktSourceTrainingData,
     punktTargetTrainingData,
-    hunalignWasm,
+    hunalignLib,
     hunalignDictData,
   };
 

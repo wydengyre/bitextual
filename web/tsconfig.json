@@ -1,0 +1,10 @@
+{
+  "files": ["main.ts"],
+  "compilerOptions": {
+    "target": "es2017",
+    "strict": true,
+    "noEmit": true
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended"
+}
