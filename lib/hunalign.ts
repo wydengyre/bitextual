@@ -16,7 +16,7 @@ export class Hunalign {
     dictionary: Uint8Array,
     source: string,
     target: string,
-  ): [number, number][] {
+  ): [number, number, number][] {
     const te = new TextEncoder();
     const sourceBinary = te.encode(source);
     const targetBinary = te.encode(target);
