@@ -165,7 +165,9 @@ const TEMPLATE = `<!doctype html>
   <body>
   ${TABLE_MARKER}
   <script>
-  function swapLangs() {
+  function swapLangs(event) {
+    event.preventDefault();
+    
     // Swap the source and target language names
     const sourceLanguage = document.getElementById("source-language");
     const targetLanguage = document.getElementById("target-language");
