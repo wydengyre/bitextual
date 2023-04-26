@@ -187,7 +187,8 @@ const TEMPLATE = `<!doctype html>
     }
   }
   
-  function highlightSentences() {
+  function highlightSentences(event) {
+      event.preventDefault();
       const table = document.getElementById("bilingual-content");
       table.classList.toggle("highlight-sentences");
       
