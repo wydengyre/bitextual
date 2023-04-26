@@ -4,7 +4,7 @@ import { align, AlignmentConfig } from "../lib/align.ts";
 
 const USAGE = "[sourcelang] [targetlang] [sourcetext] [targettext]";
 const EXAMPLE =
-  "deno run --allow-read=. deno/main.ts en it test/goosebumps.chapter.txt test/goosebumps.capitolo.txt";
+  "deno run --allow-read deno/main.ts fr en test/bovary.french.edited.txt test/bovary.english.edited.txt > test/bovary.aligned.html";
 
 const PUNKT_WASM_PATH = fromFileUrl(
   import.meta.resolve("../resources/punkt/punkt_bg.wasm"),
