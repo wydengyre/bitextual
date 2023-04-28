@@ -2,21 +2,15 @@ import { isLanguage, Language } from "../lib/types.js";
 
 type LanguageTaggedText = [Language, string];
 
-performance.mark("worker_load_start");
 const worker = new Worker("worker.js");
-performance.mark("worker_load_end");
-const workerLoad = performance.measure(
-  "worker_load",
-  "worker_load_start",
-  "worker_load_end",
-);
-console.debug(workerLoad);
-
-worker.onmessage = (e: MessageEvent<[string[], string[]]>) => {
-  console.log(e.data);
+worker.onmessage = (e: MessageEvent<string>) => {
+  // generate a page containing the HTML in e.data and navigate to it
+  const blob = new Blob([e.data], { type: "text/html" });
+  const url = URL.createObjectURL(blob);
+  window.location.href = url;
 };
 
-// TODO: errors
+// TODO: error handling
 
 const $unloaded = Symbol("unloaded");
 type Unloaded = typeof $unloaded;
