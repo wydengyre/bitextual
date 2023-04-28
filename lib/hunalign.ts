@@ -1,4 +1,4 @@
-import * as HunalignLib from "../resources/hunalign/web/hunalign.js";
+import * as HunalignLib from "../resources/hunalign/web/hunalign.d.ts";
 
 export const PARAGRAPH_MARKER = "<p>";
 
@@ -74,9 +74,8 @@ export class Hunalign {
     return matches;
   }
 
-  static async create(hunalignWasm: Uint8Array): Promise<Hunalign> {
-    const hunalign = await HunalignLib.Hunalign.create(hunalignWasm);
-    return new Hunalign(hunalign);
+  static create(hunalignLib: HunalignLib.Hunalign): Hunalign {
+    return new Hunalign(hunalignLib);
   }
 }
 
