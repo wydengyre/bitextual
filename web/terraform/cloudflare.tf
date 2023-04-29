@@ -44,3 +44,7 @@ resource "cloudflare_zone_settings_override" "bitextual_zone_settings_override" 
     tls_client_auth             = "off"
   }
 }
+
+resource "cloudflare_zone_dnssec" "bitextual_zone_dnssec" {
+  zone_id = var.zone_id
+}
