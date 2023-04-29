@@ -27,8 +27,8 @@ variable "domain" {
   default = "bitextual.net"
 }
 
-resource "cloudflare_zone_settings_override" "terraform_managed_resource_811be2d09604bf9ac4295b0a32d83b87" {
-  zone_id = "811be2d09604bf9ac4295b0a32d83b87"
+resource "cloudflare_zone_settings_override" "bitextual_zone_settings_override" {
+  zone_id = var.zone_id
   settings {
     always_use_https          = "on"
     automatic_https_rewrites  = "on"
