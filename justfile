@@ -44,3 +44,6 @@ web-serve:
 
 # for faster iteration when running locally
 web-build-and-serve: web-build web-serve
+
+web-publish-prod:
+    cd web && npx wrangler pages publish ../dist/web
