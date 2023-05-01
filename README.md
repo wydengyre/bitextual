@@ -6,10 +6,12 @@ aligned. This is useful for intermediate-to-advanced language learners, who want
 to read literature in a foreign language, but are intimidated by the difficulty
 of the text.
 
-## Some technical notes
+You can use Bitextual on the web at (bitextual.net)[https://bitextual.net].
 
-The tool is written in TypeScript and currently supports
-[Deno](https://deno.land) as its runtime. The only dependency is Deno.
+You can also use it as a command-line tool with [Deno](https://deno.com/runtime) by
+cloning this repo.
+
+## Some technical notes
 
 Alignment quality can vary significantly depending on the nature of the
 translation. Broadly speaking, more liberal translations, especially those where
