@@ -57,6 +57,13 @@ resource "cloudflare_zone_dnssec" "bitextual_zone_dnssec" {
   zone_id = var.zone_id
 }
 
+resource "cloudflare_record" "bitextual_record_apex" {
+  zone_id = var.zone_id
+  name = "bitextual.net"
+  value = "bitextual-pages.pages.dev"
+  type = "CNAME"
+}
+
 resource "cloudflare_pages_project" "bitextual_pages_project" {
   account_id        = var.account_id
   name              = var.pages_project_name
