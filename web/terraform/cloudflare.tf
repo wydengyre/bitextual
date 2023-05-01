@@ -31,6 +31,10 @@ variable "account_id" {
   default = "ac68eede96260ce7da64614927849f01"
 }
 
+variable "pages_project_name" {
+  default = "bitextual-pages"
+}
+
 resource "cloudflare_zone_settings_override" "bitextual_zone_settings_override" {
   zone_id = var.zone_id
   settings {
@@ -55,6 +59,12 @@ resource "cloudflare_zone_dnssec" "bitextual_zone_dnssec" {
 
 resource "cloudflare_pages_project" "bitextual_pages_project" {
   account_id        = var.account_id
-  name              = "bitextual-pages"
+  name              = var.pages_project_name
   production_branch = "main"
+}
+
+resource "cloudflare_pages_domain" "bitextual_pages_domain" {
+  account_id = var.account_id
+  project_name = var.pages_project_name
+  domain = var.domain
 }
