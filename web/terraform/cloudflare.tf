@@ -81,6 +81,33 @@ resource "cloudflare_pages_project" "bitextual_pages_project" {
   account_id        = var.account_id
   name              = var.pages_project_name
   production_branch = "main"
+
+  deployment_configs {
+    preview {
+      always_use_latest_compatibility_date = false
+      compatibility_date                   = "2023-05-01"
+      compatibility_flags                  = []
+      d1_databases                         = {}
+      durable_object_namespaces            = {}
+      environment_variables                = {}
+      fail_open                            = false
+      kv_namespaces                        = {}
+      r2_buckets                           = {}
+      usage_model                          = "bundled"
+    }
+    production {
+      always_use_latest_compatibility_date = false
+      compatibility_date                   = "2023-05-01"
+      compatibility_flags                  = []
+      d1_databases                         = {}
+      durable_object_namespaces            = {}
+      environment_variables                = {}
+      fail_open                            = false
+      kv_namespaces                        = {}
+      r2_buckets                           = {}
+      usage_model                          = "bundled"
+    }
+  }
 }
 
 resource "cloudflare_pages_domain" "bitextual_pages_domain" {
