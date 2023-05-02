@@ -64,6 +64,19 @@ resource "cloudflare_record" "bitextual_record_apex" {
   type = "CNAME"
 }
 
+# Attempting to manage redirect rules using terraform has been a buggy nightmare,
+# with insufficient privileges errors despite issuing tokens that should have
+# sufficient privileges. For now we manage the redirect rules through the GUI, sadly.
+resource "cloudflare_record" "bitextual_record_www_a" {
+  zone_id = var.zone_id
+  name = "www.bitextual.net"
+  # see https://developers.cloudflare.com/pages/how-to/www-redirect/
+  value = "192.0.2.1"
+  type = "A"
+
+  proxied = true
+}
+
 resource "cloudflare_pages_project" "bitextual_pages_project" {
   account_id        = var.account_id
   name              = var.pages_project_name
