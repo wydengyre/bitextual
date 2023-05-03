@@ -21,3 +21,18 @@ Deno.test("run main", async () => {
   const expected = await readFixtureString("bovary.aligned.html");
   assertStrictEquals(result, expected.trim());
 });
+
+Deno.test("run main with language detection", async () => {
+  const bovaryFrench = fromFileUrl(
+    import.meta.resolve("../test/bovary.french.edited.txt"),
+  );
+  const bovaryEnglish = fromFileUrl(
+    import.meta.resolve("../test/bovary.english.edited.txt"),
+  );
+  const result = await go([
+    bovaryFrench,
+    bovaryEnglish,
+  ]);
+  const expected = await readFixtureString("bovary.aligned.html");
+  assertStrictEquals(result, expected.trim());
+});
