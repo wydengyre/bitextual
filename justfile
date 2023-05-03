@@ -56,3 +56,6 @@ web-publish-prod:
 
 web-test-post-deploy:
     deno test --allow-net web/post-deploy.test.ts
+
+web-e2e-test:
+    cd web/e2e-test && npx ts-node-esm e2e-test.mts
