@@ -2,13 +2,12 @@
 /// <reference no-default-lib="true" />
 /// <reference lib="deno.worker" />
 import * as HunalignLib from "../resources/hunalign/web/hunalign.js";
-import { Language } from "../lib/types.ts";
+import { Language, language } from "../lib/types.ts";
 import { align, AlignmentConfig } from "../lib/align.ts";
-
-type LanguageTaggedText = [Language, string];
+import { detectLang, isUnsupportedLanguage } from "../lib/detect-lang.ts";
 
 self.onmessage = async (
-  e: MessageEvent<[LanguageTaggedText, LanguageTaggedText]>,
+  e: MessageEvent<[string, string]>,
 ) => {
   const [source, target] = e.data;
   const alignedHtml = await renderAlignment(source, target);
@@ -16,12 +15,23 @@ self.onmessage = async (
 };
 
 async function renderAlignment(
-  [sourceLang, sourceText]: LanguageTaggedText,
-  [targetLang, targetText]: LanguageTaggedText,
+  source: string,
+  target: string,
 ): Promise<string> {
+  const sourceLanguage = detectLang(source);
+  if (isUnsupportedLanguage(sourceLanguage)) {
+    return `<p>Unsupported language: ${sourceLanguage[1]}</p>`;
+  }
+  const targetLanguage = detectLang(target);
+  if (isUnsupportedLanguage(targetLanguage)) {
+    return `<p>Unsupported language: ${targetLanguage[1]}</p>`;
+  }
+  const sourceLangCode = language[sourceLanguage];
+  const targetLangCode = language[targetLanguage];
+
   const [punktSourceTrainingData, punktTargetTrainingData] = await Promise.all([
-    getTrainingData(sourceLang),
-    getTrainingData(targetLang),
+    getTrainingData(sourceLangCode),
+    getTrainingData(targetLangCode),
   ]);
   const [punktWasm, hunalignWasm] = await Promise.all([
     fetchBinary(`punkt/punkt_bg.wasm`),
@@ -30,12 +40,12 @@ async function renderAlignment(
 
   const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
   const hunalignDictData = await fetchBinary(
-    `dictionaries/${targetLang}-${sourceLang}.dic`,
+    `dictionaries/${targetLangCode}-${sourceLangCode}.dic`,
   );
 
   const alignConfig: AlignmentConfig = {
-    sourceLanguage: sourceLang,
-    targetLanguage: targetLang,
+    sourceLanguage,
+    targetLanguage,
     punktWasm,
     punktSourceTrainingData,
     punktTargetTrainingData,
@@ -43,7 +53,7 @@ async function renderAlignment(
     hunalignDictData,
   };
 
-  return align(sourceText, targetText, alignConfig);
+  return align(source, target, alignConfig);
 }
 
 function getTrainingData(l: Language): Promise<Uint8Array> {
