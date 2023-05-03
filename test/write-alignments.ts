@@ -23,14 +23,10 @@ const MARIANELA_ALIGNED_PATH = fromFileUrl(
 
 async function main() {
   const bovary = await go([
-    "fr",
-    "en",
     BOVARY_FRENCH_PATH,
     BOVARY_ENGLISH_PATH,
   ]);
   const marianela = await go([
-    "es",
-    "en",
     MARIANELA_SPANISH_PATH,
     MARIANELA_ENGLISH_PATH,
   ]);
