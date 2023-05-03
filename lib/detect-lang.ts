@@ -19,3 +19,10 @@ export function detectLang(text: string): LanguageName | UnsupportedLanguage {
 export function unsupportedLanguage(lang: string): UnsupportedLanguage {
   return [$UNSUPPORTED_LANGUAGE, lang];
 }
+
+export function isUnsupportedLanguage(l: unknown): l is UnsupportedLanguage {
+  return Array.isArray(l) &&
+    l.length === 2 &&
+    l[0] === $UNSUPPORTED_LANGUAGE &&
+    typeof l[1] === "string";
+}

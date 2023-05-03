@@ -1,6 +1,14 @@
-import {LanguageName} from "./types.ts";
-import {assertEquals, assertStrictEquals} from "std/testing/asserts.ts";
-import {detectLang, unsupportedLanguage} from "./detect-lang.ts";
+import { LanguageName } from "./types.ts";
+import {
+  assert,
+  assertEquals,
+  assertStrictEquals,
+} from "std/testing/asserts.ts";
+import {
+  detectLang,
+  isUnsupportedLanguage,
+  unsupportedLanguage,
+} from "./detect-lang.ts";
 
 Deno.test("detects English", () => {
   const sample = "This is a sample text in English.";
@@ -26,9 +34,11 @@ Deno.test("detects unsupported language", () => {
   const sample = "滚滚长江东逝水";
   const detected = detectLang(sample);
   assertEquals(detected, unsupportedLanguage("und"));
+  assert(isUnsupportedLanguage(detected));
 });
 
 function testDetection(text: string, expected: LanguageName) {
   const detected = detectLang(text);
   assertStrictEquals(detected, expected);
+  assert(!isUnsupportedLanguage(detected));
 }

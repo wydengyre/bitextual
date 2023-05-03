@@ -1,7 +1,8 @@
 import * as HunalignLib from "../resources/hunalign/web/hunalign.js";
-import { isLanguage, Language, languageCodes } from "../lib/types.ts";
+import { isLanguage, Language, language, languageCodes } from "../lib/types.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 import { align, AlignmentConfig } from "../lib/align.ts";
+import { detectLang, isUnsupportedLanguage } from "../lib/detect-lang.ts";
 
 const USAGE = "[sourcelang] [targetlang] [sourcetext] [targettext]";
 const EXAMPLE =
@@ -19,21 +20,56 @@ async function main() {
   console.log(out);
 }
 
-export async function go(
-  [sourceLang, targetLang, sourceTextPath, targetTextPath]: string[],
-): Promise<string> {
-  if (!isLanguage(sourceLang)) {
-    console.error(`Invalid source language: ${sourceLang}`);
-    console.error(USAGE);
-    console.error(EXAMPLE);
-    Deno.exit(1);
-  }
+export async function go(args: string[]): Promise<string> {
+  let sourceLang: Language;
+  let targetLang: Language;
+  let sourceText: string;
+  let targetText: string;
+  if (args.length === 2) {
+    const [sourceTextPath, targetTextPath] = args;
+    sourceText = await Deno.readTextFile(sourceTextPath);
 
-  if (!isLanguage(targetLang)) {
-    console.error(`Invalid target language: ${targetLang}`);
-    console.error(USAGE);
-    console.error(EXAMPLE);
-    Deno.exit(1);
+    const detectedSourceLang = detectLang(sourceText);
+    if (isUnsupportedLanguage(detectedSourceLang)) {
+      console.error(`Unsupported source language: ${detectedSourceLang[1]}`);
+      console.error(USAGE);
+      console.error(EXAMPLE);
+      Deno.exit(1);
+    }
+    sourceLang = language[detectedSourceLang];
+
+    targetText = await Deno.readTextFile(targetTextPath);
+    const detectedTargetLang = detectLang(targetText);
+    if (isUnsupportedLanguage(detectedTargetLang)) {
+      console.error(`Unsupported target language: ${detectedTargetLang[1]}`);
+      console.error(USAGE);
+      console.error(EXAMPLE);
+      Deno.exit(1);
+    }
+    targetLang = language[detectedTargetLang];
+  } else if (args.length === 4) {
+    const [cmdSourceLang, cmdTargetLang, sourceTextPath, targetTextPath] = args;
+    if (!isLanguage(cmdSourceLang)) {
+      console.error(`Invalid source language: ${cmdSourceLang}`);
+      console.error(USAGE);
+      console.error(EXAMPLE);
+      Deno.exit(1);
+    }
+    sourceLang = cmdSourceLang;
+
+    if (!isLanguage(cmdTargetLang)) {
+      console.error(`Invalid target language: ${cmdTargetLang}`);
+      console.error(USAGE);
+      console.error(EXAMPLE);
+      Deno.exit(1);
+    }
+    targetLang = cmdTargetLang;
+    [sourceText, targetText] = await Promise.all([
+      Deno.readTextFile(sourceTextPath),
+      Deno.readTextFile(targetTextPath),
+    ]);
+  } else {
+    throw "Invalid number of arguments";
   }
 
   const [punktWasm, hunalignWasm] = await Promise.all([
@@ -41,11 +77,6 @@ export async function go(
     Deno.readFile(HUNALIGN_WASM_PATH),
   ]);
   const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
-
-  const [sourceText, targetText] = await Promise.all([
-    Deno.readTextFile(sourceTextPath),
-    Deno.readTextFile(targetTextPath),
-  ]);
 
   const [punktSourceTrainingData, punktTargetTrainingData] = await Promise.all([
     getTrainingData(sourceLang),
