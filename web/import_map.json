@@ -1,5 +1,6 @@
 {
   "imports": {
+    "franc": "https://esm.sh/franc-min@6.1.0",
     "module": "./module.js"
   }
 }
