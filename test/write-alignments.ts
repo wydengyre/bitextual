@@ -1,4 +1,4 @@
-import { go } from "../deno/main.ts";
+import { goDetectingLanguages } from "../deno/main.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 
 const BOVARY_FRENCH_PATH = fromFileUrl(
@@ -22,18 +22,14 @@ const MARIANELA_ALIGNED_PATH = fromFileUrl(
 );
 
 async function main() {
-  const bovary = await go([
-    "fr",
-    "en",
+  const bovary = await goDetectingLanguages(
     BOVARY_FRENCH_PATH,
     BOVARY_ENGLISH_PATH,
-  ]);
-  const marianela = await go([
-    "es",
-    "en",
+  );
+  const marianela = await goDetectingLanguages(
     MARIANELA_SPANISH_PATH,
     MARIANELA_ENGLISH_PATH,
-  ]);
+  );
   await Promise.all([
     Deno.writeTextFile(BOVARY_ALIGNED_PATH, bovary),
     Deno.writeTextFile(MARIANELA_ALIGNED_PATH, marianela),

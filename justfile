@@ -23,6 +23,10 @@ lint:
 test:
     deno test --allow-read=./ --allow-run=./resources/punkt deno lib
 
+# write the sample alignments to the file system
+write-alignments:
+    deno run --allow-read=./ --allow-write=./ test/write-alignments.ts
+
 web-ci: web-install-deps web-check web-build
 
 web-install-deps:

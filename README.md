@@ -24,10 +24,10 @@ For an example of output, see the included French-English copy of
 That file is generated with the following command:
 
 ```sh
-deno run --allow-read deno/lib.ts fr en test/bovary.french.edited.txt test/bovary.english.edited.txt > test/bovary.aligned.html
+deno run --allow-read deno/lib.ts test/bovary.french.edited.txt test/bovary.english.edited.txt > test/bovary.aligned.html
 ```
 
-The command says "run the `lib.ts` script on a French source file and an English
+The command says "run the `lib.ts` script on Bovary in French (source) and Bovary in English (target)
 target file, which have the following paths."
 
 An example of a somewhat more liberal translation leading to poor alignment

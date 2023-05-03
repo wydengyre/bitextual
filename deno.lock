@@ -69,5 +69,40 @@
     "https://deno.land/x/esbuild_deno_loader@0.6.0/src/shared.ts": "b64749cd8c0f6252a11498bd8758ef1220003e46b2c9b68e16da63fd7e92b13a",
     "https://deno.land/x/importmap@0.2.1/_util.ts": "ada9a9618b537e6c0316c048a898352396c882b9f2de38aba18fd3f2950ede89",
     "https://deno.land/x/importmap@0.2.1/mod.ts": "ae3d1cd7eabd18c01a4960d57db471126b020f23b37ef14e1359bbb949227ade"
+  },
+  "npm": {
+    "specifiers": {
+      "franc-min@6.1.0": "franc-min@6.1.0",
+      "franc@6.1.0": "franc@6.1.0"
+    },
+    "packages": {
+      "collapse-white-space@2.1.0": {
+        "integrity": "sha512-loKTxY1zCOuG4j9f6EPnuyyYkf58RnhhWTvRoZEokgB+WbdXehfjFviyOVYkqzEWz1Q5kRiZdBYS5SwxbQYwzw==",
+        "dependencies": {}
+      },
+      "franc-min@6.1.0": {
+        "integrity": "sha512-ZGKRCVw//1KvlLjeRjNTYB27Py6bq1J+0smr3IalQ4l7ZYR9DeoeLxjGWQKQ0Hr8n2dIjkfOvCzr7nzejljeJg==",
+        "dependencies": {
+          "trigram-utils": "trigram-utils@2.0.1"
+        }
+      },
+      "franc@6.1.0": {
+        "integrity": "sha512-woYqLX7sFcrKD4y1M33IorhH4b21bCDNr0Rm+zlAGRNuxLFilT4h8qEcclu8RFLpHmvNz7FgAYl9Vqfa8UZwoA==",
+        "dependencies": {
+          "trigram-utils": "trigram-utils@2.0.1"
+        }
+      },
+      "n-gram@2.0.2": {
+        "integrity": "sha512-S24aGsn+HLBxUGVAUFOwGpKs7LBcG4RudKU//eWzt/mQ97/NMKQxDWHyHx63UNWk/OOdihgmzoETn1tf5nQDzQ==",
+        "dependencies": {}
+      },
+      "trigram-utils@2.0.1": {
+        "integrity": "sha512-nfWIXHEaB+HdyslAfMxSqWKDdmqY9I32jS7GnqpdWQnLH89r6A5sdk3fDVYqGAZ0CrT8ovAFSAo6HRiWcWNIGQ==",
+        "dependencies": {
+          "collapse-white-space": "collapse-white-space@2.1.0",
+          "n-gram": "n-gram@2.0.2"
+        }
+      }
+    }
   }
 }
