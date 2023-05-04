@@ -5,6 +5,8 @@
   "main": "main.ts",
   "author": "Matthew Leon <matt@wydengyre.com>",
   "devDependencies": {
+    "puppeteer": "^20.1.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
   "dependencies": {
