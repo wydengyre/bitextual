@@ -6,6 +6,12 @@ import { Language, language } from "../lib/types.ts";
 import { align, AlignmentConfig } from "../lib/align.ts";
 import { detectLang, isUnsupportedLanguage } from "../lib/detect-lang.ts";
 
+// ensure async errors get handled just like sync errors
+self.onunhandledrejection = (e: PromiseRejectionEvent) => {
+  e.preventDefault();
+  throw e.reason;
+};
+
 self.onmessage = async (
   e: MessageEvent<[string, string]>,
 ) => {
@@ -19,12 +25,13 @@ async function renderAlignment(
   target: string,
 ): Promise<string> {
   const sourceLanguage = detectLang(source);
+  // TODO: handle this through messages rather than the error mechanism
   if (isUnsupportedLanguage(sourceLanguage)) {
-    return `<p>Unsupported language: ${sourceLanguage[1]}</p>`;
+    throw Error(`Unsupported source language: ${sourceLanguage[1]}`);
   }
   const targetLanguage = detectLang(target);
   if (isUnsupportedLanguage(targetLanguage)) {
-    return `<p>Unsupported language: ${targetLanguage[1]}</p>`;
+    throw Error(`Unsupported target language: ${targetLanguage[1]}`);
   }
   const sourceLangCode = language[sourceLanguage];
   const targetLangCode = language[targetLanguage];

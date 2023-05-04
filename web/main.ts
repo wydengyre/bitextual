@@ -5,7 +5,11 @@ worker.onmessage = (e: MessageEvent<string>) => {
   window.location.href = URL.createObjectURL(blob);
 };
 
-// TODO: error handling
+worker.onerror = (e: ErrorEvent) => {
+  // TODO: improve this error handling
+  console.error(e);
+  alert(e.message);
+};
 
 const $unloaded = Symbol("unloaded");
 type Unloaded = typeof $unloaded;
