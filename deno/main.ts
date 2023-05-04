@@ -61,6 +61,7 @@ export async function goDetectingLanguages(
     console.error(EXAMPLE);
     Deno.exit(1);
   }
+  console.error(`Detected source language: ${capitalize(detectedSourceLang)}`);
   const sourceLang = language[detectedSourceLang];
 
   const targetText = await Deno.readTextFile(targetPath);
@@ -71,6 +72,7 @@ export async function goDetectingLanguages(
     console.error(EXAMPLE);
     Deno.exit(1);
   }
+  console.error(`Detected target language: ${capitalize(detectedTargetLang)}`);
   const targetLang = language[detectedTargetLang];
 
   return goWithLanguagesAndText(sourceLang, targetLang, sourceText, targetText);
@@ -130,6 +132,10 @@ function getTrainingData(l: Language): Promise<Uint8Array> {
   ));
 
   return Deno.readFile(languagePath);
+}
+
+function capitalize(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 if (import.meta.main) {
