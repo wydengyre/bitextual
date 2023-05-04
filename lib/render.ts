@@ -99,7 +99,7 @@ function labelSentences(
   }
 }
 
-const TEMPLATE = `<!doctype html>
+const TEMPLATE = `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
