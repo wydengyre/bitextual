@@ -15,7 +15,7 @@ export async function serve(options: ServeInit = {}) {
   const handler = (req: Request): Promise<Response> => {
     return serveDir(req, { fsRoot: distDir });
   };
-  httpServe(handler, options);
+  return httpServe(handler, options);
 }
 
 if (import.meta.main) {
