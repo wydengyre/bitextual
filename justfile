@@ -58,4 +58,4 @@ web-test-post-deploy:
     deno test --allow-net web/post-deploy.test.ts
 
 web-test-e2e-post-deploy:
-    cd web/e2e-test && npx ts-node-esm e2e-test.mts
+    cd web/e2e-test && node --test --loader ts-node/esm e2e-test.mts
