@@ -27,7 +27,7 @@ test:
 write-alignments:
     deno run --allow-read=./ --allow-write=./ test/write-alignments.ts
 
-web-ci: web-install-deps web-check web-build
+web-ci: web-install-deps web-check web-build web-test-e2e-dev
 
 web-install-deps:
     cd web && npm install
@@ -56,6 +56,9 @@ web-publish-prod:
 
 web-test-post-deploy:
     deno test --allow-net web/post-deploy.test.ts
+
+web-test-e2e-dev:
+    deno test --allow-net --allow-run=node --allow-read=dist/web web/e2e.dev.test.ts
 
 web-test-e2e-post-deploy $BITEXTUAL_TEST_BASE_URL="https://bitextual.net":
     cd web/e2e-test && node --test --loader ts-node/esm e2e-test.mts
