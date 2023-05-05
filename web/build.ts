@@ -1,11 +1,11 @@
-import { denoPlugin } from "https://deno.land/x/esbuild_deno_loader@0.6.0/mod.ts";
-import * as esbuild from "https://deno.land/x/esbuild@v0.17.16/mod.js";
+import { denoPlugins } from "esbuild_plugin_deno_loader";
+import * as esbuild from "esbuild";
 import * as path from "std/path/mod.ts";
 import { configPath } from "./build-conf.ts";
 
 const IMPORT_MAP_PATH_REL = "./import_map.json";
 const importMapPath = import.meta.resolve(IMPORT_MAP_PATH_REL);
-const importMapURL = new URL(importMapPath);
+const importMapURL = (new URL(importMapPath)).toString();
 
 const WORKER_PATH_REL = "./worker.ts";
 const WORKER_BUNDLE_PATH_REL = "../dist/web/worker.js";
@@ -58,8 +58,8 @@ export async function bundleTs(
   format: "esm" | "iife",
   deno: boolean = false,
 ) {
-  const plugins = deno ? [denoPlugin({ importMapURL })] : [];
-  const buildOptions = {
+  const plugins = deno ? denoPlugins({ importMapURL }) : [];
+  const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
     format: "esm",

@@ -33,14 +33,14 @@ web-install-deps:
     cd web && npm install
 
 web-check:
-    cd web && npx tsc && deno check worker.ts serve.ts
+    cd web && npx tsc && deno check build.ts serve.ts worker.ts
 
 web-build:
     mkdir -p dist/web
     cp -R resources/punkt dist/web/punkt
     cp -R resources/hunalign/dictionaries dist/web/dictionaries
     cp resources/hunalign/web/hunalign.wasm dist/web
-    deno run --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
+    deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
 
 # run development web server for local QA
 web-serve:
