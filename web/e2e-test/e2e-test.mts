@@ -7,7 +7,7 @@ import puppeteer, { PuppeteerLaunchOptions } from "puppeteer";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const BASE_URL = "https://bitextual.net";
+const BASE_URL: string = process.env.BITEXTUAL_TEST_BASE_URL!;
 const TEST_FILES_PATH = resolve(__dirname, "../../test");
 const BOVARY_ENGLISH_PATH = resolve(
   TEST_FILES_PATH,

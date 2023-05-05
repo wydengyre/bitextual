@@ -57,5 +57,5 @@ web-publish-prod:
 web-test-post-deploy:
     deno test --allow-net web/post-deploy.test.ts
 
-web-test-e2e-post-deploy:
+web-test-e2e-post-deploy $BITEXTUAL_TEST_BASE_URL="https://bitextual.net":
     cd web/e2e-test && node --test --loader ts-node/esm e2e-test.mts
