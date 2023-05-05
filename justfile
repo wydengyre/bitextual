@@ -40,6 +40,8 @@ web-build:
     cp -R resources/punkt dist/web/punkt
     cp -R resources/hunalign/dictionaries dist/web/dictionaries
     cp resources/hunalign/web/hunalign.wasm dist/web
+    cp web/*.png dist/web
+    cp web/favicon.ico dist/web
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
 
 # run development web server for local QA
