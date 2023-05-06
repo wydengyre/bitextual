@@ -3,10 +3,11 @@ import * as HunalignLib from "../resources/hunalign/web/hunalign.d.ts";
 import { Hunalign, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
 import { tokenizeWords } from "./tokenize-words.ts";
+import { LanguageName } from "./types.ts";
 
 export type AlignmentConfig = {
-  sourceLanguage: string;
-  targetLanguage: string;
+  sourceLanguage: LanguageName;
+  targetLanguage: LanguageName;
   punktWasm: Uint8Array;
   punktSourceTrainingData: Uint8Array;
   punktTargetTrainingData: Uint8Array;

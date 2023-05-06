@@ -1,11 +1,13 @@
+import { LanguageName } from "./types.ts";
+
 const TABLE_MARKER = "<!-- TABLE -->";
 
 const HIGHLIGHT_TEXT = "[HIGHLIGHT SENTENCE MATCHES]";
 const UNHIGHLIGHT_TEXT = "[UNHIGHLIGHT SENTENCE MATCHES]";
 
 export function render(
-  sourceLanguage: string,
-  targetLanguage: string,
+  sourceLanguage: LanguageName,
+  targetLanguage: LanguageName,
   alignedParagraphs: [string[], string[]][],
   alignedSentences: [string[], string[]][],
 ): string {
