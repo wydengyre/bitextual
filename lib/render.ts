@@ -174,8 +174,7 @@ const TEMPLATE = `<!DOCTYPE html>
     const sourceLanguage = document.getElementById("source-language");
     const targetLanguage = document.getElementById("target-language");
     const sourceLanguageContent = sourceLanguage.innerHTML;
-    const targetLanguageContent = targetLanguage.innerHTML;
-    sourceLanguage.innerHTML = targetLanguageContent;
+    sourceLanguage.innerHTML = targetLanguage.innerHTML
     targetLanguage.innerHTML = sourceLanguageContent;
     
     // Swap the columns
