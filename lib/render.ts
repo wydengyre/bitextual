@@ -1,4 +1,4 @@
-import { LanguageName } from "./types.ts";
+import { Language, language, LanguageName } from "./types.ts";
 
 const TABLE_MARKER = "<!-- TABLE -->";
 
@@ -20,16 +20,22 @@ export function render(
     rightSentences
   );
 
+  const sourceLanguageSubtag = language[sourceLanguage];
+  const targetLanguageSubtag = language[targetLanguage];
+
   labelSentences(leftSentences, leftParagraphs);
   labelSentences(rightSentences, rightParagraphs);
 
-  const tableCell = (paras: string[]): string =>
-    `<td>${paras.join("<p>")}</td>`;
+  const tableCell = (paras: string[], lang: Language): string =>
+    `<td lang="${lang}">${paras.join("<p>")}</td>`;
 
   const tableBody = alignedParagraphs
-    .map(([leftParas, rightParas]) =>
-      `<tr>${tableCell(leftParas)}${tableCell(rightParas)}</tr>`
-    ).join("");
+    .map(([sourceParas, targetParas]) => {
+      const leftCell = tableCell(sourceParas, sourceLanguageSubtag);
+      const rightCell = tableCell(targetParas, targetLanguageSubtag);
+      return `<tr>${leftCell}${rightCell}</tr>`;
+    })
+    .join("");
 
   const swapButton = '<a href="#" id="swap-columns">[SWAP]</a>';
   const swapControl =
@@ -184,9 +190,14 @@ const TEMPLATE = `<!DOCTYPE html>
     for (const row of rows) {
         const cell1 = row.cells[0];
         const cell2 = row.cells[1];
+        
         const cell1Content = cell1.innerHTML;
         cell1.innerHTML = cell2.innerHTML;
         cell2.innerHTML = cell1Content;
+        
+        const cell1Lang = cell1.getAttribute("lang");
+        cell1.setAttribute("lang", cell2.getAttribute("lang"));
+        cell2.setAttribute("lang", cell1Lang);
     }
   }
   
