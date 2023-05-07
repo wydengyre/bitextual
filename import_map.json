@@ -1,8 +1,10 @@
 {
   "imports": {
+    "epub-parser": "npm:@gxl/epub-parser@2.0.4",
     "esbuild": "https://deno.land/x/esbuild@v0.17.18/mod.js",
     "esbuild_plugin_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.7.0/mod.ts",
     "franc": "https://esm.sh/franc-min@6.1.0",
+    "html-to-text": "npm:html-to-text@9.0.5",
     "std/": "https://deno.land/std@0.186.0/",
     "xml": "https://deno.land/x/xml@2.1.1/mod.ts",
     "zod": "https://deno.land/x/zod@v3.21.4/mod.ts"
