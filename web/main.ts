@@ -1,4 +1,6 @@
 const worker = new Worker("worker.js");
+const epubWorker = new Worker("epub-worker.js");
+
 worker.onmessage = (e: MessageEvent<string>) => {
   // generate a page containing the HTML in e.data and navigate to it
   const blob = new Blob([e.data], { type: "text/html" });

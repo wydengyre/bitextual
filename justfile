@@ -35,13 +35,17 @@ web-install-deps:
 web-check:
     cd web && npx tsc && deno check build.ts serve.ts worker.ts
 
-web-build:
+web-build: web-build-copy-resources web-bundle-ts
+
+web-build-copy-resources:
     mkdir -p dist/web
     cp -R resources/punkt dist/web/punkt
     cp -R resources/hunalign/dictionaries dist/web/dictionaries
     cp resources/hunalign/web/hunalign.wasm dist/web
     cp web/*.png dist/web
     cp web/favicon.ico dist/web
+
+web-bundle-ts:
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
 
 # run development web server for local QA

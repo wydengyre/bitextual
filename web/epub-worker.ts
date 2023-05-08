@@ -1,9 +1,24 @@
+// Copyright (C) 2023 Wyden and Gyre, LLC
+
 import { Buffer } from "node:buffer";
-// @deno-types="npm:@types/html-to-text@9.0.0"
 import { compile as compileHtmlConvert } from "html-to-text";
 import { parseEpub } from "epub-parser";
 
-export async function epubToText(epubBytes: Uint8Array): Promise<string> {
+// ensure async errors get handled just like sync errors
+self.onunhandledrejection = (e: PromiseRejectionEvent) => {
+  e.preventDefault();
+  throw e.reason;
+};
+
+self.onmessage = async (e: MessageEvent<Uint8Array>) => {
+  const epubData = e.data;
+  const text = await epubToText(epubData);
+  // can this be out of order somehow?
+  postMessage(text);
+};
+
+// code repeated here because of the complication of bundling node vs deno imports
+async function epubToText(epubBytes: Uint8Array): Promise<string> {
   const epubBuffer = new Buffer(epubBytes);
   const epub = await parseEpub(epubBuffer, { type: "buffer" });
   const htmlToText = compileHtmlConvert({
@@ -21,7 +36,7 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
   return processLineBreaks(epubText);
 }
 
-export function processLineBreaks(text: string): string {
+function processLineBreaks(text: string): string {
   const normalizedText = text.replace(/\r\n/g, "\n");
   const collapsedParagraphs = normalizedText.replace(/(?<!\n)\n(?!\n)/g, " ");
   return collapsedParagraphs.replace(/\n+/g, "\n");

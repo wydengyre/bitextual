@@ -2,6 +2,9 @@ import { denoPlugins } from "esbuild_plugin_deno_loader";
 import * as esbuild from "esbuild";
 import * as path from "std/path/mod.ts";
 import { configPath } from "./build-conf.ts";
+import { NodeGlobalsPolyfillPlugin } from "npm:@esbuild-plugins/node-globals-polyfill";
+import { NodeModulesPolyfillPlugin } from "npm:@esbuild-plugins/node-modules-polyfill";
+import fileloc from "npm:esbuild-plugin-fileloc";
 
 const IMPORT_MAP_PATH_REL = "./import_map.json";
 const importMapPath = import.meta.resolve(IMPORT_MAP_PATH_REL);
@@ -12,6 +15,15 @@ const WORKER_BUNDLE_PATH_REL = "../dist/web/worker.js";
 const workerPath = path.fromFileUrl(import.meta.resolve(WORKER_PATH_REL));
 const workerBundlePath = path.fromFileUrl(
   import.meta.resolve(WORKER_BUNDLE_PATH_REL),
+);
+
+const EPUB_WORKER_PATH_REL = "./epub-worker.ts";
+const EPUB_WORKER_BUNDLE_PATH_REL = "../dist/web/epub-worker.js";
+const epubWorkerPath = path.fromFileUrl(
+  import.meta.resolve(EPUB_WORKER_PATH_REL),
+);
+const epubWorkerModulePath = path.fromFileUrl(
+  import.meta.resolve(EPUB_WORKER_BUNDLE_PATH_REL),
 );
 
 const MAIN_PATH_REL = "./main.ts";
@@ -41,6 +53,7 @@ async function main() {
 
   // module workers aren't supported across all browsers
   await bundleTs(workerPath, workerBundlePath, "iife", true);
+  await bundleTs(epubWorkerPath, epubWorkerModulePath, "iife");
   await bundleTs(mainPath, mainBundlePath, "esm");
 
   // because the worker isn't an ESM (thanks Firefox), this hack is necessary
@@ -58,7 +71,9 @@ export async function bundleTs(
   format: "esm" | "iife",
   deno: boolean = false,
 ) {
-  const plugins = deno ? denoPlugins({ importMapURL }) : [];
+  const plugins = deno
+    ? denoPlugins({ importMapURL })
+    : [NodeGlobalsPolyfillPlugin(), NodeModulesPolyfillPlugin(), fileloc.filelocPlugin()];
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
