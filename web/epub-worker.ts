@@ -1,4 +1,5 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
+import { DOMParser } from "@xmldom/xmldom";
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip from "jszip";
 
@@ -34,14 +35,16 @@ async function epubToText(epubBytes: Uint8Array): Promise<string> {
   const opfTxt = await opf.async("text");
   const opfDom = new DOMParser().parseFromString(opfTxt, "text/html")!;
 
-  const spine = opfDom
-    .getElementsByTagName("package")[0]!
-    .getElementsByTagName("spine")[0]!
-    .getElementsByTagName("itemref")!
+  const spine = Array.from(
+    opfDom
+      .getElementsByTagName("package")[0]!
+      .getElementsByTagName("spine")[0]!
+      .getElementsByTagName("itemref")!,
+  )
     .map((item) => item.getAttribute("idref")!);
 
   const manifest = opfDom.getElementsByTagName("manifest")[0];
-  const manifestItems = manifest.getElementsByTagName("item")
+  const manifestItems = Array.from(manifest.getElementsByTagName("item"))
     .map((item) =>
       [item.getAttribute("id")!, item.getAttribute("href")!] as const
     );

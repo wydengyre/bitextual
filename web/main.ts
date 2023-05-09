@@ -8,9 +8,15 @@ worker.onmessage = (e: MessageEvent<string>) => {
 };
 
 worker.onerror = (e: ErrorEvent) => {
-  // TODO: improve this error handling
   console.error(e);
-  alert(e.message);
+};
+
+epubWorker.onmessage = (e: MessageEvent<string>) => {
+  console.log(`got epub: ${e.data}`);
+};
+
+epubWorker.onerror = (e: ErrorEvent) => {
+  console.error(e);
 };
 
 const $unloaded = Symbol("unloaded");
@@ -18,6 +24,7 @@ type Unloaded = typeof $unloaded;
 
 let sourceTextArea: HTMLTextAreaElement | Unloaded = $unloaded;
 let targetTextArea: HTMLTextAreaElement | Unloaded = $unloaded;
+let epubButton: HTMLButtonElement | Unloaded = $unloaded;
 let submitButton: HTMLButtonElement | Unloaded = $unloaded;
 
 function loadDom() {
@@ -33,12 +40,38 @@ function loadDom() {
   }
   targetTextArea = e;
 
-  e = document.querySelector("button")!;
+  e = document.querySelector("button#import-epub-source")!;
+  if (!(e instanceof HTMLButtonElement)) {
+    throw "button is not a button";
+  }
+  epubButton = e;
+  epubButton.addEventListener("click", importEpub);
+
+  e = document.querySelector("button#align")!;
   if (!(e instanceof HTMLButtonElement)) {
     throw "button is not a button";
   }
   submitButton = e;
   submitButton.addEventListener("click", submit);
+}
+
+function importEpub(e: Event) {
+  e.preventDefault();
+
+  // pop up a file selector and store the bytes of the selected epub
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = ".epub";
+  input.addEventListener("change", async (e: Event) => {
+    const file = (e.target as HTMLInputElement).files![0];
+    if (!file) {
+      return;
+    }
+    const arrayBuffer = await file.arrayBuffer();
+    const bytes = new Uint8Array(arrayBuffer);
+    epubWorker.postMessage(bytes);
+  });
+  input.click();
 }
 
 function submit(e: Event) {
