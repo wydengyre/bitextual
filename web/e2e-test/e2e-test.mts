@@ -14,10 +14,20 @@ const BOVARY_ENGLISH_PATH = resolve(
   "bovary.english.edited.txt",
 );
 const BOVARY_FRENCH_PATH = resolve(TEST_FILES_PATH, "bovary.french.edited.txt");
+const BOVARY_EPUB_PATH = resolve(TEST_FILES_PATH, "bovary.english.epub");
+const BOVARY_EPUB_IMG_PATH = resolve(
+  TEST_FILES_PATH,
+  "bovary.english.images.epub",
+);
+const BOVARY_EPUB_TEXT_PATH = resolve(
+  TEST_FILES_PATH,
+  "bovary.english.epub.txt",
+);
 
 // slurp Bovary english text from file system
 const bovaryEnglish = await readFile(BOVARY_ENGLISH_PATH, "utf8");
 const bovaryFrench = await readFile(BOVARY_FRENCH_PATH, "utf8");
+const bovaryEpubText = await readFile(BOVARY_EPUB_TEXT_PATH, "utf8");
 
 function withBrowser(
   options: PuppeteerLaunchOptions,
@@ -56,12 +66,56 @@ test(
     await page.click("button[type=submit]");
 
     await page.waitForFunction(() => document.title === "bitextual render");
-    const firstSentenceElement = (await page.$(".sentence"))!;
-    const firstSentenceTextHandle = await firstSentenceElement.getProperty(
+    const firstSentenceElement = await page.$(".sentence");
+    const firstSentenceTextHandle = await firstSentenceElement!.getProperty(
       "innerText",
     );
     const firstSentence = await firstSentenceTextHandle.jsonValue();
     assert.equal(firstSentence, "Gustave Flaubert MADAME BOVARY");
+  }),
+);
+
+test(
+  "epub import",
+  withHeadlessBrowser(async (browser) => {
+    const page = await browser.newPage();
+    await page.goto(BASE_URL);
+    await page.setViewport({ width: 1080, height: 1024 });
+
+    let [fileChooser] = await Promise.all([
+      page.waitForFileChooser(),
+      page.click("button#import-epub-source"),
+    ]);
+    await fileChooser.accept([BOVARY_EPUB_PATH]);
+    // wait for the text content of the source-text textarea to change
+    await page.waitForFunction(
+      () =>
+        (document.querySelector("#source-text")! as HTMLTextAreaElement)
+          .value !== "",
+    );
+
+    [fileChooser] = await Promise.all([
+      page.waitForFileChooser(),
+      page.click("button#import-epub-target"),
+    ]);
+    await fileChooser.accept([BOVARY_EPUB_IMG_PATH]);
+    // wait for the text content of the source-text textarea to change
+    await page.waitForFunction(
+      () =>
+        (document.querySelector("#target-text")! as HTMLTextAreaElement)
+          .value !== "",
+    );
+
+    const sourceTextElement = await page.$("#source-text");
+    const sourceTextHandle = await sourceTextElement!.getProperty("value");
+    const sourceText = await sourceTextHandle.jsonValue();
+
+    const targetTextElement = await page.$("#target-text");
+    const targetTextHandle = await targetTextElement!.getProperty("value");
+    const targetText = await targetTextHandle.jsonValue();
+
+    assert.equal(sourceText, bovaryEpubText);
+    assert.equal(targetText, bovaryEpubText);
   }),
 );
 
