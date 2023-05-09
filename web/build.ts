@@ -48,12 +48,11 @@ async function main() {
     await Deno.copyFile(src, dest);
   }
 
-  // module workers aren't supported across all browsers
-  await bundleTs(workerPath, workerBundlePath, "iife", true);
-  await bundleTs(epubWorkerPath, epubWorkerModulePath, "iife");
-  await bundleTs(mainPath, mainBundlePath, "esm");
+  await bundleTs(workerPath, workerBundlePath, true);
+  await bundleTs(epubWorkerPath, epubWorkerModulePath);
+  await bundleTs(mainPath, mainBundlePath);
 
-  // because the worker isn't an ESM (thanks Firefox), this hack is necessary
+  // because the worker isn't truly an ESM (thanks Firefox), this hack is necessary
   const workerText = await Deno.readTextFile(workerBundlePath);
   const replacedWorkerText = workerText.replaceAll(
     "import.meta.url",
@@ -65,14 +64,12 @@ async function main() {
 export async function bundleTs(
   sourcePath: string,
   outfile: string,
-  format: "esm" | "iife",
   deno: boolean = false,
 ) {
   const plugins = deno ? denoPlugins({ importMapURL }) : [];
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
-    // TODO: generate iife when requested
     format: "esm",
     minify: true,
     outfile,
