@@ -71,9 +71,11 @@ export async function bundleTs(
   format: "esm" | "iife",
   deno: boolean = false,
 ) {
-  const plugins = deno
-    ? denoPlugins({ importMapURL })
-    : [NodeGlobalsPolyfillPlugin(), NodeModulesPolyfillPlugin(), fileloc.filelocPlugin()];
+  const plugins = deno ? denoPlugins({ importMapURL }) : [
+    NodeGlobalsPolyfillPlugin(),
+    NodeModulesPolyfillPlugin(),
+    fileloc.filelocPlugin(),
+  ];
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
