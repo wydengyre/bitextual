@@ -1,6 +1,8 @@
 {
-  "files": ["main.ts"],
+  "files": ["main.ts", "epub-worker.ts"],
   "compilerOptions": {
+    "esModuleInterop": true,
+    "moduleResolution": "Node16",
     "target": "es2017",
     "strict": true,
     "noEmit": true
