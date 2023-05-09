@@ -14,6 +14,15 @@ const workerBundlePath = path.fromFileUrl(
   import.meta.resolve(WORKER_BUNDLE_PATH_REL),
 );
 
+const EPUB_WORKER_PATH_REL = "./epub-worker.ts";
+const EPUB_WORKER_BUNDLE_PATH_REL = "../dist/web/epub-worker.js";
+const epubWorkerPath = path.fromFileUrl(
+  import.meta.resolve(EPUB_WORKER_PATH_REL),
+);
+const epubWorkerModulePath = path.fromFileUrl(
+  import.meta.resolve(EPUB_WORKER_BUNDLE_PATH_REL),
+);
+
 const MAIN_PATH_REL = "./main.ts";
 const MAIN_BUNDLE_PATH_REL = "../dist/web/main.js";
 const mainPath = path.fromFileUrl(import.meta.resolve(MAIN_PATH_REL));
@@ -41,6 +50,7 @@ async function main() {
 
   // module workers aren't supported across all browsers
   await bundleTs(workerPath, workerBundlePath, "iife", true);
+  await bundleTs(epubWorkerPath, epubWorkerModulePath, "iife");
   await bundleTs(mainPath, mainBundlePath, "esm");
 
   // because the worker isn't an ESM (thanks Firefox), this hack is necessary
@@ -62,10 +72,12 @@ export async function bundleTs(
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
+    // TODO: generate iife when requested
     format: "esm",
     minify: true,
     outfile,
     plugins,
+    preserveSymlinks: true,
     sourcemap: true,
   };
   await esbuild.build(buildOptions);
