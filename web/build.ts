@@ -2,9 +2,6 @@ import { denoPlugins } from "esbuild_plugin_deno_loader";
 import * as esbuild from "esbuild";
 import * as path from "std/path/mod.ts";
 import { configPath } from "./build-conf.ts";
-import { NodeGlobalsPolyfillPlugin } from "npm:@esbuild-plugins/node-globals-polyfill";
-import { NodeModulesPolyfillPlugin } from "npm:@esbuild-plugins/node-modules-polyfill";
-import fileloc from "npm:esbuild-plugin-fileloc";
 
 const IMPORT_MAP_PATH_REL = "./import_map.json";
 const importMapPath = import.meta.resolve(IMPORT_MAP_PATH_REL);
@@ -71,11 +68,7 @@ export async function bundleTs(
   format: "esm" | "iife",
   deno: boolean = false,
 ) {
-  const plugins = deno ? denoPlugins({ importMapURL }) : [
-    NodeGlobalsPolyfillPlugin(),
-    NodeModulesPolyfillPlugin(),
-    fileloc.filelocPlugin(),
-  ];
+  const plugins = deno ? denoPlugins({ importMapURL }) : [];
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
