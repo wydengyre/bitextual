@@ -12,7 +12,10 @@ worker.onerror = (e: ErrorEvent) => {
 };
 
 epubWorker.onmessage = (e: MessageEvent<string>) => {
-  console.log(`got epub: ${e.data}`);
+  if (sourceTextArea === $unloaded) {
+    throw new Error("DOM not loaded");
+  }
+  sourceTextArea.value = e.data;
 };
 
 epubWorker.onerror = (e: ErrorEvent) => {
