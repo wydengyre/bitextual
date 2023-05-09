@@ -11,11 +11,15 @@ worker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
 
-epubWorker.onmessage = (e: MessageEvent<string>) => {
-  if (sourceTextArea === $unloaded) {
+epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
+  const [sourceOrTarget, text] = e.data;
+  const textArea = sourceOrTarget === "source"
+    ? sourceTextArea
+    : targetTextArea;
+  if (textArea === $unloaded) {
     throw new Error("DOM not loaded");
   }
-  sourceTextArea.value = e.data;
+  textArea.value = text;
 };
 
 epubWorker.onerror = (e: ErrorEvent) => {
@@ -27,7 +31,8 @@ type Unloaded = typeof $unloaded;
 
 let sourceTextArea: HTMLTextAreaElement | Unloaded = $unloaded;
 let targetTextArea: HTMLTextAreaElement | Unloaded = $unloaded;
-let epubButton: HTMLButtonElement | Unloaded = $unloaded;
+let sourceEpubButton: HTMLButtonElement | Unloaded = $unloaded;
+let targetEpubButton: HTMLButtonElement | Unloaded = $unloaded;
 let submitButton: HTMLButtonElement | Unloaded = $unloaded;
 
 function loadDom() {
@@ -47,8 +52,15 @@ function loadDom() {
   if (!(e instanceof HTMLButtonElement)) {
     throw "button is not a button";
   }
-  epubButton = e;
-  epubButton.addEventListener("click", importEpub);
+  sourceEpubButton = e;
+  sourceEpubButton.addEventListener("click", importEpubSource);
+
+  e = document.querySelector("button#import-epub-target")!;
+  if (!(e instanceof HTMLButtonElement)) {
+    throw "button is not a button";
+  }
+  sourceEpubButton = e;
+  sourceEpubButton.addEventListener("click", importEpubTarget);
 
   e = document.querySelector("button#align")!;
   if (!(e instanceof HTMLButtonElement)) {
@@ -58,9 +70,17 @@ function loadDom() {
   submitButton.addEventListener("click", submit);
 }
 
-function importEpub(e: Event) {
+function importEpubSource(e: Event) {
   e.preventDefault();
+  importEpub("source");
+}
 
+function importEpubTarget(e: Event) {
+  e.preventDefault();
+  importEpub("target");
+}
+
+function importEpub(sourceOrTarget: "source" | "target") {
   // pop up a file selector and store the bytes of the selected epub
   const input = document.createElement("input");
   input.type = "file";
@@ -72,7 +92,7 @@ function importEpub(e: Event) {
     }
     const arrayBuffer = await file.arrayBuffer();
     const bytes = new Uint8Array(arrayBuffer);
-    epubWorker.postMessage(bytes);
+    epubWorker.postMessage([sourceOrTarget, bytes]);
   });
   input.click();
 }

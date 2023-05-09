@@ -8,9 +8,9 @@ self.onunhandledrejection = (e: PromiseRejectionEvent) => {
   throw e.reason;
 };
 
-self.onmessage = async (e: MessageEvent<Uint8Array>) => {
-  const epubData = e.data;
+self.onmessage = async (e: MessageEvent<["source" | "target", Uint8Array]>) => {
+  const [sourceOrTarget, epubData] = e.data;
   const text = await epubToText(epubData);
   // can this be out of order somehow?
-  postMessage(text);
+  postMessage([sourceOrTarget, text]);
 };
