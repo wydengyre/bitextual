@@ -1,5 +1,5 @@
 import { readAll } from "std/streams/read_all.ts";
-import { epubToText } from "./epub.ts";
+import { epubToText } from "../lib/epub.ts";
 
 const _EXAMPLE =
   "cat test/bovary.english.epub | deno run deno/epub-to-text.ts | test/bovary.english.edited.txt";

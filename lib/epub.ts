@@ -1,9 +1,9 @@
-import { DOMParser } from "deno-dom-wasm";
+// this file meant to work in both deno and browser
+
+import { DOMParser } from "@xmldom/xmldom";
 // @deno-types="npm:@types/html-to-text@9.0.0"
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip from "jszip";
-
-// this lives in deno rather than lib because of the dependency mess above
 
 export async function epubToText(epubBytes: Uint8Array): Promise<string> {
   const zip = await JSZip.loadAsync(epubBytes);
@@ -23,14 +23,16 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
   const opfTxt = await opf.async("text");
   const opfDom = new DOMParser().parseFromString(opfTxt, "text/html")!;
 
-  const spine = opfDom
-    .getElementsByTagName("package")[0]!
-    .getElementsByTagName("spine")[0]!
-    .getElementsByTagName("itemref")!
+  const spine = Array.from(
+    opfDom
+      .getElementsByTagName("package")[0]!
+      .getElementsByTagName("spine")[0]!
+      .getElementsByTagName("itemref")!,
+  )
     .map((item) => item.getAttribute("idref")!);
 
   const manifest = opfDom.getElementsByTagName("manifest")[0];
-  const manifestItems = manifest.getElementsByTagName("item")
+  const manifestItems = Array.from(manifest.getElementsByTagName("item"))
     .map((item) =>
       [item.getAttribute("id")!, item.getAttribute("href")!] as const
     );

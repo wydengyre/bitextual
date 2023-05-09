@@ -8,6 +8,7 @@
     "jszip": "npm:jszip@3.10.1",
     "std/": "https://deno.land/std@0.186.0/",
     "xml": "https://deno.land/x/xml@2.1.1/mod.ts",
+    "@xmldom/xmldom": "npm:@xmldom/xmldom@0.8.7",
     "zod": "https://deno.land/x/zod@v3.21.4/mod.ts"
   }
 }

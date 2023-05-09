@@ -72,10 +72,12 @@ export async function bundleTs(
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
+    // TODO: generate iife when requested
     format: "esm",
     minify: true,
     outfile,
     plugins,
+    preserveSymlinks: true,
     sourcemap: true,
   };
   await esbuild.build(buildOptions);
