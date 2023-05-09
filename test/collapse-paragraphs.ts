@@ -1,5 +1,5 @@
 import { readAll } from "std/streams/mod.ts";
-import { processLineBreaks } from "../lib/epub.ts";
+import { processLineBreaks } from "../deno/epub.ts";
 
 // working with Deno 1.32.2
 

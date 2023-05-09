@@ -3,6 +3,8 @@ import { DOMParser } from "deno-dom-wasm";
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip from "jszip";
 
+// this lives in deno rather than lib because of the dependency mess above
+
 export async function epubToText(epubBytes: Uint8Array): Promise<string> {
   const zip = await JSZip.loadAsync(epubBytes);
   const files = zip.files;
