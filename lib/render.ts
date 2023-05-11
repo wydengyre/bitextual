@@ -38,8 +38,11 @@ export function render(
     .join("");
 
   const swapButton = '<button type="button" id="swap-columns">swap</button>';
-  const swapControl =
-    `<span id="source-language">${sourceLanguage}</span> to <span id="target-language">${targetLanguage}</span> ${swapButton}`;
+  const swapControl = `<span id="source-language">${
+    capitalize(sourceLanguage)
+  }</span> to <span id="target-language">${
+    capitalize(targetLanguage)
+  }</span> ${swapButton}`;
   const highlightButton =
     `<button type="button" id="highlight-sentences">${HIGHLIGHT_TEXT}</button>`;
   const table = `<table id="bilingual-content">
@@ -107,6 +110,10 @@ function labelSentences(
   }
 }
 
+function capitalize(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 const TEMPLATE = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -131,14 +138,22 @@ const TEMPLATE = `<!DOCTYPE html>
       padding: 1em;
     }
     
+    th button {
+      font-size: inherit;
+    }
+    
     td {
       vertical-align: top;
       width: 50%;
       padding: 0 1em 1em;
     }
     
+    #swap-columns {
+      margin-left: 1em;;
+    }
+    
     #highlight-sentences {
-      margin-left: 2em;
+        float: right;
     }
     
     .highlight-sentences .color-0 {
