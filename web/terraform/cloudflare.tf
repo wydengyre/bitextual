@@ -136,3 +136,11 @@ resource "cloudflare_pages_domain" "bitextual_pages_domain" {
   project_name = var.pages_project_name
   domain = var.domain
 }
+
+resource "cloudflare_access_application" "bitextual_pages_subdomain" {
+  account_id = var.account_id
+  name = "bitextual pages subdomain"
+  domain = "bitextual-pages.pages.dev"
+  type = "self_hosted"
+  session_duration = "24h"
+}
