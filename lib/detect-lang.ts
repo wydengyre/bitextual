@@ -5,6 +5,7 @@ const $UNSUPPORTED_LANGUAGE = Symbol("UNSUPPORTED_LANGUAGE");
 type UnsupportedLanguage = [typeof $UNSUPPORTED_LANGUAGE, string];
 
 const supportedLanguages: Map<string, LanguageName> = new Map([
+  ["deu", "german"],
   ["eng", "english"],
   ["fra", "french"],
   ["ita", "italian"],

@@ -3,7 +3,7 @@
     "deno-dom-wasm": "https://deno.land/x/deno_dom@v0.1.38/deno-dom-wasm.ts",
     "esbuild": "https://deno.land/x/esbuild@v0.17.18/mod.js",
     "esbuild_plugin_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.7.0/mod.ts",
-    "franc": "https://esm.sh/franc-min@6.1.0",
+    "franc": "https://esm.sh/v120/franc-min@6.1.0",
     "html-to-text": "npm:html-to-text@9.0.5",
     "jszip": "npm:jszip@3.10.1",
     "std/": "https://deno.land/std@0.186.0/",
