@@ -44,6 +44,7 @@ web-build-copy-resources:
     cp resources/hunalign/web/hunalign.wasm dist/web
     cp web/*.png dist/web
     cp web/favicon.ico dist/web
+    cp test/*.aligned.html dist/web
 
 web-bundle-ts:
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
