@@ -2,8 +2,8 @@ import { Language, language, LanguageName } from "./types.ts";
 
 const TABLE_MARKER = "<!-- TABLE -->";
 
-const HIGHLIGHT_TEXT = "[HIGHLIGHT SENTENCE MATCHES]";
-const UNHIGHLIGHT_TEXT = "[UNHIGHLIGHT SENTENCE MATCHES]";
+const HIGHLIGHT_TEXT = "highlight sentence matches";
+const UNHIGHLIGHT_TEXT = "unhighlight sentence matches";
 
 export function render(
   sourceLanguage: LanguageName,
@@ -37,11 +37,11 @@ export function render(
     })
     .join("");
 
-  const swapButton = '<a href="#" id="swap-columns">[SWAP]</a>';
+  const swapButton = '<button type="button" id="swap-columns">swap</button>';
   const swapControl =
     `<span id="source-language">${sourceLanguage}</span> to <span id="target-language">${targetLanguage}</span> ${swapButton}`;
   const highlightButton =
-    `<a href="#" id="highlight-sentences">${HIGHLIGHT_TEXT}</a>`;
+    `<button type="button" id="highlight-sentences">${HIGHLIGHT_TEXT}</button>`;
   const table = `<table id="bilingual-content">
     <thead><tr><th colspan="2">${swapControl} ${highlightButton}</th></tr></thead>
     <tbody>${tableBody}</tbody>
@@ -173,9 +173,7 @@ const TEMPLATE = `<!DOCTYPE html>
   <body>
   ${TABLE_MARKER}
   <script>
-  function swapLangs(event) {
-    event.preventDefault();
-    
+  function swapLangs() {
     // Swap the source and target language names
     const sourceLanguage = document.getElementById("source-language");
     const targetLanguage = document.getElementById("target-language");
@@ -201,8 +199,7 @@ const TEMPLATE = `<!DOCTYPE html>
     }
   }
   
-  function highlightSentences(event) {
-      event.preventDefault();
+  function highlightSentences() {
       const table = document.getElementById("bilingual-content");
       table.classList.toggle("highlight-sentences");
       
