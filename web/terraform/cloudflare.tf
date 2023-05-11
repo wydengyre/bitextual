@@ -144,3 +144,35 @@ resource "cloudflare_access_application" "bitextual_pages_subdomain" {
   type = "self_hosted"
   session_duration = "24h"
 }
+
+resource "cloudflare_access_application" "bitextual_pages_subdomains" {
+  account_id = var.account_id
+  name = "bitextual pages subdomains"
+  domain = "*.bitextual-pages.pages.dev"
+  type = "self_hosted"
+  session_duration = "24h"
+}
+
+resource "cloudflare_access_policy" "bitextual_pages_subdomain_access_policy" {
+  application_id = cloudflare_access_application.bitextual_pages_subdomain.id
+  account_id = var.account_id
+  name = "bitextual pages subdomain access policy"
+  precedence = 1
+  decision = "allow"
+
+  include {
+    email = ["bitextual@wydengyre.com"]
+  }
+}
+
+resource "cloudflare_access_policy" "bitextual_pages_subdomains_access_policy" {
+  application_id = cloudflare_access_application.bitextual_pages_subdomains.id
+  account_id = var.account_id
+  name = "bitextual pages subdomain access policy"
+  precedence = 1
+  decision = "allow"
+
+  include {
+    email = ["bitextual@wydengyre.com"]
+  }
+}
