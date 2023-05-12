@@ -1,7 +1,6 @@
 import { denoPlugins } from "esbuild_plugin_deno_loader";
 import * as esbuild from "esbuild";
 import * as path from "std/path/mod.ts";
-import { configPath } from "./build-conf.ts";
 
 const IMPORT_MAP_PATH_REL = "./import_map.json";
 const importMapPath = import.meta.resolve(IMPORT_MAP_PATH_REL);
@@ -23,31 +22,14 @@ const epubWorkerModulePath = path.fromFileUrl(
   import.meta.resolve(EPUB_WORKER_BUNDLE_PATH_REL),
 );
 
-const MAIN_PATH_REL = "./main.ts";
+const MAIN_PATH_REL = "./main.mts";
 const MAIN_BUNDLE_PATH_REL = "../dist/web/main.js";
 const mainPath = path.fromFileUrl(import.meta.resolve(MAIN_PATH_REL));
 const mainBundlePath = path.fromFileUrl(
   import.meta.resolve(MAIN_BUNDLE_PATH_REL),
 );
 
-const FILES_TO_COPY = [
-  "./index.html",
-  "./node_modules/@picocss/pico/css/pico.min.css",
-  "./node_modules/@picocss/pico/css/pico.min.css.map",
-];
-
 async function main() {
-  const distPath = configPath("distDir");
-  const copyOps: [string, string][] = FILES_TO_COPY.map((pathStr) => {
-    const src = path.fromFileUrl(import.meta.resolve(pathStr));
-    const fileName = path.basename(src);
-    const dest = path.join(distPath, fileName);
-    return [src, dest];
-  });
-  for await (const [src, dest] of copyOps) {
-    await Deno.copyFile(src, dest);
-  }
-
   await bundleTs(workerPath, workerBundlePath, true);
   await bundleTs(epubWorkerPath, epubWorkerModulePath);
   await bundleTs(mainPath, mainBundlePath);

@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="canonical" href="https://bitextual.net">
-    <title>Bitextual: the parallel book generator</title>
-    <script type="module" src="main.js"></script>
+    <title>Two Panel Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.css">
     <style>
         html, body {
             margin: 0;
@@ -39,14 +36,9 @@
         }
 
         .panel-toolbar {
-            padding: 5px 5px 5px 20px;
+            padding: 5px;
             background-color: #f8f8f8;
             border-bottom: 1px solid #e7e7e7;
-        }
-
-        .panel-toolbar button {
-            float: right;
-            margin-right: 15px;
         }
 
         .panel-text {
@@ -63,20 +55,31 @@
     </style>
 </head>
 <body>
-<div id="header">
-    Bitextual: the parallel book generator
-    <button id="align" type="submit">generate</button>
-</div>
-
 <div id="editor">
     <div class="editor-panel">
-        <div class="panel-toolbar">Source language text <button id="import-epub-source">import source epub</button></div>
+        <div class="panel-toolbar">Source language text <button>import epub</button></div>
         <div id="panel-source" class="panel-text"></div>
     </div>
     <div class="editor-panel">
-        <div class="panel-toolbar">Target language text <button id="import-epub-target">import target epub</button></div>
+        <div class="panel-toolbar">Target language text <button>import epub</button></div>
         <div id="panel-target" class="panel-text"></div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.js"></script>
+<script>
+    const editorConf = {
+        lineNumbers: true,
+        lineWrapping: true,
+        theme: 'default',
+    };
+    const editor1 = CodeMirror(document.getElementById('panel-source'), editorConf);
+    const editor2 = CodeMirror(document.getElementById('panel-target'), editorConf);
+
+    window.onload = function() {
+        editor1.refresh();
+        editor2.refresh();
+    };
+</script>
 </body>
 </html>
