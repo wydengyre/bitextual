@@ -1,3 +1,5 @@
+import { basicSetup, EditorView } from "codemirror";
+
 const worker = new Worker("worker.js");
 const epubWorker = new Worker("epub-worker.js");
 
@@ -13,13 +15,15 @@ worker.onerror = (e: ErrorEvent) => {
 
 epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
   const [sourceOrTarget, text] = e.data;
-  const textArea = sourceOrTarget === "source"
-    ? sourceTextArea
-    : targetTextArea;
-  if (textArea === $unloaded) {
+  const editor = sourceOrTarget === "source" ? editorSource : editorTarget;
+  if (editor === $unloaded) {
     throw new Error("DOM not loaded");
   }
-  textArea.value = text;
+  const { state } = editor;
+  const update = state.update({
+    changes: { from: 0, to: state.doc.length, insert: text },
+  });
+  editor.update([update]);
 };
 
 epubWorker.onerror = (e: ErrorEvent) => {
@@ -29,45 +33,39 @@ epubWorker.onerror = (e: ErrorEvent) => {
 const $unloaded = Symbol("unloaded");
 type Unloaded = typeof $unloaded;
 
-let sourceTextArea: HTMLTextAreaElement | Unloaded = $unloaded;
-let targetTextArea: HTMLTextAreaElement | Unloaded = $unloaded;
-let sourceEpubButton: HTMLButtonElement | Unloaded = $unloaded;
-let targetEpubButton: HTMLButtonElement | Unloaded = $unloaded;
 let submitButton: HTMLButtonElement | Unloaded = $unloaded;
+let editorSource: EditorView | Unloaded = $unloaded;
+let editorTarget: EditorView | Unloaded = $unloaded;
 
 function loadDom() {
-  let e = document.querySelector("#source-text")!;
-  if (!(e instanceof HTMLTextAreaElement)) {
-    throw "source-text is not a textarea";
-  }
-  sourceTextArea = e;
-
-  e = document.querySelector("#target-text")!;
-  if (!(e instanceof HTMLTextAreaElement)) {
-    throw "target-text is not a textarea";
-  }
-  targetTextArea = e;
-
-  e = document.querySelector("button#import-epub-source")!;
-  if (!(e instanceof HTMLButtonElement)) {
+  const sourceEpubButton = document.querySelector("button#import-epub-source")!;
+  if (!(sourceEpubButton instanceof HTMLButtonElement)) {
     throw "button is not a button";
   }
-  sourceEpubButton = e;
   sourceEpubButton.addEventListener("click", importEpubSource);
 
-  e = document.querySelector("button#import-epub-target")!;
-  if (!(e instanceof HTMLButtonElement)) {
+  const targetEpubButton = document.querySelector("button#import-epub-target")!;
+  if (!(targetEpubButton instanceof HTMLButtonElement)) {
     throw "button is not a button";
   }
-  sourceEpubButton = e;
-  sourceEpubButton.addEventListener("click", importEpubTarget);
+  targetEpubButton.addEventListener("click", importEpubTarget);
 
-  e = document.querySelector("button#align")!;
+  const e = document.querySelector("button#align")!;
   if (!(e instanceof HTMLButtonElement)) {
     throw "button is not a button";
   }
   submitButton = e;
   submitButton.addEventListener("click", submit);
+
+  editorSource = new EditorView({
+    extensions: [basicSetup, EditorView.lineWrapping],
+    parent: document.getElementById("panel-source")!,
+  });
+
+  editorTarget = new EditorView({
+    extensions: [basicSetup, EditorView.lineWrapping],
+    parent: document.getElementById("panel-target")!,
+  });
 }
 
 function importEpubSource(e: Event) {
@@ -100,14 +98,13 @@ function importEpub(sourceOrTarget: "source" | "target") {
 function submit(e: Event) {
   e.preventDefault();
 
-  if (sourceTextArea === $unloaded) {
-    throw "Source language DOM unloaded. This should never happen.";
-  }
-  if (targetTextArea === $unloaded) {
-    throw "Target language DOM unloaded. This should never happen.";
+  if (editorSource === $unloaded || editorTarget === $unloaded) {
+    throw new Error("DOM not loaded. This should never happen.");
   }
 
-  worker.postMessage([sourceTextArea.value, targetTextArea.value]);
+  const sourceText = editorSource.state.doc.toString();
+  const targetText = editorTarget.state.doc.toString();
+  worker.postMessage([sourceText, targetText]);
 }
 
 if (document.readyState === "loading") {

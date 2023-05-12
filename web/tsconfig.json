@@ -1,5 +1,5 @@
 {
-  "files": ["main.ts", "epub-worker.ts"],
+  "files": ["main.mts", "epub-worker.ts"],
   "compilerOptions": {
     "esModuleInterop": true,
     "moduleResolution": "Node16",

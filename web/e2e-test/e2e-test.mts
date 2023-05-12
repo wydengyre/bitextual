@@ -61,8 +61,10 @@ test(
     await page.goto(BASE_URL);
     await page.setViewport({ width: 1080, height: 1024 });
 
-    await page.$eval("#source-text", pasteText, bovaryFrench);
-    await page.$eval("#target-text", pasteText, bovaryEnglish);
+    await page.focus("#panel-source .cm-editor .cm-content");
+    await page.keyboard.sendCharacter(bovaryFrench);
+    await page.focus("#panel-target .cm-editor .cm-content");
+    await page.keyboard.sendCharacter(bovaryEnglish);
     await page.click("button[type=submit]");
 
     await page.waitForFunction(() => document.title === "bitextual render");
@@ -87,11 +89,12 @@ test(
       page.click("button#import-epub-source"),
     ]);
     await fileChooser.accept([BOVARY_EPUB_PATH]);
-    // wait for the text content of the source-text textarea to change
     await page.waitForFunction(
       () =>
-        (document.querySelector("#source-text")! as HTMLTextAreaElement)
-          .value !== "",
+        (document.querySelector(
+          "#panel-source .cm-editor .cm-content",
+        )! as HTMLDivElement)
+          .innerText.length > 1,
     );
 
     [fileChooser] = await Promise.all([
@@ -99,29 +102,44 @@ test(
       page.click("button#import-epub-target"),
     ]);
     await fileChooser.accept([BOVARY_EPUB_IMG_PATH]);
-    // wait for the text content of the source-text textarea to change
     await page.waitForFunction(
       () =>
-        (document.querySelector("#target-text")! as HTMLTextAreaElement)
-          .value !== "",
+        (document.querySelector(
+          "#panel-target .cm-editor .cm-content",
+        )! as HTMLDivElement)
+          .innerText.length > 1,
     );
 
-    const sourceTextElement = await page.$("#source-text");
-    const sourceTextHandle = await sourceTextElement!.getProperty("value");
-    const sourceText = await sourceTextHandle.jsonValue();
+    const sourceText = await page.evaluate(() => {
+      const element = document.querySelector(
+        "#panel-source .cm-editor .cm-content",
+      )!;
+      if (!(element instanceof HTMLDivElement)) {
+        throw new Error("element is not a div");
+      }
+      return element.innerText;
+    });
 
-    const targetTextElement = await page.$("#target-text");
-    const targetTextHandle = await targetTextElement!.getProperty("value");
-    const targetText = await targetTextHandle.jsonValue();
+    const targetText = await page.evaluate(() => {
+      const element = document.querySelector(
+        "#panel-target .cm-editor .cm-content",
+      )!;
+      if (!(element instanceof HTMLDivElement)) {
+        throw new Error("element is not a div");
+      }
+      return element.innerText;
+    });
 
-    assert.equal(sourceText, bovaryEpubText);
-    assert.equal(targetText, bovaryEpubText);
+    // because of the way our text editor works, most of the text
+    // will be hidden out of view, and getting it in puppeteer is hard
+    const LENGTH_TO_TEST = 1000;
+    assert.equal(
+      sourceText.slice(0, LENGTH_TO_TEST),
+      bovaryEpubText.slice(0, LENGTH_TO_TEST),
+    );
+    assert.equal(
+      targetText.slice(0, LENGTH_TO_TEST),
+      bovaryEpubText.slice(0, LENGTH_TO_TEST),
+    );
   }),
 );
-
-function pasteText(el: Element, value: string) {
-  if (!("value" in el)) {
-    throw "element does not have a value property";
-  }
-  el.value = value;
-}
