@@ -35,7 +35,7 @@ web-install-deps:
 web-check:
     cd web && npx tsc && deno check build.ts serve.ts worker.ts
 
-web-build: web-build-copy-resources web-bundle-ts
+web-build: web-build-copy-resources web-bundle-ts web-copy-dev web-move-prod-sourcemaps
 
 web-build-copy-resources:
     mkdir -p dist/web
@@ -49,6 +49,14 @@ web-build-copy-resources:
 
 web-bundle-ts:
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
+
+web-copy-dev:
+    # web-dev is still identical to prod, but with sourcemaps
+    cp -R dist/web dist/web-dev
+
+web-move-prod-sourcemaps:
+    mkdir -p dist/web-sourcemaps
+    mv dist/web/*.map dist/web-sourcemaps
 
 # run development web server for local QA
 web-serve:
