@@ -15,18 +15,48 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
+            line-height: 1.3;
         }
 
-        #header {
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #e7e7e7;
-            padding: 10px 20px;
+        header {
+            padding: 0 20px 10px;
+        }
+
+        h1 {
             font-size: 24px;
             font-weight: bold;
         }
 
-        #header button {
-            float: right;
+        h2 {
+            font-size: 22px;
+        }
+
+        #explanation {
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #explanation-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #explanation-text {
+            padding: 20px;
+            background-color: #EBFAF5;
+            max-width: 600px;
+        }
+
+        #submit-control {
+            background-color: #EBFAF5;
+            display: flex;
+            width: 200px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #align {
         }
 
         #editor {
@@ -66,10 +96,24 @@
     </style>
 </head>
 <body>
-<div id="header">
-    Bitextual: the bilingual book generator
-    <button id="align" type="submit">generate</button>
-</div>
+<header>
+    <h1>Bitextual</h1>
+</header>
+
+<section id="explanation">
+    <div id="explanation-container">
+        <div id="explanation-text">
+            <h2>Create a parallel book.</h2>
+            <p>Bitextual takes translated texts in two different languages and generates an easy-to-read, parallel version.
+            For an example, see this <a href="bovary.aligned">French-English version of Madame Bovary.</a></p>
+
+            <p>Bitextual currently supports English, French, Spanish, German and Italian, with more to come!</p>
+        </div>
+        <div id="submit-control">
+            <button id="align" type="submit">generate</button>
+        </div>
+    </div>
+</section>
 
 <div id="editor">
     <div class="editor-panel">
