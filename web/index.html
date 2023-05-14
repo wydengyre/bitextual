@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="https://bitextual.net">
     <title>Bitextual: the parallel book generator</title>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="main.js" async></script>
+    <link rel="modulepreload" href="worker.js">
+    <link rel="modulepreload" href="epub-worker.js">
     <style>
         html, body {
             margin: 0;
