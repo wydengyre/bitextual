@@ -1,5 +1,5 @@
 import { assertStrictEquals } from "std/testing/asserts.ts";
-import {fromFileUrl} from "std/path/mod.ts";
+import { fromFileUrl } from "std/path/mod.ts";
 
 const SITE_URL = "https://bitextual.net";
 Deno.test("site is up", async () => {
