@@ -61,10 +61,19 @@ test(
     await page.goto(BASE_URL);
     await page.setViewport({ width: 1080, height: 1024 });
 
+    // when we retype the whole text, the test takes too long
+    const NUM_LINES = 100;
+    const bovaryFrenchFirstLines = bovaryFrench.split("\n").slice(0, NUM_LINES)
+      .join("\n");
+    const bovaryEnglishFirstLines = bovaryEnglish.split("\n").slice(
+      0,
+      NUM_LINES,
+    ).join("\n");
+
     await page.focus("#panel-source .cm-editor .cm-content");
-    await page.keyboard.sendCharacter(bovaryFrench);
+    await page.keyboard.sendCharacter(bovaryFrenchFirstLines);
     await page.focus("#panel-target .cm-editor .cm-content");
-    await page.keyboard.sendCharacter(bovaryEnglish);
+    await page.keyboard.sendCharacter(bovaryEnglishFirstLines);
     await page.click("button[type=submit]");
 
     await page.waitForFunction(() => document.title === "bitextual render");
