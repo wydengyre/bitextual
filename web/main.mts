@@ -13,59 +13,59 @@ worker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
 
-epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
-  const [sourceOrTarget, text] = e.data;
-  const editor = sourceOrTarget === "source" ? editorSource : editorTarget;
-  if (editor === $unloaded) {
-    throw new Error("DOM not loaded");
-  }
-  const { state } = editor;
-  const update = state.update({
-    changes: { from: 0, to: state.doc.length, insert: text },
-  });
-  editor.update([update]);
-};
+// epubWorker.onmessage relies on DOM, so it's set up after DOM is loaded
 
 epubWorker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
 
-const $unloaded = Symbol("unloaded");
-type Unloaded = typeof $unloaded;
-
-let submitButton: HTMLButtonElement | Unloaded = $unloaded;
-let editorSource: EditorView | Unloaded = $unloaded;
-let editorTarget: EditorView | Unloaded = $unloaded;
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", loadDom);
+} else {
+  loadDom();
+}
 
 function loadDom() {
-  const sourceEpubButton = document.querySelector("button#import-epub-source")!;
-  if (!(sourceEpubButton instanceof HTMLButtonElement)) {
-    throw "button is not a button";
-  }
-  sourceEpubButton.addEventListener("click", importEpubSource);
+  const sourceEpubButton = document.querySelector<HTMLButtonElement>(
+    "button#import-epub-source",
+  )!;
+  const targetEpubButton = document.querySelector<HTMLButtonElement>(
+    "button#import-epub-target",
+  )!;
+  const submitButton = document.querySelector<HTMLButtonElement>(
+    "button#align",
+  )!;
 
-  const targetEpubButton = document.querySelector("button#import-epub-target")!;
-  if (!(targetEpubButton instanceof HTMLButtonElement)) {
-    throw "button is not a button";
-  }
-  targetEpubButton.addEventListener("click", importEpubTarget);
-
-  const e = document.querySelector("button#align")!;
-  if (!(e instanceof HTMLButtonElement)) {
-    throw "button is not a button";
-  }
-  submitButton = e;
-  submitButton.addEventListener("click", submit);
-
-  editorSource = new EditorView({
+  const editorSource = new EditorView({
     extensions: [basicSetup, EditorView.lineWrapping],
     parent: document.getElementById("panel-source")!,
   });
-
-  editorTarget = new EditorView({
+  const editorTarget = new EditorView({
     extensions: [basicSetup, EditorView.lineWrapping],
     parent: document.getElementById("panel-target")!,
   });
+
+  sourceEpubButton.addEventListener("click", importEpubSource);
+  targetEpubButton.addEventListener("click", importEpubTarget);
+  submitButton.addEventListener("click", submit);
+
+  epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
+    const [sourceOrTarget, text] = e.data;
+    const editor = sourceOrTarget === "source" ? editorSource : editorTarget;
+    const { state } = editor;
+    const update = state.update({
+      changes: { from: 0, to: state.doc.length, insert: text },
+    });
+    editor.update([update]);
+  };
+
+  function submit(e: Event) {
+    e.preventDefault();
+
+    const sourceText = editorSource.state.doc.toString();
+    const targetText = editorTarget.state.doc.toString();
+    worker.postMessage([sourceText, targetText]);
+  }
 }
 
 function importEpubSource(e: Event) {
@@ -93,22 +93,4 @@ function importEpub(sourceOrTarget: "source" | "target") {
     epubWorker.postMessage([sourceOrTarget, bytes]);
   });
   input.click();
-}
-
-function submit(e: Event) {
-  e.preventDefault();
-
-  if (editorSource === $unloaded || editorTarget === $unloaded) {
-    throw new Error("DOM not loaded. This should never happen.");
-  }
-
-  const sourceText = editorSource.state.doc.toString();
-  const targetText = editorTarget.state.doc.toString();
-  worker.postMessage([sourceText, targetText]);
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", loadDom);
-} else {
-  loadDom();
 }
