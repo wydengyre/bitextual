@@ -28,18 +28,15 @@
         }
 
         h2 {
+            margin: 0;
             font-size: 22px;
         }
 
         #explanation {
             padding: 10px 20px;
             display: flex;
-            justify-content: center;
-        }
-
-        #explanation-container {
-            display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: center;
         }
 
         #explanation-text {
@@ -51,7 +48,9 @@
         #submit-control {
             background-color: #EBFAF5;
             display: flex;
-            width: 200px;
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 600px;
             align-items: center;
             justify-content: center;
         }
@@ -101,17 +100,15 @@
 </header>
 
 <section id="explanation">
-    <div id="explanation-container">
-        <div id="explanation-text">
-            <h2>Create a parallel book.</h2>
-            <p>Bitextual takes translated texts in two different languages and generates an easy-to-read, parallel version.
-            For an example, see this <a href="bovary.aligned">French-English version of Madame Bovary.</a></p>
+    <div id="explanation-text">
+        <h2>Create a parallel book.</h2>
+        <p>Bitextual takes translated texts in two different languages and generates an easy-to-read, parallel version.
+        For an example, see this <a href="bovary.aligned">French-English version of Madame Bovary.</a></p>
 
-            <p>Bitextual currently supports English, French, Spanish, German and Italian, with more to come!</p>
-        </div>
-        <div id="submit-control">
-            <button id="align" type="submit">generate</button>
-        </div>
+        <p>Bitextual currently supports English, French, Spanish, German and Italian, with more to come!</p>
+    </div>
+    <div id="submit-control">
+        <button id="align" type="submit">generate</button>
     </div>
 </section>
 
