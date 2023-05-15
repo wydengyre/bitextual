@@ -26,15 +26,10 @@ if (document.readyState === "loading") {
 }
 
 function loadDom() {
-  const sourceEpubButton = document.querySelector<HTMLButtonElement>(
-    "button#import-epub-source",
-  )!;
-  const targetEpubButton = document.querySelector<HTMLButtonElement>(
-    "button#import-epub-target",
-  )!;
-  const submitButton = document.querySelector<HTMLButtonElement>(
-    "button#align",
-  )!;
+  const buttons = ["import-epub-source", "import-epub-target", "align"].map(
+    (id) => document.querySelector<HTMLButtonElement>(`button#${id}`)!,
+  );
+  const [sourceEpubButton, targetEpubButton, submitButton] = buttons;
 
   const editorSource = new EditorView({
     extensions: [basicSetup, EditorView.lineWrapping],
@@ -58,6 +53,10 @@ function loadDom() {
     });
     editor.update([update]);
   };
+
+  for (const button of buttons) {
+    button.disabled = false;
+  }
 
   function submit(e: Event) {
     e.preventDefault();

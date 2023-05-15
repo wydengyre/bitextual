@@ -94,6 +94,10 @@
             cursor: pointer;
         }
 
+        button#align:disabled, button:disabled {
+            cursor: not-allowed;
+        }
+
         button#align {
             background-color: #007BFF;
             color: white;
@@ -111,6 +115,11 @@
 
         button#align:hover {
             background-color: #0056b3;
+        }
+
+        button#align:disabled {
+            background-color: #ccc;
+            color: #666;
         }
 
         .CodeMirror {
@@ -134,17 +143,17 @@
         <p>Bitextual currently supports English, French, Spanish, German and Italian, with more to come!</p>
     </div>
     <div id="submit-control">
-        <button id="align" type="submit">generate</button>
+        <button id="align" type="submit" disabled>generate</button>
     </div>
 </section>
 
 <main id="editor">
     <div class="editor-panel">
-        <div class="panel-toolbar">Source language text <button id="import-epub-source">import source epub</button></div>
+        <div class="panel-toolbar">Source language text <button id="import-epub-source" disabled>import source epub</button></div>
         <div id="panel-source" class="panel-text"></div>
     </div>
     <div class="editor-panel">
-        <div class="panel-toolbar">Target language text <button id="import-epub-target">import target epub</button></div>
+        <div class="panel-toolbar">Target language text <button id="import-epub-target" disabled>import target epub</button></div>
         <div id="panel-target" class="panel-text"></div>
     </div>
 </main>
