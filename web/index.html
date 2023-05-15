@@ -21,7 +21,25 @@
         }
 
         nav {
+            display: flex;
             padding: 20px 10px;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
         }
 
         h1 {
@@ -157,6 +175,9 @@
 <body>
 <nav>
     <h1>Bitextual</h1>
+    <ul>
+        <li><a href="contact/">Contact Us</a></li>
+    </ul>
 </nav>
 
 <section id="explanation">
