@@ -58,8 +58,11 @@ function loadDom() {
     button.disabled = false;
   }
 
-  function submit(e: Event) {
+  function submit(this: HTMLButtonElement, e: Event) {
     e.preventDefault();
+
+    this.classList.add("loading");
+    this.disabled = true;
 
     const sourceText = editorSource.state.doc.toString();
     const targetText = editorTarget.state.doc.toString();

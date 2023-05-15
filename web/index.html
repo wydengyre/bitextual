@@ -122,6 +122,31 @@
             color: #666;
         }
 
+        button#align.loading {
+            cursor: not-allowed;
+            pointer-events: none;
+            position: relative;
+        }
+
+        button#align.loading:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid #fff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .CodeMirror {
             flex-grow: 1;
             height: 0; /* allow flex-grow to control height */
