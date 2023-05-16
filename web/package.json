@@ -6,6 +6,7 @@
   "author": "Matthew Leon <matt@wydengyre.com>",
   "devDependencies": {
     "@types/html-to-text": "^9.0.0",
+    "@types/lodash-es": "^4.17.7",
     "puppeteer": "^20.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
@@ -16,6 +17,7 @@
     "codemirror": "^6.0.1",
     "html-to-text": "^9.0.5",
     "jszip": "^3.10.1",
+    "lodash-es": "^4.17.21",
     "wrangler": "^2.17.0"
   },
   "engines": {

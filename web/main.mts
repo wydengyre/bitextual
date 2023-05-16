@@ -1,5 +1,6 @@
 import { basicSetup, EditorView } from "codemirror";
 import { placeholder, ViewUpdate } from "@codemirror/view";
+import { debounce } from "lodash-es";
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
@@ -55,7 +56,7 @@ function loadDom() {
       basicSetup,
       EditorView.lineWrapping,
       placeholder(INITIAL_SOURCE_TEXT),
-      EditorView.updateListener.of(sourceUpdateListener),
+      mkLanguageUpdateListener("source"),
     ],
     parent: document.getElementById("panel-source")!,
   });
@@ -64,7 +65,7 @@ function loadDom() {
       basicSetup,
       EditorView.lineWrapping,
       placeholder(INITIAL_TARGET_TEXT),
-      EditorView.updateListener.of(targetUpdateListener),
+      mkLanguageUpdateListener("target"),
     ],
     parent: document.getElementById("panel-target")!,
   });
@@ -72,19 +73,6 @@ function loadDom() {
   sourceEpubButton.addEventListener("click", importEpubSource);
   targetEpubButton.addEventListener("click", importEpubTarget);
   submitButton.addEventListener("click", submit);
-
-  function sourceUpdateListener(update: ViewUpdate) {
-    if (update.docChanged) {
-      // TODO: debounce
-      langWorker.postMessage(["source", update.state.doc.toString()]);
-    }
-  }
-
-  function targetUpdateListener(update: ViewUpdate) {
-    if (update.docChanged) {
-      langWorker.postMessage(["target", update.state.doc.toString()]);
-    }
-  }
 
   epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
     const [sourceOrTarget, text] = e.data;
@@ -120,6 +108,22 @@ function loadDom() {
     const sourceText = editorSource.state.doc.toString();
     const targetText = editorTarget.state.doc.toString();
     worker.postMessage([sourceText, targetText]);
+  }
+}
+
+function mkLanguageUpdateListener(sourceOrTarget: "source" | "target") {
+  // we don't want to spam the worker
+  const DEBOUNCE_MS = 200;
+  const debouncedPostMessage = debounce(postMessage, DEBOUNCE_MS);
+
+  return EditorView.updateListener.of((update: ViewUpdate) => {
+    if (update.docChanged) {
+      debouncedPostMessage(update.state.doc.toString());
+    }
+  });
+
+  function postMessage(text: string) {
+    langWorker.postMessage([sourceOrTarget, text]);
   }
 }
 
