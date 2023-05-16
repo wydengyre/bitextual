@@ -1,8 +1,9 @@
 import { basicSetup, EditorView } from "codemirror";
-import { placeholder } from "@codemirror/view";
+import { placeholder, ViewUpdate } from "@codemirror/view";
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
+const LANG_WORKER_PATH = "lang-worker.js";
 
 const INITIAL_SOURCE_TEXT =
   `Paste your source text here, with each paragraph a single line.
@@ -14,6 +15,7 @@ You can also use the epub import button, above.`;
 
 const worker = new Worker(WORKER_PATH);
 const epubWorker = new Worker(EPUB_WORKER_PATH);
+const langWorker = new Worker(LANG_WORKER_PATH);
 
 worker.onmessage = (e: MessageEvent<string>) => {
   // generate a page containing the HTML in e.data and navigate to it
@@ -28,6 +30,11 @@ worker.onerror = (e: ErrorEvent) => {
 // epubWorker.onmessage relies on DOM, so it's set up after DOM is loaded
 
 epubWorker.onerror = (e: ErrorEvent) => {
+  console.error(e);
+};
+
+// langWorker.onmessage relies on DOM, so it's set up after DOM is loaded
+langWorker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
 
@@ -48,6 +55,7 @@ function loadDom() {
       basicSetup,
       EditorView.lineWrapping,
       placeholder(INITIAL_SOURCE_TEXT),
+      EditorView.updateListener.of(sourceUpdateListener),
     ],
     parent: document.getElementById("panel-source")!,
   });
@@ -56,6 +64,7 @@ function loadDom() {
       basicSetup,
       EditorView.lineWrapping,
       placeholder(INITIAL_TARGET_TEXT),
+      EditorView.updateListener.of(targetUpdateListener),
     ],
     parent: document.getElementById("panel-target")!,
   });
@@ -63,6 +72,19 @@ function loadDom() {
   sourceEpubButton.addEventListener("click", importEpubSource);
   targetEpubButton.addEventListener("click", importEpubTarget);
   submitButton.addEventListener("click", submit);
+
+  function sourceUpdateListener(update: ViewUpdate) {
+    if (update.docChanged) {
+      // TODO: debounce
+      langWorker.postMessage(["source", update.state.doc.toString()]);
+    }
+  }
+
+  function targetUpdateListener(update: ViewUpdate) {
+    if (update.docChanged) {
+      langWorker.postMessage(["target", update.state.doc.toString()]);
+    }
+  }
 
   epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
     const [sourceOrTarget, text] = e.data;
@@ -72,6 +94,17 @@ function loadDom() {
       changes: { from: 0, to: state.doc.length, insert: text },
     });
     editor.update([update]);
+  };
+
+  langWorker.onmessage = (
+    e: MessageEvent<["source" | "target", string | ["unsupported", string]]>,
+  ) => {
+    const [sourceOrTarget, lang] = e.data;
+    if (Array.isArray(lang)) {
+      console.error("Unsupported language", lang[1]);
+      return;
+    }
+    console.log(`got ${sourceOrTarget} language`, lang);
   };
 
   for (const button of buttons) {
