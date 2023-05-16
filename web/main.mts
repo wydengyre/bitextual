@@ -1,7 +1,18 @@
 import { basicSetup, EditorView } from "codemirror";
 
-const worker = new Worker("worker.js");
-const epubWorker = new Worker("epub-worker.js");
+const WORKER_PATH = "worker.js";
+const EPUB_WORKER_PATH = "epub-worker.js";
+
+const INITIAL_SOURCE_TEXT =
+  `Paste your source text here, with each paragraph on one line.
+You can also use the epub import button, above.`;
+
+const INITIAL_TARGET_TEXT =
+  `Paste your target text here, with each paragraph on one line.
+You can also use the epub import button, above.`;
+
+const worker = new Worker(WORKER_PATH);
+const epubWorker = new Worker(EPUB_WORKER_PATH);
 
 worker.onmessage = (e: MessageEvent<string>) => {
   // generate a page containing the HTML in e.data and navigate to it
@@ -32,17 +43,27 @@ function loadDom() {
   const [sourceEpubButton, targetEpubButton, submitButton] = buttons;
 
   const editorSource = new EditorView({
+    doc: INITIAL_SOURCE_TEXT,
     extensions: [basicSetup, EditorView.lineWrapping],
     parent: document.getElementById("panel-source")!,
   });
   const editorTarget = new EditorView({
+    doc: INITIAL_TARGET_TEXT,
     extensions: [basicSetup, EditorView.lineWrapping],
     parent: document.getElementById("panel-target")!,
   });
+  let sourceWasManipulated = false;
+  let targetWasManipulated = false;
 
   sourceEpubButton.addEventListener("click", importEpubSource);
   targetEpubButton.addEventListener("click", importEpubTarget);
   submitButton.addEventListener("click", submit);
+  editorSource.contentDOM.addEventListener("click", () => {
+    editorClick("source");
+  });
+  editorTarget.contentDOM.addEventListener("click", () => {
+    editorClick("target");
+  });
 
   epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
     const [sourceOrTarget, text] = e.data;
@@ -52,10 +73,36 @@ function loadDom() {
       changes: { from: 0, to: state.doc.length, insert: text },
     });
     editor.update([update]);
+
+    if (sourceOrTarget === "source") {
+      sourceWasManipulated = true;
+    } else {
+      targetWasManipulated = true;
+    }
   };
 
   for (const button of buttons) {
     button.disabled = false;
+  }
+
+  function editorClick(editorView: "source" | "target") {
+    let clearEditor = false;
+    let editor = editorSource;
+    if (editorView === "source" && !sourceWasManipulated) {
+      sourceWasManipulated = true;
+      clearEditor = true;
+    } else if (editorView === "target" && !targetWasManipulated) {
+      targetWasManipulated = true;
+      editor = editorTarget;
+      clearEditor = true;
+    }
+
+    if (clearEditor) {
+      const update = editor.state.update({
+        changes: { from: 0, to: editor.state.doc.length, insert: "" },
+      });
+      editor.update([update]);
+    }
   }
 
   function submit(this: HTMLButtonElement, e: Event) {

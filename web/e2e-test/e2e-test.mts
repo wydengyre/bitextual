@@ -103,7 +103,7 @@ test(
         (document.querySelector(
           "#panel-source .cm-editor .cm-content",
         )! as HTMLDivElement)
-          .innerText.length > 1,
+          .innerText.length > 1000,
     );
 
     [fileChooser] = await Promise.all([
@@ -116,7 +116,7 @@ test(
         (document.querySelector(
           "#panel-target .cm-editor .cm-content",
         )! as HTMLDivElement)
-          .innerText.length > 1,
+          .innerText.length > 1000,
     );
 
     const sourceText = await page.evaluate(() => {
