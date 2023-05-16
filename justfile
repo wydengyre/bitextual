@@ -33,7 +33,7 @@ web-install-deps:
     cd web && npm install
 
 web-check:
-    cd web && npx tsc && deno check build.ts serve.ts worker.ts
+    cd web && npx tsc && deno check build.ts serve.ts worker.ts lang-worker.ts
 
 web-build: web-build-copy-resources web-bundle-ts web-copy-dev web-move-prod-sourcemaps
 
