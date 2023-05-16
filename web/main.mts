@@ -44,11 +44,19 @@ function loadDom() {
   const [sourceEpubButton, targetEpubButton, submitButton] = buttons;
 
   const editorSource = new EditorView({
-    extensions: [basicSetup, EditorView.lineWrapping, placeholder(INITIAL_SOURCE_TEXT)],
+    extensions: [
+      basicSetup,
+      EditorView.lineWrapping,
+      placeholder(INITIAL_SOURCE_TEXT),
+    ],
     parent: document.getElementById("panel-source")!,
   });
   const editorTarget = new EditorView({
-    extensions: [basicSetup, EditorView.lineWrapping, placeholder(INITIAL_TARGET_TEXT)],
+    extensions: [
+      basicSetup,
+      EditorView.lineWrapping,
+      placeholder(INITIAL_TARGET_TEXT),
+    ],
     parent: document.getElementById("panel-target")!,
   });
 
