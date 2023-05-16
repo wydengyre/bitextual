@@ -66,8 +66,7 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
   return processLineBreaks(epubText);
 }
 
-export function processLineBreaks(text: string): string {
+function processLineBreaks(text: string): string {
   const normalizedText = text.replace(/\r\n/g, "\n");
-  const collapsedParagraphs = normalizedText.replace(/(?<!\n)\n(?!\n)/g, " ");
-  return collapsedParagraphs.replace(/\n+/g, "\n");
+  return normalizedText.replace(/\n+/g, "\n").trim();
 }
