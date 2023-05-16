@@ -4,11 +4,11 @@ const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
 
 const INITIAL_SOURCE_TEXT =
-  `Paste your source text here, with each paragraph on one line.
+  `Paste your source text here, with each paragraph a single line.
 You can also use the epub import button, above.`;
 
 const INITIAL_TARGET_TEXT =
-  `Paste your target text here, with each paragraph on one line.
+  `Paste your target text here, with each paragraph on a single line.
 You can also use the epub import button, above.`;
 
 const worker = new Worker(WORKER_PATH);
