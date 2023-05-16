@@ -196,22 +196,28 @@ const TEMPLATE = `<!DOCTYPE html>
     sourceLanguage.innerHTML = targetLanguage.innerHTML
     targetLanguage.innerHTML = sourceLanguageContent;
     
+    const fragment = document.createDocumentFragment();
+    
     // Swap the columns
-    const tbody = document.getElementById("bilingual-content").getElementsByTagName("tbody").item(0);
+    const table = document.getElementById("bilingual-content");
+    const tbody = table.getElementsByTagName("tbody").item(0);
     const rows = tbody.rows;
+    
+    const newTbody = document.createElement("tbody");
 
     for (const row of rows) {
-        const cell1 = row.cells[0];
-        const cell2 = row.cells[1];
+        const newRow = document.createElement("tr");
+        const cells = row.cells;
+        const cell1 = cells[0];
+        const cell2 = cells[1];
         
-        const cell1Content = cell1.innerHTML;
-        cell1.innerHTML = cell2.innerHTML;
-        cell2.innerHTML = cell1Content;
-        
-        const cell1Lang = cell1.getAttribute("lang");
-        cell1.setAttribute("lang", cell2.getAttribute("lang"));
-        cell2.setAttribute("lang", cell1Lang);
+        newRow.appendChild(cell2);
+        newRow.appendChild(cell1);
+        newTbody.appendChild(newRow);
     }
+    fragment.appendChild(newTbody);
+    
+    table.replaceChild(fragment, tbody); 
   }
   
   function highlightSentences() {
