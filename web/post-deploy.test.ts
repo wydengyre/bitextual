@@ -20,6 +20,15 @@ Deno.test("robots.txt is being served", async () => {
   assertStrictEquals(text, robots);
 });
 
+const CONTACT_URL = SITE_URL + "/contact";
+Deno.test("contact page is up", async () => {
+  const response = await fetch(CONTACT_URL);
+  const text = await response.text();
+  const expected = "Bitextual: contact us";
+  const actual = text.match(/<title>(.*)<\/title>/)?.[1];
+  assertStrictEquals(actual, expected);
+});
+
 Deno.test("http redirects to https", () => {
   // this gets a trailing slash for whatever reason
   return testRedirect("http://bitextual.net", SITE_URL + "/");
