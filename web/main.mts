@@ -1,4 +1,5 @@
 import { basicSetup, EditorView } from "codemirror";
+import { placeholder } from "@codemirror/view";
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
@@ -43,27 +44,17 @@ function loadDom() {
   const [sourceEpubButton, targetEpubButton, submitButton] = buttons;
 
   const editorSource = new EditorView({
-    doc: INITIAL_SOURCE_TEXT,
-    extensions: [basicSetup, EditorView.lineWrapping],
+    extensions: [basicSetup, EditorView.lineWrapping, placeholder(INITIAL_SOURCE_TEXT)],
     parent: document.getElementById("panel-source")!,
   });
   const editorTarget = new EditorView({
-    doc: INITIAL_TARGET_TEXT,
-    extensions: [basicSetup, EditorView.lineWrapping],
+    extensions: [basicSetup, EditorView.lineWrapping, placeholder(INITIAL_TARGET_TEXT)],
     parent: document.getElementById("panel-target")!,
   });
-  let sourceWasManipulated = false;
-  let targetWasManipulated = false;
 
   sourceEpubButton.addEventListener("click", importEpubSource);
   targetEpubButton.addEventListener("click", importEpubTarget);
   submitButton.addEventListener("click", submit);
-  editorSource.contentDOM.addEventListener("click", () => {
-    editorClick("source");
-  });
-  editorTarget.contentDOM.addEventListener("click", () => {
-    editorClick("target");
-  });
 
   epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
     const [sourceOrTarget, text] = e.data;
@@ -73,36 +64,10 @@ function loadDom() {
       changes: { from: 0, to: state.doc.length, insert: text },
     });
     editor.update([update]);
-
-    if (sourceOrTarget === "source") {
-      sourceWasManipulated = true;
-    } else {
-      targetWasManipulated = true;
-    }
   };
 
   for (const button of buttons) {
     button.disabled = false;
-  }
-
-  function editorClick(editorView: "source" | "target") {
-    let clearEditor = false;
-    let editor = editorSource;
-    if (editorView === "source" && !sourceWasManipulated) {
-      sourceWasManipulated = true;
-      clearEditor = true;
-    } else if (editorView === "target" && !targetWasManipulated) {
-      targetWasManipulated = true;
-      editor = editorTarget;
-      clearEditor = true;
-    }
-
-    if (clearEditor) {
-      const update = editor.state.update({
-        changes: { from: 0, to: editor.state.doc.length, insert: "" },
-      });
-      editor.update([update]);
-    }
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
