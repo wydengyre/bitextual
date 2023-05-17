@@ -40,6 +40,16 @@ langWorker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
 
+const IMPORT_EPUB_SOURCE_SELECTOR = "#import-epub-source";
+const IMPORT_EPUB_TARGET_SELECTOR = "#import-epub-target";
+const ALIGN_SELECTOR = "#align";
+
+const SOURCE_LANG_ID = "source-detected-language";
+const TARGET_LANG_ID = "target-detected-language";
+
+const SOURCE_PANEL_ID = "panel-source";
+const TARGET_PANEL_ID = "panel-target";
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", loadDom);
 } else {
@@ -47,32 +57,23 @@ if (document.readyState === "loading") {
 }
 
 function loadDom() {
-  const buttons = ["import-epub-source", "import-epub-target", "align"].map(
-    (id) => document.querySelector<HTMLButtonElement>(`button#${id}`)!,
+  const buttons = [
+    IMPORT_EPUB_SOURCE_SELECTOR,
+    IMPORT_EPUB_TARGET_SELECTOR,
+    ALIGN_SELECTOR,
+  ].map(
+    (selector) => document.querySelector<HTMLButtonElement>(selector)!,
   );
   const [sourceEpubButton, targetEpubButton, submitButton] = buttons;
 
-  const domSourceLang = document.getElementById("source-detected-language")!;
-  const domTargetLang = document.getElementById("target-detected-language")!;
+  const domSourceLang = document.getElementById(SOURCE_LANG_ID)!;
+  const domTargetLang = document.getElementById(TARGET_LANG_ID)!;
 
-  const editorSource = new EditorView({
-    extensions: [
-      basicSetup,
-      EditorView.lineWrapping,
-      placeholder(INITIAL_SOURCE_TEXT),
-      mkLanguageUpdateListener("source"),
-    ],
-    parent: document.getElementById("panel-source")!,
-  });
-  const editorTarget = new EditorView({
-    extensions: [
-      basicSetup,
-      EditorView.lineWrapping,
-      placeholder(INITIAL_TARGET_TEXT),
-      mkLanguageUpdateListener("target"),
-    ],
-    parent: document.getElementById("panel-target")!,
-  });
+  const sourcePanel = document.getElementById(SOURCE_PANEL_ID)!;
+  const targetPanel = document.getElementById(TARGET_PANEL_ID)!;
+
+  const editorSource = mkEditorView("source", INITIAL_SOURCE_TEXT, sourcePanel);
+  const editorTarget = mkEditorView("target", INITIAL_TARGET_TEXT, targetPanel);
 
   sourceEpubButton.addEventListener("click", importEpubSource);
   targetEpubButton.addEventListener("click", importEpubTarget);
@@ -105,6 +106,22 @@ function loadDom() {
 
   sourceEpubButton.disabled = false;
   targetEpubButton.disabled = false;
+
+  function mkEditorView(
+    sourceOrTarget: "source" | "target",
+    initialText: string,
+    parent: HTMLElement,
+  ): EditorView {
+    return new EditorView({
+      extensions: [
+        basicSetup,
+        EditorView.lineWrapping,
+        placeholder(initialText),
+        mkLanguageUpdateListener(sourceOrTarget),
+      ],
+      parent,
+    });
+  }
 
   function mkLanguageUpdateListener(sourceOrTarget: "source" | "target") {
     // we don't want to spam the worker
