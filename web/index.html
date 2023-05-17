@@ -56,20 +56,28 @@
         }
 
         #explanation {
+            background-color: #EBFAF5;
             padding: 0 20px 10px;
+            max-width: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            align-self: center;
         }
 
         #explanation-text {
             padding: 20px 20px 10px;
-            background-color: #EBFAF5;
-            max-width: 600px;
+        }
+
+        #error-message {
+            color: red;
+        }
+
+        #error-message.hidden {
+            visibility: hidden;
         }
 
         #submit-control {
-            background-color: #EBFAF5;
             display: flex;
             padding: 0 20px 10px;
             width: 100%;
@@ -194,6 +202,7 @@
 
         <p>Bitextual currently supports English, French, Spanish, German and Italian, with more to come!</p>
     </div>
+    <div id="error-message" class="hidden">Error here.</div>
     <div id="submit-control">
         <button id="align" type="submit" disabled>generate</button>
     </div>

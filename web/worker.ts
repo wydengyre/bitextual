@@ -77,6 +77,9 @@ function getTrainingData(l: Language): Promise<Uint8Array> {
 
 async function fetchBinary(url: string): Promise<Uint8Array> {
   const f = await fetch(url);
+  if (!f.ok) {
+    throw Error(`Failed to fetch ${url}: ${f.status} ${f.statusText}`);
+  }
   const ab = await f.arrayBuffer();
   return new Uint8Array(ab);
 }
