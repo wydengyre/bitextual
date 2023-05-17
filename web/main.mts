@@ -1,6 +1,7 @@
 import { basicSetup, EditorView } from "codemirror";
+import type { Text } from "@codemirror/state";
 import { placeholder, ViewUpdate } from "@codemirror/view";
-import { debounce } from "lodash-es";
+import { capitalize, debounce } from "lodash-es";
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
@@ -51,6 +52,9 @@ function loadDom() {
   );
   const [sourceEpubButton, targetEpubButton, submitButton] = buttons;
 
+  const domSourceLang = document.getElementById("source-detected-language")!;
+  const domTargetLang = document.getElementById("target-detected-language")!;
+
   const editorSource = new EditorView({
     extensions: [
       basicSetup,
@@ -88,11 +92,15 @@ function loadDom() {
     e: MessageEvent<["source" | "target", string | ["unsupported", string]]>,
   ) => {
     const [sourceOrTarget, lang] = e.data;
+    const domElement = sourceOrTarget === "source"
+      ? domSourceLang
+      : domTargetLang;
     if (Array.isArray(lang)) {
-      console.error("Unsupported language", lang[1]);
-      return;
+      console.debug("detected unsupported language", lang[1]);
+      domElement.textContent = "unsupported language";
+    } else {
+      domElement.textContent = capitalize(lang);
     }
-    console.log(`got ${sourceOrTarget} language`, lang);
   };
 
   sourceEpubButton.disabled = false;
@@ -105,25 +113,40 @@ function loadDom() {
 
     return EditorView.updateListener.of((update: ViewUpdate) => {
       if (update.docChanged) {
-        const doc = update.state.doc;
-        debouncedPostMessage(doc.toString());
-
-        const otherEditor = sourceOrTarget === "source"
-          ? editorTarget
-          : editorSource;
-        if (doc.length > 0) {
-          if (otherEditor.state.doc.length > 0) {
-            submitButton.disabled = false;
-          }
-        } else {
-          submitButton.disabled = true;
-        }
+        docChanged(update.state.doc);
       }
     });
+
+    function docChanged(doc: Text) {
+      const otherEditor = sourceOrTarget === "source"
+        ? editorTarget
+        : editorSource;
+      if (doc.length > 0) {
+        debouncedPostMessage(doc.toString());
+        if (otherEditor.state.doc.length > 0) {
+          submitButton.disabled = false;
+        }
+      } else {
+        if (sourceOrTarget === "source") {
+          updateSourceLanguage("empty");
+        } else {
+          updateTargetLanguage("empty");
+        }
+        submitButton.disabled = true;
+      }
+    }
 
     function postMessage(text: string) {
       langWorker.postMessage([sourceOrTarget, text]);
     }
+  }
+
+  function updateSourceLanguage(lang: string) {
+    domSourceLang.textContent = lang;
+  }
+
+  function updateTargetLanguage(lang: string) {
+    domTargetLang.textContent = lang;
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
