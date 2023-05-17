@@ -1,8 +1,11 @@
 import { basicSetup, EditorView } from "codemirror";
-import { placeholder } from "@codemirror/view";
+import type { Text } from "@codemirror/state";
+import { placeholder, ViewUpdate } from "@codemirror/view";
+import { capitalize, debounce } from "lodash-es";
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
+const LANG_WORKER_PATH = "lang-worker.js";
 
 const INITIAL_SOURCE_TEXT =
   `Paste your source text here, with each paragraph a single line.
@@ -14,6 +17,7 @@ You can also use the epub import button, above.`;
 
 const worker = new Worker(WORKER_PATH);
 const epubWorker = new Worker(EPUB_WORKER_PATH);
+const langWorker = new Worker(LANG_WORKER_PATH);
 
 worker.onmessage = (e: MessageEvent<string>) => {
   // generate a page containing the HTML in e.data and navigate to it
@@ -31,6 +35,11 @@ epubWorker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
 
+// langWorker.onmessage relies on DOM, so it's set up after DOM is loaded
+langWorker.onerror = (e: ErrorEvent) => {
+  console.error(e);
+};
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", loadDom);
 } else {
@@ -43,11 +52,15 @@ function loadDom() {
   );
   const [sourceEpubButton, targetEpubButton, submitButton] = buttons;
 
+  const domSourceLang = document.getElementById("source-detected-language")!;
+  const domTargetLang = document.getElementById("target-detected-language")!;
+
   const editorSource = new EditorView({
     extensions: [
       basicSetup,
       EditorView.lineWrapping,
       placeholder(INITIAL_SOURCE_TEXT),
+      mkLanguageUpdateListener("source"),
     ],
     parent: document.getElementById("panel-source")!,
   });
@@ -56,6 +69,7 @@ function loadDom() {
       basicSetup,
       EditorView.lineWrapping,
       placeholder(INITIAL_TARGET_TEXT),
+      mkLanguageUpdateListener("target"),
     ],
     parent: document.getElementById("panel-target")!,
   });
@@ -74,8 +88,65 @@ function loadDom() {
     editor.update([update]);
   };
 
-  for (const button of buttons) {
-    button.disabled = false;
+  langWorker.onmessage = (
+    e: MessageEvent<["source" | "target", string | ["unsupported", string]]>,
+  ) => {
+    const [sourceOrTarget, lang] = e.data;
+    const domElement = sourceOrTarget === "source"
+      ? domSourceLang
+      : domTargetLang;
+    if (Array.isArray(lang)) {
+      console.debug("detected unsupported language", lang[1]);
+      domElement.textContent = "unsupported language";
+    } else {
+      domElement.textContent = capitalize(lang);
+    }
+  };
+
+  sourceEpubButton.disabled = false;
+  targetEpubButton.disabled = false;
+
+  function mkLanguageUpdateListener(sourceOrTarget: "source" | "target") {
+    // we don't want to spam the worker
+    const DEBOUNCE_MS = 200;
+    const debouncedPostMessage = debounce(postMessage, DEBOUNCE_MS);
+
+    return EditorView.updateListener.of((update: ViewUpdate) => {
+      if (update.docChanged) {
+        docChanged(update.state.doc);
+      }
+    });
+
+    function docChanged(doc: Text) {
+      const otherEditor = sourceOrTarget === "source"
+        ? editorTarget
+        : editorSource;
+      if (doc.length > 0) {
+        debouncedPostMessage(doc.toString());
+        if (otherEditor.state.doc.length > 0) {
+          submitButton.disabled = false;
+        }
+      } else {
+        if (sourceOrTarget === "source") {
+          updateSourceLanguage("empty");
+        } else {
+          updateTargetLanguage("empty");
+        }
+        submitButton.disabled = true;
+      }
+    }
+
+    function postMessage(text: string) {
+      langWorker.postMessage([sourceOrTarget, text]);
+    }
+  }
+
+  function updateSourceLanguage(lang: string) {
+    domSourceLang.textContent = lang;
+  }
+
+  function updateTargetLanguage(lang: string) {
+    domTargetLang.textContent = lang;
   }
 
   function submit(this: HTMLButtonElement, e: Event) {

@@ -22,6 +22,15 @@ const epubWorkerModulePath = path.fromFileUrl(
   import.meta.resolve(EPUB_WORKER_BUNDLE_PATH_REL),
 );
 
+const LANG_WORKER_PATH_REL = "./lang-worker.ts";
+const LANG_WORKER_BUNDLE_PATH_REL = "../dist/web/lang-worker.js";
+const langWorkerPath = path.fromFileUrl(
+  import.meta.resolve(LANG_WORKER_PATH_REL),
+);
+const langWorkerModulePath = path.fromFileUrl(
+  import.meta.resolve(LANG_WORKER_BUNDLE_PATH_REL),
+);
+
 const MAIN_PATH_REL = "./main.mts";
 const MAIN_BUNDLE_PATH_REL = "../dist/web/main.js";
 const mainPath = path.fromFileUrl(import.meta.resolve(MAIN_PATH_REL));
@@ -32,6 +41,7 @@ const mainBundlePath = path.fromFileUrl(
 async function main() {
   await bundleTs(workerPath, workerBundlePath, true);
   await bundleTs(epubWorkerPath, epubWorkerModulePath);
+  await bundleTs(langWorkerPath, langWorkerModulePath, true);
   await bundleTs(mainPath, mainBundlePath);
 
   // because the worker isn't truly an ESM (thanks Firefox), this hack is necessary
