@@ -93,7 +93,9 @@ function loadDom() {
     e: MessageEvent<["source" | "target", string | ["unsupported", string]]>,
   ) => {
     const [sourceOrTarget, lang] = e.data;
-    const updateFn = sourceOrTarget === "source" ? updateSourceLanguage : updateTargetLanguage;
+    const updateFn = sourceOrTarget === "source"
+      ? updateSourceLanguage
+      : updateTargetLanguage;
     if (Array.isArray(lang)) {
       console.debug(`unsupported ${sourceOrTarget} language`, lang[1]);
       updateFn("unsupported language", false);
@@ -153,7 +155,8 @@ function loadDom() {
   function updateSourceLanguage(lang: string, supported: boolean) {
     domSourceLang.textContent = lang;
     supportedSourceLanguage = supported;
-    submitButton.disabled = !(supportedSourceLanguage && supportedTargetLanguage);
+    submitButton.disabled =
+      !(supportedSourceLanguage && supportedTargetLanguage);
     if (supportedSourceLanguage) {
       domSourceLang.classList.remove("unsupported");
     } else {
@@ -165,7 +168,8 @@ function loadDom() {
   function updateTargetLanguage(lang: string, supported: boolean) {
     domTargetLang.textContent = lang;
     supportedTargetLanguage = supported;
-    submitButton.disabled = !(supportedSourceLanguage && supportedTargetLanguage);
+    submitButton.disabled =
+      !(supportedSourceLanguage && supportedTargetLanguage);
     if (supportedTargetLanguage) {
       domTargetLang.classList.remove("unsupported");
     } else {
