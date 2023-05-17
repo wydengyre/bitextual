@@ -67,7 +67,7 @@ export async function bundleTs(
     outfile,
     plugins,
     preserveSymlinks: true,
-    sourcemap: true,
+    sourcemap: "external",
   };
   await esbuild.build(buildOptions);
   esbuild.stop();
