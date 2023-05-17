@@ -93,14 +93,12 @@ function loadDom() {
     e: MessageEvent<["source" | "target", string | ["unsupported", string]]>,
   ) => {
     const [sourceOrTarget, lang] = e.data;
-    const domElement = sourceOrTarget === "source"
-      ? domSourceLang
-      : domTargetLang;
+    const updateFn = sourceOrTarget === "source" ? updateSourceLanguage : updateTargetLanguage;
     if (Array.isArray(lang)) {
-      console.debug("detected unsupported language", lang[1]);
-      domElement.textContent = "unsupported language";
+      console.debug(`unsupported ${sourceOrTarget} language`, lang[1]);
+      updateFn("unsupported language", false);
     } else {
-      domElement.textContent = capitalize(lang);
+      updateFn(capitalize(lang), true);
     }
   };
 
@@ -135,21 +133,14 @@ function loadDom() {
     });
 
     function docChanged(doc: Text) {
-      const otherEditor = sourceOrTarget === "source"
-        ? editorTarget
-        : editorSource;
       if (doc.length > 0) {
         debouncedPostMessage(doc.toString());
-        if (otherEditor.state.doc.length > 0) {
-          submitButton.disabled = false;
-        }
       } else {
         if (sourceOrTarget === "source") {
-          updateSourceLanguage("empty");
+          updateSourceLanguage("empty", false);
         } else {
-          updateTargetLanguage("empty");
+          updateTargetLanguage("empty", false);
         }
-        submitButton.disabled = true;
       }
     }
 
@@ -158,12 +149,28 @@ function loadDom() {
     }
   }
 
-  function updateSourceLanguage(lang: string) {
+  let supportedSourceLanguage = false;
+  function updateSourceLanguage(lang: string, supported: boolean) {
     domSourceLang.textContent = lang;
+    supportedSourceLanguage = supported;
+    submitButton.disabled = !(supportedSourceLanguage && supportedTargetLanguage);
+    if (supportedSourceLanguage) {
+      domSourceLang.classList.remove("unsupported");
+    } else {
+      domSourceLang.classList.add("unsupported");
+    }
   }
 
-  function updateTargetLanguage(lang: string) {
+  let supportedTargetLanguage = false;
+  function updateTargetLanguage(lang: string, supported: boolean) {
     domTargetLang.textContent = lang;
+    supportedTargetLanguage = supported;
+    submitButton.disabled = !(supportedSourceLanguage && supportedTargetLanguage);
+    if (supportedTargetLanguage) {
+      domTargetLang.classList.remove("unsupported");
+    } else {
+      domTargetLang.classList.add("unsupported");
+    }
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
