@@ -25,17 +25,12 @@ worker.onmessage = (e: MessageEvent<string>) => {
   window.location.href = URL.createObjectURL(blob);
 };
 
-worker.onerror = (e: ErrorEvent) => {
-  console.error(e);
-};
-
-// epubWorker.onmessage relies on DOM, so it's set up after DOM is loaded
-
+// TODO: be smarter about this
 epubWorker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
 
-// langWorker.onmessage relies on DOM, so it's set up after DOM is loaded
+// TODO: be smarter about this
 langWorker.onerror = (e: ErrorEvent) => {
   console.error(e);
 };
@@ -46,6 +41,8 @@ const ALIGN_SELECTOR = "#align";
 
 const SOURCE_LANG_ID = "source-detected-language";
 const TARGET_LANG_ID = "target-detected-language";
+
+const ERROR_MESSAGE_ID = "error-message";
 
 const SOURCE_PANEL_ID = "panel-source";
 const TARGET_PANEL_ID = "panel-target";
@@ -72,12 +69,21 @@ function loadDom() {
   const sourcePanel = document.getElementById(SOURCE_PANEL_ID)!;
   const targetPanel = document.getElementById(TARGET_PANEL_ID)!;
 
+  const errorMessage = document.getElementById(ERROR_MESSAGE_ID)!;
+
   const editorSource = mkEditorView("source", INITIAL_SOURCE_TEXT, sourcePanel);
   const editorTarget = mkEditorView("target", INITIAL_TARGET_TEXT, targetPanel);
 
   sourceEpubButton.addEventListener("click", importEpubSource);
   targetEpubButton.addEventListener("click", importEpubTarget);
   submitButton.addEventListener("click", submit);
+
+  worker.onerror = (e: ErrorEvent) => {
+    console.error(e);
+    submitButton.classList.remove("loading");
+    updateSubmitButton();
+    updateError(`Error generating alignment. ${e.message}`);
+  };
 
   epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
     const [sourceOrTarget, text] = e.data;
@@ -151,12 +157,21 @@ function loadDom() {
     }
   }
 
+  function updateError(err: string | null) {
+    if (err === null) {
+      errorMessage.textContent = "";
+      errorMessage.classList.add("hidden");
+    } else {
+      errorMessage.textContent = err;
+      errorMessage.classList.remove("hidden");
+    }
+  }
+
   let supportedSourceLanguage = false;
   function updateSourceLanguage(lang: string, supported: boolean) {
     domSourceLang.textContent = lang;
     supportedSourceLanguage = supported;
-    submitButton.disabled =
-      !(supportedSourceLanguage && supportedTargetLanguage);
+    updateSubmitButton();
     if (supportedSourceLanguage) {
       domSourceLang.classList.remove("unsupported");
     } else {
@@ -168,13 +183,17 @@ function loadDom() {
   function updateTargetLanguage(lang: string, supported: boolean) {
     domTargetLang.textContent = lang;
     supportedTargetLanguage = supported;
-    submitButton.disabled =
-      !(supportedSourceLanguage && supportedTargetLanguage);
+    updateSubmitButton();
     if (supportedTargetLanguage) {
       domTargetLang.classList.remove("unsupported");
     } else {
       domTargetLang.classList.add("unsupported");
     }
+  }
+
+  function updateSubmitButton() {
+    submitButton.disabled =
+      !(supportedSourceLanguage && supportedTargetLanguage);
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
