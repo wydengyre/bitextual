@@ -74,6 +74,10 @@ test(
     await page.keyboard.sendCharacter(bovaryFrenchFirstLines);
     await page.focus("#panel-target .cm-editor .cm-content");
     await page.keyboard.sendCharacter(bovaryEnglishFirstLines);
+
+    await page.waitForFunction(() =>
+      !document.querySelector<HTMLButtonElement>("#align")?.disabled
+    );
     await page.click("button[type=submit]");
 
     await page.waitForFunction(() => document.title === "bitextual render");
