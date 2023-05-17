@@ -192,7 +192,8 @@ function loadDom() {
   }
 
   function updateSubmitButton() {
-    submitButton.disabled = !(supportedSourceLanguage && supportedTargetLanguage);
+    submitButton.disabled =
+      !(supportedSourceLanguage && supportedTargetLanguage);
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
