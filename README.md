@@ -28,7 +28,7 @@ deno run --allow-read deno/main.ts test/bovary.french.edited.txt test/bovary.eng
 ```
 
 The command says "run the `main.ts` script on Bovary in French (source) and Bovary in English (target)
-target file.
+target file."
 
 An example of a somewhat more liberal translation leading to poor alignment
 quality is available in the
