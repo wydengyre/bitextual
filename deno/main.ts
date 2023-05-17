@@ -112,8 +112,8 @@ async function goWithLanguagesAndText(
   )));
 
   const alignConfig: AlignmentConfig = {
-    sourceLanguage: languageCodes.get(sourceLang)!,
-    targetLanguage: languageCodes.get(targetLang)!,
+    sourceLang: languageCodes.get(sourceLang)!,
+    targetLang: languageCodes.get(targetLang)!,
     punktWasm,
     punktSourceTrainingData,
     punktTargetTrainingData,
