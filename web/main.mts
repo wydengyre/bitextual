@@ -95,8 +95,35 @@ function loadDom() {
     console.log(`got ${sourceOrTarget} language`, lang);
   };
 
-  for (const button of buttons) {
-    button.disabled = false;
+  sourceEpubButton.disabled = false;
+  targetEpubButton.disabled = false;
+
+  function mkLanguageUpdateListener(sourceOrTarget: "source" | "target") {
+    // we don't want to spam the worker
+    const DEBOUNCE_MS = 200;
+    const debouncedPostMessage = debounce(postMessage, DEBOUNCE_MS);
+
+    return EditorView.updateListener.of((update: ViewUpdate) => {
+      if (update.docChanged) {
+        const doc = update.state.doc;
+        debouncedPostMessage(doc.toString());
+
+        const otherEditor = sourceOrTarget === "source"
+          ? editorTarget
+          : editorSource;
+        if (doc.length > 0) {
+          if (otherEditor.state.doc.length > 0) {
+            submitButton.disabled = false;
+          }
+        } else {
+          submitButton.disabled = true;
+        }
+      }
+    });
+
+    function postMessage(text: string) {
+      langWorker.postMessage([sourceOrTarget, text]);
+    }
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
@@ -108,22 +135,6 @@ function loadDom() {
     const sourceText = editorSource.state.doc.toString();
     const targetText = editorTarget.state.doc.toString();
     worker.postMessage([sourceText, targetText]);
-  }
-}
-
-function mkLanguageUpdateListener(sourceOrTarget: "source" | "target") {
-  // we don't want to spam the worker
-  const DEBOUNCE_MS = 200;
-  const debouncedPostMessage = debounce(postMessage, DEBOUNCE_MS);
-
-  return EditorView.updateListener.of((update: ViewUpdate) => {
-    if (update.docChanged) {
-      debouncedPostMessage(update.state.doc.toString());
-    }
-  });
-
-  function postMessage(text: string) {
-    langWorker.postMessage([sourceOrTarget, text]);
   }
 }
 
