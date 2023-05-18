@@ -156,3 +156,11 @@ test(
     );
   }),
 );
+
+test("404", withHeadlessBrowser(async (browser) => {
+  const page = await browser.newPage();
+  await page.goto(`${BASE_URL}/nonexistent`);
+
+  const pageHTML = await page.evaluate(() => document.body.innerHTML);
+  assert.equal(pageHTML, "404 Not Found\n");
+}));
