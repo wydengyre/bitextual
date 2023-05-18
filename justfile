@@ -73,7 +73,7 @@ web-build-and-serve: web-build web-serve
 web-deploy-prod: web-publish-prod web-test-post-deploy web-test-e2e-post-deploy
 
 web-publish-prod:
-    cd web && npx wrangler pages publish ../dist/web
+    cd web && npx wrangler pages deploy ../dist/web
 
 web-test-post-deploy:
     deno test --allow-net --allow-read=./web web/post-deploy.test.ts
