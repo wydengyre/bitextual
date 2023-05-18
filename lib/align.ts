@@ -6,8 +6,8 @@ import { tokenizeWords } from "./tokenize-words.ts";
 import { LanguageName } from "./types.ts";
 
 export type AlignmentConfig = {
-  sourceLanguage: LanguageName;
-  targetLanguage: LanguageName;
+  sourceLang: LanguageName;
+  targetLang: LanguageName;
   punktWasm: Uint8Array;
   punktSourceTrainingData: Uint8Array;
   punktTargetTrainingData: Uint8Array;
@@ -146,8 +146,8 @@ export async function align(
   ).filter(([left, right]) => left.length > 0 && right.length > 0);
 
   return render(
-    conf.sourceLanguage,
-    conf.targetLanguage,
+    conf.sourceLang,
+    conf.targetLang,
     alignedParagraphs,
     alignedSentences,
   );

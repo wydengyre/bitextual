@@ -1,7 +1,7 @@
 import { basicSetup, EditorView } from "codemirror";
 import type { Text } from "@codemirror/state";
 import { placeholder, ViewUpdate } from "@codemirror/view";
-import { capitalize, debounce } from "lodash-es";
+import { debounce } from "lodash-es";
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
@@ -95,18 +95,30 @@ function loadDom() {
     editor.update([update]);
   };
 
+  let langs: {
+    source: [boolean, string] | null;
+    target: [boolean, string] | null;
+  } = {
+    source: null,
+    target: null,
+  };
   langWorker.onmessage = (
-    e: MessageEvent<["source" | "target", string | ["unsupported", string]]>,
+    e: MessageEvent<
+      ["source" | "target", string | ["unsupported", string]]
+    >,
   ) => {
     const [sourceOrTarget, lang] = e.data;
-    const updateFn = sourceOrTarget === "source"
-      ? updateSourceLanguage
-      : updateTargetLanguage;
     if (Array.isArray(lang)) {
+      langs[sourceOrTarget] = [false, lang[1]];
       console.debug(`unsupported ${sourceOrTarget} language`, lang[1]);
-      updateFn("unsupported language", false);
     } else {
-      updateFn(capitalize(lang), true);
+      langs[sourceOrTarget] = [true, lang];
+    }
+
+    if (sourceOrTarget === "source") {
+      updateSourceLanguage();
+    } else {
+      updateTargetLanguage();
     }
   };
 
@@ -145,9 +157,11 @@ function loadDom() {
         debouncedPostMessage(doc.toString());
       } else {
         if (sourceOrTarget === "source") {
-          updateSourceLanguage("empty", false);
+          langs.source = null;
+          updateSourceLanguage();
         } else {
-          updateTargetLanguage("empty", false);
+          langs.target = null;
+          updateTargetLanguage();
         }
       }
     }
@@ -167,24 +181,20 @@ function loadDom() {
     }
   }
 
-  let supportedSourceLanguage = false;
-  function updateSourceLanguage(lang: string, supported: boolean) {
-    domSourceLang.textContent = lang;
-    supportedSourceLanguage = supported;
+  function updateSourceLanguage() {
+    domSourceLang.textContent = langs.source?.[1] || "";
     updateSubmitButton();
-    if (supportedSourceLanguage) {
+    if (langs.source?.[0]) {
       domSourceLang.classList.remove("unsupported");
     } else {
       domSourceLang.classList.add("unsupported");
     }
   }
 
-  let supportedTargetLanguage = false;
-  function updateTargetLanguage(lang: string, supported: boolean) {
-    domTargetLang.textContent = lang;
-    supportedTargetLanguage = supported;
+  function updateTargetLanguage() {
+    domTargetLang.textContent = langs.target?.[1] || "";
     updateSubmitButton();
-    if (supportedTargetLanguage) {
+    if (langs.target?.[0]) {
       domTargetLang.classList.remove("unsupported");
     } else {
       domTargetLang.classList.add("unsupported");
@@ -192,8 +202,7 @@ function loadDom() {
   }
 
   function updateSubmitButton() {
-    submitButton.disabled =
-      !(supportedSourceLanguage && supportedTargetLanguage);
+    submitButton.disabled = !(langs.source?.[0] && langs.target?.[0]);
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
@@ -204,7 +213,12 @@ function loadDom() {
 
     const sourceText = editorSource.state.doc.toString();
     const targetText = editorTarget.state.doc.toString();
-    worker.postMessage([sourceText, targetText]);
+    worker.postMessage([
+      langs.source![1],
+      langs.target![1],
+      sourceText,
+      targetText,
+    ]);
   }
 }
 
