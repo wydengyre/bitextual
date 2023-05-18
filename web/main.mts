@@ -82,6 +82,7 @@ function loadDom() {
     submitButton.classList.remove("loading");
     updateSubmitButton();
     updateError(`Error generating alignment. ${e.message}`);
+    throw new Error(e.message);
   };
 
   epubWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
