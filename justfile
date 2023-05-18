@@ -47,6 +47,7 @@ web-build-copy-resources:
     cp test/*.aligned.html dist/web
     cp web/index.html dist/web
     cp web/robots.txt dist/web
+    cp web/404.html dist/web
     cp web/contact/index.html dist/web/contact
     cp web/node_modules/@picocss/pico/css/pico.min.css dist/web/contact
     cp web/node_modules/@picocss/pico/css/pico.min.css.map dist/web/contact
