@@ -8,7 +8,7 @@ import { align, AlignmentConfig } from "../lib/align.ts";
 // ensure async errors get handled just like sync errors
 self.onunhandledrejection = (e: PromiseRejectionEvent) => {
   e.preventDefault();
-  throw e.reason;
+  throw new Error(e.reason);
 };
 
 self.onmessage = async (

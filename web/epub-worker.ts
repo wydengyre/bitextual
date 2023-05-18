@@ -5,7 +5,7 @@ import { epubToText } from "./epub.js";
 
 self.onunhandledrejection = (e: PromiseRejectionEvent) => {
   e.preventDefault();
-  throw e.reason;
+  throw new Error(e.reason);
 };
 
 self.onmessage = async (e: MessageEvent<["source" | "target", Uint8Array]>) => {

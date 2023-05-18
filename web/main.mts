@@ -25,14 +25,13 @@ worker.onmessage = (e: MessageEvent<string>) => {
   window.location.href = URL.createObjectURL(blob);
 };
 
-// TODO: be smarter about this
 epubWorker.onerror = (e: ErrorEvent) => {
   console.error(e);
+  throw new Error(`epub worker error ${e.message}`);
 };
 
-// TODO: be smarter about this
 langWorker.onerror = (e: ErrorEvent) => {
-  console.error(e);
+  throw new Error(`lang worker error ${e.message}`);
 };
 
 const IMPORT_EPUB_SOURCE_SELECTOR = "#import-epub-source";
