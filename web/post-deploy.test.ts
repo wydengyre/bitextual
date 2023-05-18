@@ -1,4 +1,4 @@
-import { assertStrictEquals } from "std/testing/asserts.ts";
+import {assertFalse, assertStrictEquals} from "std/testing/asserts.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 
 const SITE_URL = "https://bitextual.net";
@@ -27,6 +27,15 @@ Deno.test("contact page is up", async () => {
   const expected = "Bitextual: contact us";
   const actual = text.match(/<title>(.*)<\/title>/)?.[1];
   assertStrictEquals(actual, expected);
+});
+
+const NONEXISTENT_URL = SITE_URL + "/nonexistent";
+Deno.test("request for nonexistent page leads to 404", async () => {
+  const response = await fetch(NONEXISTENT_URL);
+  assertFalse(response.ok);
+  assertStrictEquals(response.status, 404);
+  const text = await response.text();
+  assertStrictEquals(text, "404 Not Found\n");
 });
 
 Deno.test("http redirects to https", () => {
