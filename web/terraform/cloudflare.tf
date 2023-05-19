@@ -75,6 +75,15 @@ resource "cloudflare_record" "bitextual_record_www_a" {
   proxied = true
 }
 
+resource "cloudflare_record" "bitextual_record_txt_google_site_verification" {
+  zone_id = var.zone_id
+  name = "bitextual.net"
+  # see https://developers.cloudflare.com/pages/how-to/www-redirect/
+  value = "google-site-verification=Tv7isSg_UzGJSmlZwcHMIPgwo6O7OcaV3GEmjZKrn0U"
+  type = "TXT"
+  ttl = 3600
+}
+
 resource "cloudflare_ruleset" "bitextual_ruleset_redirect_www_to_apex" {
   zone_id     = var.zone_id
   name        = "redirect-www-to-apex"
