@@ -89,7 +89,7 @@ web-test-e2e-dev $BITEXTUAL_TEST_BASE_URL="http://localhost:8787":
     trap "kill $server_pid" EXIT
     # god forgive me
     sleep 1
-    cd e2e-test && node --test --loader ts-node/esm e2e-test.mts
+    cd e2e-test && node --test --no-warnings=ExperimentalWarning --loader ts-node/esm e2e-test.mts
 
 web-test-e2e-post-deploy $BITEXTUAL_TEST_BASE_URL="https://bitextual.net":
-    cd web/e2e-test && node --test --loader ts-node/esm e2e-test.mts
+    cd web/e2e-test && node --test --no-warnings=ExperimentalWarning --loader ts-node/esm e2e-test.mts
