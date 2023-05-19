@@ -224,12 +224,16 @@ function loadDom() {
     this.classList.add("loading");
     this.disabled = true;
 
-    mixpanel.track("submit", {}, {
+    const sourceText = editorSource.state.doc.toString();
+    const targetText = editorTarget.state.doc.toString();
+
+    mixpanel.track("submit", {
+      source: sourceText.slice(0, 100),
+      target: targetText.slice(0, 100),
+    }, {
       send_immediately: true,
     });
 
-    const sourceText = editorSource.state.doc.toString();
-    const targetText = editorTarget.state.doc.toString();
     worker.postMessage([
       langs.source![1],
       langs.target![1],
