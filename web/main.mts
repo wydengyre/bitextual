@@ -2,6 +2,7 @@ import { basicSetup, EditorView } from "codemirror";
 import type { Text } from "@codemirror/state";
 import { placeholder, ViewUpdate } from "@codemirror/view";
 import { debounce } from "lodash-es";
+import mixpanel from "mixpanel-browser";
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
@@ -45,6 +46,12 @@ const ERROR_MESSAGE_ID = "error-message";
 
 const SOURCE_PANEL_ID = "panel-source";
 const TARGET_PANEL_ID = "panel-target";
+
+const MIXPANEL_TOKEN = "95dfbbd102f147a2dc289937aa7109ab";
+mixpanel.init(MIXPANEL_TOKEN);
+mixpanel.set_config({ "persistence": "localStorage" });
+// @ts-ignore: outdated types
+mixpanel.track_pageview();
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", loadDom);
@@ -108,12 +115,16 @@ function loadDom() {
     >,
   ) => {
     const [sourceOrTarget, lang] = e.data;
+
+    let trackingLang = lang;
     if (Array.isArray(lang)) {
       langs[sourceOrTarget] = [false, lang[1]];
+      trackingLang = lang[1];
       console.debug(`unsupported ${sourceOrTarget} language`, lang[1]);
     } else {
       langs[sourceOrTarget] = [true, lang];
     }
+    mixpanel.track("language-detected", { language: trackingLang });
 
     if (sourceOrTarget === "source") {
       updateSourceLanguage();
@@ -211,6 +222,10 @@ function loadDom() {
     this.classList.add("loading");
     this.disabled = true;
 
+    mixpanel.track("submit", {}, {
+      send_immediately: true,
+    });
+
     const sourceText = editorSource.state.doc.toString();
     const targetText = editorTarget.state.doc.toString();
     worker.postMessage([
@@ -244,6 +259,9 @@ function importEpub(sourceOrTarget: "source" | "target") {
     }
     const arrayBuffer = await file.arrayBuffer();
     const bytes = new Uint8Array(arrayBuffer);
+    mixpanel.track("Imported", { sourceOrTarget, name: file.name }, {
+      send_immediately: true,
+    });
     epubWorker.postMessage([sourceOrTarget, bytes]);
   });
   input.click();
