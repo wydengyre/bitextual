@@ -49,8 +49,8 @@ web-build-copy-resources:
     cp web/robots.txt dist/web
     cp web/404.html dist/web
     cp web/contact/index.html dist/web/contact
-    cp web/node_modules/@picocss/pico/css/pico.min.css dist/web/contact
-    cp web/node_modules/@picocss/pico/css/pico.min.css.map dist/web/contact
+    cp web/node_modules/@picocss/pico/css/pico.min.css dist/web
+    cp web/node_modules/@picocss/pico/css/pico.min.css.map dist/web
 
 web-bundle-ts:
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
