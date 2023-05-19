@@ -39,8 +39,8 @@ web-build: web-build-copy-resources web-bundle-ts web-copy-dev web-move-prod-sou
 
 web-build-copy-resources:
     mkdir -p dist/web/
-    cp -R resources/punkt dist/web/punkt
-    cp -R resources/hunalign/dictionaries dist/web/dictionaries
+    cp -Rf resources/punkt dist/web/punkt
+    cp -Rf resources/hunalign/dictionaries dist/web/dictionaries
     cp resources/hunalign/web/hunalign.wasm dist/web
     cp web/*.png dist/web
     cp web/favicon.ico dist/web
@@ -48,8 +48,8 @@ web-build-copy-resources:
     cp web/index.html dist/web
     cp web/robots.txt dist/web
     cp web/404.html dist/web
-    cp -R web/contact dist/web/contact
-    cp -R web/tutorial dist/web/tutorial
+    cp -Rf web/contact dist/web/contact
+    cp -Rf web/tutorial dist/web/tutorial
     cp web/node_modules/@picocss/pico/css/pico.min.css dist/web
     cp web/node_modules/@picocss/pico/css/pico.min.css.map dist/web
 
