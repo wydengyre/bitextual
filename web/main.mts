@@ -124,7 +124,9 @@ function loadDom() {
     } else {
       langs[sourceOrTarget] = [true, lang];
     }
-    mixpanel.track("language-detected", { language: trackingLang });
+    mixpanel.track("language-detected", { language: trackingLang }, {
+      send_immediately: true,
+    });
 
     if (sourceOrTarget === "source") {
       updateSourceLanguage();
