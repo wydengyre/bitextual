@@ -82,13 +82,14 @@ web-test-post-deploy:
 web-test-e2e-dev $BITEXTUAL_TEST_BASE_URL="http://localhost:8787":
     #!/usr/bin/env bash
     set -euxo pipefail
-    node web/node_modules/wrangler/wrangler-dist/cli.js pages dev dist/web --port 8787 &
+    cd web
+    node node_modules/wrangler/wrangler-dist/cli.js pages dev ../dist/web --port 8787 &
     server_pid=$!
     trap "exit" INT TERM ERR
     trap "kill $server_pid" EXIT
     # god forgive me
     sleep 1
-    cd web/e2e-test && node --test --loader ts-node/esm e2e-test.mts
+    cd e2e-test && node --test --loader ts-node/esm e2e-test.mts
 
 web-test-e2e-post-deploy $BITEXTUAL_TEST_BASE_URL="https://bitextual.net":
     cd web/e2e-test && node --test --loader ts-node/esm e2e-test.mts
