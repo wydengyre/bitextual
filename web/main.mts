@@ -1,4 +1,3 @@
-import { minimalSetup } from "codemirror";
 import type { Text } from "@codemirror/state";
 import {
   EditorView,
@@ -157,7 +156,6 @@ function loadDom() {
   ): EditorView {
     return new EditorView({
       extensions: [
-        minimalSetup,
         lineNumbers(),
         EditorView.lineWrapping,
         placeholder(initialText),
