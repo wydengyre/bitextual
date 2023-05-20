@@ -41,6 +41,13 @@ const mainBundlePath = path.fromFileUrl(
 
 async function main() {
   const projDenoPlugins = denoPlugins({ importMapURL });
+
+  // outputting the worker as iife wasn't working, so we have to replace
+  // this due to its use in emscripten
+  const replaceImportMetaPlugin = esbuildReplace({
+    "import.meta.url": "self.location.href",
+  });
+
   // reduce bundle size by removing sentry's unused functionality
   // see https://docs.sentry.io/platforms/javascript/configuration/tree-shaking/
   const sentryPlugin = esbuildReplace({
@@ -48,19 +55,15 @@ async function main() {
     __SENTRY_TRACING__: "false",
   });
 
-  await bundleTs(workerPath, workerBundlePath, projDenoPlugins);
+  await bundleTs(workerPath, workerBundlePath, [
+    // @ts-ignore the joys of deno vs node
+    replaceImportMetaPlugin,
+    ...projDenoPlugins,
+  ]);
   await bundleTs(epubWorkerPath, epubWorkerModulePath);
   await bundleTs(langWorkerPath, langWorkerModulePath, projDenoPlugins);
   // @ts-ignore the joys of deno vs node
   await bundleTs(mainPath, mainBundlePath, [sentryPlugin]);
-
-  // because the worker isn't truly an ESM (thanks Firefox), this hack is necessary
-  const workerText = await Deno.readTextFile(workerBundlePath);
-  const replacedWorkerText = workerText.replaceAll(
-    "import.meta.url",
-    "self.location.href",
-  );
-  await Deno.writeTextFile(workerBundlePath, replacedWorkerText);
 }
 
 export async function bundleTs(
