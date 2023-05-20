@@ -50,11 +50,9 @@ web-build-copy-resources:
     cp web/404.html dist/web
     cp -Rf web/contact dist/web/contact
     cp -Rf web/tutorial dist/web/tutorial
-    cp web/node_modules/@picocss/pico/css/pico.min.css dist/web
-    cp web/node_modules/@picocss/pico/css/pico.min.css.map dist/web
 
 web-bundle-ts:
-    deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
+    deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run --allow-sys web/build.ts
 
 web-move-sourcemaps:
     mkdir -p dist/web-sourcemaps
