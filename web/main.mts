@@ -1,6 +1,6 @@
-import { basicSetup, EditorView } from "codemirror";
+import { basicSetup } from "codemirror";
 import type { Text } from "@codemirror/state";
-import { placeholder, ViewUpdate } from "@codemirror/view";
+import { EditorView, placeholder, ViewUpdate } from "@codemirror/view";
 import { debounce } from "lodash-es";
 import mixpanel from "mixpanel-browser";
 
