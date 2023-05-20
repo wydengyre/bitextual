@@ -1,6 +1,11 @@
-import { basicSetup } from "codemirror";
+import { minimalSetup } from "codemirror";
 import type { Text } from "@codemirror/state";
-import { EditorView, placeholder, ViewUpdate } from "@codemirror/view";
+import {
+  EditorView,
+  lineNumbers,
+  placeholder,
+  ViewUpdate,
+} from "@codemirror/view";
 import { debounce } from "lodash-es";
 import mixpanel from "mixpanel-browser";
 
@@ -145,7 +150,8 @@ function loadDom() {
   ): EditorView {
     return new EditorView({
       extensions: [
-        basicSetup,
+        minimalSetup,
+        lineNumbers(),
         EditorView.lineWrapping,
         placeholder(initialText),
         mkLanguageUpdateListener(sourceOrTarget),
