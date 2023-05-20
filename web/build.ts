@@ -72,14 +72,19 @@ export async function bundleTs(
     bundle: true,
     entryPoints: [sourcePath],
     format: "esm",
+    metafile: true,
     minify: true,
     outfile,
     plugins,
     preserveSymlinks: true,
     sourcemap: "external",
   };
-  await esbuild.build(buildOptions);
+  const result = await esbuild.build(buildOptions);
   esbuild.stop();
+  await Deno.writeTextFile(
+    `${outfile}.meta.json`,
+    JSON.stringify(result.metafile),
+  );
 }
 
 if (import.meta.main) {

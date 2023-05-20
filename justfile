@@ -35,7 +35,7 @@ web-install-deps:
 web-check:
     cd web && npx tsc && deno check build.ts worker.ts lang-worker.ts
 
-web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps
+web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
 
 web-build-copy-resources:
     mkdir -p dist/web/
@@ -59,6 +59,10 @@ web-bundle-ts:
 web-move-sourcemaps:
     mkdir -p dist/web-sourcemaps
     mv dist/web/*.map dist/web-sourcemaps
+
+web-move-esbuild-meta:
+    mkdir -p dist/web-esbuild-meta
+    mv dist/web/*.meta.json dist/web-esbuild-meta
 
 # run development web server for local QA
 web-serve:
