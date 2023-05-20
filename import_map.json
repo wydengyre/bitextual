@@ -7,6 +7,7 @@
     "franc": "https://esm.sh/v120/franc-min@6.1.0",
     "html-to-text": "npm:html-to-text@9.0.5",
     "jszip": "npm:jszip@3.10.1",
+    "purgecss": "npm:purgecss@5.0.0",
     "std/": "https://deno.land/std@0.187.0/",
     "xml": "https://deno.land/x/xml@2.1.1/mod.ts",
     "@xmldom/xmldom": "npm:@xmldom/xmldom@0.8.7",

@@ -2,6 +2,7 @@ import { denoPlugins } from "esbuild_plugin_deno_loader";
 import { replace as esbuildReplace } from "esbuild-plugin-replace";
 import * as esbuild from "esbuild";
 import * as path from "std/path/mod.ts";
+import { PurgeCSS } from "purgecss";
 
 const IMPORT_MAP_PATH_REL = "./import_map.json";
 const importMapPath = import.meta.resolve(IMPORT_MAP_PATH_REL);
@@ -39,6 +40,19 @@ const mainBundlePath = path.fromFileUrl(
   import.meta.resolve(MAIN_BUNDLE_PATH_REL),
 );
 
+const TUTORIAL_PATH_REL = "./tutorial/index.html";
+const tutorialPath = path.fromFileUrl(import.meta.resolve(TUTORIAL_PATH_REL));
+
+const CONTACT_PATH_REL = "./contact/index.html";
+const contactPath = path.fromFileUrl(import.meta.resolve(CONTACT_PATH_REL));
+
+const PICO_CSS_REL = "./pico.min.css";
+const picoCssPath = path.fromFileUrl(import.meta.resolve(PICO_CSS_REL));
+const PICO_CSS_DIST_REL = "../dist/web/pico.min.css";
+const picoCssDistPath = path.fromFileUrl(
+  import.meta.resolve(PICO_CSS_DIST_REL),
+);
+
 async function main() {
   const projDenoPlugins = denoPlugins({ importMapURL });
 
@@ -64,6 +78,13 @@ async function main() {
   await bundleTs(langWorkerPath, langWorkerModulePath, projDenoPlugins);
   // @ts-ignore the joys of deno vs node
   await bundleTs(mainPath, mainBundlePath, [sentryPlugin]);
+
+  const [{ css }] = await new PurgeCSS().purge({
+    content: [tutorialPath, contactPath],
+    css: [picoCssPath],
+    safelist: [":where"],
+  });
+  await Deno.writeTextFile(picoCssDistPath, css);
 }
 
 export async function bundleTs(
