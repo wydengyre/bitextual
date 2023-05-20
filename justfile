@@ -35,7 +35,7 @@ web-install-deps:
 web-check:
     cd web && npx tsc && deno check build.ts worker.ts lang-worker.ts
 
-web-build: web-build-copy-resources web-bundle-ts web-move-prod-sourcemaps
+web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps
 
 web-build-copy-resources:
     mkdir -p dist/web/
@@ -56,7 +56,7 @@ web-build-copy-resources:
 web-bundle-ts:
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run web/build.ts
 
-web-move-prod-sourcemaps:
+web-move-sourcemaps:
     mkdir -p dist/web-sourcemaps
     mv dist/web/*.map dist/web-sourcemaps
 
@@ -67,9 +67,9 @@ web-serve:
 # for faster iteration when running locally
 web-build-and-serve: web-build web-serve
 
-web-deploy-prod: web-publish-prod web-test-post-deploy web-test-e2e-post-deploy
+web-deploy: web-publish web-test-post-deploy web-test-e2e-post-deploy
 
-web-publish-prod:
+web-publish:
     cd web && npx wrangler pages deploy ../dist/web
 
 web-test-post-deploy:
