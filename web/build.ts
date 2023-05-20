@@ -1,4 +1,5 @@
 import { denoPlugins } from "esbuild_plugin_deno_loader";
+import { replace as esbuildReplace } from "esbuild-plugin-replace";
 import * as esbuild from "esbuild";
 import * as path from "std/path/mod.ts";
 
@@ -39,10 +40,19 @@ const mainBundlePath = path.fromFileUrl(
 );
 
 async function main() {
-  await bundleTs(workerPath, workerBundlePath, true);
+  const projDenoPlugins = denoPlugins({ importMapURL });
+  // reduce bundle size by removing sentry's unused functionality
+  // see https://docs.sentry.io/platforms/javascript/configuration/tree-shaking/
+  const sentryPlugin = esbuildReplace({
+    __SENTRY_DEBUG__: "false",
+    __SENTRY_TRACING__: "false",
+  });
+
+  await bundleTs(workerPath, workerBundlePath, projDenoPlugins);
   await bundleTs(epubWorkerPath, epubWorkerModulePath);
-  await bundleTs(langWorkerPath, langWorkerModulePath, true);
-  await bundleTs(mainPath, mainBundlePath);
+  await bundleTs(langWorkerPath, langWorkerModulePath, projDenoPlugins);
+  // @ts-ignore the joys of deno vs node
+  await bundleTs(mainPath, mainBundlePath, [sentryPlugin]);
 
   // because the worker isn't truly an ESM (thanks Firefox), this hack is necessary
   const workerText = await Deno.readTextFile(workerBundlePath);
@@ -56,9 +66,8 @@ async function main() {
 export async function bundleTs(
   sourcePath: string,
   outfile: string,
-  deno: boolean = false,
+  plugins: esbuild.Plugin[] = [],
 ) {
-  const plugins = deno ? denoPlugins({ importMapURL }) : [];
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
