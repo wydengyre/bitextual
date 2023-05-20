@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@picocss/pico": "^1.5.10",
+    "@sentry/browser": "^7.52.1",
     "@xmldom/xmldom": "^0.8.7",
     "codemirror": "^6.0.1",
     "html-to-text": "^9.0.5",

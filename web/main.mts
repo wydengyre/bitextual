@@ -8,6 +8,13 @@ import {
 } from "@codemirror/view";
 import { debounce } from "lodash-es";
 import mixpanel from "mixpanel-browser";
+import * as Sentry from "@sentry/browser";
+
+Sentry.init({
+  dsn:
+    "https://2f79996e488047e2bb0d918f701bf82e@o4505204684750848.ingest.sentry.io/4505204686520320",
+  release: "dev",
+});
 
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
