@@ -1,10 +1,19 @@
 const PROJECT_ID = "4505204686520320";
+
 // generally, the first line of the request body is around 200 bytes long
 // if we don't run into a newline within 1000 bytes, something is definitely wrong
 const HEADER_LENGTH_LIMIT_BYTE = 1_000;
 
+// 2 MB max body
+const MAX_CONTENT_SIZE = 2_000_000;
+
 // see https://docs.sentry.io/platforms/javascript/troubleshooting/#using-the-tunnel-option
 export const onRequestPost: PagesFunction = async ({ request }) => {
+  if (request.headers.get("content-length") > MAX_CONTENT_SIZE) {
+    return new Response("Payload too large", { status: 413 });
+  }
+
+  console.log("headers", JSON.stringify([...request.headers.entries()]));
   // We tee the stream so we can pull the header out of one stream
   // and pass the other straight as the fetch POST body
   const header = request.clone();
