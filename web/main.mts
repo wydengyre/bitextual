@@ -113,7 +113,7 @@ function loadDom() {
     editor.update([update]);
   };
 
-  let langs: {
+  const langs: {
     source: [boolean, string] | null;
     target: [boolean, string] | null;
   } = {

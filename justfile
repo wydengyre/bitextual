@@ -27,13 +27,16 @@ test:
 write-alignments:
     deno run --allow-read=./ --allow-write=./ test/write-alignments.ts
 
-web-ci: web-install-deps web-check web-build web-test-e2e-dev
+web-ci: web-install-deps web-check web-lint web-build web-test-e2e-dev
 
 web-install-deps:
     cd web && npm install
 
 web-check:
     cd web && npx tsc && deno check build.ts worker.ts lang-worker.ts
+
+web-lint:
+    deno lint web
 
 web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
 
