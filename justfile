@@ -32,8 +32,16 @@ web-ci: web-install-deps web-check web-lint web-build web-test-e2e-dev
 web-install-deps:
     cd web && npm install
 
-web-check:
-    cd web && npx tsc && deno check build.ts worker.ts lang-worker.ts
+web-check: web-check-deno web-check-node web-check-functions
+
+web-check-node:
+    cd web && npx tsc
+
+web-check-deno:
+    cd web && deno check build.ts worker.ts lang-worker.ts
+
+web-check-functions:
+    cd web/functions && npx tsc
 
 web-lint:
     deno lint web
@@ -41,7 +49,7 @@ web-lint:
 web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
 
 web-build-copy-resources:
-    mkdir -p dist/web/
+    mkdir -p dist/web/functions
     cp -Rf resources/punkt dist/web/punkt
     cp -Rf resources/hunalign/dictionaries dist/web/dictionaries
     cp resources/hunalign/web/hunalign.wasm dist/web
@@ -53,6 +61,7 @@ web-build-copy-resources:
     cp web/404.html dist/web
     cp -Rf web/contact dist/web/contact
     cp -Rf web/tutorial dist/web/tutorial
+    cp web/functions/*.ts dist/web/functions
 
 web-bundle-ts:
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run --allow-sys web/build.ts

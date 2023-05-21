@@ -13,6 +13,7 @@ Sentry.init({
   dsn:
     "https://2f79996e488047e2bb0d918f701bf82e@o4505204684750848.ingest.sentry.io/4505204686520320",
   release: "dev",
+  tunnel: "/sentry/",
 });
 
 const WORKER_PATH = "worker.js";
