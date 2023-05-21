@@ -1,6 +1,9 @@
+const PROJECT_ID = "4505204686520320";
 // generally, the first line of the request body is around 200 bytes long
 // if we don't run into a newline within 1000 bytes, something is definitely wrong
 const HEADER_LENGTH_LIMIT_BYTE = 1_000;
+
+// see https://docs.sentry.io/platforms/javascript/troubleshooting/#using-the-tunnel-option
 export const onRequestPost: PagesFunction = async ({ request }) => {
   // We tee the stream so we can pull the header out of one stream
   // and pass the other straight as the fetch POST body
@@ -31,6 +34,13 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
       const firstLine = chunk.slice(0, index);
       const event = JSON.parse(firstLine);
       const dsn = new URL(event.dsn);
+
+      const projectId = dsn.pathname
+        .slice(1); // strip leading slash
+      if (projectId !== PROJECT_ID) {
+        console.log("Project ID mismatch", projectId, PROJECT_ID);
+        return new Response("Project ID mismatch", { status: 400 });
+      }
 
       console.log("Posting to Sentry", event);
       return fetch(`https://${dsn.host}/api${dsn.pathname}/envelope/`, {
