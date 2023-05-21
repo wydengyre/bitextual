@@ -61,7 +61,10 @@ const TARGET_PANEL_ID = "panel-target";
 
 const MIXPANEL_TOKEN = "95dfbbd102f147a2dc289937aa7109ab";
 mixpanel.init(MIXPANEL_TOKEN);
-mixpanel.set_config({ "persistence": "localStorage" });
+mixpanel.set_config({
+  "persistence": "localStorage",
+  "api_host": "/telemetry",
+});
 // @ts-ignore: outdated types
 mixpanel.track_pageview();
 

@@ -62,6 +62,7 @@ web-build-copy-resources:
     cp -Rf web/contact dist/web/contact
     cp -Rf web/tutorial dist/web/tutorial
     cp web/functions/*.ts dist/web/functions
+    cp -Rf web/functions/telemetry dist/web/functions/telemetry
 
 web-bundle-ts:
     deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run --allow-sys web/build.ts
