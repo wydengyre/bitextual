@@ -1,4 +1,5 @@
-const DSN = "https://2f79996e488047e2bb0d918f701bf82e@o4505204684750848.ingest.sentry.io/4505204686520320";
+const DSN =
+  "https://2f79996e488047e2bb0d918f701bf82e@o4505204684750848.ingest.sentry.io/4505204686520320";
 const DSN_URL = new URL(DSN);
 const FETCH_URL = `https://${DSN_URL.host}/api${DSN_URL.pathname}/envelope/`;
 
