@@ -8,6 +8,7 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
 
   const headerReader = header.body.getReader();
 
+  // TODO: add a limit here: we shouldn't read more than 1k or we are open to DOS
   while (true) {
     const { done, value } = await headerReader.read();
 
