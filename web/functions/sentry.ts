@@ -1,4 +1,6 @@
-const PROJECT_ID = "4505204686520320";
+const DSN = "https://2f79996e488047e2bb0d918f701bf82e@o4505204684750848.ingest.sentry.io/4505204686520320";
+const DSN_URL = new URL(DSN);
+const FETCH_URL = `https://${DSN_URL.host}/api${DSN_URL.pathname}/envelope/`;
 
 // generally, the first line of the request body is around 200 bytes long
 // if we don't run into a newline within 1000 bytes, something is definitely wrong
@@ -44,17 +46,14 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
     if (index >= 0) {
       const firstLine = chunk.slice(0, index);
       const event = JSON.parse(firstLine);
-      const dsn = new URL(event.dsn);
 
-      const projectId = dsn.pathname
-        .slice(1); // strip leading slash
-      if (projectId !== PROJECT_ID) {
-        console.log("Project ID mismatch", projectId, PROJECT_ID);
-        return new Response("Project ID mismatch", { status: 400 });
+      if (event.dsn !== DSN) {
+        console.log("DSN mismatch", event.dsn);
+        return new Response("DSN mismatch", { status: 400 });
       }
 
       console.log("Posting to Sentry", event);
-      return fetch(`https://${dsn.host}/api${dsn.pathname}/envelope/`, {
+      return fetch(FETCH_URL, {
         method: "POST",
         body: request.body,
       });
