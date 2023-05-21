@@ -9,7 +9,9 @@ const MAX_CONTENT_SIZE = 2_000_000;
 
 // see https://docs.sentry.io/platforms/javascript/troubleshooting/#using-the-tunnel-option
 export const onRequestPost: PagesFunction = async ({ request }) => {
-  if (request.headers.get("content-length") > MAX_CONTENT_SIZE) {
+  const contentLength = parseInt(request.headers.get("content-length"));
+  if (contentLength > MAX_CONTENT_SIZE) {
+    console.log("got too large payload", contentLength);
     return new Response("Payload too large", { status: 413 });
   }
 
