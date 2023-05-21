@@ -1,3 +1,6 @@
+// generally, the first line of the request body is around 200 bytes long
+// if we don't run into a newline within 1000 bytes, something is definitely wrong
+const HEADER_LENGTH_LIMIT_BYTE = 1_000;
 export const onRequestPost: PagesFunction = async ({ request }) => {
   // We tee the stream so we can pull the header out of one stream
   // and pass the other straight as the fetch POST body
@@ -8,8 +11,11 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
 
   const headerReader = header.body.getReader();
 
-  // TODO: add a limit here: we shouldn't read more than 1k or we are open to DOS
+  let readLength = 0;
   while (true) {
+    if (readLength > HEADER_LENGTH_LIMIT_BYTE) {
+      break;
+    }
     const { done, value } = await headerReader.read();
 
     if (done) {
@@ -17,6 +23,7 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
     }
 
     chunk += decoder.decode(value);
+    readLength += value.length;
 
     const index = chunk.indexOf("\n");
 
@@ -32,4 +39,6 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
       });
     }
   }
+
+  return new Response("No newline found in header", { status: 400 });
 };
