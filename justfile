@@ -1,5 +1,7 @@
 #!/usr/bin/env just --justfile
 
+RELEASE_NAME := `git rev-parse --abbrev-ref HEAD` + "-" + `git rev-parse --short HEAD`
+
 default:
     just --list --justfile {{justfile()}}
 
@@ -65,7 +67,7 @@ web-build-copy-resources:
     cp -Rf web/functions/telemetry dist/web/functions/telemetry
 
 web-bundle-ts:
-    deno run --check --allow-net --allow-env --allow-read --allow-write --allow-run --allow-sys web/build.ts
+    deno run --allow-net --allow-env --allow-read --allow-write --allow-run --allow-sys web/build.ts {{RELEASE_NAME}}
 
 web-move-sourcemaps:
     mkdir -p dist/web-sourcemaps
@@ -85,7 +87,7 @@ web-build-and-serve: web-build web-serve
 web-deploy: web-sentry-upload-sourcemaps web-publish web-test-post-deploy web-test-e2e-post-deploy
 
 web-sentry-upload-sourcemaps:
-    cd web && npx sentry-cli sourcemaps upload ../dist/web-sourcemaps
+    cd web && npx sentry-cli sourcemaps upload --release={{RELEASE_NAME}} ../dist/web-sourcemaps
 
 web-publish:
     cd web && npx wrangler pages deploy ../dist/web

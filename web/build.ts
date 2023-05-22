@@ -54,6 +54,7 @@ const picoCssDistPath = path.fromFileUrl(
 );
 
 async function main() {
+  const releaseName = Deno.args[Deno.args.length - 1];
   const projDenoPlugins = denoPlugins({ importMapURL });
 
   // outputting the worker as iife wasn't working, so we have to replace
@@ -67,6 +68,7 @@ async function main() {
   const sentryPlugin = esbuildReplace({
     __SENTRY_DEBUG__: "false",
     __SENTRY_TRACING__: "false",
+    __BITEXTUAL_RELEASE__: releaseName,
   });
 
   await bundleTs(workerPath, workerBundlePath, [
