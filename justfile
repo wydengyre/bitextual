@@ -25,6 +25,10 @@ lint:
 test:
     deno test --allow-read=./ --allow-run=./resources/punkt deno lib
 
+generate-supported-languages:
+    mkdir -p build
+    deno run --check --allow-read=./resources/hunalign/dictionaries --allow-write=./build/supported-languages.json tools/generate-supported-languages.ts
+
 # write the sample alignments to the file system
 write-alignments:
     deno run --allow-read=./ --allow-write=./ test/write-alignments.ts
@@ -48,7 +52,7 @@ web-check-functions:
 web-lint:
     deno lint web
 
-web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
+web-build: generate-supported-languages web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
 
 web-build-copy-resources:
     mkdir -p dist/web/functions
