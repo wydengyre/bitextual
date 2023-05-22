@@ -82,7 +82,10 @@ web-serve:
 # for faster iteration when running locally
 web-build-and-serve: web-build web-serve
 
-web-deploy: web-publish web-test-post-deploy web-test-e2e-post-deploy
+web-deploy: web-sentry-upload-sourcemaps web-publish web-test-post-deploy web-test-e2e-post-deploy
+
+web-sentry-upload-sourcemaps:
+    cd web && npx sentry-cli sourcemaps upload ../dist/web-sourcemaps
 
 web-publish:
     cd web && npx wrangler pages deploy ../dist/web

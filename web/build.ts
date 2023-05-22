@@ -3,11 +3,6 @@ import { replace as esbuildReplace } from "esbuild-plugin-replace";
 import * as esbuild from "esbuild";
 import * as path from "std/path/mod.ts";
 import { PurgeCSS } from "purgecss";
-import { sentryEsbuildPlugin } from "sentry-esbuild-plugin";
-import dotenv from "std/dotenv/mod.ts";
-
-const DIST_PATH_REL = "../dist/web";
-const distPath = path.fromFileUrl(import.meta.resolve(DIST_PATH_REL));
 
 const IMPORT_MAP_PATH_REL = "./import_map.json";
 const importMapPath = import.meta.resolve(IMPORT_MAP_PATH_REL);
@@ -58,8 +53,6 @@ const picoCssDistPath = path.fromFileUrl(
   import.meta.resolve(PICO_CSS_DIST_REL),
 );
 
-const env = await dotenv.load();
-
 async function main() {
   const projDenoPlugins = denoPlugins({ importMapURL });
 
@@ -94,27 +87,11 @@ async function main() {
   await Deno.writeTextFile(picoCssDistPath, css);
 }
 
-const sentryPlugin = sentryEsbuildPlugin({
-  org: "bitextual",
-  project: "bitextual",
-
-  // Auth tokens can be obtained from https://sentry.io/settings/account/api/auth-tokens/
-  // and need `project:releases` and `org:read` scopes
-  authToken: env.SENTRY_AUTH_TOKEN,
-
-  sourcemaps: {
-    assets: `${distPath}/**`,
-  },
-});
-
 export async function bundleTs(
   sourcePath: string,
   outfile: string,
   plugins: esbuild.Plugin[] = [],
 ) {
-  // comment this out if no internet connection and not actually going to release
-  plugins.unshift(sentryPlugin);
-
   const buildOptions: esbuild.BuildOptions = {
     bundle: true,
     entryPoints: [sourcePath],
