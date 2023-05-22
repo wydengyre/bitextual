@@ -3,7 +3,7 @@ import * as HunalignLib from "../resources/hunalign/web/hunalign.d.ts";
 import { Hunalign, PARAGRAPH_MARKER } from "./hunalign.ts";
 import { render } from "./render.ts";
 import { tokenizeWords } from "./tokenize-words.ts";
-import { LanguageName } from "./types.ts";
+import { LanguageName } from "./language.ts";
 
 export type AlignmentConfig = {
   sourceLang: LanguageName;

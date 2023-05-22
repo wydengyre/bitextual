@@ -1,5 +1,5 @@
 import { franc } from "franc";
-import { LanguageName } from "./types.ts";
+import { LanguageName } from "./language.ts";
 
 const $UNSUPPORTED_LANGUAGE = Symbol("UNSUPPORTED_LANGUAGE");
 type UnsupportedLanguage = [typeof $UNSUPPORTED_LANGUAGE, string];
