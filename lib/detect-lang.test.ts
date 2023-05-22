@@ -1,4 +1,4 @@
-import { LanguageName } from "./types.ts";
+import { LanguageName } from "./language.ts";
 import {
   assert,
   assertEquals,

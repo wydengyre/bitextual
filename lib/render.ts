@@ -1,4 +1,4 @@
-import { Language, language, LanguageName } from "./types.ts";
+import { Language, language, LanguageName } from "./language.ts";
 
 const TABLE_MARKER = "<!-- TABLE -->";
 

@@ -1,5 +1,10 @@
 import * as HunalignLib from "../resources/hunalign/web/hunalign.js";
-import { isLanguage, Language, language, languageCodes } from "../lib/types.ts";
+import {
+  isLanguage,
+  Language,
+  language,
+  languageCodes,
+} from "../lib/language.ts";
 import { fromFileUrl } from "std/path/mod.ts";
 import { align, AlignmentConfig } from "../lib/align.ts";
 import { detectLang, isUnsupportedLanguage } from "../lib/detect-lang.ts";

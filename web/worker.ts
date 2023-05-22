@@ -2,7 +2,7 @@
 /// <reference no-default-lib="true" />
 /// <reference lib="deno.worker" />
 import * as HunalignLib from "../resources/hunalign/web/hunalign.js";
-import { language, LanguageName } from "../lib/types.ts";
+import { language, LanguageName } from "../lib/language.ts";
 import { align, AlignmentConfig } from "../lib/align.ts";
 
 // ensure async errors get handled just like sync errors
