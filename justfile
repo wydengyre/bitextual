@@ -95,7 +95,7 @@ web-publish:
 web-test-post-deploy:
     deno test --allow-net --allow-read=./web web/post-deploy.test.ts
 
-web-test-e2e-dev $BITEXTUAL_TEST_BASE_URL="http://localhost:8787":
+web-test-e2e-dev $BITEXTUAL_TEST_BASE_URL="http://127.0.0.1:8787":
     #!/usr/bin/env bash
     set -euxo pipefail
     cd web
