@@ -6,7 +6,7 @@ import {
   placeholder,
   ViewUpdate,
 } from "@codemirror/view";
-import {defaultKeymap} from "@codemirror/commands"
+import { defaultKeymap } from "@codemirror/commands";
 import { debounce } from "lodash-es";
 import mixpanel from "mixpanel-browser";
 import * as Sentry from "@sentry/browser";
