@@ -153,6 +153,15 @@ function loadDom() {
     } else {
       langs[sourceOrTarget] = [true, lang];
     }
+
+    let err: string | null = null;
+    if (langs.source?.[0] === false) {
+      err = `Unsupported source language: ${langs.source[1]}`;
+    } else if (langs.target?.[0] === false) {
+      err = `Unsupported target language: ${langs.target[1]}`;
+    }
+    updateError(err);
+
     mixpanel.track("language-detected", { language: trackingLang }, {
       send_immediately: true,
     });
@@ -219,7 +228,7 @@ function loadDom() {
     }
   }
 
-  function updateError(err: string | null) {
+  function updateError(err: string | null = null) {
     if (err === null) {
       errorMessage.textContent = "";
       errorMessage.classList.add("hidden");
