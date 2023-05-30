@@ -182,7 +182,7 @@ function loadDom() {
         lineNumbers(),
         EditorView.lineWrapping,
         placeholder(initialText),
-        keymap.of([defaultKeymap]),
+        keymap.of(defaultKeymap),
         mkLanguageUpdateListener(sourceOrTarget),
       ],
       parent,
