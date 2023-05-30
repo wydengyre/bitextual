@@ -82,7 +82,9 @@ test(
     );
     await page.click("button[type=submit]");
 
-    await page.waitForFunction(() => document.title === "bitextual render");
+    await page.waitForFunction(() =>
+      document.title === "bitextual parallel book"
+    );
     const firstSentenceElement = await page.$(".sentence");
     const firstSentenceTextHandle = await firstSentenceElement!.getProperty(
       "innerText",

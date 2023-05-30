@@ -120,7 +120,7 @@ const TEMPLATE = `<!DOCTYPE html>
   <head>
     <meta charset="utf-8">
 
-  <title>bitextual render</title>
+  <title>bitextual parallel book</title>
 
   <style>
     body {
