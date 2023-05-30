@@ -1,11 +1,13 @@
 {
   "files": ["main.mts", "epub-worker.ts"],
   "compilerOptions": {
+    "module": "esnext",
     "esModuleInterop": true,
     "moduleResolution": "Node16",
     "target": "es2017",
     "strict": true,
-    "noEmit": true
+    "noEmit": true,
+    "resolveJsonModule": true
   },
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Recommended"

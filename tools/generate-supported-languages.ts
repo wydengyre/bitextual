@@ -4,7 +4,9 @@ const OUT_PATH_REL = "../build/supported-languages.json";
 const OUT_PATH = fromFileUrl(import.meta.resolve(OUT_PATH_REL));
 
 const DICTIONARIES_PATH_REL = "../resources/hunalign/dictionaries";
-const DICTIONARIES_PATH = fromFileUrl(import.meta.resolve(DICTIONARIES_PATH_REL));
+const DICTIONARIES_PATH = fromFileUrl(
+  import.meta.resolve(DICTIONARIES_PATH_REL),
+);
 
 async function main() {
   const dictFiles = await toArray(Deno.readDir(DICTIONARIES_PATH));
@@ -22,7 +24,7 @@ async function main() {
 
 async function toArray<T>(asyncIterable: AsyncIterable<T>): Promise<T[]> {
   const arr: T[] = [];
-  for await(const i of asyncIterable) {
+  for await (const i of asyncIterable) {
     arr.push(i);
   }
   return arr;
@@ -31,4 +33,3 @@ async function toArray<T>(asyncIterable: AsyncIterable<T>): Promise<T[]> {
 if (import.meta.main) {
   await main();
 }
-

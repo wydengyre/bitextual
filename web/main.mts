@@ -7,9 +7,18 @@ import {
   ViewUpdate,
 } from "@codemirror/view";
 import { defaultKeymap } from "@codemirror/commands";
-import { debounce } from "lodash-es";
+import { capitalize, debounce } from "lodash-es";
 import mixpanel from "mixpanel-browser";
 import * as Sentry from "@sentry/browser";
+import { Language, language, LanguageName } from "../lib/language.js";
+import supportedLanguagesJson from "../build/supported-languages.json" assert {
+  type: "json",
+};
+
+const supportedLanguages: [Language, Language][] = supportedLanguagesJson as [
+  Language,
+  Language,
+][];
 
 const BITEXTUAL_RELEASE = "__BITEXTUAL_RELEASE__";
 
@@ -134,9 +143,11 @@ function loadDom() {
   const langs: {
     source: [boolean, string] | null;
     target: [boolean, string] | null;
+    supportedPair: boolean;
   } = {
     source: null,
     target: null,
+    supportedPair: false,
   };
   langWorker.onmessage = (
     e: MessageEvent<
@@ -159,6 +170,30 @@ function loadDom() {
       err = `Unsupported source language: ${langs.source[1]}`;
     } else if (langs.target?.[0] === false) {
       err = `Unsupported target language: ${langs.target[1]}`;
+    } else if (langs.source !== null && langs.target !== null) {
+      const sourceLangName = langs.source[1];
+      const targetLangName = langs.target[1];
+      const sourceLangCode = language[sourceLangName as LanguageName];
+      const targetLangCode = language[targetLangName as LanguageName];
+
+      // TODO: put in a worker and test in isolation
+      langs.supportedPair = supportedLanguages
+        .filter(([source, target]: [string, string]) =>
+          source === sourceLangCode && target === targetLangCode
+        )
+        .length > 0;
+      if (!langs.supportedPair) {
+        const supportedTargets: string = supportedLanguages
+          .filter(([source]: [string, string]) => sourceLangCode === source)
+          .map(([, target]: [string, string]) => target)
+          .join(", ");
+        err = `Unsupported language pair: ${capitalize(sourceLangName)} -> ${
+          capitalize(targetLangName)
+        }
+        Supported target languages for ${
+          capitalize(sourceLangName)
+        }: ${supportedTargets}`;
+      }
     }
     updateError(err);
 
@@ -259,7 +294,8 @@ function loadDom() {
   }
 
   function updateSubmitButton() {
-    submitButton.disabled = !(langs.source?.[0] && langs.target?.[0]);
+    submitButton.disabled =
+      !(langs.source?.[0] && langs.target?.[0] && langs.supportedPair);
   }
 
   function submit(this: HTMLButtonElement, e: Event) {
