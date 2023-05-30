@@ -46,7 +46,8 @@ export function render(
   const highlightButton =
     `<button type="button" id="highlight-sentences">${HIGHLIGHT_TEXT}</button>`;
   const table = `<table id="bilingual-content">
-    <thead><tr><th colspan="2">${swapControl} ${highlightButton}</th></tr></thead>
+    <thead><tr><th colspan="2"><a href="https://bitextual.net/">Bitextual</a>:
+        ${swapControl} ${highlightButton}</th></tr></thead>
     <tbody>${tableBody}</tbody>
 </table>`;
   return TEMPLATE.replace(TABLE_MARKER, table);
@@ -136,6 +137,7 @@ const TEMPLATE = `<!DOCTYPE html>
     th {
       text-align: left;
       padding: 1em;
+      font-family: Arial, sans-serif;
     }
     
     th button {
