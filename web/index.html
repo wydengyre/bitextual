@@ -52,18 +52,16 @@
             font-size: 22px;
         }
 
-        #explanation {
-            background-color: #EBFAF5;
-            padding: 0 20px 10px;
+        dialog {
             max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            align-self: center;
         }
 
-        #explanation-text {
-            padding: 20px 20px 10px;
+        #submission {
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            align-self: end;
         }
 
         #error-message {
@@ -72,15 +70,6 @@
 
         #error-message.hidden {
             visibility: hidden;
-        }
-
-        #submit-control {
-            display: flex;
-            padding: 0 20px 10px;
-            width: 100%;
-            max-width: 600px;
-            align-items: center;
-            justify-content: center;
         }
 
         #editor {
@@ -127,7 +116,7 @@
             cursor: not-allowed;
         }
 
-        button#align {
+        button#align, button#continue-btn {
             background-color: #007BFF;
             color: white;
             border: none;
@@ -136,17 +125,20 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
             cursor: pointer;
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
 
-        button#align:hover {
+        button#continue-btn {
+            float: right;
+        }
+
+        button#align:hover, button#continue-btn:hover {
             background-color: #0056b3;
         }
 
-        button#align:disabled {
+        button#align:disabled, button#continue-btn:disabled {
             background-color: #ccc;
             color: #666;
         }
@@ -192,19 +184,21 @@
     </ul>
 </nav>
 
-<section id="explanation">
-    <div id="explanation-text">
-        <h2>Create a parallel book.</h2>
-        <p>Bitextual takes translated texts in two different languages and generates an easy-to-read, parallel version.
-            For an example, see this <a href="bovary.aligned">French-English version of Madame Bovary.</a></p>
+<dialog id="intro-modal">
+    <h2>Create a parallel book.</h2>
+    <p>Bitextual takes translated texts in two different languages and generates an easy-to-read, parallel version.
+        For an example, see this <a href="bovary.aligned" target="_blank">French-English version of Madame Bovary.</a></p>
 
-        <p>Bitextual currently supports English, French, Spanish, German and Italian, with more to come!</p>
-    </div>
+    <p>If it's your first time here, check out our <a href="tutorial/" target="_blank">two minute tutorial</a>.</p>
+
+    <p>Bitextual currently supports English, French, Spanish, German and Italian, with more to come!</p>
+    <button id="continue-btn" autofocus>Continue</button>
+</dialog>
+
+<div id="submission">
     <div id="error-message" class="hidden">Error here.</div>
-    <div id="submit-control">
-        <button id="align" type="submit" disabled>generate</button>
-    </div>
-</section>
+    <button id="align" type="submit" disabled>generate</button>
+</div>
 
 <main id="editor">
     <div class="editor-panel">

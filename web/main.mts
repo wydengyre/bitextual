@@ -49,6 +49,9 @@ langWorker.onerror = (e: ErrorEvent) => {
   throw new Error(`lang worker error ${e.message}`);
 };
 
+const INTRO_MODAL_SELECTOR = "#intro-modal";
+const INTRO_CONTINUE_BUTTON_SELECTOR = "#continue-btn";
+
 const IMPORT_EPUB_SOURCE_SELECTOR = "#import-epub-source";
 const IMPORT_EPUB_TARGET_SELECTOR = "#import-epub-target";
 const ALIGN_SELECTOR = "#align";
@@ -77,6 +80,13 @@ if (document.readyState === "loading") {
 }
 
 function loadDom() {
+  const introModal = document.querySelector<HTMLDialogElement>(
+    INTRO_MODAL_SELECTOR,
+  )!;
+  const introContinueButton = document.querySelector<HTMLButtonElement>(
+    INTRO_CONTINUE_BUTTON_SELECTOR,
+  )!;
+
   const buttons = [
     IMPORT_EPUB_SOURCE_SELECTOR,
     IMPORT_EPUB_TARGET_SELECTOR,
@@ -154,6 +164,11 @@ function loadDom() {
 
   sourceEpubButton.disabled = false;
   targetEpubButton.disabled = false;
+
+  introContinueButton.addEventListener("click", () => {
+    introModal.close(); // Close the modal when the button is clicked
+  });
+  introModal.showModal();
 
   function mkEditorView(
     sourceOrTarget: "source" | "target",
