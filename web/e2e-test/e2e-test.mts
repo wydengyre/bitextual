@@ -70,6 +70,8 @@ test(
       NUM_LINES,
     ).join("\n");
 
+    await page.click("#continue-btn");
+
     await page.focus("#panel-source .cm-editor .cm-content");
     await page.keyboard.sendCharacter(bovaryFrenchFirstLines);
     await page.focus("#panel-target .cm-editor .cm-content");
@@ -96,6 +98,8 @@ test(
     const page = await browser.newPage();
     await page.goto(BASE_URL);
     await page.setViewport({ width: 1080, height: 1024 });
+
+    await page.click("#continue-btn");
 
     let [fileChooser] = await Promise.all([
       page.waitForFileChooser(),
