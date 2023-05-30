@@ -25,11 +25,15 @@ lint:
 test:
     deno test --allow-read=./ --allow-run=./resources/punkt deno lib
 
+generate-supported-languages:
+    mkdir -p build
+    deno run --check --allow-read=./resources/hunalign/dictionaries --allow-write=./build/supported-languages.json tools/generate-supported-languages.ts
+
 # write the sample alignments to the file system
 write-alignments:
     deno run --allow-read=./ --allow-write=./ test/write-alignments.ts
 
-web-ci: web-install-deps web-check web-lint web-build web-test-e2e-dev
+web-ci: web-install-deps generate-supported-languages web-check web-lint web-build web-test-e2e-dev
 
 web-install-deps:
     cd web && npm install
