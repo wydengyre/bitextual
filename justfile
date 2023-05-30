@@ -33,7 +33,7 @@ generate-supported-languages:
 write-alignments:
     deno run --allow-read=./ --allow-write=./ test/write-alignments.ts
 
-web-ci: web-install-deps web-check web-lint web-build web-test-e2e-dev
+web-ci: web-install-deps generate-supported-languages web-check web-lint web-build web-test-e2e-dev
 
 web-install-deps:
     cd web && npm install
@@ -52,7 +52,7 @@ web-check-functions:
 web-lint:
     deno lint web
 
-web-build: generate-supported-languages web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
+web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
 
 web-build-copy-resources:
     mkdir -p dist/web/functions
