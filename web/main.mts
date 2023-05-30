@@ -1,10 +1,12 @@
 import type { Text } from "@codemirror/state";
 import {
   EditorView,
+  keymap,
   lineNumbers,
   placeholder,
   ViewUpdate,
 } from "@codemirror/view";
+import {defaultKeymap} from "@codemirror/commands"
 import { debounce } from "lodash-es";
 import mixpanel from "mixpanel-browser";
 import * as Sentry from "@sentry/browser";
@@ -180,6 +182,7 @@ function loadDom() {
         lineNumbers(),
         EditorView.lineWrapping,
         placeholder(initialText),
+        keymap.of([defaultKeymap]),
         mkLanguageUpdateListener(sourceOrTarget),
       ],
       parent,
