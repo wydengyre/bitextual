@@ -40,11 +40,11 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
 
   const orderedFiles = spine.map((id) => [id, manifestMap.get(id)!]);
   const htmlPromises = [...orderedFiles.values()].map(([id, path]) => {
-    const fullPath = `${rootDir}/${path}`;
+    const fullPath = pathJoin(rootDir, path);
     const file = files[fullPath];
     if (file === undefined) {
       throw new Error(
-        `file with id ${id} at ${fullPath} (resolved from relative path ${path}) not found`,
+        `file with id ${id} at ${fullPath} (resolved from root ${rootDir} and relative path ${path}) not found`,
       );
     }
     return file.async("text");
@@ -69,4 +69,24 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
 function processLineBreaks(text: string): string {
   const normalizedText = text.replace(/\r\n/g, "\n");
   return normalizedText.replace(/\n+/g, "\n").trim();
+}
+
+function pathJoin(base: string, relative: string): string {
+  // Split both paths into components
+  const baseComponents = base.split("/");
+  const relativeComponents = relative.split("/");
+
+  // Iterate over each component in the relative path
+  for (const component of relativeComponents) {
+    if (component === "..") {
+      // Go up one level
+      baseComponents.pop();
+    } else if (component !== ".") {
+      // Go into subdirectory
+      baseComponents.push(component);
+    }
+  }
+
+  // Join all components back into a single string
+  return baseComponents.join("/");
 }
