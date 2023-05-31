@@ -33,6 +33,15 @@ const langWorkerModulePath = path.fromFileUrl(
   import.meta.resolve(LANG_WORKER_BUNDLE_PATH_REL),
 );
 
+const MIXPANEL_WORKER_PATH_REL = "./mixpanel-worker.ts";
+const MIXPANEL_WORKER_BUNDLE_PATH_REL = "../dist/web/mixpanel-worker.js";
+const mixpanelWorkerPath = path.fromFileUrl(
+  import.meta.resolve(MIXPANEL_WORKER_PATH_REL),
+);
+const mixpanelWorkerModulePath = path.fromFileUrl(
+  import.meta.resolve(MIXPANEL_WORKER_BUNDLE_PATH_REL),
+);
+
 const MAIN_PATH_REL = "./main.mts";
 const MAIN_BUNDLE_PATH_REL = "../dist/web/main.js";
 const mainPath = path.fromFileUrl(import.meta.resolve(MAIN_PATH_REL));
@@ -77,7 +86,16 @@ async function main() {
     ...projDenoPlugins,
   ]);
   await bundleTs(epubWorkerPath, epubWorkerModulePath);
-  await bundleTs(langWorkerPath, langWorkerModulePath, projDenoPlugins);
+  await bundleTs(
+    langWorkerPath,
+    langWorkerModulePath,
+    projDenoPlugins,
+  );
+  await bundleTs(
+    mixpanelWorkerPath,
+    mixpanelWorkerModulePath,
+  );
+
   // @ts-ignore the joys of deno vs node
   await bundleTs(mainPath, mainBundlePath, [sentryPlugin]);
 
