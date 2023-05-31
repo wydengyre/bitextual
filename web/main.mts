@@ -10,15 +10,8 @@ import { defaultKeymap } from "@codemirror/commands";
 import { capitalize, debounce } from "lodash-es";
 import mixpanel from "mixpanel-browser";
 import * as Sentry from "@sentry/browser";
-import { Language, language, LanguageName } from "../lib/language.js";
-import supportedLanguagesJson from "../build/supported-languages.json" assert {
-  type: "json",
-};
-
-const supportedLanguages: [Language, Language][] = supportedLanguagesJson as [
-  Language,
-  Language,
-][];
+import { language, LanguageName } from "../lib/language.js";
+import { supportedLanguages } from "../build/supported-languages.js";
 
 const BITEXTUAL_RELEASE = "__BITEXTUAL_RELEASE__";
 

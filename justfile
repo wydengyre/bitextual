@@ -27,7 +27,7 @@ test:
 
 generate-supported-languages:
     mkdir -p build
-    deno run --check --allow-read=./resources/hunalign/dictionaries --allow-write=./build/supported-languages.json tools/generate-supported-languages.ts
+    deno run --check --allow-read=./resources/hunalign/dictionaries --allow-write=./build/supported-languages.ts tools/generate-supported-languages.ts
 
 # write the sample alignments to the file system
 write-alignments:

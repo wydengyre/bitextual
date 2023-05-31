@@ -1,6 +1,6 @@
 import { fromFileUrl } from "std/path/mod.ts";
 
-const OUT_PATH_REL = "../build/supported-languages.json";
+const OUT_PATH_REL = "../build/supported-languages.ts";
 const OUT_PATH = fromFileUrl(import.meta.resolve(OUT_PATH_REL));
 
 const DICTIONARIES_PATH_REL = "../resources/hunalign/dictionaries";
@@ -19,7 +19,10 @@ async function main() {
 
   const supportedLanguagesJson = JSON.stringify(supportedLanguages, null, 2);
 
-  await Deno.writeTextFile(OUT_PATH, supportedLanguagesJson);
+  const output =
+    `export const supportedLanguages: [string, string][] = ${supportedLanguagesJson};`;
+
+  await Deno.writeTextFile(OUT_PATH, output);
 }
 
 async function toArray<T>(asyncIterable: AsyncIterable<T>): Promise<T[]> {
