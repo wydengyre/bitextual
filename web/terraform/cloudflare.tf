@@ -40,17 +40,10 @@ resource "cloudflare_zone_settings_override" "bitextual_zone_settings_override" 
   settings {
     always_use_https          = "on"
     automatic_https_rewrites  = "on"
-    brotli                    = "on"
     http3                     = "on"
-    ip_geolocation            = "on"
-    ipv6                      = "on"
-    min_tls_version           = "1.0"
     # since our page is a static blob, this shouldn't be risky
     security_level              = "essentially_off"
-    server_side_exclude         = "on"
-    ssl                         = "flexible"
     tls_1_3                     = "on"
-    tls_client_auth             = "off"
   }
 }
 
