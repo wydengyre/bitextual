@@ -24,7 +24,7 @@
     "html-to-text": "^9.0.5",
     "jszip": "^3.10.1",
     "lodash-es": "^4.17.21",
-    "mixpanel-browser": "^2.47.0",
+    "mixpanel-browser": "juanfer0002/mixpanel-js-mv3#fetch-support-for-mv3-extensions",
     "wrangler": "^3.0.1"
   },
   "engines": {

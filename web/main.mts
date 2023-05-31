@@ -8,7 +8,6 @@ import {
 } from "@codemirror/view";
 import { defaultKeymap } from "@codemirror/commands";
 import { capitalize, debounce } from "lodash-es";
-import mixpanel from "mixpanel-browser";
 import * as Sentry from "@sentry/browser";
 import { language, LanguageName } from "../lib/language.js";
 import { supportedLanguages } from "../build/supported-languages.js";
@@ -25,6 +24,7 @@ Sentry.init({
 const WORKER_PATH = "worker.js";
 const EPUB_WORKER_PATH = "epub-worker.js";
 const LANG_WORKER_PATH = "lang-worker.js";
+const MIXPANEL_WORKER_PATH = "mixpanel-worker.js";
 
 const INITIAL_SOURCE_TEXT =
   `Paste your source text here, with each paragraph a single line.
@@ -37,6 +37,7 @@ You can also use the epub import button, above.`;
 const worker = new Worker(WORKER_PATH);
 const epubWorker = new Worker(EPUB_WORKER_PATH);
 const langWorker = new Worker(LANG_WORKER_PATH);
+const mixpanelWorker = new Worker(MIXPANEL_WORKER_PATH);
 
 worker.onmessage = (e: MessageEvent<string>) => {
   // generate a page containing the HTML in e.data and navigate to it
@@ -67,15 +68,6 @@ const ERROR_MESSAGE_ID = "error-message";
 
 const SOURCE_PANEL_ID = "panel-source";
 const TARGET_PANEL_ID = "panel-target";
-
-const MIXPANEL_TOKEN = "95dfbbd102f147a2dc289937aa7109ab";
-mixpanel.init(MIXPANEL_TOKEN);
-mixpanel.set_config({
-  "persistence": "localStorage",
-  "api_host": "/telemetry",
-});
-// @ts-ignore: outdated types
-mixpanel.track_pageview();
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", loadDom);
@@ -190,9 +182,9 @@ function loadDom() {
     }
     updateError(err);
 
-    mixpanel.track("language-detected", { language: trackingLang }, {
-      send_immediately: true,
-    });
+    mixpanelWorker.postMessage(["language-detected", {
+      language: trackingLang,
+    }]);
 
     if (sourceOrTarget === "source") {
       updateSourceLanguage();
@@ -300,12 +292,10 @@ function loadDom() {
     const sourceText = editorSource.state.doc.toString();
     const targetText = editorTarget.state.doc.toString();
 
-    mixpanel.track("submit", {
+    mixpanelWorker.postMessage(["submit", {
       source: sourceText.slice(0, 100),
       target: targetText.slice(0, 100),
-    }, {
-      send_immediately: true,
-    });
+    }]);
 
     worker.postMessage([
       langs.source![1],
@@ -338,9 +328,10 @@ function importEpub(sourceOrTarget: "source" | "target") {
     }
     const arrayBuffer = await file.arrayBuffer();
     const bytes = new Uint8Array(arrayBuffer);
-    mixpanel.track("Imported", { sourceOrTarget, name: file.name }, {
-      send_immediately: true,
-    });
+    mixpanelWorker.postMessage(["imported", {
+      sourceOrTarget,
+      name: file.name,
+    }]);
     epubWorker.postMessage([sourceOrTarget, bytes]);
   });
   input.click();
