@@ -20,7 +20,7 @@
     "@codemirror/view": "^6.12.0",
     "@picocss/pico": "^1.5.10",
     "@sentry/browser": "^7.53.1",
-    "@xmldom/xmldom": "^0.8.7",
+    "@xmldom/xmldom": "^0.8.8",
     "html-to-text": "^9.0.5",
     "jszip": "^3.10.1",
     "lodash-es": "^4.17.21",
