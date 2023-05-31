@@ -58,7 +58,7 @@ function labelSentences(
   alignedParagraphs: string[][],
 ) {
   const sentenceIdxDigits = Math.ceil(Math.log10(alignedSentences.length));
-  const maxColors = 4;
+  const maxColors = 3;
 
   let sentenceIdx = 0;
   let alignedParaIdx = 0;
@@ -165,14 +165,11 @@ const TEMPLATE = `<!DOCTYPE html>
         background-color: rgb(255, 204, 153);
     }
     .highlight-sentences .color-2 {
-        background-color: rgb(247, 237, 148);
-    }
-    .highlight-sentences .color-3 {
         background-color: rgb(178, 205, 251);
     }
     
     .selected-sentence {
-        border: 1px dashed #222;
+        background-color: rgb(247, 237, 148) !important;
     }
     
     @media print{
