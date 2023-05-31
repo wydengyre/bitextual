@@ -4,6 +4,7 @@ export const language = {
   german: "de",
   italian: "it",
   spanish: "es",
+  turkish: "tr",
 } as const;
 
 export const languageCodes: Map<Language, LanguageName> = new Map(
