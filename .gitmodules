@@ -1,0 +1,3 @@
+[submodule "submodules/epub3-samples"]
+	path = submodules/epub3-samples
+	url = https://github.com/wydengyre/epub3-samples.git
