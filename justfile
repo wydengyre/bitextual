@@ -33,6 +33,10 @@ generate-supported-languages:
 write-alignments:
     deno run --allow-read=./ --allow-write=./ test/write-alignments.ts
 
+# generate sample epub3 files for testing
+sample-epub3-pack:
+    cd submodules/epub3-samples && ./pack-all.sh
+
 web-ci: web-install-deps generate-supported-languages web-check web-lint web-build web-test-e2e-dev
 
 web-install-deps:
