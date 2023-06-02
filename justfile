@@ -56,7 +56,7 @@ web-check-functions:
 web-lint:
     deno lint web
 
-web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta web-sentry-inject-debug-id
+web-build: web-build-copy-resources web-bundle-ts web-sentry-inject-debug-id web-move-sourcemaps web-move-esbuild-meta
 
 web-build-copy-resources:
     mkdir -p dist/web/functions
