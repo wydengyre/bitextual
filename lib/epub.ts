@@ -45,7 +45,7 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
     if (file === undefined) {
       throw new Error(
         `file with id ${id} at ${fullPath} (resolved from root ${rootDir} and relative path ${path}) not found.
-        rootPath: "${rootPath}"`
+        rootPath: "${rootPath}"`,
       );
     }
     return file.async("text");
@@ -73,6 +73,10 @@ function processLineBreaks(text: string): string {
 }
 
 function pathJoin(base: string, relative: string): string {
+  if (base.trim().length === 0) {
+    return relative;
+  }
+
   // Split both paths into components
   const baseComponents = base.split("/");
   const relativeComponents = relative.split("/");
