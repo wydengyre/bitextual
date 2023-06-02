@@ -43,12 +43,9 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
     const fullPath = pathJoin(rootDir, path);
     const file = files[fullPath];
     if (file === undefined) {
-      const allPaths = Object.keys(files).join("\n");
       throw new Error(
         `file with id ${id} at ${fullPath} (resolved from root ${rootDir} and relative path ${path}) not found.
-        rootPath: "${rootPath}"
-        allPaths: ${allPaths}
-        containerTxt: ${containerTxt}`,
+        rootPath: "${rootPath}"`
       );
     }
     return file.async("text");
