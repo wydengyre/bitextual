@@ -116,6 +116,7 @@ export async function bundleTs(
     bundle: true,
     entryPoints: [sourcePath],
     format: "esm",
+    legalComments: "none",
     metafile: true,
     minify: true,
     outfile,
