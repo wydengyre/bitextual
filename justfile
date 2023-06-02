@@ -56,7 +56,7 @@ web-check-functions:
 web-lint:
     deno lint web
 
-web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta
+web-build: web-build-copy-resources web-bundle-ts web-move-sourcemaps web-move-esbuild-meta web-sentry-inject-debug-id
 
 web-build-copy-resources:
     mkdir -p dist/web/functions
@@ -94,8 +94,11 @@ web-build-and-serve: web-build web-serve
 
 web-deploy: web-sentry-upload-sourcemaps web-publish web-test-post-deploy web-test-e2e-post-deploy
 
+web-sentry-inject-debug-id:
+    cd web && npx sentry-cli sourcemaps inject ../dist
+
 web-sentry-upload-sourcemaps:
-    cd web && npx sentry-cli sourcemaps upload --release={{RELEASE_NAME}} ../dist/web-sourcemaps
+    cd web && npx sentry-cli sourcemaps upload --validate --release={{RELEASE_NAME}} ../dist/web-sourcemaps
 
 web-publish:
     cd web && npx wrangler pages deploy ../dist/web
