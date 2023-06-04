@@ -2,7 +2,7 @@
   "imports": {
     "deno-dom-wasm": "https://deno.land/x/deno_dom@v0.1.38/deno-dom-wasm.ts",
     "esbuild": "https://deno.land/x/esbuild@v0.17.19/mod.js",
-    "esbuild_plugin_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.7.0/mod.ts",
+    "esbuild_plugin_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.8.0/mod.ts",
     "esbuild-plugin-replace": "npm:esbuild-plugin-replace@1.4.0",
     "franc": "https://esm.sh/v120/franc-min@6.1.0",
     "html-to-text": "npm:html-to-text@9.0.5",
