@@ -33,5 +33,7 @@ jobs:
       - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version-file: 'web/.node-version'
+          cache: 'npm'
+          cache-dependency-path: 'web/package-lock.json'
       - name: Build and test
         run: just ci
