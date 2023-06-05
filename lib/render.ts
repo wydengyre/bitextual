@@ -118,10 +118,8 @@ function capitalize(s: string): string {
 const TEMPLATE = `<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-
+  <meta charset="utf-8">
   <title>bitextual parallel book</title>
-
   <style>
     body {
       font-size: 23px;
