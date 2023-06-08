@@ -143,10 +143,17 @@ function loadDom() {
 
     let trackingLang = lang;
     if (Array.isArray(lang)) {
+      if (langs[sourceOrTarget]?.[1] === lang[1]) {
+        // no change
+        return;
+      }
       langs[sourceOrTarget] = [false, lang[1]];
       trackingLang = lang[1];
       console.debug(`unsupported ${sourceOrTarget} language`, lang[1]);
     } else {
+      if (langs[sourceOrTarget]?.[1] === lang) {
+        return;
+      }
       langs[sourceOrTarget] = [true, lang];
     }
 
@@ -233,10 +240,10 @@ function loadDom() {
       if (doc.length > 0) {
         debouncedPostMessage(doc.toString());
       } else {
-        if (sourceOrTarget === "source") {
+        if (sourceOrTarget === "source" && langs.source !== null) {
           langs.source = null;
           updateSourceLanguage();
-        } else {
+        } else if (langs.target !== null) {
           langs.target = null;
           updateTargetLanguage();
         }
