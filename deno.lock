@@ -98,13 +98,13 @@
     "https://deno.land/x/esbuild_deno_loader@0.8.1/src/shared.ts": "33052684aeb542ebd24da372816bbbf885cd090a7ab0fde7770801f7f5b49572",
     "https://deno.land/x/importmap@0.2.1/_util.ts": "ada9a9618b537e6c0316c048a898352396c882b9f2de38aba18fd3f2950ede89",
     "https://deno.land/x/importmap@0.2.1/mod.ts": "ae3d1cd7eabd18c01a4960d57db471126b020f23b37ef14e1359bbb949227ade",
-    "https://esm.sh/v120/collapse-white-space@2.1.0/denonext/collapse-white-space.mjs": "f9413c2273567b627ded33e389b26ec20249af2337e51933f7c459a3bb4c875c",
-    "https://esm.sh/v120/franc-min@6.1.0": "5c255cb2c56397207811f228a601e2b6b8f4d953c4f60a344f9ed8921e4fad1a",
-    "https://esm.sh/v120/franc-min@6.1.0/denonext/franc-min.mjs": "873616a84637db521fbf02f1f6205832ac94db7472674ad7c12d4534b1105b62",
-    "https://esm.sh/v120/franc-min@6.1.0/index.d.ts": "0804270f2e525de1bdbfbdcf54b1da755f42ae8b55e3a353bfac55c35f4b33f9",
-    "https://esm.sh/v120/n-gram@2.0.2/denonext/n-gram.mjs": "e4c198a0a6d22b715b3910fa4925a6cd66c26b5901012eae901681b82977b1a8",
-    "https://esm.sh/v120/trigram-utils@2.0.1/denonext/trigram-utils.mjs": "653dd72096e2c1e3bb1f796277bb6c10929d43d0037f6913ba29d187d711c2a5",
-    "https://esm.sh/v120/trigram-utils@2.0.1/index.d.ts": "493188f9cef75ce6a985ff5d72a515562c26ca767f23f8286b4f3aa31186bf30"
+    "https://esm.sh/v125/collapse-white-space@2.1.0/denonext/collapse-white-space.mjs": "f9413c2273567b627ded33e389b26ec20249af2337e51933f7c459a3bb4c875c",
+    "https://esm.sh/v125/franc-min@6.1.0": "1df7a4661c8c08d4f68a620955f203f69cc5348e86b5e9c32cf47d41a92a39fc",
+    "https://esm.sh/v125/franc-min@6.1.0/denonext/franc-min.mjs": "365bdac391e524903e8c3136cde14a2569802d82707b49029a5f1c56de5a568a",
+    "https://esm.sh/v125/franc-min@6.1.0/index.d.ts": "e6f77598dfe5be895795824b0b5822c518b948313f2fc08452e5ae1dffeecd04",
+    "https://esm.sh/v125/n-gram@2.0.2/denonext/n-gram.mjs": "e4c198a0a6d22b715b3910fa4925a6cd66c26b5901012eae901681b82977b1a8",
+    "https://esm.sh/v125/trigram-utils@2.0.1/denonext/trigram-utils.mjs": "bef6bdcd2ef632816429b6b4b227135d417b27c6a734e57489736d9e7ce371a3",
+    "https://esm.sh/v125/trigram-utils@2.0.1/index.d.ts": "493188f9cef75ce6a985ff5d72a515562c26ca767f23f8286b4f3aa31186bf30"
   },
   "npm": {
     "specifiers": {
