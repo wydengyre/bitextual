@@ -54,6 +54,8 @@ langWorker.onerror = (e: ErrorEvent) => {
   throw new Error(`lang worker error ${e.message}`);
 };
 
+mixpanelWorker.postMessage(["view", {}]);
+
 const INTRO_MODAL_SELECTOR = "#intro-modal";
 const INTRO_CONTINUE_BUTTON_SELECTOR = "#continue-btn";
 
