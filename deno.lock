@@ -110,7 +110,7 @@
   "npm": {
     "specifiers": {
       "@types/html-to-text@9.0.0": "@types/html-to-text@9.0.0",
-      "@xmldom/xmldom@0.9.0-beta.7": "@xmldom/xmldom@0.9.0-beta.7",
+      "@xmldom/xmldom@0.9.0-beta.8": "@xmldom/xmldom@0.9.0-beta.8",
       "esbuild-plugin-replace@1.4.0": "esbuild-plugin-replace@1.4.0",
       "html-to-text@9.0.5": "html-to-text@9.0.5",
       "jszip@3.10.1": "jszip@3.10.1",
@@ -128,8 +128,8 @@
         "integrity": "sha512-FnF3p2FJZ1kJT/0C/lmBzw7HSlH3RhtACVYyrwUsJoCmFNuiLpusWT2FWWB7P9A48CaYpvD6Q2fprn7sZeffpw==",
         "dependencies": {}
       },
-      "@xmldom/xmldom@0.9.0-beta.7": {
-        "integrity": "sha512-RRI/KyZg3VhIoCkEuBFrQFLYx2C+X+/XlV/Rtw7Wq19ILJtL6ku+jky1AJ/XF1v+rWY341LLRCxjDUjJpAe+/A==",
+      "@xmldom/xmldom@0.9.0-beta.8": {
+        "integrity": "sha512-Q5bFbYxRJKTYP7S1a0HIlumTmJRHHMGrNvBp8F1mUEyyGTeCs0g8+FKAaA6tU+YFsZgHKA0eRKzZhYdhpgAHAw==",
         "dependencies": {}
       },
       "balanced-match@1.0.2": {
