@@ -1,7 +1,7 @@
 {
   "imports": {
     "deno-dom-wasm": "https://deno.land/x/deno_dom@v0.1.38/deno-dom-wasm.ts",
-    "esbuild": "https://deno.land/x/esbuild@v0.18.0/mod.js",
+    "esbuild": "https://deno.land/x/esbuild@v0.18.1/mod.js",
     "esbuild_plugin_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.8.1/mod.ts",
     "esbuild-plugin-replace": "npm:esbuild-plugin-replace@1.4.0",
     "franc": "https://esm.sh/v125/franc-min@6.1.0",
