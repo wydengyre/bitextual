@@ -6,7 +6,7 @@
   "author": "Matthew Leon <matt@wydengyre.com>",
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230511.0",
-    "@sentry/cli": "^2.18.1",
+    "@sentry/cli": "^2.19.0",
     "@types/html-to-text": "^9.0.1",
     "@types/lodash-es": "^4.17.7",
     "@types/mixpanel-browser": "^2.38.1",
@@ -19,7 +19,7 @@
     "@codemirror/state": "^6.2.1",
     "@codemirror/view": "^6.13.2",
     "@picocss/pico": "^1.5.10",
-    "@sentry/browser": "^7.53.1",
+    "@sentry/browser": "^7.55.2",
     "@xmldom/xmldom": "^0.8.8",
     "html-to-text": "^9.0.5",
     "jszip": "^3.10.1",
