@@ -306,8 +306,8 @@
           "util-deprecate": "util-deprecate@1.0.2"
         }
       },
-      "postcss@8.4.24": {
-        "integrity": "sha512-M0RzbcI0sO/XJNucsGjvWU9ERWxb/ytp1w6dKtxTKgixdtQDq4rmx/g8W1hnaheq9jgwL/oyEdH5Bc4WwJKMqg==",
+      "postcss@8.4.25": {
+        "integrity": "sha512-7taJ/8t2av0Z+sQEvNzCkpDynl0tX3uJMCODi6nT3PfASC7dYCWV9aQ+uiCf+KBD4SEFcu+GvJdGdwzQ6OSjCw==",
         "dependencies": {
           "nanoid": "nanoid@3.3.6",
           "picocolors": "picocolors@1.0.0",
@@ -323,7 +323,7 @@
         "dependencies": {
           "commander": "commander@10.0.1",
           "glob": "glob@8.1.0",
-          "postcss": "postcss@8.4.24",
+          "postcss": "postcss@8.4.25",
           "postcss-selector-parser": "postcss-selector-parser@6.0.13"
         }
       },
