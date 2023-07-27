@@ -19,7 +19,7 @@
     "@codemirror/state": "^6.2.1",
     "@codemirror/view": "^6.15.3",
     "@picocss/pico": "^1.5.10",
-    "@sentry/browser": "^7.59.2",
+    "@sentry/browser": "^7.60.1",
     "@xmldom/xmldom": "^0.8.8",
     "html-to-text": "^9.0.5",
     "jszip": "^3.10.1",
