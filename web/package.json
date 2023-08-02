@@ -5,7 +5,7 @@
   "main": "main.ts",
   "author": "Matthew Leon <matt@wydengyre.com>",
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20230724.0",
+    "@cloudflare/workers-types": "^4.20230801.0",
     "@sentry/cli": "^2.20.3",
     "@types/html-to-text": "^9.0.1",
     "@types/lodash-es": "^4.17.8",
