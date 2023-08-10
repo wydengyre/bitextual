@@ -6,7 +6,7 @@
   "author": "Matthew Leon <matt@wydengyre.com>",
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230807.0",
-    "@sentry/cli": "^2.20.4",
+    "@sentry/cli": "^2.20.5",
     "@types/html-to-text": "^9.0.1",
     "@types/lodash-es": "^4.17.8",
     "@types/mixpanel-browser": "^2.47.0",
