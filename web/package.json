@@ -15,7 +15,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@codemirror/commands": "^6.2.4",
+    "@codemirror/commands": "^6.2.5",
     "@codemirror/state": "^6.2.1",
     "@codemirror/view": "^6.16.0",
     "@picocss/pico": "^1.5.10",
