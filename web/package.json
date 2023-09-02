@@ -8,7 +8,7 @@
     "@cloudflare/workers-types": "^4.20230821.0",
     "@sentry/cli": "^2.20.5",
     "@types/html-to-text": "^9.0.1",
-    "@types/lodash-es": "^4.17.8",
+    "@types/lodash-es": "^4.17.9",
     "@types/mixpanel-browser": "^2.47.0",
     "puppeteer": "^21.1.1",
     "ts-node": "^10.9.1",
