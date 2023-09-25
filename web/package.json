@@ -10,7 +10,7 @@
     "@types/html-to-text": "^9.0.2",
     "@types/lodash-es": "^4.17.9",
     "@types/mixpanel-browser": "^2.47.0",
-    "puppeteer": "^21.3.3",
+    "puppeteer": "^21.3.4",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
