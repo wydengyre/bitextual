@@ -2,6 +2,7 @@
   "files": ["main.mts", "epub-worker.ts"],
   "compilerOptions": {
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "module": "Node16",
     "moduleResolution": "Node16",
     "target": "esnext",
