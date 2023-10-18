@@ -9,7 +9,7 @@
     "@sentry/cli": "^2.21.2",
     "@types/html-to-text": "^9.0.2",
     "@types/lodash-es": "^4.17.10",
-    "@types/mixpanel-browser": "^2.47.3",
+    "@types/mixpanel-browser": "^2.47.4",
     "puppeteer": "^21.3.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
