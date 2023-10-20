@@ -7,7 +7,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20231016.0",
     "@sentry/cli": "^2.21.2",
-    "@types/html-to-text": "^9.0.2",
+    "@types/html-to-text": "^9.0.3",
     "@types/lodash-es": "^4.17.10",
     "@types/mixpanel-browser": "^2.47.4",
     "puppeteer": "^21.3.8",
