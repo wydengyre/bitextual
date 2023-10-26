@@ -9,7 +9,7 @@
     "jszip": "npm:jszip@3.10.1",
     "purgecss": "npm:purgecss@6.0.0-alpha.0",
     "std/": "https://deno.land/std@0.204.0/",
-    "xml": "https://deno.land/x/xml@2.1.1/mod.ts",
+    "xml": "https://deno.land/x/xml@2.1.2/mod.ts",
     "@xmldom/xmldom": "npm:@xmldom/xmldom@0.9.0-beta.8",
     "zod": "https://deno.land/x/zod@v3.22.4/mod.ts"
   }
