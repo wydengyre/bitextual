@@ -6,7 +6,7 @@ aligned. This is useful for intermediate-to-advanced language learners, who want
 to read literature in a foreign language, but are intimidated by the difficulty
 of the text.
 
-You can use Bitextual on the web at (bitextual.net)[https://bitextual.net].
+You can use Bitextual on the web at [bitextual.net](https://bitextual.net).
 
 You can also use it as a command-line tool with [Deno](https://deno.com/runtime) by
 cloning this repo.
