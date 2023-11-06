@@ -1,6 +1,6 @@
 {
   "imports": {
-    "deno-dom-wasm": "https://deno.land/x/deno_dom@v0.1.38/deno-dom-wasm.ts",
+    "deno-dom-wasm": "https://deno.land/x/deno_dom@v0.1.42/deno-dom-wasm.ts",
     "esbuild": "https://deno.land/x/esbuild@v0.19.5/mod.js",
     "esbuild_plugin_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.8.2/mod.ts",
     "esbuild-plugin-replace": "npm:esbuild-plugin-replace@1.4.0",
