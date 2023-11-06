@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "npm:@types/html-to-text@9.0.0": "npm:@types/html-to-text@9.0.0",
+      "npm:@xmldom/xmldom@0.9.0-beta.11": "npm:@xmldom/xmldom@0.9.0-beta.11",
       "npm:@xmldom/xmldom@0.9.0-beta.8": "npm:@xmldom/xmldom@0.9.0-beta.8",
       "npm:esbuild-plugin-replace@1.4.0": "npm:esbuild-plugin-replace@1.4.0",
       "npm:html-to-text@9.0.5": "npm:html-to-text@9.0.5",
@@ -19,6 +20,10 @@
       },
       "@types/html-to-text@9.0.0": {
         "integrity": "sha512-FnF3p2FJZ1kJT/0C/lmBzw7HSlH3RhtACVYyrwUsJoCmFNuiLpusWT2FWWB7P9A48CaYpvD6Q2fprn7sZeffpw==",
+        "dependencies": {}
+      },
+      "@xmldom/xmldom@0.9.0-beta.11": {
+        "integrity": "sha512-UJcY9U+YIz5NjvmAZfXFC48+dIvtqguMbbIozsyQCoPBnxizTRRepBeVtiLUJCIDxLkQVQdoFx+gj6vOr8bO+Q==",
         "dependencies": {}
       },
       "@xmldom/xmldom@0.9.0-beta.8": {

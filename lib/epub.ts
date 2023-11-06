@@ -1,6 +1,6 @@
 // this file meant to work in both deno and browser
 
-import { DOMParser } from "@xmldom/xmldom";
+import { DOMParser, MIME_TYPE } from "@xmldom/xmldom";
 // @deno-types="npm:@types/html-to-text@9.0.0"
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip from "jszip";
@@ -13,7 +13,7 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
 
   const containerDom = new DOMParser().parseFromString(
     containerTxt,
-    "text/html",
+    MIME_TYPE.XML_APPLICATION,
   )!;
   const rootPath = containerDom.getElementsByTagName("rootfile")[0]
     .getAttribute("full-path")!;
@@ -21,7 +21,10 @@ export async function epubToText(epubBytes: Uint8Array): Promise<string> {
 
   const opf = files[rootPath]!;
   const opfTxt = await opf.async("text");
-  const opfDom = new DOMParser().parseFromString(opfTxt, "text/html")!;
+  const opfDom = new DOMParser().parseFromString(
+    opfTxt,
+    MIME_TYPE.XML_APPLICATION,
+  )!;
 
   const spine = Array.from(
     opfDom
