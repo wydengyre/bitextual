@@ -83,12 +83,14 @@ async function main() {
   await bundleTs(workerPath, workerBundlePath, [
     // @ts-ignore the joys of deno vs node
     replaceImportMetaPlugin,
+    // @ts-ignore the joys of deno vs node
     ...projDenoPlugins,
   ]);
   await bundleTs(epubWorkerPath, epubWorkerModulePath);
   await bundleTs(
     langWorkerPath,
     langWorkerModulePath,
+    // @ts-ignore the joys of deno vs node
     projDenoPlugins,
   );
   await bundleTs(

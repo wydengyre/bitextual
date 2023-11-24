@@ -1,14 +1,14 @@
 {
   "imports": {
     "deno-dom-wasm": "https://deno.land/x/deno_dom@v0.1.43/deno-dom-wasm.ts",
-    "esbuild": "https://deno.land/x/esbuild@v0.19.6/mod.js",
+    "esbuild": "https://deno.land/x/esbuild@v0.19.7/mod.js",
     "esbuild_plugin_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.8.2/mod.ts",
     "esbuild-plugin-replace": "npm:esbuild-plugin-replace@1.4.0",
     "franc": "https://esm.sh/v125/franc-min@6.1.0",
     "html-to-text": "npm:html-to-text@9.0.5",
     "jszip": "npm:jszip@3.10.1",
     "purgecss": "npm:purgecss@6.0.0-alpha.0",
-    "std/": "https://deno.land/std@0.207.0/",
+    "std/": "https://deno.land/std@0.208.0/",
     "xml": "https://deno.land/x/xml@2.1.3/mod.ts",
     "@xmldom/xmldom": "npm:@xmldom/xmldom@0.9.0-beta.11",
     "zod": "https://deno.land/x/zod@v3.22.4/mod.ts"
