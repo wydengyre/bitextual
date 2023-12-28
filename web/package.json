@@ -17,7 +17,7 @@
   "dependencies": {
     "@codemirror/commands": "^6.3.3",
     "@codemirror/state": "^6.4.0",
-    "@codemirror/view": "^6.22.3",
+    "@codemirror/view": "^6.23.0",
     "@picocss/pico": "^1.5.10",
     "@sentry/browser": "^7.91.0",
     "@xmldom/xmldom": "0.9.0-beta.11",
