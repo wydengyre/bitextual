@@ -2,10 +2,10 @@ import { Punkt } from "./punkt.ts";
 import { readFixtureString } from "../test/util.ts";
 import * as path from "std/path/mod.ts";
 import { fromFileUrl } from "std/path/mod.ts";
-import englishSentences from "../test/bovary.english.sentences.json" assert {
+import englishSentences from "../test/bovary.english.sentences.json" with {
   type: "json",
 };
-import frenchSentences from "../test/bovary.french.sentences.json" assert {
+import frenchSentences from "../test/bovary.french.sentences.json" with {
   type: "json",
 };
 import { assertEquals } from "std/testing/asserts.ts";
