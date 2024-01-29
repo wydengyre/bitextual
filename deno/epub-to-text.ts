@@ -1,4 +1,4 @@
-import { readAll } from "std/streams/read_all.ts";
+import { readAll } from "std/io/read_all.ts";
 import { epubToText } from "../lib/epub.ts";
 
 const _EXAMPLE =

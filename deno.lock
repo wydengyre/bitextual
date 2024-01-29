@@ -541,6 +541,7 @@
     "https://deno.land/x/denoflate@1.2.1/pkg/denoflate_bg.wasm.js": "d581956245407a2115a3d7e8d85a9641c032940a8e810acbd59ca86afd34d44d",
     "https://deno.land/x/dir@1.5.1/data_local_dir/mod.ts": "91eb1c4bfadfbeda30171007bac6d85aadacd43224a5ed721bbe56bc64e9eb66",
     "https://deno.land/x/esbuild@v0.19.12/mod.js": "fc8d97babee1f469d8ad409e62e0cf13bf72eca02b4f157b86238fda78f1e65e",
+    "https://deno.land/x/esbuild@v0.20.0/mod.js": "5c6fc2e98424ced3a4159c2f267c6bc62b49906e9dc86f724b3d88a482c55c70",
     "https://deno.land/x/esbuild_deno_loader@0.8.5/deps.ts": "9bc65a79ff37923c11d7470823aaa0ba9cd2e044046619a81feae074d3a2969d",
     "https://deno.land/x/esbuild_deno_loader@0.8.5/mod.ts": "28524460bef46d487221b01ade6ed913d2e127de7eeee025ab75b34b491283da",
     "https://deno.land/x/esbuild_deno_loader@0.8.5/src/deno.ts": "b0af3e430c068f18c6fa48c2083a1b4354b6c303e16fb37855e02fcafb95f36d",
@@ -579,7 +580,7 @@
         "npm:puppeteer@^21.9.0",
         "npm:ts-node@^10.9.2",
         "npm:typescript@^5.3.3",
-        "npm:wrangler@^3.24.0"
+        "npm:wrangler@^3.25.0"
       ]
     }
   }
