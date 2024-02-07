@@ -13,7 +13,7 @@ jobs:
       - uses: denoland/setup-deno@041b854f97b325bd60e53e9dc2de9cb9f9ac0cba # v1.1.4
         with:
           deno-version: 1.40.2
-      - uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version-file: 'web/.node-version'
           cache: 'npm'
