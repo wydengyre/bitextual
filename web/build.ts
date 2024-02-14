@@ -131,7 +131,6 @@ export async function bundleTs(
     `${outfile}.meta.json`,
     JSON.stringify(result.metafile),
   );
-  console.log("done build");
 }
 
 if (import.meta.main) {
