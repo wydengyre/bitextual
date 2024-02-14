@@ -127,11 +127,11 @@ export async function bundleTs(
     sourcemap: "external",
   };
   const result = await esbuild.build(buildOptions);
-  esbuild.stop();
   await Deno.writeTextFile(
     `${outfile}.meta.json`,
     JSON.stringify(result.metafile),
   );
+  console.log("done build");
 }
 
 if (import.meta.main) {
