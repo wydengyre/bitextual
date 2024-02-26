@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - uses: extractions/setup-just@69d82fb0233557aec017ef13706851d0694e0f1d # v1.6.0
+      - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2.0.0
         with:
           just-version: 1.24.0
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
@@ -32,5 +32,7 @@ jobs:
           node-version-file: '.node-version'
           cache: 'npm'
           cache-dependency-path: 'package-lock.json'
+      - name: Install npm dependencies
+        run: npm ci
       - name: Build and test
         run: just ci

@@ -1,0 +1,29 @@
+{
+  "name": "@bitextual/core",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
+    "test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
+    "typecheck": "npm run typecheck-lib && npm run typecheck-test",
+    "typecheck-lib": "tsc",
+    "typecheck-test": "tsc --project tsconfig.test.json"
+  },
+  "type": "module",
+  "devDependencies": {
+		"@bitextual/test": "*",
+    "@tsconfig/strictest": "^2.0.3",
+		"@types/html-to-text": "^9.0.4",
+    "@types/node": "^20.11.20",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+		"@bitextual/hunalign": "*",
+		"@bitextual/punkt": "*",
+    "@xmldom/xmldom": "^0.8.10",
+    "franc-min": "^6.2.0",
+    "html-to-text": "^9.0.5",
+    "jszip": "^3.10.1"
+  }
+}

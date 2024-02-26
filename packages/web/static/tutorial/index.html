@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bitextual.net tutorial: how to create a parallel book from two EPUBs in two minutes">
+    <link rel="canonical" href="https://bitextual.net/tutorial/">
+    <link rel="stylesheet" href="../pico.min.css">
+    <title>Bitextual: tutorial</title>
+    <style>
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <hgroup>
+            <h1><a href="../../../../web">Bitextual</a>: a two-minute tutorial</h1>
+            <h2>This tutorial teaches you to create a bilingual book from two EPUB files</h2>
+        </hgroup>
+
+        <p>Following the three steps below, we'll generate a bilingual, parallel,
+        French-English version of Madame Bovary.
+        By following these steps, but substituting your own EPUB files, you
+        can create bilingual versions of whatever book you want!</p>
+
+        <h3>Step 1: Download the EPUB files</h3>
+
+        <p>We'll get both EPUBs from Project Gutenberg. Visit pages for the
+        <a href="https://www.gutenberg.org/ebooks/14155">French version</a> and the
+        <a href="https://www.gutenberg.org/ebooks/2413">English version</a>. On both
+        pages, click to download both EPUB files to your computer. Both EPUB and EPUB3 versions
+        will work fine.</p>
+
+        <h3>Step 2: Import the EPUB files</h3>
+
+        <p>Head to <a href="../../../../web">bitextual.net</a>. In the left-side, source pane, click the button
+        to import the French EPUB you downloaded. On the right side, the target, import the English EPUB.</p>
+
+        <p>Note that both EPUBs contained a bit of "fluff" at the beginning: notes about the book,
+        table of contents, etc. In our case, this won't mess with alignment, but if you're importing
+        a <em>different</em> EPUB, you might want to manually delete this "fluff" so that both copies start
+        at the exact same point, be it a prolog, or first chapter, etc. This especially applies when the
+        translated version might have a lengthy introduction.</p>
+
+        <h3>Step 3: Create the bilingual alignment</h3>
+
+        <p>Click the big blue "generate" button on the upper right.
+            After a brief loading pause, you have a bilingual book!
+            It will be similar to the <a href="../bovary.aligned">example</a>.</p>
+
+        <p>You can save your book using your browser's "save as" or "save page as", in its File menu.</p>
+
+        <p>Note that Bitextual is still very much an early beta product, with limited language support. It also
+        has a tendency to screw up alignment on "liberally" translated text. For an example, see the
+        <a href="../marianela.aligned">alignment of Marianela</a>. We're working on it!</p>
+
+        <h3>Rejoice!</h3>
+
+        <p><em>And that's all!</em> While we work out the kinks, we're happy to have your
+            <a href="../contact">feedback</a>.</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "@bitextual/cf",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+		"test": "tsx e2e.test.ts",
+		"test-post-deploy": "tsx post-deploy.test.ts",
+    "typecheck": "tsc"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.3",
+    "@types/node": "^20.11.20",
+    "puppeteer": "^21.11.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3",
+    "wrangler": "3.30.0"
+  },
+  "dependencies": {
+    "@bitextual/web": "*"
+  }
+}
