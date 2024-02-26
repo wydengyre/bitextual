@@ -1,0 +1,21 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.5.1/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"files": {
+		"include": ["*.json", "packages/**/*.ts", "packages/**/*.json"],
+		"ignore": [
+			"packages/cf/.wrangler",
+			"packages/punkt/data",
+			"packages/web/build",
+			"packages/web/dist"
+		]
+	}
+}

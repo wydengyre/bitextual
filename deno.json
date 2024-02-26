@@ -1,6 +1,0 @@
-{
-  "importMap": "import_map.json",
-  "fmt": {
-    "exclude": ["web/terraform/.terraform"]
-  }
-}

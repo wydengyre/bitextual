@@ -1,0 +1,25 @@
+{
+  "name": "@bitextual/cli",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
+    "test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
+    "typecheck": "npm run typecheck-lib && npm run typecheck-test",
+    "typecheck-lib": "tsc",
+    "typecheck-test": "tsc --project tsconfig.test.json"
+  },
+  "type": "module",
+  "devDependencies": {
+		"@bitextual/test": "*",
+    "@tsconfig/strictest": "^2.0.3",
+    "@types/node": "^20.11.20",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+		"@bitextual/core": "*",
+		"@bitextual/hunalign": "*",
+		"@bitextual/punkt": "*"
+  }
+}

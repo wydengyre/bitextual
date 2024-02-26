@@ -1,4 +1,4 @@
-### Notes on weird stuff here
+legacy web directory
+====================
 
-`import_map.json` and `module.js` are hacks to allow compilation using the
-esbuild deno plugin.
+Stuff left in here is from back when we used Deno for running locally.
