@@ -8,7 +8,7 @@ of the text.
 
 You can use Bitextual on the web at [bitextual.net](https://bitextual.net).
 
-You can also use it as a command-line tool with [Deno](https://deno.com/runtime) by
+You can also use it as a command-line tool with node.js by
 cloning this repo.
 
 ## Some technical notes
