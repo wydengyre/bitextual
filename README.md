@@ -19,7 +19,7 @@ the translator has extensively modified sentence and paragraph breaks, will
 align more poorly.
 
 For an example of output, see the included French-English copy of
-[Madame Bovary](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/test/bovary.aligned.html).
+[Madame Bovary](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/packages/test/bovary.aligned.html).
 
 That file is generated with the following command:
 
@@ -32,7 +32,7 @@ target file."
 
 An example of a somewhat more liberal translation leading to poor alignment
 quality is available in the
-[Marianela](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/test/marianela.aligned.html)
+[Marianela](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/packages/test/marianela.aligned.html)
 translation.
 
 This project relies on WebAssembly forks of
