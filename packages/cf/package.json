@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+		"deploy": "wrangler pages deploy --project-name bitextual ../web/dist",
+		"serve": "wrangler pages dev ../web/dist",
 		"test": "tsx e2e.test.ts",
 		"test-post-deploy": "tsx post-deploy.test.ts",
     "typecheck": "tsc"
