@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    timeout-minutes: 2
+    runs-on: ubuntu-22.04
+    name: Deploy
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        with:
+          node-version-file: '.node-version'
+          cache: 'npm'
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Deploy
+        uses: cloudflare/wrangler-action@7c01cc48d88a1f83b4716e0557c168854a9dcdb8 # v3.4.1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          wranglerVersion: '3.30.0'
+          workingDirectory: 'packages/cf'
+          command: pages deploy --project-name bitextual ../web/dist
