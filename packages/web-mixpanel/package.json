@@ -3,8 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
-    "test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
     "typecheck": "tsc"
   },
   "type": "module",

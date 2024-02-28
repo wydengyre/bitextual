@@ -24,7 +24,7 @@ For an example of output, see the included French-English copy of
 That file is generated with the following command:
 
 ```sh
-deno run --allow-read deno/main.ts test/bovary.french.edited.txt test/bovary.english.edited.txt > test/bovary.aligned.html
+tsx packages/cli/main.ts packages/test/bovary.french.edited.txt packages/test/bovary.english.edited.txt > packages/test/bovary.aligned.html"
 ```
 
 The command says "run the `main.ts` script on Bovary in French (source) and Bovary in English (target)

@@ -8,37 +8,37 @@
       font-size: 23px;
       line-height: 33px;
     }
-    
+
     thead {
       position: sticky;
       top: 0;
       background-color: #fff;
     }
-    
+
     th {
       text-align: left;
       padding: 1em;
       font-family: Arial, sans-serif;
     }
-    
+
     th button {
       font-size: inherit;
     }
-    
+
     td {
       vertical-align: top;
       width: 50%;
       padding: 0 1em 1em;
     }
-    
+
     #swap-columns {
       margin-left: 1em;;
     }
-    
+
     #highlight-sentences {
         float: right;
     }
-    
+
     .highlight-sentences .color-0 {
         background-color: rgb(255, 191, 206);
     }
@@ -48,11 +48,11 @@
     .highlight-sentences .color-2 {
         background-color: rgb(178, 205, 251);
     }
-    
+
     .selected-sentence {
         background-color: rgb(247, 237, 148) !important;
     }
-    
+
     @media print{
         thead {
             display: none;
@@ -79,14 +79,14 @@
     const sourceLanguageContent = sourceLanguage.innerHTML;
     sourceLanguage.innerHTML = targetLanguage.innerHTML
     targetLanguage.innerHTML = sourceLanguageContent;
-    
+
     const fragment = document.createDocumentFragment();
-    
+
     // Swap the columns
     const table = document.getElementById("bilingual-content");
     const tbody = table.getElementsByTagName("tbody").item(0);
     const rows = tbody.rows;
-    
+
     const newTbody = document.createElement("tbody");
 
     for (const row of rows) {
@@ -94,37 +94,37 @@
         const cells = row.cells;
         const cell1 = cells[0];
         const cell2 = cells[1];
-        
+
         newRow.appendChild(cell2);
         newRow.appendChild(cell1);
         newTbody.appendChild(newRow);
     }
     fragment.appendChild(newTbody);
-    
-    table.replaceChild(fragment, tbody); 
+
+    table.replaceChild(fragment, tbody);
   }
-  
+
   function highlightSentences() {
       const table = document.getElementById("bilingual-content");
       table.classList.toggle("highlight-sentences");
-      
+
       const highlightButton = document.getElementById("highlight-sentences");
-      if (highlightButton.innerHTML === "highlight sentence matches") {  
+      if (highlightButton.innerHTML === "highlight sentence matches") {
         highlightButton.innerHTML = "unhighlight sentence matches";
       } else {
         highlightButton.innerHTML = "highlight sentence matches";
       }
   }
-  
+
   const SELECTED_SENTENCE_CLASS = "selected-sentence";
   let selectedSentences = null;
   function surroundMatchingSentences(event) {
       if (selectedSentences !== null) {
         selectedSentences.forEach((sentence) => {
             sentence.classList.remove(SELECTED_SENTENCE_CLASS);
-        })     
+        })
       }
-      
+
       const cl = Array(...event.target.classList);
       const sentenceClass = cl.find((c) => c.startsWith("s-"));
       const sentenceSelector = "." + sentenceClass;
@@ -133,7 +133,7 @@
           sentence.classList.add(SELECTED_SENTENCE_CLASS);
       });
   }
-  
+
   document.getElementById("swap-columns").addEventListener("click", swapLangs);
   document.getElementById("highlight-sentences").addEventListener("click", highlightSentences);
   document.querySelectorAll(".sentence").forEach((span) => {

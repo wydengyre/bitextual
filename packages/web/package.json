@@ -13,8 +13,6 @@
     "build-worker": "esbuild src/worker.ts --bundle --minify --sourcemap --format=esm --external:module --outfile=dist/worker.js",
     "clean": "rm -rf build dist",
     "pre-build-supported-languages": "tsx --tsconfig tools/tsconfig.json tools/generate-supported-languages.ts",
-    "test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
-    "test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
     "typecheck": "npm run typecheck-lib && npm run typecheck-tools",
     "typecheck-lib": "tsc",
     "typecheck-tools": "tsc --project tools/tsconfig.json"

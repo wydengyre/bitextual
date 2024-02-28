@@ -17,7 +17,7 @@ export { go };
 
 const USAGE = "([sourcelang] [targetlang]) [sourcetext] [targettext]";
 const EXAMPLE =
-	"deno run --allow-read deno/main.ts test/bovary.french.edited.txt test/bovary.english.edited.txt > test/bovary.aligned.html";
+	"tsx packages/cli/main.ts packages/test/bovary.french.edited.txt packages/test/bovary.english.edited.txt > packages/test/bovary.aligned.html";
 
 const PUNKT_WASM_PATH = fileURLToPath(
 	import.meta.resolve("@bitextual/punkt/punkt_bg.wasm"),
@@ -27,7 +27,7 @@ const HUNALIGN_WASM_PATH = fileURLToPath(
 );
 
 async function main() {
-	const out = await go(process.argv);
+	const out = await go(process.argv.slice(2));
 	console.log(out);
 }
 
