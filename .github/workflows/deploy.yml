@@ -30,4 +30,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           wranglerVersion: '3.30.0'
           workingDirectory: 'packages/cf'
-          command: pages deploy --project-name bitextual ../web/dist
+          command: pages deploy --project-name bitextual-pages --commit-dirty=true ../web/dist
