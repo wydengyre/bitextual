@@ -158,7 +158,7 @@ function withBrowser(
 function withHeadlessBrowser(
 	fn: (browser: puppeteer.Browser) => Promise<void>,
 ) {
-	return withBrowser({ headless: "new" }, fn);
+	return withBrowser({ headless: true }, fn);
 }
 
 // use this for debugging
