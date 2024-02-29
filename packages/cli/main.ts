@@ -109,12 +109,14 @@ async function goWithLanguagesAndText(
 	const hunalignWasm = await readFile(HUNALIGN_WASM_PATH);
 	const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
 
+	const dictName = `${targetLangAbbr}-${sourceLangAbbr}.dic`;
 	const hunalignDictData = await readFile(
 		fileURLToPath(
-			import.meta.resolve(
-				`@bitextual/hunalign/dictionaries/${targetLangAbbr}-${sourceLangAbbr}.dic`,
-			),
+			import.meta.resolve(`@bitextual/wiktionary/dictionaries/${dictName}`),
 		),
+	);
+	console.error(
+		`using dictionary: ${dictName} with size ${hunalignDictData.length} bytes`,
 	);
 
 	const sourceLang = languageCodes.get(sourceLangAbbr);

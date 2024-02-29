@@ -20,6 +20,7 @@
   },
   "dependencies": {
 		"@bitextual/core": "*",
-		"@bitextual/hunalign": "*"
+		"@bitextual/hunalign": "*",
+		"@bitextual/wiktionary": "*"
   }
 }

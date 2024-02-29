@@ -1,0 +1,19 @@
+{
+  "name": "@bitextual/wiktionary",
+  "version": "0.0.0",
+  "private": true,
+  "main": "main.ts",
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.3",
+    "@types/node": "^20.11.20",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  }
+}
