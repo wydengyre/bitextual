@@ -28,6 +28,6 @@ jobs:
         uses: cloudflare/wrangler-action@7c01cc48d88a1f83b4716e0557c168854a9dcdb8 # v3.4.1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          wranglerVersion: '3.30.0'
+          wranglerVersion: '3.30.1'
           workingDirectory: 'packages/cf'
           command: pages deploy --project-name bitextual-pages --commit-dirty=true ../web/dist
