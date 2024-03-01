@@ -31,15 +31,7 @@ async function renderAlignment(
 	const sourceLangCode = language[sourceLang];
 	const targetLangCode = language[targetLang];
 
-	const [punktSourceTrainingData, punktTargetTrainingData] = await Promise.all([
-		getTrainingData(sourceLang),
-		getTrainingData(targetLang),
-	]);
-	const [punktWasm, hunalignWasm] = await Promise.all([
-		fetchBinary("punkt/punkt_bg.wasm"),
-		fetchBinary("hunalign/hunalign.wasm"),
-	]);
-
+	const hunalignWasm = await fetchBinary("hunalign/hunalign.wasm");
 	const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
 	const hunalignDictData = await fetchBinary(
 		`hunalign/dictionaries/${targetLangCode}-${sourceLangCode}.dic`,
@@ -48,18 +40,11 @@ async function renderAlignment(
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,
-		punktWasm,
-		punktSourceTrainingData,
-		punktTargetTrainingData,
 		hunalignLib,
 		hunalignDictData,
 	};
 
 	return align(source, target, alignConfig);
-}
-
-function getTrainingData(languageName: LanguageName): Promise<Uint8Array> {
-	return fetchBinary(`punkt/data/${languageName}.json`);
 }
 
 async function fetchBinary(url: string): Promise<Uint8Array> {

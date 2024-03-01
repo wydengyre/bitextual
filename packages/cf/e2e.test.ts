@@ -11,7 +11,7 @@ async function run() {
 	using _server = startServer();
 
 	// ideally we'd wait for the server to tell us it's ready, but this works
-	await new Promise((resolve) => setTimeout(resolve, 1_000));
+	await new Promise((resolve) => setTimeout(resolve, 3_000));
 
 	await test("404", withHeadlessBrowser(test404));
 	await test("epub import", withHeadlessBrowser(testEpubImport));
@@ -59,9 +59,9 @@ async function testAlignment(browser: Browser) {
 	await page.waitForFunction(
 		() => document.title === "bitextual parallel book",
 	);
-	const firstSentenceElement = await page.$(".sentence");
+	const firstParagraphElement = await page.$("td");
 	const firstSentenceTextHandle =
-		await firstSentenceElement?.getProperty("innerText");
+		await firstParagraphElement?.getProperty("innerText");
 	const firstSentence = await firstSentenceTextHandle?.jsonValue();
 	assert.strictEqual(firstSentence, "Gustave Flaubert MADAME BOVARY");
 }

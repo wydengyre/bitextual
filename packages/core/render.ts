@@ -2,29 +2,13 @@ import { Language, LanguageName, language } from "./language.js";
 
 const TABLE_MARKER = "<!-- TABLE -->";
 
-const HIGHLIGHT_TEXT = "highlight sentence matches";
-const UNHIGHLIGHT_TEXT = "unhighlight sentence matches";
-
 export function render(
 	sourceLanguage: LanguageName,
 	targetLanguage: LanguageName,
 	alignedParagraphs: [string[], string[]][],
-	alignedSentences: [string[], string[]][],
 ): string {
-	const leftParagraphs = alignedParagraphs.map(([leftParas]) => leftParas);
-	const rightParagraphs = alignedParagraphs.map(([, rightParas]) => rightParas);
-	const leftSentences = alignedSentences.map(
-		([leftSentences]) => leftSentences,
-	);
-	const rightSentences = alignedSentences.map(
-		([, rightSentences]) => rightSentences,
-	);
-
 	const sourceLanguageSubtag = language[sourceLanguage];
 	const targetLanguageSubtag = language[targetLanguage];
-
-	labelSentences(leftSentences, leftParagraphs);
-	labelSentences(rightSentences, rightParagraphs);
 
 	const tableCell = (paras: string[], lang: Language): string =>
 		`<td lang="${lang}">${paras.join("<p>")}</td>`;
@@ -43,75 +27,12 @@ export function render(
 	)}</span> to <span id="target-language">${capitalize(
 		targetLanguage,
 	)}</span> ${swapButton}`;
-	const highlightButton = `<button type="button" id="highlight-sentences">${HIGHLIGHT_TEXT}</button>`;
 	const table = `<table id="bilingual-content">
     <thead><tr><th colspan="2"><a href="https://bitextual.net/">Bitextual</a>:
-        ${swapControl} ${highlightButton}</th></tr></thead>
+        ${swapControl}</th></tr></thead>
     <tbody>${tableBody}</tbody>
 </table>`;
 	return TEMPLATE.replace(TABLE_MARKER, table);
-}
-
-function labelSentences(
-	alignedSentences: string[][],
-	alignedParagraphs: string[][],
-) {
-	const sentenceIdxDigits = Math.ceil(Math.log10(alignedSentences.length));
-	const maxColors = 3;
-
-	let sentenceIdx = 0;
-	let alignedParaIdx = 0;
-	let innerParaIdx = 0;
-	let paraCursor = 0;
-	let color = 0;
-
-	// label each sentence with an id
-	for (const innerSentences of alignedSentences) {
-		for (const innerSentence of innerSentences) {
-			// stringify sentenceIdx and pad with 0s to sentenceIdxDigits
-			const sentenceIdxStr = sentenceIdx
-				.toString()
-				.padStart(sentenceIdxDigits, "0");
-			const replacementSentence = `<span class="sentence s-${sentenceIdxStr} color-${color}">${innerSentence}</span>`;
-
-			// replace paraToCheck text starting at index paraCursor with replacementSentence
-			let paraToCheck = (alignedParagraphs[alignedParaIdx] as string[])[
-				innerParaIdx
-			] as string;
-			let sentenceStart = paraToCheck.indexOf(innerSentence, paraCursor);
-
-			// we didn't find the sentence in this paragraph, so we need to move to the next one
-			while (sentenceStart < 0) {
-				innerParaIdx++;
-				paraCursor = 0;
-				if (
-					innerParaIdx >= (alignedParagraphs[alignedParaIdx] as string[]).length
-				) {
-					// we've reached the end of the paragraph, so we need to move to the next one
-					alignedParaIdx++;
-					innerParaIdx = 0;
-				}
-				paraToCheck = (alignedParagraphs[alignedParaIdx] as string[])[
-					innerParaIdx
-				] as string;
-				sentenceStart = paraToCheck.indexOf(innerSentence, paraCursor);
-			}
-
-			const sentenceEnd = sentenceStart + innerSentence.length;
-			const before = paraToCheck.substring(0, sentenceStart);
-			const after = paraToCheck.substring(sentenceEnd);
-
-			(alignedParagraphs[alignedParaIdx] as string[])[innerParaIdx] =
-				before + replacementSentence + after;
-			paraCursor =
-				sentenceEnd + replacementSentence.length - innerSentence.length;
-		}
-		sentenceIdx++;
-		color++;
-		if (color === maxColors) {
-			color = 0;
-		}
-	}
 }
 
 function capitalize(s: string): string {
@@ -220,41 +141,7 @@ const TEMPLATE = `<!DOCTYPE html>
     table.replaceChild(fragment, tbody);
   }
 
-  function highlightSentences() {
-      const table = document.getElementById("bilingual-content");
-      table.classList.toggle("highlight-sentences");
-
-      const highlightButton = document.getElementById("highlight-sentences");
-      if (highlightButton.innerHTML === "${HIGHLIGHT_TEXT}") {
-        highlightButton.innerHTML = "${UNHIGHLIGHT_TEXT}";
-      } else {
-        highlightButton.innerHTML = "${HIGHLIGHT_TEXT}";
-      }
-  }
-
-  const SELECTED_SENTENCE_CLASS = "selected-sentence";
-  let selectedSentences = null;
-  function surroundMatchingSentences(event) {
-      if (selectedSentences !== null) {
-        selectedSentences.forEach((sentence) => {
-            sentence.classList.remove(SELECTED_SENTENCE_CLASS);
-        })
-      }
-
-      const cl = Array(...event.target.classList);
-      const sentenceClass = cl.find((c) => c.startsWith("s-"));
-      const sentenceSelector = "." + sentenceClass;
-      selectedSentences = document.querySelectorAll(sentenceSelector);
-      selectedSentences.forEach((sentence) => {
-          sentence.classList.add(SELECTED_SENTENCE_CLASS);
-      });
-  }
-
   document.getElementById("swap-columns").addEventListener("click", swapLangs);
-  document.getElementById("highlight-sentences").addEventListener("click", highlightSentences);
-  document.querySelectorAll(".sentence").forEach((span) => {
-      span.addEventListener("mouseover", surroundMatchingSentences);
-  });
   </script>
   </body>
 </html>`;
