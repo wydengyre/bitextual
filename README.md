@@ -30,8 +30,7 @@ tsx packages/cli/main.ts packages/test/bovary.french.edited.txt packages/test/bo
 The command says "run the `main.ts` script on Bovary in French (source) and Bovary in English (target)
 target file."
 
-This project relies on WebAssembly forks of
-[rust-punkt](https://github.com/wydengyre/rust-punkt) for tokenization and
+This project relies on a WebAssembly fork of
 [hunalign](https://github.com/wydengyre/hunalign) for text alignment.
 
 ## Future direction
