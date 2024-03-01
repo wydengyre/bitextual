@@ -30,11 +30,6 @@ tsx packages/cli/main.ts packages/test/bovary.french.edited.txt packages/test/bo
 The command says "run the `main.ts` script on Bovary in French (source) and Bovary in English (target)
 target file."
 
-An example of a somewhat more liberal translation leading to poor alignment
-quality is available in the
-[Marianela](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/packages/test/marianela.aligned.html)
-translation.
-
 This project relies on WebAssembly forks of
 [rust-punkt](https://github.com/wydengyre/rust-punkt) for tokenization and
 [hunalign](https://github.com/wydengyre/hunalign) for text alignment.
