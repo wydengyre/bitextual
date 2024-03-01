@@ -15,7 +15,8 @@
 			"packages/cf/.wrangler",
 			"packages/punkt/data",
 			"packages/web/build",
-			"packages/web/dist"
+			"packages/web/dist",
+			"packages/wiktionary/raw-wiktextract-data.json"
 		]
 	}
 }

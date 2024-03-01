@@ -1,18 +1,19 @@
 import type * as HunalignLib from "@bitextual/hunalign";
+import { tokenizeWords } from "./tokenize-words.js";
 
-export const PARAGRAPH_MARKER = "<p>";
+export { Hunalign };
 
 // I have yet to find a better way to do this.
 type LibHunalign = Awaited<ReturnType<typeof HunalignLib.Hunalign.create>>;
 
-export class Hunalign {
+class Hunalign {
 	#hunalign: LibHunalign;
 
 	private constructor(hunalign: LibHunalign) {
 		this.#hunalign = hunalign;
 	}
 
-	private sentences(
+	private pairs(
 		dictionary: Uint8Array,
 		source: string,
 		target: string,
@@ -25,16 +26,19 @@ export class Hunalign {
 
 	align(
 		dictionary: Uint8Array,
-		sourceSplitParagraphs: string[][],
-		targetSplitParagraphs: string[][],
+		sourceParas: string[],
+		targetParas: string[],
 	): [string[], string[]][] {
-		const sourceText = textifySplitParagraphs(sourceSplitParagraphs);
-		const targetText = textifySplitParagraphs(targetSplitParagraphs);
+		// Use a word tokenizer to split paragraphs into words joined by spaces.
+		// This gives a higher Hunalign score, as it will match more words.
+		const sourceTokenized = sourceParas.map((p) => tokenizeWords(p));
+		const targetTokenized = targetParas.map((p) => tokenizeWords(p));
 
-		const ladder = this.sentences(dictionary, sourceText, targetText);
+		const sourceText = sourceTokenized.join("\n");
+		const targetText = targetTokenized.join("\n");
 
-		const sourceLines = sourceText.split("\n");
-		const targetLines = targetText.split("\n");
+		const ladder = this.pairs(dictionary, sourceText, targetText);
+
 		const matches: [string[], string[]][] = [];
 		let oldLPrime = 0;
 		let oldRPrime = 0;
@@ -47,7 +51,7 @@ export class Hunalign {
 					string[],
 				];
 				for (; r <= rPrime; r++) {
-					previousRight.push(targetLines[r] as string);
+					previousRight.push(targetParas[r] as string);
 				}
 				continue;
 			}
@@ -58,35 +62,32 @@ export class Hunalign {
 					string[],
 				];
 				for (; l <= lPrime; l++) {
-					previousLeft.push(sourceLines[l] as string);
+					previousLeft.push(sourceParas[l] as string);
 				}
 				continue;
 			}
 
 			const leftLines: string[] = [];
 			for (; l <= lPrime; l++) {
-				leftLines.push(sourceLines[l] as string);
+				leftLines.push(sourceParas[l] as string);
 			}
 
 			const rightLines: string[] = [];
 			for (; r <= rPrime; r++) {
-				rightLines.push(targetLines[r] as string);
+				rightLines.push(targetParas[r] as string);
 			}
 
 			matches.push([leftLines, rightLines]);
 			oldLPrime = lPrime;
 			oldRPrime = rPrime;
 		}
+
 		return matches;
 	}
 
+	// TODO: is a class the right way to do this? Looks like once we invoke Hunalign, it's done,
+	// so maybe a global singleton is better?
 	static create(hunalignLib: HunalignLib.Hunalign): Hunalign {
 		return new Hunalign(hunalignLib);
 	}
-}
-
-function textifySplitParagraphs(split: string[][]): string {
-	return split
-		.map((splitParagraph) => splitParagraph.join("\n"))
-		.join(`\n${PARAGRAPH_MARKER}\n`);
 }

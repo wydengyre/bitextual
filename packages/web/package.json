@@ -9,7 +9,7 @@
     "build-main": "esbuild src/main.ts --bundle --minify --sourcemap --format=esm --outfile=dist/main.js",
     "build-epub-worker": "esbuild src/epub-worker.ts --bundle --minify --sourcemap --format=esm --outfile=dist/epub-worker.js",
     "build-lang-worker": "esbuild src/lang-worker.ts --bundle --minify --sourcemap --format=esm --outfile=dist/lang-worker.js",
-		"build-samples": "mkdir -p dist/bovary.aligned dist/marianela.aligned && cp ../test/bovary.aligned.html dist/bovary.aligned/index.html && cp ../test/marianela.aligned.html dist/marianela.aligned/index.html",
+		"build-samples": "mkdir -p dist/bovary.aligned && cp ../test/bovary.aligned.html dist/bovary.aligned/index.html",
     "build-static": "mkdir -p dist && cp -R static/* dist",
     "build-worker": "esbuild src/worker.ts --bundle --minify --sourcemap --format=esm --external:module --outfile=dist/worker.js",
     "clean": "rm -rf build dist",
@@ -34,7 +34,6 @@
   "dependencies": {
     "@bitextual/core": "*",
     "@bitextual/hunalign": "*",
-    "@bitextual/punkt": "*",
     "@codemirror/commands": "^6.3.3",
     "@codemirror/state": "^6.4.1",
     "@codemirror/view": "^6.24.1",

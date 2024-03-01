@@ -19,9 +19,6 @@ const USAGE = "([sourcelang] [targetlang]) [sourcetext] [targettext]";
 const EXAMPLE =
 	"tsx packages/cli/main.ts packages/test/bovary.french.edited.txt packages/test/bovary.english.edited.txt > packages/test/bovary.aligned.html";
 
-const PUNKT_WASM_PATH = fileURLToPath(
-	import.meta.resolve("@bitextual/punkt/punkt_bg.wasm"),
-);
 const HUNALIGN_WASM_PATH = fileURLToPath(
 	import.meta.resolve("@bitextual/hunalign/hunalign.wasm"),
 );
@@ -109,16 +106,8 @@ async function goWithLanguagesAndText(
 	sourceText: string,
 	targetText: string,
 ) {
-	const [punktWasm, hunalignWasm] = await Promise.all([
-		readFile(PUNKT_WASM_PATH),
-		readFile(HUNALIGN_WASM_PATH),
-	]);
+	const hunalignWasm = await readFile(HUNALIGN_WASM_PATH);
 	const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
-
-	const [punktSourceTrainingData, punktTargetTrainingData] = await Promise.all([
-		getTrainingData(sourceLangAbbr),
-		getTrainingData(targetLangAbbr),
-	]);
 
 	const hunalignDictData = await readFile(
 		fileURLToPath(
@@ -139,27 +128,11 @@ async function goWithLanguagesAndText(
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,
-		punktWasm,
-		punktSourceTrainingData,
-		punktTargetTrainingData,
 		hunalignLib,
 		hunalignDictData,
 	};
 
 	return align(sourceText, targetText, alignConfig);
-}
-
-function getTrainingData(l: Language): Promise<Uint8Array> {
-	const languageName = languageCodes.get(l);
-	if (languageName === undefined) {
-		throw new Error(`Invalid language: ${l}`);
-	}
-	const languageFileName = `${languageName}.json`;
-	const languagePath = fileURLToPath(
-		import.meta.resolve(`@bitextual/punkt/data/${languageFileName}`),
-	);
-
-	return readFile(languagePath);
 }
 
 function capitalize(s: string): string {
