@@ -13,11 +13,6 @@ cloning this repo.
 
 ## Some technical notes
 
-Alignment quality can vary significantly depending on the nature of the
-translation. Broadly speaking, more liberal translations, especially those where
-the translator has extensively modified sentence and paragraph breaks, will
-align more poorly.
-
 For an example of output, see the included French-English copy of
 [Madame Bovary](https://htmlpreview.github.io/?https://github.com/wydengyre/bitextual/blob/main/packages/test/bovary.aligned.html).
 
@@ -32,11 +27,3 @@ target file."
 
 This project relies on a WebAssembly fork of
 [hunalign](https://github.com/wydengyre/hunalign) for text alignment.
-
-## Future direction
-
-The [bertalign](https://github.com/wydengyre/bertalign) algorithm produces
-superior alignments at the expense of requiring download of a large model file.
-The project relies on a Python-based toolchain. Converting this to TypeScript
-would result in significantly improved alignments, especially in the case of
-liberally translated texts.
