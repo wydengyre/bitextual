@@ -1,11 +1,10 @@
 import * as HunalignLib from "@bitextual/hunalign";
 import { Hunalign } from "./hunalign.js";
-import { LanguageName } from "./language.js";
 import { render } from "./render.js";
 
 export type AlignmentConfig = {
-	sourceLang: LanguageName;
-	targetLang: LanguageName;
+	sourceLang: string;
+	targetLang: string;
 	hunalignLib: HunalignLib.Hunalign;
 	hunalignDictData: Uint8Array;
 };

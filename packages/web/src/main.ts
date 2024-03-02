@@ -1,4 +1,3 @@
-import { LanguageName, language } from "@bitextual/core/language.js";
 import { defaultKeymap } from "@codemirror/commands";
 import type { Text } from "@codemirror/state";
 import {
@@ -10,10 +9,7 @@ import {
 } from "@codemirror/view";
 // TODO: Sentry
 // import * as Sentry from "@sentry/browser";
-import { capitalize, debounce } from "lodash-es";
-import supportedLanguages from "../build/supported-languages.json" with {
-	type: "json",
-};
+import { debounce } from "lodash-es";
 
 // TODO: what was this for?
 // const BITEXTUAL_RELEASE = "__BITEXTUAL_RELEASE__";
@@ -147,66 +143,15 @@ function loadDom() {
 	};
 
 	const langs: {
-		source: [boolean, string] | null;
-		target: [boolean, string] | null;
-		supportedPair: boolean;
+		source: string | null;
+		target: string | null;
 	} = {
 		source: null,
 		target: null,
-		supportedPair: false,
 	};
-	langWorker.onmessage = (
-		e: MessageEvent<["source" | "target", string | ["unsupported", string]]>,
-	) => {
+	langWorker.onmessage = (e: MessageEvent<["source" | "target", string]>) => {
 		const [sourceOrTarget, lang] = e.data;
-
-		if (Array.isArray(lang)) {
-			if (langs[sourceOrTarget]?.[1] === lang[1]) {
-				// no change
-				return;
-			}
-			langs[sourceOrTarget] = [false, lang[1]];
-			console.debug(`unsupported ${sourceOrTarget} language`, lang[1]);
-		} else {
-			if (langs[sourceOrTarget]?.[1] === lang) {
-				return;
-			}
-			langs[sourceOrTarget] = [true, lang];
-		}
-
-		let err: string | null = null;
-		if (langs.source?.[0] === false) {
-			err = `Unsupported source language: ${langs.source[1]}`;
-		} else if (langs.target?.[0] === false) {
-			err = `Unsupported target language: ${langs.target[1]}`;
-		} else if (langs.source !== null && langs.target !== null) {
-			const sourceLangName = langs.source[1];
-			const targetLangName = langs.target[1];
-			const sourceLangCode = language[sourceLangName as LanguageName];
-			const targetLangCode = language[targetLangName as LanguageName];
-
-			// TODO: put in a worker and test in isolation
-			langs.supportedPair =
-				(supportedLanguages as [string, string][]).filter(
-					([source, target]: [string, string]) =>
-						source === sourceLangCode && target === targetLangCode,
-				).length > 0;
-			if (!langs.supportedPair) {
-				const supportedTargets: string = (
-					supportedLanguages as [string, string][]
-				)
-					.filter(([source]: [string, string]) => sourceLangCode === source)
-					.map(([, target]: [string, string]) => target)
-					.join(", ");
-				err = `Unsupported language pair: ${capitalize(
-					sourceLangName,
-				)} -> ${capitalize(targetLangName)}
-        Supported target languages for ${capitalize(
-					sourceLangName,
-				)}: ${supportedTargets}`;
-			}
-		}
-		updateError(err);
+		langs[sourceOrTarget] = lang;
 
 		if (sourceOrTarget === "source") {
 			updateSourceLanguage();
@@ -281,31 +226,17 @@ function loadDom() {
 	}
 
 	function updateSourceLanguage() {
-		domSourceLang.textContent = langs.source?.[1] || "";
+		domSourceLang.textContent = langs.source || "";
 		updateSubmitButton();
-		if (langs.source?.[0]) {
-			domSourceLang.classList.remove("unsupported");
-		} else {
-			domSourceLang.classList.add("unsupported");
-		}
 	}
 
 	function updateTargetLanguage() {
-		domTargetLang.textContent = langs.target?.[1] || "";
+		domTargetLang.textContent = langs.target || "";
 		updateSubmitButton();
-		if (langs.target?.[0]) {
-			domTargetLang.classList.remove("unsupported");
-		} else {
-			domTargetLang.classList.add("unsupported");
-		}
 	}
 
 	function updateSubmitButton() {
-		submitButton.disabled = !(
-			langs.source?.[0] &&
-			langs.target?.[0] &&
-			langs.supportedPair
-		);
+		submitButton.disabled = !(langs.source?.[0] && langs.target?.[0]);
 	}
 
 	function submit(this: HTMLButtonElement, e: Event) {
@@ -330,12 +261,7 @@ function loadDom() {
 			throw new Error("submit: langs.target is null");
 		}
 
-		worker.postMessage([
-			langs.source[1],
-			langs.target[1],
-			sourceText,
-			targetText,
-		]);
+		worker.postMessage([langs.source, langs.target, sourceText, targetText]);
 	}
 }
 

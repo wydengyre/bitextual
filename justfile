@@ -17,13 +17,10 @@ ci-lint:
 lint:
 	npm run lint
 
-typecheck: pre-build
+typecheck:
 	npm run typecheck --workspaces --if-present
 
-pre-build:
-	npm run pre-build-supported-languages --workspace '@bitextual/web'
-
-build: pre-build
+build:
 	npm run build --workspace '@bitextual/web'
 
 test: build

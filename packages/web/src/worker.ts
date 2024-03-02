@@ -1,6 +1,5 @@
-import { AlignmentConfig, align } from "@bitextual/core/align.js";
 // Copyright (C) 2023 Wyden and Gyre, LLC
-import { LanguageName, language } from "@bitextual/core/language.js";
+import { AlignmentConfig, align } from "@bitextual/core/align.js";
 import * as HunalignLib from "@bitextual/hunalign";
 
 // ensure async errors get handled just like sync errors
@@ -9,9 +8,7 @@ self.onunhandledrejection = (e: PromiseRejectionEvent) => {
 	throw new Error(e.reason);
 };
 
-self.onmessage = async (
-	e: MessageEvent<[LanguageName, LanguageName, string, string]>,
-) => {
+self.onmessage = async (e: MessageEvent<[string, string, string, string]>) => {
 	const [sourceLang, targetLang, source, target] = e.data;
 	const alignedHtml = await renderAlignment(
 		sourceLang,
@@ -23,19 +20,22 @@ self.onmessage = async (
 };
 
 async function renderAlignment(
-	sourceLang: LanguageName,
-	targetLang: LanguageName,
+	sourceLang: string,
+	targetLang: string,
 	source: string,
 	target: string,
 ): Promise<string> {
-	const sourceLangCode = language[sourceLang];
-	const targetLangCode = language[targetLang];
-
 	const hunalignWasm = await fetchBinary("hunalign/hunalign.wasm");
 	const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
-	const hunalignDictData = await fetchBinary(
-		`hunalign/dictionaries/${targetLangCode}-${sourceLangCode}.dic`,
-	);
+	const dictUrl = `hunalign/dictionaries/${targetLang}-${sourceLang}.dic`;
+	const hunalignDictData = await (async () => {
+		try {
+			return await fetchBinary(dictUrl);
+		} catch (e) {
+			console.error(`couldn't get dictionary at ${dictUrl}`, e);
+			return Uint8Array.of();
+		}
+	})();
 
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
