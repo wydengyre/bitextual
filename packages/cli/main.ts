@@ -109,13 +109,22 @@ async function goWithLanguagesAndText(
 	const hunalignWasm = await readFile(HUNALIGN_WASM_PATH);
 	const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
 
-	const hunalignDictData = await readFile(
-		fileURLToPath(
-			import.meta.resolve(
-				`@bitextual/hunalign/dictionaries/${targetLangAbbr}-${sourceLangAbbr}.dic`,
-			),
+	const dictPath = fileURLToPath(
+		import.meta.resolve(
+			`@bitextual/hunalign/dictionaries/${targetLangAbbr}-${sourceLangAbbr}.dic`,
 		),
 	);
+
+	const hunalignDictData: Buffer = await (() => {
+		try {
+			return readFile(dictPath);
+		} catch (e) {
+			console.error(
+				`No dictionary found for ${sourceLangAbbr}-${targetLangAbbr}`,
+			);
+			return Buffer.from([]);
+		}
+	})();
 
 	const sourceLang = languageCodes.get(sourceLangAbbr);
 	if (sourceLang === undefined) {
