@@ -21,7 +21,6 @@
   "dependencies": {
 		"@bitextual/hunalign": "*",
     "@xmldom/xmldom": "^0.8.10",
-    "franc-min": "^6.2.0",
     "html-to-text": "^9.0.5",
     "jszip": "^3.10.1"
   }

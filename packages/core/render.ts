@@ -1,31 +1,26 @@
-import { Language, LanguageName, language } from "./language.js";
-
 const TABLE_MARKER = "<!-- TABLE -->";
 
 export function render(
-	sourceLanguage: LanguageName,
-	targetLanguage: LanguageName,
+	sourceLang: string,
+	targetLang: string,
 	alignedParagraphs: [string[], string[]][],
 ): string {
-	const sourceLanguageSubtag = language[sourceLanguage];
-	const targetLanguageSubtag = language[targetLanguage];
-
-	const tableCell = (paras: string[], lang: Language): string =>
+	const tableCell = (paras: string[], lang: string): string =>
 		`<td lang="${lang}">${paras.join("<p>")}</td>`;
 
 	const tableBody = alignedParagraphs
 		.map(([sourceParas, targetParas]) => {
-			const leftCell = tableCell(sourceParas, sourceLanguageSubtag);
-			const rightCell = tableCell(targetParas, targetLanguageSubtag);
+			const leftCell = tableCell(sourceParas, sourceLang);
+			const rightCell = tableCell(targetParas, targetLang);
 			return `<tr>${leftCell}${rightCell}</tr>`;
 		})
 		.join("");
 
 	const swapButton = '<button type="button" id="swap-columns">swap</button>';
 	const swapControl = `<span id="source-language">${capitalize(
-		sourceLanguage,
+		sourceLang,
 	)}</span> to <span id="target-language">${capitalize(
-		targetLanguage,
+		targetLang,
 	)}</span> ${swapButton}`;
 	const table = `<table id="bilingual-content">
     <thead><tr><th colspan="2"><a href="https://bitextual.net/">Bitextual</a>:
