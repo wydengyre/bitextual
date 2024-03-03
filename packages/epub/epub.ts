@@ -2,7 +2,9 @@ import { DOMParser } from "@xmldom/xmldom";
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip from "jszip";
 
-export async function epubToText(epubBytes: Uint8Array): Promise<string> {
+export { epubToText };
+
+async function epubToText(epubBytes: Uint8Array): Promise<string> {
 	const zip = await JSZip.loadAsync(epubBytes);
 	const files = zip.files;
 	const containerPath = "META-INF/container.xml";
