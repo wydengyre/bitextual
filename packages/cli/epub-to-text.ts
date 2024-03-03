@@ -1,6 +1,6 @@
 import type { Readable } from "node:stream";
 import { fileURLToPath } from "node:url";
-import { epubToText } from "@bitextual/core/epub.js";
+import { epubToText } from "@bitextual/epub/epub.js";
 import { arrayBuffer } from "stream/consumers";
 
 export { go };

@@ -1,5 +1,5 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
-import { epubToText } from "@bitextual/core/epub.js";
+import { epubToText } from "@bitextual/epub/epub.js";
 
 self.onunhandledrejection = (e: PromiseRejectionEvent) => {
 	e.preventDefault();

@@ -1,8 +1,7 @@
 {
-  "name": "@bitextual/cli",
+  "name": "@bitextual/epub",
   "version": "0.0.0",
   "private": true,
-	"main": "main.ts",
   "scripts": {
     "test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
     "test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
@@ -14,14 +13,13 @@
   "devDependencies": {
 		"@bitextual/test": "*",
     "@tsconfig/strictest": "^2.0.3",
+		"@types/html-to-text": "^9.0.4",
     "@types/node": "^20.11.24",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-		"@bitextual/core": "*",
-		"@bitextual/epub": "*",
-		"@bitextual/hunalign": "*",
-		"franc-min": "^6.2.0"
-	}
+    "html-to-text": "^9.0.5",
+    "jszip": "^3.10.1"
+  }
 }
