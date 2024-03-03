@@ -1,8 +1,5 @@
 #!/usr/bin/env just --justfile
 
-# might come in handy
-# RELEASE_NAME := `git rev-parse --abbrev-ref HEAD` + "-" + `git rev-parse --short HEAD`
-
 default:
 	just --list --justfile {{justfile()}}
 

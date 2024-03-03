@@ -2,7 +2,7 @@ import { Hunalign } from "./hunalign.js";
 import { render } from "./render.js";
 
 export type { AlignmentConfig };
-export { align, paragraphs };
+export { alignParas, alignTexts, paragraphs };
 
 type AlignmentConfig = {
 	sourceLang: string;
@@ -11,7 +11,7 @@ type AlignmentConfig = {
 	meta?: Map<string, string>;
 };
 
-async function align(
+async function alignTexts(
 	sourceText: string,
 	targetText: string,
 	conf: AlignmentConfig,
@@ -20,14 +20,17 @@ async function align(
 	const sourceParagraphs: string[] = paragraphs(sourceText);
 	const targetParagraphs: string[] = paragraphs(targetText);
 
-	const hunalign = await Hunalign.create();
-	const aligned: [string[], string[]][] = hunalign.align(
-		conf.hunalignDictData,
-		sourceParagraphs,
-		targetParagraphs,
-	);
+	const paras = await alignParas(sourceParagraphs, targetParagraphs, conf);
+	return render(conf.sourceLang, conf.targetLang, paras, conf.meta);
+}
 
-	return render(conf.sourceLang, conf.targetLang, aligned, conf.meta);
+async function alignParas(
+	sourceParas: string[],
+	targetParas: string[],
+	conf: AlignmentConfig,
+): Promise<[string[], string[]][]> {
+	const hunalign = await Hunalign.create();
+	return hunalign.align(conf.hunalignDictData, sourceParas, targetParas);
 }
 
 function paragraphs(plaintext: string): string[] {
