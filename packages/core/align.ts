@@ -2,14 +2,17 @@ import * as HunalignLib from "@bitextual/hunalign";
 import { Hunalign } from "./hunalign.js";
 import { render } from "./render.js";
 
-export type AlignmentConfig = {
+export type { AlignmentConfig };
+export { align, paragraphs };
+
+type AlignmentConfig = {
 	sourceLang: string;
 	targetLang: string;
 	hunalignLib: HunalignLib.Hunalign;
 	hunalignDictData: Uint8Array;
 };
 
-export async function align(
+async function align(
 	sourceText: string,
 	targetText: string,
 	conf: AlignmentConfig,
@@ -28,6 +31,6 @@ export async function align(
 	return render(conf.sourceLang, conf.targetLang, aligned);
 }
 
-export function paragraphs(plaintext: string): string[] {
+function paragraphs(plaintext: string): string[] {
 	return plaintext.trim().split("\n");
 }

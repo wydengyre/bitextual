@@ -1,6 +1,8 @@
+export { render };
+
 const TABLE_MARKER = "<!-- TABLE -->";
 
-export function render(
+function render(
 	sourceLang: string,
 	targetLang: string,
 	alignedParagraphs: [string[], string[]][],
