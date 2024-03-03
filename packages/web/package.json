@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@bitextual/core": "*",
+		"@bitextual/epub": "*",
     "@bitextual/hunalign": "*",
     "@codemirror/commands": "^6.3.3",
     "@codemirror/state": "^6.4.1",
