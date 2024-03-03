@@ -4,7 +4,20 @@ import { fileURLToPath } from "node:url";
 import { readFixtureString } from "@bitextual/test/util.js";
 import { go } from "./main.js";
 
-test("run main", async () => {
+test("main", async (t) => {
+	const bovaryAligned = (await readFixtureString("bovary.aligned.html")).trim();
+
+	await Promise.all([
+		t.test("test main", testMain(bovaryAligned)),
+		t.test(
+			"test main with language detection",
+			testMainWithLanguageDetection(bovaryAligned),
+		),
+		t.test(testMainWithNoDictionary),
+	]);
+});
+
+const testMain = (expected: string) => async () => {
 	const sourceLang = "fra";
 	const bovaryFrench = fileURLToPath(
 		import.meta.resolve("@bitextual/test/bovary.french.edited.txt"),
@@ -19,11 +32,10 @@ test("run main", async () => {
 		bovaryFrench,
 		bovaryEnglish,
 	]);
-	const expected = await readFixtureString("bovary.aligned.html");
-	assert.strictEqual(result, expected.trim());
-});
+	assert.strictEqual(result, expected);
+};
 
-test("run main with language detection", async () => {
+const testMainWithLanguageDetection = (expected: string) => async () => {
 	const bovaryFrench = fileURLToPath(
 		import.meta.resolve("@bitextual/test/bovary.french.edited.txt"),
 	);
@@ -31,11 +43,10 @@ test("run main with language detection", async () => {
 		import.meta.resolve("@bitextual/test/bovary.english.edited.txt"),
 	);
 	const result = await go([bovaryFrench, bovaryEnglish]);
-	const expected = await readFixtureString("bovary.aligned.html");
-	assert.strictEqual(result, expected.trim());
-});
+	assert.strictEqual(result, expected);
+};
 
-test("run main with languages that have no dictionaries", async () => {
+const testMainWithNoDictionary = async () => {
 	// we'll just use bovary, but specify nonsense languages on the command line
 	const sourceLang = "xxx";
 	const bovaryFrench = fileURLToPath(
@@ -48,4 +59,4 @@ test("run main with languages that have no dictionaries", async () => {
 
 	// if this doesn't throw, we're happy
 	await go([sourceLang, targetLang, bovaryFrench, bovaryEnglish]);
-});
+};
