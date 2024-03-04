@@ -59,11 +59,14 @@ async function testAlignment(browser: Browser) {
 	await page.waitForFunction(
 		() => document.title === "bitextual parallel book",
 	);
-	const firstParagraphElement = await page.$("td");
-	const firstSentenceTextHandle =
-		await firstParagraphElement?.getProperty("innerText");
-	const firstSentence = await firstSentenceTextHandle?.jsonValue();
-	assert.strictEqual(firstSentence, "Gustave Flaubert MADAME BOVARY");
+	const secondParagraphElement = await page.$("tr:nth-child(2)");
+	const secondSentenceTextHandle =
+		await secondParagraphElement?.getProperty("innerText");
+	const secondSentence = await secondSentenceTextHandle?.jsonValue();
+	assert.strictEqual(
+		secondSentence,
+		"Gustave Flaubert MADAME BOVARY\tBy Gustave Flaubert",
+	);
 }
 
 async function testEpubImport(browser: Browser) {
