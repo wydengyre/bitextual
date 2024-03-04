@@ -1,6 +1,6 @@
 import type * as HunalignLib from "@bitextual/hunalign";
 
-export { Hunalign, tokenizeWords };
+export { Hunalign, applyLadder, tokenizeWords };
 
 // I have yet to find a better way to do this.
 type LibHunalign = Awaited<ReturnType<typeof HunalignLib.Hunalign.create>>;
@@ -55,49 +55,26 @@ function applyLadder(
 	source: string[],
 	target: string[],
 ): [string[], string[]][] {
-	const matches: [string[], string[]][] = [];
-	let oldLPrime = 0;
-	let oldRPrime = 0;
-	for (let i = 0, l = 0, r = 0; i < ladder.length; i++) {
-		const [lPrime, rPrime] = ladder[i] as [number, number];
+	const ladderPairs = Array.from(pairwise(ladder));
+	const out: [string[], string[]][] = ladderPairs.map(([hole1, hole2]) => [
+		source.slice(hole1[0], hole2[0]),
+		target.slice(hole1[1], hole2[1]),
+	]);
+	const [finalSource, finalTarget] = ladder[ladder.length - 1] as [
+		number,
+		number,
+	];
+	out.push([[source[finalSource] as string], [target[finalTarget] as string]]);
+	return out;
+}
 
-		if (lPrime === oldLPrime && rPrime !== oldRPrime) {
-			const [_, previousRight] = matches[matches.length - 1] as [
-				string[],
-				string[],
-			];
-			for (; r <= rPrime; r++) {
-				previousRight.push(target[r] as string);
-			}
-			continue;
-		}
-
-		if (rPrime === oldRPrime && lPrime !== oldLPrime) {
-			const [previousLeft] = matches[matches.length - 1] as [
-				string[],
-				string[],
-			];
-			for (; l <= lPrime; l++) {
-				previousLeft.push(source[l] as string);
-			}
-			continue;
-		}
-
-		const leftLines: string[] = [];
-		for (; l <= lPrime; l++) {
-			leftLines.push(source[l] as string);
-		}
-
-		const rightLines: string[] = [];
-		for (; r <= rPrime; r++) {
-			rightLines.push(target[r] as string);
-		}
-
-		matches.push([leftLines, rightLines]);
-		oldLPrime = lPrime;
-		oldRPrime = rPrime;
+// Generates pairs of elements from the iterable, similar to the pairwise function in Python.
+function* pairwise<T>(iterable: T[]): Generator<[T, T]> {
+	let previous = iterable[0] as T;
+	for (const t of iterable.slice(1)) {
+		yield [previous, t];
+		previous = t;
 	}
-	return matches;
 }
 
 // https://stackoverflow.com/a/26900132
