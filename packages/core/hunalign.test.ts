@@ -1,6 +1,6 @@
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
-import { tokenizeWords } from "./tokenize-words.js";
+import { tokenizeWords } from "./hunalign.js";
 
 test("tokenizeWords", () => {
 	const example = "Here's an example sentence, let's see what we get.";

@@ -1,7 +1,6 @@
 import type * as HunalignLib from "@bitextual/hunalign";
-import { tokenizeWords } from "./tokenize-words.js";
 
-export { Hunalign };
+export { Hunalign, tokenizeWords };
 
 // I have yet to find a better way to do this.
 type LibHunalign = Awaited<ReturnType<typeof HunalignLib.Hunalign.create>>;
@@ -90,4 +89,10 @@ class Hunalign {
 	static create(hunalignLib: HunalignLib.Hunalign): Hunalign {
 		return new Hunalign(hunalignLib);
 	}
+}
+
+// https://stackoverflow.com/a/26900132
+const wordPattern = /[^[A-Za-zÀ-ÖØ-öø-ÿа-я0-9_]+/;
+function tokenizeWords(text: string): string {
+	return text.split(wordPattern).join(" ").trim();
 }
