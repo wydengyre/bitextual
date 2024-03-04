@@ -36,52 +36,11 @@ class Hunalign {
 		const sourceText = sourceTokenized.join("\n");
 		const targetText = targetTokenized.join("\n");
 
-		const ladder = this.pairs(dictionary, sourceText, targetText);
+		const ladder = this.pairs(dictionary, sourceText, targetText).map(
+			([l, r, _]): [number, number] => [l, r],
+		);
 
-		const matches: [string[], string[]][] = [];
-		let oldLPrime = 0;
-		let oldRPrime = 0;
-		for (let i = 0, l = 0, r = 0; i < ladder.length; i++) {
-			const [lPrime, rPrime] = ladder[i] as [number, number, number];
-
-			if (lPrime === oldLPrime && rPrime !== oldRPrime) {
-				const [_, previousRight] = matches[matches.length - 1] as [
-					string[],
-					string[],
-				];
-				for (; r <= rPrime; r++) {
-					previousRight.push(targetParas[r] as string);
-				}
-				continue;
-			}
-
-			if (rPrime === oldRPrime && lPrime !== oldLPrime) {
-				const [previousLeft] = matches[matches.length - 1] as [
-					string[],
-					string[],
-				];
-				for (; l <= lPrime; l++) {
-					previousLeft.push(sourceParas[l] as string);
-				}
-				continue;
-			}
-
-			const leftLines: string[] = [];
-			for (; l <= lPrime; l++) {
-				leftLines.push(sourceParas[l] as string);
-			}
-
-			const rightLines: string[] = [];
-			for (; r <= rPrime; r++) {
-				rightLines.push(targetParas[r] as string);
-			}
-
-			matches.push([leftLines, rightLines]);
-			oldLPrime = lPrime;
-			oldRPrime = rPrime;
-		}
-
-		return matches;
+		return applyLadder(ladder, sourceParas, targetParas);
 	}
 
 	// TODO: is a class the right way to do this? Looks like once we invoke Hunalign, it's done,
@@ -89,6 +48,56 @@ class Hunalign {
 	static create(hunalignLib: HunalignLib.Hunalign): Hunalign {
 		return new Hunalign(hunalignLib);
 	}
+}
+
+function applyLadder(
+	ladder: [number, number][],
+	source: string[],
+	target: string[],
+): [string[], string[]][] {
+	const matches: [string[], string[]][] = [];
+	let oldLPrime = 0;
+	let oldRPrime = 0;
+	for (let i = 0, l = 0, r = 0; i < ladder.length; i++) {
+		const [lPrime, rPrime] = ladder[i] as [number, number];
+
+		if (lPrime === oldLPrime && rPrime !== oldRPrime) {
+			const [_, previousRight] = matches[matches.length - 1] as [
+				string[],
+				string[],
+			];
+			for (; r <= rPrime; r++) {
+				previousRight.push(target[r] as string);
+			}
+			continue;
+		}
+
+		if (rPrime === oldRPrime && lPrime !== oldLPrime) {
+			const [previousLeft] = matches[matches.length - 1] as [
+				string[],
+				string[],
+			];
+			for (; l <= lPrime; l++) {
+				previousLeft.push(source[l] as string);
+			}
+			continue;
+		}
+
+		const leftLines: string[] = [];
+		for (; l <= lPrime; l++) {
+			leftLines.push(source[l] as string);
+		}
+
+		const rightLines: string[] = [];
+		for (; r <= rPrime; r++) {
+			rightLines.push(target[r] as string);
+		}
+
+		matches.push([leftLines, rightLines]);
+		oldLPrime = lPrime;
+		oldRPrime = rPrime;
+	}
+	return matches;
 }
 
 // https://stackoverflow.com/a/26900132
