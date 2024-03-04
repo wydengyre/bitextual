@@ -15,8 +15,8 @@ const EPUB3_PATH = fileURLToPath(import.meta.resolve(EPUB3_PATH_REL));
 test("epub", async (t) => {
 	const expected = await readFile(EPUB_TEXT_PATH, "utf-8");
 	await Promise.all([
-		t.test(epubToTextEpub2(expected)),
-		t.test(epubToTextEpub3(expected)),
+		t.test("epubToText: epub2", epubToTextEpub2(expected)),
+		t.test("epubToText: epub3", epubToTextEpub3(expected)),
 	]);
 });
 
