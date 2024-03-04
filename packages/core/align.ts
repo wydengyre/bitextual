@@ -12,11 +12,11 @@ type AlignmentConfig = {
 	hunalignDictData: Uint8Array;
 };
 
-async function align(
+function align(
 	sourceText: string,
 	targetText: string,
 	conf: AlignmentConfig,
-): Promise<string> {
+): string {
 	// consider each line of text a paragraph
 	const sourceParagraphs: string[] = paragraphs(sourceText);
 	const targetParagraphs: string[] = paragraphs(targetText);
