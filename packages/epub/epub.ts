@@ -1,8 +1,11 @@
+import { test } from "node:test";
 import { DOMParser } from "@xmldom/xmldom";
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip from "jszip";
 
 export { epubToText };
+
+test("epubToText", async () => {});
 
 async function epubToText(epubBytes: Uint8Array): Promise<string> {
 	const zip = await JSZip.loadAsync(epubBytes);

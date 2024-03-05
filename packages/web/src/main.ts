@@ -1,3 +1,4 @@
+import { test } from "node:test";
 import { defaultKeymap } from "@codemirror/commands";
 import type { Text } from "@codemirror/state";
 import {
@@ -10,6 +11,8 @@ import {
 // TODO: Sentry
 // import * as Sentry from "@sentry/browser";
 import { debounce } from "lodash-es";
+
+test("test", () => {});
 
 // TODO: what was this for?
 // const BITEXTUAL_RELEASE = "__BITEXTUAL_RELEASE__";
