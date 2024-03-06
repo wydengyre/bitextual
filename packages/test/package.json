@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
 	"devDependencies": {
-		"@tsconfig/strictest": "^2.0.3",
-		"@types/node": "^20.11.24",
-		"typescript": "^5.3.3"
+		"@tsconfig/strictest": "2.0.3",
+		"@types/node": "20.11.24",
+		"typescript": "5.3.3"
 	}
 }
