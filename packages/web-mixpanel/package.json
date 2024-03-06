@@ -9,7 +9,7 @@
   "devDependencies": {
     "@tsconfig/strictest": "2.0.3",
     "@types/mixpanel-browser": "2.49.0",
-    "typescript": "5.3.3"
+    "typescript": "5.4.2"
   },
   "dependencies": {
     "mixpanel-browser": "juanfer0002/mixpanel-js-mv3#fetch-support-for-mv3-extensions"
