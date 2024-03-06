@@ -1,9 +1,7 @@
-import type * as HunalignLib from "@bitextual/hunalign";
+import { create as createHunalign } from "@bitextual/hunalign";
+import type { Hunalign as LibHunalign } from "@bitextual/hunalign";
 
 export { Hunalign, applyLadder, tokenizeWords };
-
-// I have yet to find a better way to do this.
-type LibHunalign = Awaited<ReturnType<typeof HunalignLib.Hunalign.create>>;
 
 class Hunalign {
 	#hunalign: LibHunalign;
@@ -43,10 +41,9 @@ class Hunalign {
 		return applyLadder(ladder, sourceParas, targetParas);
 	}
 
-	// TODO: is a class the right way to do this? Looks like once we invoke Hunalign, it's done,
-	// so maybe a global singleton is better?
-	static create(hunalignLib: HunalignLib.Hunalign): Hunalign {
-		return new Hunalign(hunalignLib);
+	static async create(): Promise<Hunalign> {
+		const hunalign = await createHunalign();
+		return new Hunalign(hunalign);
 	}
 }
 

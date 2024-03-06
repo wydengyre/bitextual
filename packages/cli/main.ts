@@ -1,14 +1,9 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { AlignmentConfig, align } from "@bitextual/core/align.js";
-import * as HunalignLib from "@bitextual/hunalign/hunalign.js";
 import { franc } from "franc-min";
 
 export { go };
-
-const HUNALIGN_WASM_PATH = fileURLToPath(
-	import.meta.resolve("@bitextual/hunalign/hunalign.wasm"),
-);
 
 async function main() {
 	const out = await go(process.argv.slice(2));
@@ -66,12 +61,9 @@ async function goWithLanguagesAndText(
 	sourceText: string,
 	targetText: string,
 ) {
-	const hunalignWasm = await readFile(HUNALIGN_WASM_PATH);
-	const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
-
 	const dictPath = fileURLToPath(
 		import.meta.resolve(
-			`@bitextual/hunalign/dictionaries/${targetLang}-${sourceLang}.dic`,
+			`@bitextual/core/dictionaries/${targetLang}-${sourceLang}.dic`,
 		),
 	);
 
@@ -87,7 +79,6 @@ async function goWithLanguagesAndText(
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,
-		hunalignLib,
 		hunalignDictData,
 	};
 
