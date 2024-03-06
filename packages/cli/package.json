@@ -21,7 +21,6 @@
   "dependencies": {
 		"@bitextual/core": "*",
 		"@bitextual/epub": "*",
-		"@bitextual/hunalign": "*",
 		"franc-min": "^6.2.0"
 	}
 }

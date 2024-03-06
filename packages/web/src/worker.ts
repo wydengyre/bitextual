@@ -1,6 +1,5 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
 import { AlignmentConfig, align } from "@bitextual/core/align.js";
-import * as HunalignLib from "@bitextual/hunalign";
 
 // ensure async errors get handled just like sync errors
 self.onunhandledrejection = (e: PromiseRejectionEvent) => {
@@ -25,8 +24,6 @@ async function renderAlignment(
 	source: string,
 	target: string,
 ): Promise<string> {
-	const hunalignWasm = await fetchBinary("hunalign/hunalign.wasm");
-	const hunalignLib = await HunalignLib.Hunalign.create(hunalignWasm);
 	const dictUrl = `hunalign/dictionaries/${targetLang}-${sourceLang}.dic`;
 	const hunalignDictData = await (async () => {
 		try {
@@ -40,7 +37,6 @@ async function renderAlignment(
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,
-		hunalignLib,
 		hunalignDictData,
 	};
 

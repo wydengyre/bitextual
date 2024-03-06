@@ -1,9 +1,0 @@
-{
-  "name": "@bitextual/hunalign",
-	"private": true,
-  "version": "0.0.0",
-	"type": "module",
-  "module": "hunalign.js",
-  "types": "hunalign.d.ts",
-  "sideEffects": false
-}

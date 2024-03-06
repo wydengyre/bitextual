@@ -1,4 +1,3 @@
-import * as HunalignLib from "@bitextual/hunalign";
 import { Hunalign } from "./hunalign.js";
 import { render } from "./render.js";
 
@@ -8,20 +7,19 @@ export { align, paragraphs };
 type AlignmentConfig = {
 	sourceLang: string;
 	targetLang: string;
-	hunalignLib: HunalignLib.Hunalign;
 	hunalignDictData: Uint8Array;
 };
 
-function align(
+async function align(
 	sourceText: string,
 	targetText: string,
 	conf: AlignmentConfig,
-): string {
+): Promise<string> {
 	// consider each line of text a paragraph
 	const sourceParagraphs: string[] = paragraphs(sourceText);
 	const targetParagraphs: string[] = paragraphs(targetText);
 
-	const hunalign = Hunalign.create(conf.hunalignLib);
+	const hunalign = await Hunalign.create();
 	const aligned: [string[], string[]][] = hunalign.align(
 		conf.hunalignDictData,
 		sourceParagraphs,
