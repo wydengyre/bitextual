@@ -1,17 +1,17 @@
 {
-  "name": "@bitextual/web-mixpanel",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "typecheck": "tsc"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@tsconfig/strictest": "2.0.3",
-    "@types/mixpanel-browser": "2.49.0",
-    "typescript": "5.4.2"
-  },
-  "dependencies": {
-    "mixpanel-browser": "juanfer0002/mixpanel-js-mv3#fetch-support-for-mv3-extensions"
-  }
+	"name": "@bitextual/web-mixpanel",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"typecheck": "tsc"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@tsconfig/strictest": "2.0.3",
+		"@types/mixpanel-browser": "2.49.0",
+		"typescript": "5.4.2"
+	},
+	"dependencies": {
+		"mixpanel-browser": "juanfer0002/mixpanel-js-mv3#fetch-support-for-mv3-extensions"
+	}
 }
