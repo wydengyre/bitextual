@@ -1,9 +1,11 @@
 import { strict as assert } from "node:assert";
 import { spawn } from "node:child_process";
-import { dirname } from "node:path";
+import { readFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath, readFixtureString } from "@bitextual/test/util.js";
+import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
 import puppeteer, { Browser, PuppeteerLaunchOptions } from "puppeteer";
 import conf from "./conf.json" with { type: "json" };
 
@@ -29,6 +31,11 @@ const baseUrl = `http://localhost:${SERVER_PORT}`;
 await run();
 
 async function testAlignment(browser: Browser) {
+	const __filename = fileURLToPath(import.meta.url);
+	const __dirname = dirname(__filename);
+	const expectedPath = join(__dirname, "test", "aligned.html");
+	const expected = await readFile(expectedPath, "utf8");
+
 	const page = await browser.newPage();
 	await page.goto(baseUrl);
 	await page.setViewport({ width: 1080, height: 1024 });
@@ -59,14 +66,11 @@ async function testAlignment(browser: Browser) {
 	await page.waitForFunction(
 		() => document.title === "bitextual parallel book",
 	);
-	const secondParagraphElement = await page.$("tr:nth-child(2)");
-	const secondSentenceTextHandle =
-		await secondParagraphElement?.getProperty("innerText");
-	const secondSentence = await secondSentenceTextHandle?.jsonValue();
-	assert.strictEqual(
-		secondSentence,
-		"Gustave Flaubert MADAME BOVARY\tBy Gustave Flaubert",
-	);
+	const content = await page.content();
+
+	const pageCanonical = canonicalizeHtml(content);
+	const expectedCanonical = canonicalizeHtml(expected);
+	assert.strictEqual(pageCanonical, expectedCanonical);
 }
 
 async function testEpubImport(browser: Browser) {
@@ -197,4 +201,11 @@ function startServer() {
 	process.on("SIGINT", kill);
 	process.on("SIGTERM", kill);
 	return { [Symbol.dispose]: kill };
+}
+
+function canonicalizeHtml(html: string): string {
+	const domParser = new DOMParser();
+	const doc = domParser.parseFromString(html, "text/html");
+	const serializer = new XMLSerializer();
+	return serializer.serializeToString(doc);
 }
