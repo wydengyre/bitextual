@@ -31,8 +31,3 @@ serve: build
 
 deploy: build
 	npm run deploy --workspace '@bitextual/cf'
-
-generate-samples:
-	tsx packages/cli/main.ts packages/test/bovary.french.edited.txt packages/test/bovary.english.edited.txt > packages/test/bovary.aligned.html
-	tsx packages/cli/main.ts packages/test/marianela.spanish.edited.txt packages/test/marianela.english.edited.txt > packages/test/marianela.aligned.html
-
