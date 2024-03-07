@@ -1,12 +1,21 @@
 export { render };
 
+const META_MARKER = "<!-- META -->";
 const TABLE_MARKER = "<!-- TABLE -->";
 
 function render(
 	sourceLang: string,
 	targetLang: string,
 	alignedParagraphs: [string[], string[]][],
+	meta?: Map<string, string>,
 ): string {
+	const metaTags =
+		meta === undefined
+			? ""
+			: Array.from(meta.entries())
+					.map(([key, value]) => `<meta name="${key}" content="${value}">`)
+					.join("\n");
+
 	const tableCell = (paras: string[], lang: string): string =>
 		`<td lang="${lang}">${paras.join("<p>")}</td>`;
 
@@ -29,7 +38,7 @@ function render(
         ${swapControl}</th></tr></thead>
     <tbody>${tableBody}</tbody>
 </table>`;
-	return TEMPLATE.replace(TABLE_MARKER, table);
+	return TEMPLATE.replace(META_MARKER, metaTags).replace(TABLE_MARKER, table);
 }
 
 function capitalize(s: string): string {
@@ -40,6 +49,7 @@ const TEMPLATE = `<!DOCTYPE html>
 <html lang="en">
   <head>
   <meta charset="utf-8">
+  ${META_MARKER}
   <title>bitextual parallel book</title>
   <style>
     body {

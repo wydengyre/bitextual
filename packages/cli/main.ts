@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { AlignmentConfig, align } from "@bitextual/core/align.js";
 import { franc } from "franc-min";
+import pkg from "./package.json" with { type: "json" };
 
 export { go };
 
@@ -76,10 +77,14 @@ async function goWithLanguagesAndText(
 		}
 	})();
 
+	const version = `${pkg.name}@${pkg.version}`;
+	const meta = new Map([["version", version]]);
+
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,
 		hunalignDictData,
+		meta,
 	};
 
 	return align(sourceText, targetText, alignConfig);
