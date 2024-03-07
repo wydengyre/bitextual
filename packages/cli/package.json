@@ -1,24 +1,24 @@
 {
-  "name": "@bitextual/cli",
-  "version": "0.0.0",
-  "private": true,
+	"name": "@bitextual/cli",
+	"version": "0.0.1",
+	"private": true,
 	"main": "main.ts",
-  "scripts": {
-    "test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
-    "test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
-    "typecheck": "npm run typecheck-lib && npm run typecheck-test",
-    "typecheck-lib": "tsc",
-    "typecheck-test": "tsc --project tsconfig.test.json"
-  },
-  "type": "module",
-  "devDependencies": {
+	"scripts": {
+		"test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
+		"test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
+		"typecheck": "npm run typecheck-lib && npm run typecheck-test",
+		"typecheck-lib": "tsc",
+		"typecheck-test": "tsc --project tsconfig.test.json"
+	},
+	"type": "module",
+	"devDependencies": {
 		"@bitextual/test": "*",
-    "@tsconfig/strictest": "2.0.3",
-    "@types/node": "20.11.25",
-    "tsx": "4.7.1",
-    "typescript": "5.4.2"
-  },
-  "dependencies": {
+		"@tsconfig/strictest": "2.0.3",
+		"@types/node": "20.11.25",
+		"tsx": "4.7.1",
+		"typescript": "5.4.2"
+	},
+	"dependencies": {
 		"@bitextual/core": "*",
 		"@bitextual/epub": "*",
 		"franc-min": "^6.2.0"

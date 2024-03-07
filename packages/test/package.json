@@ -1,8 +1,8 @@
 {
-  "name": "@bitextual/test",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
+	"name": "@bitextual/test",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
 	"devDependencies": {
 		"@tsconfig/strictest": "2.0.3",
 		"@types/node": "20.11.25",

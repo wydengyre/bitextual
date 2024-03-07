@@ -1,6 +1,6 @@
 {
 	"name": "@bitextual/web",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"build": "npm-run-all --parallel build-css build-deps build-main build-epub-worker build-lang-worker build-index build-static build-worker build-sample",
