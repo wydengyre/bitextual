@@ -1,6 +1,8 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
 import { AlignmentConfig, align } from "@bitextual/core/align.js";
 
+const VERSION_TAG = "this-gets-replaced-by-esbuild";
+
 // ensure async errors get handled just like sync errors
 self.onunhandledrejection = (e: PromiseRejectionEvent) => {
 	e.preventDefault();
@@ -34,10 +36,13 @@ async function renderAlignment(
 		}
 	})();
 
+	const meta = new Map([["version", VERSION_TAG]]);
+
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,
 		hunalignDictData,
+		meta,
 	};
 
 	return align(source, target, alignConfig);
