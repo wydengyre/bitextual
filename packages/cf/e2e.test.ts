@@ -207,5 +207,7 @@ function canonicalizeHtml(html: string): string {
 	const domParser = new DOMParser();
 	const doc = domParser.parseFromString(html, "text/html");
 	const serializer = new XMLSerializer();
-	return serializer.serializeToString(doc);
+	const docStr = serializer.serializeToString(doc);
+	// the version meta is annoying to deal with
+	return docStr.replace(/<meta name="version" content="[^"]+"\/>/g, "");
 }

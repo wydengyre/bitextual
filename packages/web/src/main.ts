@@ -93,6 +93,12 @@ function loadDom() {
 		return res;
 	};
 
+	const version =
+		document.head
+			.querySelector("meta[name='version']")
+			?.getAttribute("content") ?? "unknown";
+	console.log(`VERSION: ${version}`);
+
 	const introModal = querySelector<HTMLDialogElement>(INTRO_MODAL_SELECTOR);
 	const introContinueButton = querySelector<HTMLButtonElement>(
 		INTRO_CONTINUE_BUTTON_SELECTOR,
@@ -261,7 +267,14 @@ function loadDom() {
 			throw new Error("submit: langs.target is null");
 		}
 
-		worker.postMessage([langs.source, langs.target, sourceText, targetText]);
+		const meta = [["version", version]];
+		worker.postMessage([
+			langs.source,
+			langs.target,
+			sourceText,
+			targetText,
+			meta,
+		]);
 	}
 }
 
