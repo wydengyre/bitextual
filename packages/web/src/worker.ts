@@ -7,13 +7,17 @@ self.onunhandledrejection = (e: PromiseRejectionEvent) => {
 	throw new Error(e.reason);
 };
 
-self.onmessage = async (e: MessageEvent<[string, string, string, string]>) => {
-	const [sourceLang, targetLang, source, target] = e.data;
+self.onmessage = async (
+	e: MessageEvent<[string, string, string, string, [string, string][]]>,
+) => {
+	const [sourceLang, targetLang, source, target, metaArr] = e.data;
+	const meta = new Map(metaArr);
 	const alignedHtml = await renderAlignment(
 		sourceLang,
 		targetLang,
 		source,
 		target,
+		meta,
 	);
 	postMessage(alignedHtml);
 };
@@ -23,6 +27,7 @@ async function renderAlignment(
 	targetLang: string,
 	source: string,
 	target: string,
+	meta: Map<string, string>,
 ): Promise<string> {
 	const dictUrl = `dictionaries/${targetLang}-${sourceLang}.dic`;
 	const hunalignDictData = await (async () => {
@@ -38,6 +43,7 @@ async function renderAlignment(
 		sourceLang,
 		targetLang,
 		hunalignDictData,
+		meta,
 	};
 
 	return align(source, target, alignConfig);
