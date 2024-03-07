@@ -5,7 +5,9 @@ import { readFixtureString } from "@bitextual/test/util.js";
 import { go } from "./main.js";
 
 test("main", async (t) => {
-	const bovaryAligned = (await readFixtureString("bovary.aligned.html")).trim();
+	const bovaryAligned = (
+		await readFixtureString("bovary.aligned.cli.html")
+	).trim();
 
 	await Promise.all([
 		t.test("test main", testMain(bovaryAligned)),

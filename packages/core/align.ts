@@ -8,6 +8,7 @@ type AlignmentConfig = {
 	sourceLang: string;
 	targetLang: string;
 	hunalignDictData: Uint8Array;
+	meta?: Map<string, string>;
 };
 
 async function align(
@@ -26,7 +27,7 @@ async function align(
 		targetParagraphs,
 	);
 
-	return render(conf.sourceLang, conf.targetLang, aligned);
+	return render(conf.sourceLang, conf.targetLang, aligned, conf.meta);
 }
 
 function paragraphs(plaintext: string): string[] {
