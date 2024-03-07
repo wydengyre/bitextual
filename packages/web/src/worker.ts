@@ -24,7 +24,7 @@ async function renderAlignment(
 	source: string,
 	target: string,
 ): Promise<string> {
-	const dictUrl = `hunalign/dictionaries/${targetLang}-${sourceLang}.dic`;
+	const dictUrl = `dictionaries/${targetLang}-${sourceLang}.dic`;
 	const hunalignDictData = await (async () => {
 		try {
 			return await fetchBinary(dictUrl);
