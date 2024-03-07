@@ -1,25 +1,25 @@
 {
-  "name": "@bitextual/cf",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "deploy": "wrangler pages deploy --project-name bitextual ../web/dist",
-    "serve": "wrangler pages dev ../web/dist",
-    "test": "tsx e2e.test.ts",
-    "test-post-deploy": "tsx post-deploy.test.ts",
-    "typecheck": "tsc"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@tsconfig/strictest": "2.0.3",
-    "@types/node": "20.11.25",
-    "@xmldom/xmldom": "0.8.10",
-    "puppeteer": "22.4.0",
-    "tsx": "4.7.1",
-    "typescript": "5.4.2",
-    "wrangler": "3.31.0"
-  },
-  "dependencies": {
-    "@bitextual/web": "*"
-  }
+	"name": "@bitextual/cf",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler pages deploy --project-name bitextual ../web/dist",
+		"serve": "wrangler pages dev ../web/dist",
+		"test": "tsx e2e.test.ts",
+		"test-post-deploy": "tsx post-deploy.test.ts",
+		"typecheck": "tsc"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@tsconfig/strictest": "2.0.3",
+		"@types/node": "20.11.25",
+		"@xmldom/xmldom": "0.8.10",
+		"puppeteer": "22.4.0",
+		"tsx": "4.7.1",
+		"typescript": "5.4.2",
+		"wrangler": "3.31.0"
+	},
+	"dependencies": {
+		"@bitextual/web": "*"
+	}
 }
