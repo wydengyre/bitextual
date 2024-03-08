@@ -4,13 +4,13 @@ import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { fixturePath, readFixtureString } from "@bitextual/test/util.js";
+import { fixturePath } from "@bitextual/test/util.js";
 import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
 import puppeteer, {
 	type Browser,
 	type PuppeteerLaunchOptions,
 } from "puppeteer";
-import conf from "./conf.json" with { type: "json" };
+import { compatibilityDate } from "./conf.json" with { type: "json" };
 
 async function run() {
 	using _server = startServer();
@@ -19,18 +19,16 @@ async function run() {
 	await new Promise((resolve) => setTimeout(resolve, 3_000));
 
 	await test("404", withHeadlessBrowser(test404));
-	await test("epub import", withHeadlessBrowser(testEpubImport));
 	await test("alignment", withHeadlessBrowser(testAlignment));
 }
 
 const SERVER_PORT = 8788;
-const BOVARY_EPUB_PATH = fixturePath("bovary.english.epub");
-const BOVARY_EPUB_IMG_PATH = fixturePath("bovary.english.images.epub");
-const bovaryEnglish = await readFixtureString("bovary.english.edited.txt");
-const bovaryFrench = await readFixtureString("bovary.french.edited.txt");
-const bovaryEpubText = await readFixtureString("bovary.english.epub.txt");
-const dir = dirname(fileURLToPath(import.meta.resolve("@bitextual/web/dist")));
-const baseUrl = `http://localhost:${SERVER_PORT}`;
+const BOVARY_FRENCH_EPUB_PATH = fixturePath("bovary.french.epub");
+const BOVARY_ENGLISH_EPUB_PATH = fixturePath("bovary.english.epub");
+const DIST_PATH = dirname(
+	fileURLToPath(import.meta.resolve("@bitextual/web/dist")),
+);
+const BASE_URL = new URL(`http://localhost:${SERVER_PORT}`).toString();
 await run();
 
 async function testAlignment(browser: Browser) {
@@ -40,31 +38,26 @@ async function testAlignment(browser: Browser) {
 	const expected = await readFile(expectedPath, "utf8");
 
 	const page = await browser.newPage();
-	await page.goto(baseUrl);
-	await page.setViewport({ width: 1080, height: 1024 });
+	await page.goto(BASE_URL);
 
-	// when we retype the whole text, the test takes too long
-	const NUM_LINES = 100;
-	const bovaryFrenchFirstLines = bovaryFrench
-		.split("\n")
-		.slice(0, NUM_LINES)
-		.join("\n");
-	const bovaryEnglishFirstLines = bovaryEnglish
-		.split("\n")
-		.slice(0, NUM_LINES)
-		.join("\n");
+	const [sourceFileChooser] = await Promise.all([
+		page.waitForFileChooser(),
+		page.click("#sourceText"),
+	]);
+	await sourceFileChooser.accept([BOVARY_FRENCH_EPUB_PATH]);
 
-	await page.click("#continue-btn");
+	const [targetFileChooser] = await Promise.all([
+		page.waitForFileChooser(),
+		page.click("#targetText"),
+	]);
+	await targetFileChooser.accept([BOVARY_ENGLISH_EPUB_PATH]);
 
-	await page.focus("#panel-source .cm-editor .cm-content");
-	await page.keyboard.sendCharacter(bovaryFrenchFirstLines);
-	await page.focus("#panel-target .cm-editor .cm-content");
-	await page.keyboard.sendCharacter(bovaryEnglishFirstLines);
-
+	console.log("waiting for submit click to work");
 	await page.waitForFunction(
-		() => !document.querySelector<HTMLButtonElement>("#align")?.disabled,
+		() => !document.querySelector<HTMLButtonElement>("#submit")?.disabled,
 	);
-	await page.click("button[type=submit]");
+
+	await page.click("#submit");
 
 	await page.waitForFunction(
 		() => document.title === "bitextual parallel book",
@@ -76,77 +69,9 @@ async function testAlignment(browser: Browser) {
 	assert.strictEqual(pageCanonical, expectedCanonical);
 }
 
-async function testEpubImport(browser: Browser) {
-	const page = await browser.newPage();
-	await page.goto(baseUrl);
-	await page.setViewport({ width: 1080, height: 1024 });
-
-	await page.click("#continue-btn");
-
-	let [fileChooser] = await Promise.all([
-		page.waitForFileChooser(),
-		page.click("button#import-epub-source"),
-	]);
-	await fileChooser.accept([BOVARY_EPUB_PATH]);
-	await page.waitForFunction(
-		() =>
-			(
-				document.querySelector(
-					"#panel-source .cm-editor .cm-content",
-				) as HTMLDivElement
-			).innerText.length > 1000,
-	);
-
-	[fileChooser] = await Promise.all([
-		page.waitForFileChooser(),
-		page.click("button#import-epub-target"),
-	]);
-	await fileChooser.accept([BOVARY_EPUB_IMG_PATH]);
-	await page.waitForFunction(
-		() =>
-			(
-				document.querySelector(
-					"#panel-target .cm-editor .cm-content",
-				) as HTMLDivElement
-			).innerText.length > 1000,
-	);
-
-	const sourceText = await page.evaluate(() => {
-		const element = document.querySelector(
-			"#panel-source .cm-editor .cm-content",
-		);
-		if (!(element instanceof HTMLDivElement)) {
-			throw new Error("element is not a div");
-		}
-		return element.innerText;
-	});
-
-	const targetText = await page.evaluate(() => {
-		const element = document.querySelector(
-			"#panel-target .cm-editor .cm-content",
-		);
-		if (!(element instanceof HTMLDivElement)) {
-			throw new Error("element is not a div");
-		}
-		return element.innerText;
-	});
-
-	// because of the way our text editor works, most of the text
-	// will be hidden out of view, and getting it in puppeteer is hard
-	const LENGTH_TO_TEST = 1000;
-	assert.equal(
-		sourceText.slice(0, LENGTH_TO_TEST),
-		bovaryEpubText.slice(0, LENGTH_TO_TEST),
-	);
-	assert.equal(
-		targetText.slice(0, LENGTH_TO_TEST),
-		bovaryEpubText.slice(0, LENGTH_TO_TEST),
-	);
-}
-
 async function test404(browser: Browser) {
 	const page = await browser.newPage();
-	await page.goto(`${baseUrl}/nonexistent`);
+	await page.goto(`${BASE_URL}/nonexistent`);
 
 	const pageHTML = await page.evaluate(() => document.body.innerHTML);
 	assert.equal(pageHTML, "404 Not Found\n");
@@ -186,8 +111,8 @@ function startServer() {
 			"--port",
 			SERVER_PORT.toString(),
 			"--compatibility-date",
-			conf.compatibilityDate,
-			dir,
+			compatibilityDate,
+			DIST_PATH,
 		],
 		{
 			stdio: ["pipe", "inherit", "inherit"],

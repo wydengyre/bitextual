@@ -1,34 +1,30 @@
-// Copyright (C) 2023 Wyden and Gyre, LLC
 import { type AlignmentConfig, align } from "@bitextual/core/align.js";
+import { epubToText } from "@bitextual/epub/epub.js";
+// Copyright (C) 2023 Wyden and Gyre, LLC
+import { expose } from "comlink";
+import { franc } from "franc-min";
 
-// ensure async errors get handled just like sync errors
-self.onunhandledrejection = (e: PromiseRejectionEvent) => {
-	e.preventDefault();
-	throw new Error(e.reason);
-};
+export type { RenderAlignmentFn };
 
-self.onmessage = async (
-	e: MessageEvent<[string, string, string, string, [string, string][]]>,
-) => {
-	const [sourceLang, targetLang, source, target, metaArr] = e.data;
-	const meta = new Map(metaArr);
-	const alignedHtml = await renderAlignment(
-		sourceLang,
-		targetLang,
-		source,
-		target,
-		meta,
-	);
-	postMessage(alignedHtml);
-};
+expose(renderAlignment);
+type RenderAlignmentFn = typeof renderAlignment;
 
 async function renderAlignment(
-	sourceLang: string,
-	targetLang: string,
-	source: string,
-	target: string,
-	meta: Map<string, string>,
+	source: File,
+	target: File,
+	metaArr: readonly (readonly [string, string])[],
 ): Promise<string> {
+	const [sourceData, targetData] = await Promise.all([
+		source.arrayBuffer(),
+		target.arrayBuffer(),
+	]);
+	const [sourceText, targetText] = await Promise.all([
+		epubToText(sourceData),
+		epubToText(targetData),
+	]);
+	const sourceLang = franc(sourceText);
+	const targetLang = franc(targetText);
+
 	const dictUrl = `dictionaries/${targetLang}-${sourceLang}.dic`;
 	const hunalignDictData = await (async () => {
 		try {
@@ -38,15 +34,14 @@ async function renderAlignment(
 			return Uint8Array.of();
 		}
 	})();
-
+	const meta = new Map(metaArr);
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,
 		hunalignDictData,
 		meta,
 	};
-
-	return align(source, target, alignConfig);
+	return align(sourceText, targetText, alignConfig);
 }
 
 async function fetchBinary(url: string): Promise<Uint8Array> {

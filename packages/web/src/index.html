@@ -1,223 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="version" content="__VERSION__">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Bitextual is a tool for generating parallel, bilingual books from translated texts. It supports epubs.">
-    <link rel="canonical" href="https://bitextual.net">
-    <title>Bitextual: the bilingual book generator</title>
-    <script type="module" src="main.js" defer></script>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            line-height: 1.3;
-            display: flex;
-            flex-direction: column;
-        }
+	<meta charset="UTF-8">
+	<meta name="version" content="__VERSION__">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Bitextual is a tool for generating parallel, bilingual books from translated epubs.">
+	<link rel="canonical" href="https://bitextual.net">
+	<title>Bitextual: bilingual book generator</title>
+	<script type="module" src="main.js" defer></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background: #f5f5f5;
+		}
 
-        nav {
-            display: flex;
-            padding: 20px 10px;
-            justify-content: space-between;
-            align-items: baseline;
-        }
+		.container {
+			max-width: 800px;
+			margin: 20px auto;
+			padding: 20px;
+			background: #ffffff;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
+		h1 {
+			color: #333;
+			margin-top: 0;
+		}
 
-        nav ul li {
-            margin-right: 20px;
-        }
+		p {
+			line-height: 1.6;
+		}
 
-        nav ul li:last-child {
-            margin-right: 0;
-        }
+		a {
+			color: #007bff;
+			text-decoration: none;
+		}
 
-        h1 {
-            padding: 0;
-            margin: 0;
-            font-size: 24px;
-            font-weight: bold;
-        }
+		a:hover {
+			text-decoration: underline;
+		}
 
-        h2 {
-            margin: 0;
-            font-size: 22px;
-        }
+		.upload-field {
+			margin-bottom: 20px;
+		}
 
-        dialog {
-            max-width: 600px;
-        }
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
 
-        #submission {
-            margin-right: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: end;
-            align-self: end;
-        }
+		input[type="file"] {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 5px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
 
-        #error-message {
-            color: red;
-        }
+		button {
+			display: inline-block;
+			background: #007bff;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 1em;
+		}
 
-        #error-message.hidden {
-            visibility: hidden;
-        }
+		button:hover {
+			background: #0056b3;
+		}
 
-        #editor {
-            margin: 10px 0 0;
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-        }
+		button:disabled {
+			background: #d3d3d3;
+			color: #a9a9a9;
+			cursor: not-allowed;
+		}
 
-        .editor-panel {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-        }
+		footer {
+			margin-top: 20px;
+			text-align: right;
+		}
 
-        .cm-editor {
-            flex-grow: 1;
-        }
+		footer a {
+			font-size: 0.8em;
+			color: #007bff;
+			margin: 0 5px;
+			text-decoration: none;
+		}
 
-        .panel-toolbar {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 5px 5px 20px;
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #e7e7e7;
-        }
-
-        .panel-toolbar button {
-            margin-right: 15px;
-        }
-
-        .panel-text {
-            display: flex;
-            flex-grow: 1;
-            flex-direction: column;
-            overflow: auto;
-        }
-
-        .detected-language.unsupported {
-            color: red;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        button#align:disabled, button:disabled {
-            cursor: not-allowed;
-        }
-
-        button#align, button#continue-btn {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        button#continue-btn {
-            float: right;
-        }
-
-        button#align:hover, button#continue-btn:hover {
-            background-color: #0056b3;
-        }
-
-        button#align:disabled, button#continue-btn:disabled {
-            background-color: #ccc;
-            color: #666;
-        }
-
-        button#align.loading {
-            cursor: not-allowed;
-            pointer-events: none;
-            position: relative;
-        }
-
-        button#align.loading:after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            margin: -10px 0 0 -10px;
-            border: 2px solid #fff;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .CodeMirror {
-            flex-grow: 1;
-            height: 0; /* allow flex-grow to control height */
-            font-size: 16px;
-        }
-    </style>
+		footer a:hover {
+			text-decoration: underline;
+		}
+	</style>
 </head>
 <body>
-<nav>
-    <h1>Bitextual</h1>
-    <ul>
-        <li><a href="tutorial/">Tutorial</a></li>
-        <li><a href="https://github.com/wydengyre/bitextual">GitHub</a></li>
-        <li><a href="contact/">Contact Us</a></li>
-    </ul>
-</nav>
+<div class="container">
+	<h1>Bitextual</h1>
+	<p>Bitextual takes translated texts in two different languages and generates an easy-to-read, parallel version. For an example, see this <a href="aligned.html">French-English version of Madame Bovary</a>.</p>
 
-<dialog id="intro-modal">
-    <h2>Create a parallel book.</h2>
-    <p>Bitextual takes translated texts in two different languages and generates an easy-to-read, parallel version.
-        For an example, see this <a href="bovary.aligned/" target="_blank">French-English version of Madame Bovary.</a></p>
+	<form id="form">
+		<div class="upload-field">
+			<label for="sourceText">Source Text:</label>
+			<input type="file" id="sourceText" name="sourceText" accept=".epub">
+		</div>
 
-    <p>If it's your first time here, check out our <a href="tutorial/" target="_blank">two minute tutorial</a>.</p>
+		<div class="upload-field">
+			<label for="targetText">Target Text:</label>
+			<input type="file" id="targetText" name="targetText" accept=".epub">
+		</div>
 
-    <button id="continue-btn" autofocus>Continue</button>
-</dialog>
-
-<div id="submission">
-    <div id="error-message" class="hidden">Error here.</div>
-    <button id="align" type="submit" disabled>generate</button>
+		<button id="submit" type="submit" disabled>Submit</button>
+	</form>
+	<footer>
+		<a href="https://github.com/wydengyre/bitextual" target="_blank">GitHub</a>
+		|
+		<a href="contact" target="_blank">Contact</a>
+	</footer>
 </div>
-
-<main id="editor">
-    <div class="editor-panel">
-        <div class="panel-toolbar">
-            <div class="toolbar-label">Source language text (<span class="detected-language" id="source-detected-language">empty</span>)</div>
-            <button id="import-epub-source" disabled>import source EPUB</button></div>
-        <div id="panel-source" class="panel-text"></div>
-    </div>
-    <div class="editor-panel">
-        <div class="panel-toolbar">
-            <div class="toolbar-label">Target language text (<span class="detected-language" id="target-detected-language">empty</span>)</div>
-            <button id="import-epub-target" disabled>import target EPUB</button></div>
-        <div id="panel-target" class="panel-text"></div>
-    </div>
-</main>
 </body>
 </html>
