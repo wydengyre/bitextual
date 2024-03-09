@@ -1,5 +1,5 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
-import { AlignmentConfig, align } from "@bitextual/core/align.js";
+import { type AlignmentConfig, align } from "@bitextual/core/align.js";
 
 // ensure async errors get handled just like sync errors
 self.onunhandledrejection = (e: PromiseRejectionEvent) => {

@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { AlignmentConfig, align } from "@bitextual/core/align.js";
+import { type AlignmentConfig, align } from "@bitextual/core/align.js";
 import { franc } from "franc-min";
 import pkg from "./package.json" with { type: "json" };
 

@@ -2,7 +2,7 @@ import { defaultKeymap } from "@codemirror/commands";
 import type { Text } from "@codemirror/state";
 import {
 	EditorView,
-	ViewUpdate,
+	type ViewUpdate,
 	keymap,
 	lineNumbers,
 	placeholder,

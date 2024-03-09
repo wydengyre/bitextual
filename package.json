@@ -2,9 +2,7 @@
 	"name": "@bitextual/bitextual",
 	"version": "0.0.1",
 	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
+	"workspaces": ["packages/*"],
 	"scripts": {
 		"ci-lint": "biome ci .",
 		"lint": "biome check --apply .",

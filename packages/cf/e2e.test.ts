@@ -6,7 +6,10 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath, readFixtureString } from "@bitextual/test/util.js";
 import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
-import puppeteer, { Browser, PuppeteerLaunchOptions } from "puppeteer";
+import puppeteer, {
+	type Browser,
+	type PuppeteerLaunchOptions,
+} from "puppeteer";
 import conf from "./conf.json" with { type: "json" };
 
 async function run() {
