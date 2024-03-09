@@ -1,4 +1,4 @@
-import { mkdirSync } from "fs";
+import { mkdirSync } from "node:fs";
 import { writeFileSync } from "node:fs";
 import path from "node:path";
 import { go } from "@bitextual/cli/main.js";
