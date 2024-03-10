@@ -12,8 +12,7 @@ async function main() {
 
 async function go(r: Readable): Promise<string> {
 	const ab = await arrayBuffer(r);
-	const u8a = new Uint8Array(ab);
-	return epubToText(u8a);
+	return epubToText(ab);
 }
 
 const currentFile = fileURLToPath(import.meta.url);

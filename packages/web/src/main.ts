@@ -299,13 +299,12 @@ function importEpub(sourceOrTarget: "source" | "target") {
 			return;
 		}
 		const arrayBuffer = await file.arrayBuffer();
-		const bytes = new Uint8Array(arrayBuffer);
 		// TODO: mixpanel
 		// mixpanelWorker.postMessage(["imported", {
 		//   sourceOrTarget,
 		//   name: file.name,
 		// }]);
-		epubWorker.postMessage([sourceOrTarget, bytes]);
+		epubWorker.postMessage([sourceOrTarget, arrayBuffer]);
 	});
 	input.click();
 }
