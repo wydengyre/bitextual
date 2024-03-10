@@ -4,7 +4,7 @@ import JSZip from "jszip";
 
 export { epubToText };
 
-async function epubToText(epubBytes: Uint8Array): Promise<string> {
+async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 	const zip = await JSZip.loadAsync(epubBytes);
 	const files = zip.files;
 	const containerPath = "META-INF/container.xml";
