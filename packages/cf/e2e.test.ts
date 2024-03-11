@@ -31,6 +31,7 @@ const DIST_PATH = dirname(
 	fileURLToPath(import.meta.resolve("@bitextual/web/dist")),
 );
 const BASE_URL = new URL(`http://localhost:${SERVER_PORT}`).toString();
+const SERVER_LOG_LEVEL = "none";
 await run();
 
 async function testAlignment(page: Page) {
@@ -53,7 +54,6 @@ async function testAlignment(page: Page) {
 	]);
 	await targetFileChooser.accept([BOVARY_ENGLISH_EPUB_PATH]);
 
-	console.log("waiting for submit click to work");
 	await page.waitForFunction(
 		() => !document.querySelector<HTMLButtonElement>("#submit")?.disabled,
 	);
@@ -97,6 +97,8 @@ function startServer() {
 			SERVER_PORT.toString(),
 			"--compatibility-date",
 			compatibilityDate,
+			"--log-level",
+			SERVER_LOG_LEVEL,
 			DIST_PATH,
 		],
 		{
