@@ -98,9 +98,7 @@ async function onSubmit(event: Event) {
 	event.preventDefault();
 
 	if (model.sourceFile === null || model.targetFile === null) {
-		// TODO: surface this to the user
-		console.error("onSubmit: model.sourceFile or model.targetFile is null");
-		return;
+		throw new Error("onSubmit: model.sourceFile or model.targetFile is null");
 	}
 	// submit the two files, with version info
 	const meta = [["version", version]] as const;
@@ -109,8 +107,7 @@ async function onSubmit(event: Event) {
 	try {
 		rendered = await renderAlignment(model.sourceFile, model.targetFile, meta);
 	} catch (e) {
-		// TODO: surface this to the user
-		console.error("onSubmit: renderAlignment failed", e);
+		throw new Error("onSubmit: renderAlignment failed");
 		return;
 	}
 
