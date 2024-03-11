@@ -9,7 +9,7 @@ const targetFileId = "targetText";
 const submitButtonId = "submit";
 const formId = "form";
 
-const model:
+type Model =
 	| {
 			sourceFile: null;
 			targetFile: null;
@@ -19,18 +19,21 @@ const model:
 			sourceFile: File;
 			targetFile: File;
 			loading: true;
-	  } = {
-	sourceFile: null,
-	targetFile: null,
-	loading: false,
-};
-
-const derivedState:
-	| { submissionEnabled: true; submitButtonText: "Submit" }
-	| { submissionEnabled: false; submitButtonText: "Submit" | "Loading" } = {
-	submissionEnabled: false,
-	submitButtonText: "Submit",
-};
+	  };
+const model = new Proxy<Model>(
+	{
+		sourceFile: null,
+		targetFile: null,
+		loading: false,
+	},
+	{
+		set: (target: Model, prop: keyof Model, value): boolean => {
+			target[prop] = value;
+			updateUI();
+			return true;
+		},
+	},
+);
 
 let loaded = false;
 let submitButton: HTMLButtonElement;
@@ -69,6 +72,8 @@ function loadDom() {
 	sourceFileInput.addEventListener("change", onSourceFileChange);
 	targetFileInput.addEventListener("change", onTargetFileChange);
 	form.addEventListener("submit", onSubmit);
+
+	updateUI();
 }
 
 async function onSourceFileChange(event: Event) {
@@ -78,7 +83,6 @@ async function onSourceFileChange(event: Event) {
 		return;
 	}
 	model.sourceFile = file;
-	updateUI();
 }
 
 async function onTargetFileChange(event: Event) {
@@ -88,7 +92,6 @@ async function onTargetFileChange(event: Event) {
 		return;
 	}
 	model.targetFile = file;
-	updateUI();
 }
 
 async function onSubmit(event: Event) {
@@ -117,8 +120,10 @@ async function onSubmit(event: Event) {
 
 function updateUI() {
 	const { sourceFile, targetFile, loading } = model;
-	derivedState.submissionEnabled = sourceFile !== null && targetFile !== null;
-	derivedState.submitButtonText = loading ? "Loading" : "Submit";
+	const derivedState = {
+		submissionEnabled: sourceFile !== null && targetFile !== null,
+		submitButtonText: loading ? "Loading" : "Submit",
+	};
 
 	submitButton.disabled = !derivedState.submissionEnabled;
 	submitButton.textContent = derivedState.submitButtonText;
