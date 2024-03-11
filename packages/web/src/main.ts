@@ -98,6 +98,10 @@ async function onSubmit(event: Event) {
 	if (model.sourceFile === null || model.targetFile === null) {
 		throw new Error("onSubmit: model.sourceFile or model.targetFile is null");
 	}
+
+	model.loading = true;
+	updateUI();
+
 	// submit the two files, with version info
 	const meta = [["version", version]] as const;
 
@@ -115,7 +119,7 @@ function updateUI() {
 	const { sourceFile, targetFile, loading } = model;
 	const derivedState = {
 		error: model.error?.message ?? "",
-		submissionEnabled: sourceFile !== null && targetFile !== null,
+		submissionEnabled: sourceFile !== null && targetFile !== null && !loading,
 		submitButtonText: loading ? "Loading" : "Submit",
 	};
 
