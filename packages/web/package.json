@@ -3,11 +3,10 @@
 	"version": "0.0.2",
 	"private": true,
 	"scripts": {
-		"build": "npm-run-all --parallel build-css build-deps build-main build-index build-static build-worker build-sample",
+		"build": "npm-run-all --parallel build-css build-deps build-index build-static build-worker build-sample",
 		"build-css": "tsx tools/copy-css.ts",
 		"build-deps": "tsx tools/copy-deps.ts",
 		"build-index": "tsx tools/build-index.ts",
-		"build-main": "esbuild src/main.ts --bundle --minify --sourcemap --format=esm --outfile=dist/main.js",
 		"build-sample": "tsx tools/build-sample.ts",
 		"build-static": "mkdir -p dist && cp -R static/* dist",
 		"build-worker": "esbuild src/worker.ts --bundle --minify --sourcemap --format=esm --external:module --outfile=dist/worker.js",
