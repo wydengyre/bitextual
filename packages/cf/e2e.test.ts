@@ -6,20 +6,22 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath } from "@bitextual/test/util.js";
 import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
-import puppeteer, {
-	type Browser,
-	type PuppeteerLaunchOptions,
-} from "puppeteer";
+import puppeteer, { type Browser, type Page } from "puppeteer";
 import { compatibilityDate } from "./conf.json" with { type: "json" };
 
 async function run() {
 	using _server = startServer();
+	const puppeteerP = startPuppeteer();
 
 	// ideally we'd wait for the server to tell us it's ready, but this works
 	await new Promise((resolve) => setTimeout(resolve, 3_000));
+	using puppeteer = await puppeteerP;
+	const { browser } = puppeteer;
 
-	await test("404", withHeadlessBrowser(test404));
-	await test("alignment", withHeadlessBrowser(testAlignment));
+	await Promise.all([
+		runIsolatedTest("404", browser, test404),
+		runIsolatedTest("alignment", browser, testAlignment),
+	]);
 }
 
 const SERVER_PORT = 8788;
@@ -31,13 +33,12 @@ const DIST_PATH = dirname(
 const BASE_URL = new URL(`http://localhost:${SERVER_PORT}`).toString();
 await run();
 
-async function testAlignment(browser: Browser) {
+async function testAlignment(page: Page) {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = dirname(__filename);
 	const expectedPath = join(__dirname, "test", "aligned.html");
 	const expected = await readFile(expectedPath, "utf8");
 
-	const page = await browser.newPage();
 	await page.goto(BASE_URL);
 
 	const [sourceFileChooser] = await Promise.all([
@@ -69,37 +70,21 @@ async function testAlignment(browser: Browser) {
 	assert.strictEqual(pageCanonical, expectedCanonical);
 }
 
-async function test404(browser: Browser) {
-	const page = await browser.newPage();
+async function test404(page: Page) {
 	await page.goto(`${BASE_URL}/nonexistent`);
 
 	const pageHTML = await page.evaluate(() => document.body.innerHTML);
 	assert.equal(pageHTML, "404 Not Found\n");
 }
 
-function withBrowser(
-	options: PuppeteerLaunchOptions,
-	fn: (browser: puppeteer.Browser) => Promise<void>,
-) {
-	return async () => {
-		const browser = await puppeteer.launch(options);
-		try {
-			await fn(browser);
-		} finally {
-			await browser.close();
-		}
-	};
-}
-function withHeadlessBrowser(
-	fn: (browser: puppeteer.Browser) => Promise<void>,
-) {
-	return withBrowser({ headless: true }, fn);
-}
+async function startPuppeteer() {
+	const browser = await puppeteer.launch({ headless: true });
 
-// use this for debugging
-// function withSlowMoBrowser(fn: (browser: puppeteer.Browser) => Promise<void>) {
-// 	return withBrowser({ headless: false, slowMo: 250 }, fn);
-// }
+	// for debugging, switch to this
+	// const browser = puppeteer.launch({ headless: false, slowMo: 250 });
+
+	return { browser, [Symbol.dispose]: () => browser.close() };
+}
 
 function startServer() {
 	const proc = spawn(
@@ -129,6 +114,21 @@ function startServer() {
 	process.on("SIGINT", kill);
 	process.on("SIGTERM", kill);
 	return { [Symbol.dispose]: kill };
+}
+
+async function runIsolatedTest(
+	name: string,
+	browser: Browser,
+	testFn: (page: Page) => Promise<void>,
+) {
+	const context = await browser.createBrowserContext();
+	const page = await context.newPage();
+	try {
+		await test(name, () => testFn(page));
+	} finally {
+		await page.close();
+		await context.close();
+	}
 }
 
 function canonicalizeHtml(html: string): string {
