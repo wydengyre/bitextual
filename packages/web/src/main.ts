@@ -29,6 +29,8 @@ const model: Model = {
 	loading: false,
 };
 
+const clientId = crypto.randomUUID();
+
 let loaded = false;
 let errDiv: HTMLDivElement;
 let submitButton: HTMLButtonElement;
@@ -103,7 +105,10 @@ async function onSubmit(event: Event) {
 	updateUI();
 
 	// submit the two files, with version info
-	const meta = [["version", version]] as const;
+	const meta = [
+		["clientId", clientId],
+		["version", version],
+	] as const;
 
 	const rendered = await renderAlignment(
 		model.sourceFile,

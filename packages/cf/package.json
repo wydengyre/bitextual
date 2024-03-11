@@ -3,23 +3,29 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"deploy": "wrangler pages deploy --project-name bitextual ../web/dist",
-		"serve": "wrangler pages dev ../web/dist",
+		"build": "cp -R ../web/dist dist && npm run build-functions",
+		"build-functions": "esbuild functions/event.ts --tsconfig=functions/tsconfig.json --bundle --sourcemap --format=esm --outfile=dist/functions/event.js",
+		"clean": "rm -rf dist",
+		"deploy": "wrangler pages deploy --project-name bitextual dist",
+		"serve": "wrangler pages dev dist",
 		"test": "tsx e2e.test.ts",
 		"test-post-deploy": "tsx post-deploy.test.ts",
-		"typecheck": "tsc"
+		"typecheck": "tsc && tsc --project functions"
 	},
 	"type": "module",
 	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20240222.0",
 		"@tsconfig/strictest": "2.0.3",
 		"@types/node": "20.11.25",
 		"@xmldom/xmldom": "0.8.10",
+		"esbuild": "0.20.1",
 		"puppeteer": "22.4.1",
 		"tsx": "4.7.1",
 		"typescript": "5.4.2",
-		"wrangler": "3.32.0"
+		"wrangler": "https://prerelease-registry.devprod.cloudflare.dev/workers-sdk/runs/8205333453/npm-package-wrangler-5201"
 	},
 	"dependencies": {
-		"@bitextual/web": "*"
+		"@bitextual/web": "*",
+		"@bitextual/web-events": "*"
 	}
 }

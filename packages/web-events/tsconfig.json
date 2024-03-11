@@ -4,6 +4,7 @@
 	"compilerOptions": {
 		"module": "nodenext",
 		"noEmit": true,
+		"types": [],
 		"resolveJsonModule": true
 	},
 	"include": ["*.ts"]

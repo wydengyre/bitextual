@@ -22,6 +22,7 @@ typecheck:
 
 build:
 	npm run build --workspace '@bitextual/web'
+	npm run build --workspace '@bitextual/cf'
 
 test: build
 	npm run test --workspaces --if-present

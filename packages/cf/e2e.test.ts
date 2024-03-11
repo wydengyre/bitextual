@@ -1,7 +1,7 @@
 import { strict as assert } from "node:assert";
 import { spawn } from "node:child_process";
 import { readFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath } from "@bitextual/test/util.js";
@@ -27,16 +27,15 @@ async function run() {
 const SERVER_PORT = 8788;
 const BOVARY_FRENCH_EPUB_PATH = fixturePath("bovary.french.epub");
 const BOVARY_ENGLISH_EPUB_PATH = fixturePath("bovary.english.epub");
-const DIST_PATH = dirname(
-	fileURLToPath(import.meta.resolve("@bitextual/web/dist")),
-);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const DIST_PATH = resolve(__dirname, "dist");
 const BASE_URL = new URL(`http://localhost:${SERVER_PORT}`).toString();
 const SERVER_LOG_LEVEL = "none";
 await run();
 
 async function testAlignment(page: Page) {
-	const __filename = fileURLToPath(import.meta.url);
-	const __dirname = dirname(__filename);
 	const expectedPath = join(__dirname, "test", "aligned.html");
 	const expected = await readFile(expectedPath, "utf8");
 
