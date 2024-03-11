@@ -13,29 +13,24 @@ type Model =
 	| {
 			sourceFile: null;
 			targetFile: null;
+			error: Error | null;
 			loading: false;
 	  }
 	| {
 			sourceFile: File;
 			targetFile: File;
+			error: null;
 			loading: true;
 	  };
-const model = new Proxy<Model>(
-	{
-		sourceFile: null,
-		targetFile: null,
-		loading: false,
-	},
-	{
-		set: (target: Model, prop: keyof Model, value): boolean => {
-			target[prop] = value;
-			updateUI();
-			return true;
-		},
-	},
-);
+const model: Model = {
+	sourceFile: null,
+	targetFile: null,
+	error: null,
+	loading: false,
+};
 
 let loaded = false;
+let errDiv: HTMLDivElement;
 let submitButton: HTMLButtonElement;
 let version = "unknown";
 function loadDom() {
@@ -67,6 +62,7 @@ function loadDom() {
 	const sourceFileInput = getElementById(sourceFileId, HTMLInputElement);
 	const targetFileInput = getElementById(targetFileId, HTMLInputElement);
 	const form = getElementById(formId, HTMLFormElement);
+	errDiv = getElementById("error", HTMLDivElement);
 	submitButton = getElementById(submitButtonId, HTMLButtonElement);
 
 	sourceFileInput.addEventListener("change", onSourceFileChange);
@@ -83,6 +79,7 @@ async function onSourceFileChange(event: Event) {
 		return;
 	}
 	model.sourceFile = file;
+	updateUI();
 }
 
 async function onTargetFileChange(event: Event) {
@@ -92,6 +89,7 @@ async function onTargetFileChange(event: Event) {
 		return;
 	}
 	model.targetFile = file;
+	updateUI();
 }
 
 async function onSubmit(event: Event) {
@@ -103,13 +101,11 @@ async function onSubmit(event: Event) {
 	// submit the two files, with version info
 	const meta = [["version", version]] as const;
 
-	let rendered = "";
-	try {
-		rendered = await renderAlignment(model.sourceFile, model.targetFile, meta);
-	} catch (e) {
-		throw new Error("onSubmit: renderAlignment failed");
-		return;
-	}
+	const rendered = await renderAlignment(
+		model.sourceFile,
+		model.targetFile,
+		meta,
+	);
 
 	const blob = new Blob([rendered], { type: "text/html" });
 	window.location.href = URL.createObjectURL(blob);
@@ -118,13 +114,25 @@ async function onSubmit(event: Event) {
 function updateUI() {
 	const { sourceFile, targetFile, loading } = model;
 	const derivedState = {
+		error: model.error?.message ?? "",
 		submissionEnabled: sourceFile !== null && targetFile !== null,
 		submitButtonText: loading ? "Loading" : "Submit",
 	};
 
+	errDiv.innerText = derivedState.error;
 	submitButton.disabled = !derivedState.submissionEnabled;
 	submitButton.textContent = derivedState.submitButtonText;
 }
+
+window.onerror = (message, source, lineno, colno, error) => {
+	console.error("window.onerror", message, source, lineno, colno, error);
+	if (error === undefined) {
+		return;
+	}
+	model.loading = false;
+	model.error = error;
+	updateUI();
+};
 
 if (document.readyState === "loading") {
 	document.addEventListener("DOMContentLoaded", loadDom);
