@@ -1,7 +1,9 @@
+// Copyright (C) 2023 Wyden and Gyre, LLC
 import { type AlignmentConfig, align } from "@bitextual/core/align.js";
 import { epubToText } from "@bitextual/epub/epub.js";
-// Copyright (C) 2023 Wyden and Gyre, LLC
+import type { SubmitEvent } from "@bitextual/web-events/events.js";
 import { expose } from "comlink";
+import { buf } from "crc-32";
 import { franc } from "franc-min";
 
 export type { RenderAlignmentFn };
@@ -25,6 +27,31 @@ async function renderAlignment(
 	const sourceLang = franc(sourceText);
 	const targetLang = franc(targetText);
 
+	const meta = new Map(metaArr);
+	const clientId = meta.get("clientId") ?? "unknown";
+	meta.delete("clientId");
+	const sourceCrc = buf(new Uint8Array(sourceData));
+	const targetCrc = buf(new Uint8Array(targetData));
+	const event: SubmitEvent = {
+		clientId,
+		sourceFile: source.name,
+		sourceLang,
+		sourceSize: sourceData.byteLength,
+		sourceCrc,
+		targetFile: target.name,
+		targetSize: targetData.byteLength,
+		targetLang,
+		targetCrc,
+	};
+
+	const body = JSON.stringify(event);
+	// purposely fire-and-forget
+	fetch("/event", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body,
+	});
+
 	const dictUrl = `dictionaries/${targetLang}-${sourceLang}.dic`;
 	const hunalignDictData = await (async () => {
 		try {
@@ -34,7 +61,7 @@ async function renderAlignment(
 			return Uint8Array.of();
 		}
 	})();
-	const meta = new Map(metaArr);
+
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
 		targetLang,

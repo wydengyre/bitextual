@@ -1,0 +1,16 @@
+{
+	"name": "@bitextual/web-events",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"typecheck": "tsc"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@tsconfig/strictest": "2.0.3",
+		"typescript": "5.4.2"
+	},
+	"dependencies": {
+		"zod": "^3.22.4"
+	}
+}
