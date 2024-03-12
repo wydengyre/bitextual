@@ -7,6 +7,7 @@
 		"build-functions": "esbuild functions/event.ts --tsconfig=functions/tsconfig.json --bundle --sourcemap --format=esm --outfile=dist/functions/event.js",
 		"clean": "rm -rf dist",
 		"deploy": "wrangler pages deploy --project-name bitextual dist",
+		"read-events": "tsx -r dotenv/config read-events.ts",
 		"serve": "wrangler pages dev dist",
 		"test": "tsx e2e.test.ts",
 		"test-post-deploy": "tsx post-deploy.test.ts",
@@ -26,6 +27,7 @@
 	},
 	"dependencies": {
 		"@bitextual/web": "*",
-		"@bitextual/web-events": "*"
+		"@bitextual/web-events": "*",
+		"dotenv": "^16.4.5"
 	}
 }
