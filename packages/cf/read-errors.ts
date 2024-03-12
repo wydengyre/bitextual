@@ -7,7 +7,7 @@ if (!CF_ANALYTICS_READ_KEY) {
 }
 
 const url = `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/analytics_engine/sql`;
-const body = "SELECT * FROM EVENTS;";
+const body = "SELECT * FROM ERRORS;";
 const res = await fetch(url, {
 	method: "POST",
 	headers: {
