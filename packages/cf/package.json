@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"build": "cp -R ../web/dist dist && npm run build-functions",
+		"build": "rm -rf dist && cp -R ../web/dist dist && npm run build-functions",
 		"build-functions": "esbuild functions/event.ts --tsconfig=functions/tsconfig.json --bundle --sourcemap --format=esm --outfile=dist/functions/event.js",
 		"clean": "rm -rf dist",
 		"deploy": "wrangler pages deploy --project-name bitextual dist",
