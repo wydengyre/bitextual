@@ -141,6 +141,22 @@ window.onerror = (message, source, lineno, colno, error) => {
 	model.loading = false;
 	model.error = error;
 	updateUI();
+
+	// purposely fire-and-forget
+	const body = JSON.stringify([
+		clientId,
+		version,
+		message,
+		source,
+		lineno,
+		colno,
+		error,
+	]);
+	fetch("/error", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body,
+	});
 };
 
 if (document.readyState === "loading") {
