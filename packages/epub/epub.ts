@@ -41,8 +41,7 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 	}
 
 	const spineElems = opfDom
-		.getElementsByTagName("package")[0]
-		?.getElementsByTagName("spine")[0]
+		.getElementsByTagName("spine")[0]
 		?.getElementsByTagName("itemref");
 	if (spineElems === undefined) {
 		throw new Error(`spine not found in DOM: ${opfDom.toString()}`);
