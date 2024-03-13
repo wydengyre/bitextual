@@ -2,6 +2,7 @@ import type { Readable } from "node:stream";
 import { arrayBuffer } from "node:stream/consumers";
 import { fileURLToPath } from "node:url";
 import { epubToText } from "@bitextual/epub/epub.js";
+import { DOMParser } from "@xmldom/xmldom";
 
 export { go };
 
@@ -12,7 +13,7 @@ async function main() {
 
 async function go(r: Readable): Promise<string> {
 	const ab = await arrayBuffer(r);
-	return epubToText(ab);
+	return epubToText(new DOMParser(), ab);
 }
 
 const currentFile = fileURLToPath(import.meta.url);

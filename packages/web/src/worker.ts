@@ -12,6 +12,7 @@ expose(renderAlignment);
 type RenderAlignmentFn = typeof renderAlignment;
 
 async function renderAlignment(
+	domParser: DOMParser,
 	source: File,
 	target: File,
 	metaArr: readonly (readonly [string, string])[],
@@ -21,8 +22,8 @@ async function renderAlignment(
 		target.arrayBuffer(),
 	]);
 	const [sourceText, targetText] = await Promise.all([
-		epubToText(sourceData),
-		epubToText(targetData),
+		epubToText(domParser, sourceData),
+		epubToText(domParser, targetData),
 	]);
 	const sourceLang = franc(sourceText);
 	const targetLang = franc(targetText);

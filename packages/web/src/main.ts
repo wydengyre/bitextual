@@ -1,4 +1,4 @@
-import { type Remote, wrap } from "comlink";
+import { type Remote, proxy, wrap } from "comlink";
 import type { RenderAlignmentFn } from "./worker.js";
 
 const worker = new Worker("worker.js", { type: "module" });
@@ -110,7 +110,9 @@ async function onSubmit(event: Event) {
 		["version", version],
 	] as const;
 
+	const domParser = proxy(new DOMParser());
 	const rendered = await renderAlignment(
+		domParser,
 		model.sourceFile,
 		model.targetFile,
 		meta,

@@ -15,6 +15,7 @@
 		"@tsconfig/strictest": "2.0.3",
 		"@types/html-to-text": "9.0.4",
 		"@types/node": "20.11.26",
+		"@xmldom/xmldom": "0.8.10",
 		"tsx": "4.7.1",
 		"typescript": "5.4.2"
 	},
