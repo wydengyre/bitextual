@@ -80,7 +80,7 @@ async function startPuppeteer() {
 	const browser = await puppeteer.launch({ headless: true });
 
 	// for debugging, switch to this
-	// const browser = puppeteer.launch({ headless: false, slowMo: 250 });
+	// const browser = await puppeteer.launch({ headless: false, slowMo: 250 });
 
 	return { browser, [Symbol.dispose]: () => browser.close() };
 }

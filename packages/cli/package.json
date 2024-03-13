@@ -21,6 +21,7 @@
 	"dependencies": {
 		"@bitextual/core": "*",
 		"@bitextual/epub": "*",
+		"@xmldom/xmldom": "^0.8.10",
 		"franc-min": "^6.2.0"
 	}
 }

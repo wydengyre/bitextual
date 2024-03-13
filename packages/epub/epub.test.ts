@@ -2,6 +2,7 @@ import { strict as assert } from "node:assert";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
+import { DOMParser } from "@xmldom/xmldom";
 import { epubToText } from "./epub.js";
 
 const EPUB2_PATH_REL = "@bitextual/test/bovary.english.epub";
@@ -22,12 +23,12 @@ test("epub", async (t) => {
 
 const epubToTextEpub2 = (expected: string) => async () => {
 	const bytes = await readFile(EPUB2_PATH);
-	const text = await epubToText(bytes);
+	const text = await epubToText(new DOMParser(), bytes);
 	assert.strictEqual(text, expected);
 };
 
 const epubToTextEpub3 = (expected: string) => async () => {
 	const bytes = await readFile(EPUB3_PATH);
-	const text = await epubToText(bytes);
+	const text = await epubToText(new DOMParser(), bytes);
 	assert.strictEqual(text, expected);
 };

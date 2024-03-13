@@ -1,10 +1,13 @@
-import { DOMParser } from "@xmldom/xmldom";
+import type { DOMParser } from "@xmldom/xmldom";
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip from "jszip";
 
 export { epubToText };
 
-async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
+async function epubToText(
+	domParser: DOMParser,
+	epubBytes: ArrayBuffer,
+): Promise<string> {
 	const zip = await JSZip.loadAsync(epubBytes);
 	const files = zip.files;
 	const containerPath = "META-INF/container.xml";
@@ -14,7 +17,7 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 	}
 	const containerTxt = await container.async("text");
 
-	const containerDom = new DOMParser().parseFromString(
+	const containerDom = domParser.parseFromString(
 		containerTxt,
 		"application/xml",
 	);
@@ -35,7 +38,7 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 		throw new Error(`opf file not found at ${rootPath}`);
 	}
 	const opfTxt = await opf.async("text");
-	const opfDom = new DOMParser().parseFromString(opfTxt, "application/xml");
+	const opfDom = domParser.parseFromString(opfTxt, "application/xml");
 	if (opfDom === undefined) {
 		throw new Error(`failed to parse XML DOM from ${opfTxt}`);
 	}
