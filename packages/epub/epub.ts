@@ -1,44 +1,30 @@
 import { DOMParser } from "@xmldom/xmldom";
 import { compile as compileHtmlConvert } from "html-to-text";
-import JSZip from "jszip";
+import JSZip, { type JSZipObject } from "jszip";
 
 export { epubToText };
 
 async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
+	const domParser = new DOMParser();
 	const zip = await JSZip.loadAsync(epubBytes);
 	const files = zip.files;
-	const containerPath = "META-INF/container.xml";
-	const container = files[containerPath];
-	if (container === undefined) {
-		throw new Error(`${containerPath} not found`);
-	}
-	const containerTxt = await container.async("text");
-
-	const containerDom = new DOMParser().parseFromString(
-		containerTxt,
-		"application/xml",
+	const containerDom = await epubZipDom(
+		domParser,
+		files,
+		"META-INF/container.xml",
 	);
-	if (containerDom === undefined) {
-		throw new Error(`failed to parse XML DOM from ${containerTxt}`);
-	}
 
 	const rootPath = containerDom
 		.getElementsByTagName("rootfile")[0]
 		?.getAttribute("full-path");
 	if (rootPath == null) {
-		throw new Error(`rootPath not found in DOM: ${containerDom.toString()}`);
+		throw new Error(
+			`rootPath not found in container DOM: ${containerDom.toString()}`,
+		);
 	}
 	const rootDir = rootPath.split("/").slice(0, -1).join("/");
 
-	const opf = files[rootPath];
-	if (opf === undefined) {
-		throw new Error(`opf file not found at ${rootPath}`);
-	}
-	const opfTxt = await opf.async("text");
-	const opfDom = new DOMParser().parseFromString(opfTxt, "application/xml");
-	if (opfDom === undefined) {
-		throw new Error(`failed to parse XML DOM from ${opfTxt}`);
-	}
+	const opfDom = await epubZipDom(domParser, files, rootPath);
 
 	const spineElems = opfDom
 		.getElementsByTagName("spine")[0]
@@ -139,4 +125,17 @@ function pathJoin(base: string, relative: string): string {
 
 	// Join all components back into a single string
 	return baseComponents.join("/");
+}
+
+async function epubZipDom(
+	parser: DOMParser,
+	files: Record<string, JSZipObject>,
+	filePath: string,
+): Promise<Document> {
+	const file = files[filePath];
+	if (file === undefined) {
+		throw new Error(`file not found at ${filePath}`);
+	}
+	const fileText = await file.async("text");
+	return parser.parseFromString(fileText, "application/xml");
 }
