@@ -24,7 +24,7 @@
 		"puppeteer": "22.4.1",
 		"tsx": "4.7.1",
 		"typescript": "5.4.2",
-		"wrangler": "https://prerelease-registry.devprod.cloudflare.dev/workers-sdk/runs/8205333453/npm-package-wrangler-5201"
+		"wrangler": "3.33.0"
 	},
 	"dependencies": {
 		"@bitextual/web": "*",
