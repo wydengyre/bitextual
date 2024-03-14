@@ -32,37 +32,40 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 	if (spineElems === undefined) {
 		throw new Error(`spine not found in DOM: ${opfDom.toString()}`);
 	}
-	const spine = Array.from(spineElems).map((item, n) => {
-		const idref = item.getAttribute("idref");
-		if (idref === null) {
-			throw new Error(
-				`idref not found in spine element ${n}: ${item.toString()}`,
-			);
-		}
-		return idref;
-	});
+	const spine = Array.from(spineElems)
+		.map((item, n) => {
+			const idref = item.getAttribute("idref");
+			if (idref === null) {
+				console.error(
+					`idref not found in spine element ${n}: ${item.toString()}`,
+				);
+				return null;
+			}
+			return idref;
+		})
+		.filter((idref): idref is string => idref !== null);
 
 	const manifest = opfDom.getElementsByTagName("manifest")[0];
 	if (manifest === undefined) {
 		throw new Error(`manifest not found in DOM: ${opfDom.toString()}`);
 	}
-	const manifestItems = Array.from(manifest.getElementsByTagName("item")).map(
-		(item, n) => {
+	const manifestItems = Array.from(manifest.getElementsByTagName("item"))
+		.map((item, n) => {
 			const id = item.getAttribute("id");
 			if (id === null) {
-				throw new Error(
-					`id not found in manifest item ${n}: ${item.toString()}`,
-				);
+				console.error(`id not found in manifest item ${n}: ${item.toString()}`);
+				return null;
 			}
 			const href = item.getAttribute("href");
 			if (href === null) {
-				throw new Error(
+				console.error(
 					`href not found in manifest item ${n}: ${item.toString()}`,
 				);
+				return null;
 			}
 			return [id, href] as const;
-		},
-	);
+		})
+		.filter((item): item is [string, string] => item !== null);
 	const manifestMap: Map<string, string> = new Map(manifestItems);
 
 	const orderedFiles = spine.map((id) => {
