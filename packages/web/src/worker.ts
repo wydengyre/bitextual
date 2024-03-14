@@ -1,5 +1,5 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
-import { type AlignmentConfig, align } from "@bitextual/core/align.js";
+import { type AlignmentConfig, alignTexts } from "@bitextual/core/align.js";
 import { epubToText } from "@bitextual/epub/epub.js";
 import type { SubmitEvent } from "@bitextual/web-events/events.js";
 import { expose } from "comlink";
@@ -68,7 +68,7 @@ async function renderAlignment(
 		hunalignDictData,
 		meta,
 	};
-	return align(sourceText, targetText, alignConfig);
+	return alignTexts(sourceText, targetText, alignConfig);
 }
 
 async function fetchBinary(url: string): Promise<Uint8Array> {

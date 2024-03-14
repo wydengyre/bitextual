@@ -19,6 +19,7 @@ const testMain = (expected: string) => async () => {
 	const bovaryEnglish = fileURLToPath(
 		import.meta.resolve("@bitextual/test/bovary.english.edited.txt"),
 	);
-	const result = await go([bovaryFrench, bovaryEnglish]);
-	assert.strictEqual(result, expected);
+	const result = await go(["--html", bovaryFrench, bovaryEnglish]);
+	const resultText = new TextDecoder().decode(result);
+	assert.strictEqual(resultText, expected);
 };

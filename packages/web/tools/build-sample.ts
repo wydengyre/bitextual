@@ -6,7 +6,7 @@ import { fixturePath } from "@bitextual/test/util.js";
 
 const bovaryFrenchPath = fixturePath("bovary.french.edited.txt");
 const bovaryEnglishPath = fixturePath("bovary.english.edited.txt");
-const aligned = await go([bovaryFrenchPath, bovaryEnglishPath]);
+const aligned = await go(["--html", bovaryFrenchPath, bovaryEnglishPath]);
 
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
