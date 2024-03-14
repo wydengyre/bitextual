@@ -5,7 +5,7 @@ import {
 	alignParas,
 	alignTexts,
 } from "@bitextual/core/align.js";
-import { epubParas, generateAlignedEpub } from "@bitextual/epub/epub.js";
+import { epubParas, generateAlignedEpub } from "@bitextual/core/epub.js";
 import { franc } from "franc-min";
 import pkg from "./package.json" with { type: "json" };
 

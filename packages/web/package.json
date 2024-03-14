@@ -29,7 +29,6 @@
 	},
 	"dependencies": {
 		"@bitextual/core": "*",
-		"@bitextual/epub": "*",
 		"@picocss/pico": "2.0.6",
 		"comlink": "^4.4.1",
 		"crc-32": "^1.2.2",
