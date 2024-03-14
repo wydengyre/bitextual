@@ -15,18 +15,6 @@ function go(args: string[]): Promise<string> {
 	if (args.length === 2) {
 		return goDetectingLanguages(args[0] as string, args[1] as string);
 	}
-	if (args.length === 4) {
-		const [cmdSourceLang, cmdTargetLang, sourceTextPath, targetTextPath] =
-			args as [string, string, string, string];
-
-		return goProvidingLanguages(
-			cmdSourceLang,
-			cmdTargetLang,
-			sourceTextPath,
-			targetTextPath,
-		);
-	}
-
 	throw "Invalid number of arguments";
 }
 
@@ -40,18 +28,6 @@ export async function goDetectingLanguages(
 
 	const targetText = await readFile(targetPath, "utf-8");
 	const targetLang = franc(targetText);
-
-	return goWithLanguagesAndText(sourceLang, targetLang, sourceText, targetText);
-}
-
-export async function goProvidingLanguages(
-	sourceLang: string,
-	targetLang: string,
-	sourceTextPath: string,
-	targetTextPath: string,
-): Promise<string> {
-	const sourceText = await readFile(sourceTextPath, "utf-8");
-	const targetText = await readFile(targetTextPath, "utf-8");
 
 	return goWithLanguagesAndText(sourceLang, targetLang, sourceText, targetText);
 }
