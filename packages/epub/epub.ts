@@ -8,11 +8,8 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 	const domParser = new DOMParser();
 	const zip = await JSZip.loadAsync(epubBytes);
 	const files = zip.files;
-	const containerDom = await epubZipDom(
-		domParser,
-		files,
-		"META-INF/container.xml",
-	);
+	const containerPath = "META-INF/container.xml";
+	const containerDom = await epubZipDom(domParser, files, containerPath);
 
 	const rootPath = containerDom
 		.getElementsByTagName("rootfile")[0]
@@ -25,25 +22,6 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 	const rootDir = rootPath.split("/").slice(0, -1).join("/");
 
 	const opfDom = await epubZipDom(domParser, files, rootPath);
-
-	const spineElems = opfDom
-		.getElementsByTagName("spine")[0]
-		?.getElementsByTagName("itemref");
-	if (spineElems === undefined) {
-		throw new Error(`spine not found in DOM: ${opfDom.toString()}`);
-	}
-	const spine = Array.from(spineElems)
-		.map((item, n) => {
-			const idref = item.getAttribute("idref");
-			if (idref === null) {
-				console.error(
-					`idref not found in spine element ${n}: ${item.toString()}`,
-				);
-				return null;
-			}
-			return idref;
-		})
-		.filter((idref): idref is string => idref !== null);
 
 	const manifest = opfDom.getElementsByTagName("manifest")[0];
 	if (manifest === undefined) {
@@ -68,25 +46,12 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 		.filter((item): item is [string, string] => item !== null);
 	const manifestMap: Map<string, string> = new Map(manifestItems);
 
-	const orderedFiles = spine.map((id) => {
-		const file = manifestMap.get(id);
-		if (file === undefined) {
-			throw new Error(`file with id ${id} not found in manifest`);
-		}
-		return [id, file] as const;
-	});
-	const htmlPromises = [...orderedFiles.values()].map(([id, path]) => {
-		const fullPath = pathJoin(rootDir, path);
-		const file = files[fullPath];
-		if (file === undefined) {
-			throw new Error(
-				`file with id ${id} at ${fullPath} (resolved from root ${rootDir} and relative path ${path}) not found.
-        rootPath: "${rootPath}"`,
-			);
-		}
-		return file.async("text");
-	});
-	const htmls = await Promise.all(htmlPromises);
+	const spineElems = opfDom
+		.getElementsByTagName("spine")[0]
+		?.getElementsByTagName("itemref");
+	if (spineElems === undefined) {
+		throw new Error(`spine not found in DOM: ${opfDom.toString()}`);
+	}
 
 	const htmlToText = compileHtmlConvert({
 		selectors: [
@@ -97,12 +62,37 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 		],
 		wordwrap: false,
 	});
-	const epubText = htmls.map((html) => htmlToText(html)).join("\n");
-	return processLineBreaks(epubText);
-}
+	const textPromises = Array.from(spineElems).map(async (item, n) => {
+		const idref = item.getAttribute("idref");
+		if (idref === null) {
+			console.error(
+				`idref not found in spine element ${n}: ${item.toString()}`,
+			);
+			return null;
+		}
+		const filePath = manifestMap.get(idref);
+		if (filePath === undefined) {
+			console.error(`file not found in manifest for idref ${idref}`);
+			return null;
+		}
+		const fullPath = pathJoin(rootDir, filePath);
+		const file = files[fullPath];
+		if (file === undefined) {
+			console.error(
+				`file with id ${idref} at ${fullPath} (resolved from root ${rootDir} and relative path ${filePath}) not found.
+        rootPath: "${rootPath}"`,
+			);
+			return null;
+		}
+		const fileText = await file.async("text");
+		return htmlToText(fileText);
+	});
 
-function processLineBreaks(text: string): string {
-	const normalizedText = text.replace(/\r\n/g, "\n");
+	const epubTexts = await Promise.all(textPromises);
+	const epubText = epubTexts
+		.filter((maybeText): maybeText is string => maybeText !== null)
+		.join("\n");
+	const normalizedText = epubText.replace(/\r\n/g, "\n");
 	return normalizedText.replace(/\n+/g, "\n").trim();
 }
 
