@@ -14,10 +14,10 @@ test("main", async (t) => {
 
 const testMain = (expected: string) => async () => {
 	const bovaryFrench = fileURLToPath(
-		import.meta.resolve("@bitextual/test/bovary.french.edited.txt"),
+		import.meta.resolve("@bitextual/test/bovary.french.epub"),
 	);
 	const bovaryEnglish = fileURLToPath(
-		import.meta.resolve("@bitextual/test/bovary.english.edited.txt"),
+		import.meta.resolve("@bitextual/test/bovary.english.epub"),
 	);
 	const result = await go(["--html", bovaryFrench, bovaryEnglish]);
 	const resultText = new TextDecoder().decode(result);

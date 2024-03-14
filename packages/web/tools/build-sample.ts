@@ -4,8 +4,8 @@ import path from "node:path";
 import { go } from "@bitextual/cli/main.js";
 import { fixturePath } from "@bitextual/test/util.js";
 
-const bovaryFrenchPath = fixturePath("bovary.french.edited.txt");
-const bovaryEnglishPath = fixturePath("bovary.english.edited.txt");
+const bovaryFrenchPath = fixturePath("bovary.french.epub");
+const bovaryEnglishPath = fixturePath("bovary.english.epub");
 const aligned = await go(["--html", bovaryFrenchPath, bovaryEnglishPath]);
 
 const __filename = new URL(import.meta.url).pathname;

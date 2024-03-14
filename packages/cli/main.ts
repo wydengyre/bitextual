@@ -32,10 +32,18 @@ async function go(args: string[]): Promise<Uint8Array> {
 }
 
 async function goHtml(sourcePath: string, targetPath: string) {
-	const sourceText = await readFile(sourcePath, "utf-8");
-	const sourceLang = franc(sourceText);
+	const [sourceEpub, targetEpub] = await Promise.all([
+		readFile(sourcePath),
+		readFile(targetPath),
+	]);
+	const [sourceParas, targetParas] = await Promise.all([
+		toArray(epubParas(sourceEpub)),
+		toArray(epubParas(targetEpub)),
+	]);
 
-	const targetText = await readFile(targetPath, "utf-8");
+	const sourceText = sourceParas.join("\n");
+	const sourceLang = franc(sourceText);
+	const targetText = targetParas.join("\n");
 	const targetLang = franc(targetText);
 
 	const dictPath = fileURLToPath(
