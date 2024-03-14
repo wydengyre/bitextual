@@ -17,7 +17,7 @@ For an example of output, see the included French-English copy of
 That file is generated with the following command:
 
 ```sh
-tsx packages/cli/main.ts --html packages/test/bovary.french.edited.txt packages/test/bovary.english.edited.txt > packages/web/dist/bovary.aligned.html"
+tsx packages/cli/main.ts --html packages/test/bovary.french.epub packages/test/bovary.english.epub > packages/web/dist/bovary.aligned.html"
 ```
 
 The command says "run the `main.ts` script with html output on Bovary in French (source) and Bovary in English (target)."
