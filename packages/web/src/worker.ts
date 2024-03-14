@@ -1,6 +1,6 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
 import { type AlignmentConfig, alignTexts } from "@bitextual/core/align.js";
-import { epubToText } from "@bitextual/epub/epub.js";
+import { epubToText } from "@bitextual/core/epub.js";
 import type { SubmitEvent } from "@bitextual/web-events/events.js";
 import { expose } from "comlink";
 import { buf } from "crc-32";
