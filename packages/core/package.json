@@ -19,7 +19,7 @@
 		"typescript": "5.4.2"
 	},
 	"dependencies": {
-		"@bitextual/hunalign": "^0.0.1",
+		"@bitextual/hunalign": "^0.0.2",
 		"@xmldom/xmldom": "^0.8.10",
 		"html-to-text": "^9.0.5",
 		"jszip": "^3.10.1"
