@@ -1,18 +1,20 @@
 import { strict as assert } from "node:assert";
+import { readFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { readFixtureString } from "@bitextual/test/util.js";
 import { go } from "./main.js";
 
 test("main", async (t) => {
-	const bovaryAligned = (
-		await readFixtureString("bovary.aligned.cli.html")
-	).trim();
-
-	await Promise.all([t.test("test main", testMain(bovaryAligned))]);
+	await t.test(testMain);
 });
 
-const testMain = (expected: string) => async () => {
+async function testMain() {
+	const __filename = fileURLToPath(import.meta.url);
+	const __dirname = dirname(__filename);
+	const alignedPath = join(__dirname, "test", "bovary.aligned.cli.html");
+	const expected = await readFile(alignedPath, "utf-8");
+
 	const bovaryFrench = fileURLToPath(
 		import.meta.resolve("@bitextual/test/bovary.french.epub"),
 	);
@@ -22,4 +24,4 @@ const testMain = (expected: string) => async () => {
 	const result = await go(["--html", bovaryFrench, bovaryEnglish]);
 	const resultText = new TextDecoder().decode(result);
 	assert.strictEqual(resultText, expected);
-};
+}
