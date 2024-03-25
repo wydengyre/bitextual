@@ -12,7 +12,7 @@
 	"type": "module",
 	"devDependencies": {
 		"@bitextual/test": "*",
-		"@tsconfig/strictest": "2.0.3",
+		"@tsconfig/strictest": "2.0.4",
 		"@types/html-to-text": "9.0.4",
 		"@types/node": "20.11.30",
 		"tsx": "4.7.1",
