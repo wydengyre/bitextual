@@ -1,13 +1,13 @@
 import { type Remote, wrap } from "comlink";
-import type { RenderAlignmentFn } from "./worker.js";
+import type { Worker } from "./worker.js";
 
-const worker = new Worker("worker.js", { type: "module" });
-const renderAlignment: Remote<RenderAlignmentFn> = wrap(worker);
+const w = new Worker("worker.js", { type: "module" });
+const worker: Remote<Worker> = wrap(w);
 
 const sourceFileId = "sourceText";
 const targetFileId = "targetText";
+const epubButtonId = "epub";
 const submitButtonId = "submit";
-const formId = "form";
 
 type Model =
 	| {
@@ -20,7 +20,7 @@ type Model =
 			sourceFile: File;
 			targetFile: File;
 			error: null;
-			loading: true;
+			loading: boolean;
 	  };
 const model: Model = {
 	sourceFile: null,
@@ -33,6 +33,7 @@ const clientId = crypto.randomUUID();
 
 let loaded = false;
 let errDiv: HTMLDivElement;
+let epubButton: HTMLButtonElement;
 let submitButton: HTMLButtonElement;
 let version = "unknown";
 function loadDom() {
@@ -63,13 +64,14 @@ function loadDom() {
 
 	const sourceFileInput = getElementById(sourceFileId, HTMLInputElement);
 	const targetFileInput = getElementById(targetFileId, HTMLInputElement);
-	const form = getElementById(formId, HTMLFormElement);
 	errDiv = getElementById("error", HTMLDivElement);
+	epubButton = getElementById(epubButtonId, HTMLButtonElement);
 	submitButton = getElementById(submitButtonId, HTMLButtonElement);
 
 	sourceFileInput.addEventListener("change", onSourceFileChange);
 	targetFileInput.addEventListener("change", onTargetFileChange);
-	form.addEventListener("submit", onSubmit);
+	epubButton.addEventListener("click", onSubmit);
+	submitButton.addEventListener("click", onSubmit);
 
 	updateUI();
 }
@@ -97,6 +99,8 @@ async function onTargetFileChange(event: Event) {
 async function onSubmit(event: Event) {
 	event.preventDefault();
 
+	const { target } = event;
+
 	if (model.sourceFile === null || model.targetFile === null) {
 		throw new Error("onSubmit: model.sourceFile or model.targetFile is null");
 	}
@@ -110,14 +114,35 @@ async function onSubmit(event: Event) {
 		["version", version],
 	] as const;
 
-	const rendered = await renderAlignment(
+	if (target !== epubButton) {
+		const rendered = await worker.renderAlignment(
+			model.sourceFile,
+			model.targetFile,
+			meta,
+		);
+
+		const blob = new Blob([rendered], { type: "text/html" });
+		window.location.href = URL.createObjectURL(blob);
+		return;
+	}
+
+	const rendered = await worker.renderEpub(
 		model.sourceFile,
 		model.targetFile,
 		meta,
 	);
+	const blob = new Blob([rendered], { type: "application/epub+zip" });
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement("a");
+	document.body.appendChild(a);
+	a.style.display = "none";
+	a.href = url;
+	a.download = `${model.sourceFile.name}.aligned.epub`;
+	a.click();
+	URL.revokeObjectURL(url);
 
-	const blob = new Blob([rendered], { type: "text/html" });
-	window.location.href = URL.createObjectURL(blob);
+	model.loading = false;
+	updateUI();
 }
 
 function updateUI() {
@@ -125,10 +150,11 @@ function updateUI() {
 	const derivedState = {
 		error: model.error?.message ?? "",
 		submissionEnabled: sourceFile !== null && targetFile !== null && !loading,
-		submitButtonText: loading ? "Loading" : "Submit",
+		submitButtonText: loading ? "Loading" : "View HTML",
 	};
 
 	errDiv.innerText = derivedState.error;
+	epubButton.disabled = !derivedState.submissionEnabled;
 	submitButton.disabled = !derivedState.submissionEnabled;
 	submitButton.textContent = derivedState.submitButtonText;
 }
