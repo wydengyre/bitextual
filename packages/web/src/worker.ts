@@ -47,37 +47,17 @@ async function renderAlignment(
 	const meta = new Map(metaArr);
 	const clientId = meta.get("clientId") ?? "unknown";
 	meta.delete("clientId");
-	const sourceCrc = buf(new Uint8Array(sourceData));
-	const targetCrc = buf(new Uint8Array(targetData));
-	const event: SubmitEvent = {
+	submitEvent(
 		clientId,
-		sourceFile: source.name,
+		sourceData,
+		targetData,
+		source.name,
+		target.name,
 		sourceLang,
-		sourceSize: sourceData.byteLength,
-		sourceCrc,
-		targetFile: target.name,
-		targetSize: targetData.byteLength,
 		targetLang,
-		targetCrc,
-	};
+	);
 
-	const body = JSON.stringify(event);
-	// purposely fire-and-forget
-	fetch("/event", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body,
-	});
-
-	const dictUrl = `dictionaries/${targetLang}-${sourceLang}.dic`;
-	const hunalignDictData = await (async () => {
-		try {
-			return await fetchBinary(dictUrl);
-		} catch (e) {
-			console.error(`couldn't get dictionary at ${dictUrl}`, e);
-			return Uint8Array.of();
-		}
-	})();
+	const hunalignDictData = await fetchDictionary(sourceLang, targetLang);
 
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
@@ -110,37 +90,17 @@ async function renderEpub(
 	const meta = new Map(metaArr);
 	const clientId = meta.get("clientId") ?? "unknown";
 	meta.delete("clientId");
-	const sourceCrc = buf(new Uint8Array(sourceData));
-	const targetCrc = buf(new Uint8Array(targetData));
-	const event: SubmitEvent = {
+	submitEvent(
 		clientId,
-		sourceFile: source.name,
+		sourceData,
+		targetData,
+		source.name,
+		target.name,
 		sourceLang,
-		sourceSize: sourceData.byteLength,
-		sourceCrc,
-		targetFile: target.name,
-		targetSize: targetData.byteLength,
 		targetLang,
-		targetCrc,
-	};
+	);
 
-	const body = JSON.stringify(event);
-	// purposely fire-and-forget
-	fetch("/event", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body,
-	});
-
-	const dictUrl = `dictionaries/${targetLang}-${sourceLang}.dic`;
-	const hunalignDictData = await (async () => {
-		try {
-			return await fetchBinary(dictUrl);
-		} catch (e) {
-			console.error(`couldn't get dictionary at ${dictUrl}`, e);
-			return Uint8Array.of();
-		}
-	})();
+	const hunalignDictData = await fetchDictionary(sourceLang, targetLang);
 
 	const alignConfig: AlignmentConfig = {
 		sourceLang,
@@ -154,6 +114,16 @@ async function renderEpub(
 	return new Uint8Array(epub);
 }
 
+async function fetchDictionary(sourceLang: string, targetLang: string) {
+	const dictUrl = `dictionaries/${targetLang}-${sourceLang}.dic`;
+	try {
+		return await fetchBinary(dictUrl);
+	} catch (e) {
+		console.error(`couldn't get dictionary at ${dictUrl}`, e);
+		return Uint8Array.of();
+	}
+}
+
 async function fetchBinary(url: string): Promise<Uint8Array> {
 	const f = await fetch(url);
 	if (!f.ok) {
@@ -161,6 +131,37 @@ async function fetchBinary(url: string): Promise<Uint8Array> {
 	}
 	const ab = await f.arrayBuffer();
 	return new Uint8Array(ab);
+}
+
+function submitEvent(
+	clientId: string,
+	sourceData: ArrayBuffer,
+	targetData: ArrayBuffer,
+	sourceFile: string,
+	targetFile: string,
+	sourceLang: string,
+	targetLang: string,
+) {
+	const sourceCrc = buf(new Uint8Array(sourceData));
+	const targetCrc = buf(new Uint8Array(targetData));
+	const event: SubmitEvent = {
+		clientId,
+		sourceFile,
+		sourceLang,
+		sourceSize: sourceData.byteLength,
+		sourceCrc,
+		targetFile,
+		targetSize: targetData.byteLength,
+		targetLang,
+		targetCrc,
+	};
+	const body = JSON.stringify(event);
+	// purposely fire-and-forget
+	return fetch("/event", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body,
+	});
 }
 
 async function toArray<T>(asyncGen: AsyncGenerator<T>): Promise<T[]> {
