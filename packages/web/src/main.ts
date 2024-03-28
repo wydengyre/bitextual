@@ -9,6 +9,8 @@ const targetFileId = "targetText";
 const submitButtonId = "submit";
 const formId = "form";
 
+// TODO: handle download-epub
+
 type Model =
 	| {
 			sourceFile: null;
@@ -125,7 +127,7 @@ function updateUI() {
 	const derivedState = {
 		error: model.error?.message ?? "",
 		submissionEnabled: sourceFile !== null && targetFile !== null && !loading,
-		submitButtonText: loading ? "Loading" : "Submit",
+		submitButtonText: loading ? "Loading" : "View HTML",
 	};
 
 	errDiv.innerText = derivedState.error;
