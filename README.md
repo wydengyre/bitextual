@@ -22,7 +22,7 @@ tsx packages/cli/main.ts --html packages/test/bovary.french.epub packages/test/b
 
 The command says "run the `main.ts` script with html output on Bovary in French (source) and Bovary in English (target)."
 
-There is also an epub version, produced with the following command:
+There is also an [epub version](https://bitextual.net/bovary.aligned/bovary.epub), produced with the following command:
 
 ```sh
 tsx packages/cli/main.ts --epub packages/test/bovary.french.epub packages/test/bovary.english.epub > packages/web/dist/bovary.aligned/bovary.epub
