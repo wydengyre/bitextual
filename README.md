@@ -22,5 +22,11 @@ tsx packages/cli/main.ts --html packages/test/bovary.french.epub packages/test/b
 
 The command says "run the `main.ts` script with html output on Bovary in French (source) and Bovary in English (target)."
 
+There is also an epub version, produced with the following command:
+
+```sh
+tsx packages/cli/main.ts --epub packages/test/bovary.french.epub packages/test/bovary.english.epub > packages/web/dist/bovary.aligned/bovary.epub
+```
+
 This project relies on a WebAssembly fork of
 [hunalign](https://github.com/wydengyre/hunalign) for text alignment.
