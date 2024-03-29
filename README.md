@@ -1,7 +1,7 @@
 # Bitextual: A tool for bilingual text alignment
 
 Bitextual takes translated (preferably by humans) epubs in two languages, and
-outputs an parallel, bilingual book that shows the two texts side-by-side,
+outputs a parallel, bilingual book that shows the two texts side-by-side,
 aligned. This is useful for lovers of translated literature and
 intermediate-to-advanced level language learners.
 
