@@ -23,7 +23,7 @@
 		"@types/node": "20.11.30",
 		"esbuild": "0.20.2",
 		"npm-run-all": "4.1.5",
-		"simple-git": "3.23.0",
+		"simple-git": "3.24.0",
 		"tsx": "4.7.1",
 		"typescript": "5.4.3"
 	},
