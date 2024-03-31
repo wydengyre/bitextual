@@ -47,6 +47,7 @@ async function renderAlignment(
 	const meta = new Map(metaArr);
 	const clientId = meta.get("clientId") ?? "unknown";
 	meta.delete("clientId");
+	// purposely fire and forget
 	submitEvent(
 		clientId,
 		sourceData,
@@ -55,6 +56,7 @@ async function renderAlignment(
 		target.name,
 		sourceLang,
 		targetLang,
+		"html",
 	);
 
 	const hunalignDictData = await fetchDictionary(sourceLang, targetLang);
@@ -90,6 +92,7 @@ async function renderEpub(
 	const meta = new Map(metaArr);
 	const clientId = meta.get("clientId") ?? "unknown";
 	meta.delete("clientId");
+	// purposely fire and forget
 	submitEvent(
 		clientId,
 		sourceData,
@@ -98,6 +101,7 @@ async function renderEpub(
 		target.name,
 		sourceLang,
 		targetLang,
+		"epub",
 	);
 
 	const hunalignDictData = await fetchDictionary(sourceLang, targetLang);
@@ -141,6 +145,7 @@ function submitEvent(
 	targetFile: string,
 	sourceLang: string,
 	targetLang: string,
+	format: "epub" | "html",
 ) {
 	const sourceCrc = buf(new Uint8Array(sourceData));
 	const targetCrc = buf(new Uint8Array(targetData));
@@ -154,9 +159,9 @@ function submitEvent(
 		targetSize: targetData.byteLength,
 		targetLang,
 		targetCrc,
+		format,
 	};
 	const body = JSON.stringify(event);
-	// purposely fire-and-forget
 	return fetch("/event", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },

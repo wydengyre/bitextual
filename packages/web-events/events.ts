@@ -14,4 +14,5 @@ const submitEventSchema = z.object({
 	targetLang: z.string(),
 	targetSize: z.number(),
 	targetCrc: z.number(),
+	format: z.string(),
 });

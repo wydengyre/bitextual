@@ -44,6 +44,7 @@ const onRequest: PagesFunction<Env> = async (context) => {
 		country,
 		region,
 		city,
+		event.format,
 	];
 	const dp = { indexes: [], blobs, doubles: [] };
 	console.log("registering event", dp);
