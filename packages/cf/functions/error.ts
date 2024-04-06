@@ -1,16 +1,12 @@
-export { onRequest };
+export { onRequestPost };
 
 interface Env {
 	ERRORS?: AnalyticsEngineDataset;
 }
 
 const REQUEST_BODY_SIZE_LIMIT_BYTES = 1024; // seems high enough
-const onRequest: PagesFunction<Env> = async (context) => {
+const onRequestPost: PagesFunction<Env> = async (context) => {
 	const request = context.request;
-
-	if (request.method !== "POST") {
-		return new Response("Method Not Allowed", { status: 405 });
-	}
 
 	const { headers } = request;
 	if (headers.get("content-type") !== "application/json") {
