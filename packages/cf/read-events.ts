@@ -20,7 +20,13 @@ if (!res.ok) {
 	throw new Error(`Failed to fetch events: ${res.status} ${await res.text()}`);
 }
 const { data } = await res.json();
-const events = data.map((event: object) =>
-	Object.values(event).filter((d) => d),
-);
+
+if (!Array.isArray(data)) {
+	throw new Error(`Unexpected response: ${JSON.stringify(data)}`);
+}
+const events = data
+	.toSorted(
+		(a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
+	)
+	.map((event: object) => Object.values(event).filter((d) => d));
 console.log(events);
