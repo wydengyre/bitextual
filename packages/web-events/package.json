@@ -8,7 +8,7 @@
 	"type": "module",
 	"devDependencies": {
 		"@tsconfig/strictest": "2.0.5",
-		"typescript": "5.4.4"
+		"typescript": "5.4.5"
 	},
 	"dependencies": {
 		"zod": "^3.22.4"
