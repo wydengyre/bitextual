@@ -29,4 +29,4 @@ const events = data
 		(a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
 	)
 	.map((event: object) => Object.values(event).filter((d) => d));
-console.log(events);
+console.log(events.slice(-20));
