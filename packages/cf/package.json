@@ -26,7 +26,7 @@
 		"tsx": "4.7.3",
 		"typescript": "5.4.5",
 		"wait-on": "7.2.0",
-		"wrangler": "3.52.0"
+		"wrangler": "3.53.0"
 	},
 	"dependencies": {
 		"@bitextual/web": "*",
