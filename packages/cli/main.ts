@@ -5,7 +5,11 @@ import {
 	alignParas,
 	alignTexts,
 } from "@bitextual/core/align.js";
-import { epubParas, generateAlignedEpub } from "@bitextual/core/epub.js";
+import {
+	epubParas,
+	epubToText,
+	generateAlignedEpub,
+} from "@bitextual/core/epub.js";
 import { franc } from "franc-min";
 import pkg from "./package.json" with { type: "json" };
 
@@ -36,14 +40,12 @@ async function goHtml(sourcePath: string, targetPath: string) {
 		readFile(sourcePath),
 		readFile(targetPath),
 	]);
-	const [sourceParas, targetParas] = await Promise.all([
-		toArray(epubParas(sourceEpub)),
-		toArray(epubParas(targetEpub)),
+	const [sourceText, targetText] = await Promise.all([
+		epubToText(sourceEpub),
+		epubToText(targetEpub),
 	]);
 
-	const sourceText = sourceParas.join("\n");
 	const sourceLang = franc(sourceText);
-	const targetText = targetParas.join("\n");
 	const targetLang = franc(targetText);
 
 	const dictPath = fileURLToPath(
