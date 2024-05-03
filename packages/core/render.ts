@@ -83,16 +83,6 @@ const TEMPLATE = `<!DOCTYPE html>
       margin-left: 1em;;
     }
 
-    .highlight-sentences {
-        background-color: rgb(255, 191, 206);
-    }
-    .highlight-sentences {
-        background-color: rgb(255, 204, 153);
-    }
-    .highlight-sentences {
-        background-color: rgb(178, 205, 251);
-    }
-
     @media print{
         thead {
             display: none;
