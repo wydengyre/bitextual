@@ -1,11 +1,12 @@
 import { strict as assert } from "node:assert";
 import { spawn } from "node:child_process";
-import { mkdtemp, readFile, rm, stat } from "node:fs/promises";
+import { mkdtemp, rm, stat } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { fixturePath } from "@bitextual/test/util.js";
+import { fixturePath, readFixtureString } from "@bitextual/test/util.js";
 import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
+import prettify from "html-prettify";
 import puppeteer, { type Browser, type Page } from "puppeteer";
 import waitOn from "wait-on";
 import { compatibilityDate } from "./conf.json" with { type: "json" };
@@ -37,7 +38,6 @@ const SERVER_LOG_LEVEL = "none";
 await run();
 
 async function testAlignment(page: Page) {
-	const expectedPath = join(__dirname, "test", "aligned.html");
 	const expectedEpubPath = join(
 		__dirname,
 		"dist",
@@ -45,7 +45,7 @@ async function testAlignment(page: Page) {
 		"bovary.epub",
 	);
 	const [expected, expectedEpubStat] = await Promise.all([
-		readFile(expectedPath, "utf8"),
+		readFixtureString("bovary.aligned.html"),
 		stat(expectedEpubPath),
 	]);
 
@@ -167,7 +167,11 @@ function canonicalizeHtml(html: string): string {
 	const serializer = new XMLSerializer();
 	const docStr = serializer.serializeToString(doc);
 	// the version meta is annoying to deal with
-	return docStr.replace(/<meta name="version" content="[^"]+"\/>/g, "");
+	const noDocStr = docStr.replace(
+		/<meta name="version" content="[^"]+"\/>/g,
+		"",
+	);
+	return prettify(noDocStr);
 }
 
 async function mkTempDir() {
