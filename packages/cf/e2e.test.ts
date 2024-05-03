@@ -5,8 +5,7 @@ import { dirname, join, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath, readFixtureString } from "@bitextual/test/util.js";
-import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
-import prettify from "html-prettify";
+import { minify } from "html-minifier";
 import puppeteer, { type Browser, type Page } from "puppeteer";
 import waitOn from "wait-on";
 import { compatibilityDate } from "./conf.json" with { type: "json" };
@@ -162,16 +161,11 @@ async function runIsolatedTest(
 }
 
 function canonicalizeHtml(html: string): string {
-	const domParser = new DOMParser();
-	const doc = domParser.parseFromString(html, "text/html");
-	const serializer = new XMLSerializer();
-	const docStr = serializer.serializeToString(doc);
-	// the version meta is annoying to deal with
-	const noDocStr = docStr.replace(
-		/<meta name="version" content="[^"]+"\/>/g,
+	const versionsless = html.replace(
+		/<meta name="version" content="[^"]+"\/?>/g,
 		"",
 	);
-	return prettify(noDocStr);
+	return minify(versionsless, { collapseWhitespace: true });
 }
 
 async function mkTempDir() {
