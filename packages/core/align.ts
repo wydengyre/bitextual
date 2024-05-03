@@ -34,5 +34,8 @@ async function alignParas(
 }
 
 function paragraphs(plaintext: string): string[] {
-	return plaintext.trim().split("\n");
+	return plaintext
+		.trim()
+		.split("\n")
+		.filter((p) => p.trim().length > 0);
 }
