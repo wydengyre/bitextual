@@ -23,7 +23,7 @@
 		"@xmldom/xmldom": "0.8.10",
 		"esbuild": "0.20.2",
 		"puppeteer": "22.7.1",
-		"tsx": "4.8.2",
+		"tsx": "4.9.0",
 		"typescript": "5.4.5",
 		"wait-on": "7.2.0",
 		"wrangler": "3.53.0"
