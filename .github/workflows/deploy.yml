@@ -28,7 +28,7 @@ jobs:
         id: wrangler
         run: echo "version=$(jq -r .devDependencies.wrangler packages/cf/package.json)" >> "$GITHUB_OUTPUT"
       - name: Deploy
-        uses: cloudflare/wrangler-action@a84dcc6dd36c8769fbff7e622308c8050fc41f4f # v3.5.0
+        uses: cloudflare/wrangler-action@65240351f77618cc4d505904856f15ede9e531ef # v3.6.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           wranglerVersion: ${{ steps.wrangler.outputs.version }}
