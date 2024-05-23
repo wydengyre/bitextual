@@ -24,13 +24,9 @@ jobs:
         run: npm ci
       - name: Build
         run: just build
-      - name: Set wrangler version
-        id: wrangler
-        run: echo "version=$(jq -r .devDependencies.wrangler packages/cf/package.json)" >> "$GITHUB_OUTPUT"
       - name: Deploy
         uses: cloudflare/wrangler-action@65240351f77618cc4d505904856f15ede9e531ef # v3.6.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          wranglerVersion: ${{ steps.wrangler.outputs.version }}
           workingDirectory: 'packages/cf'
           command: pages deploy --project-name bitextual-pages --commit-dirty=true ../web/dist
