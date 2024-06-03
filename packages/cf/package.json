@@ -18,7 +18,7 @@
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20240529.0",
 		"@tsconfig/strictest": "2.0.5",
-		"@types/node": "20.12.13",
+		"@types/node": "20.14.0",
 		"@types/wait-on": "5.3.4",
 		"@xmldom/xmldom": "0.8.10",
 		"esbuild": "0.21.4",
