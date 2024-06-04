@@ -16,7 +16,7 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240529.0",
+		"@cloudflare/workers-types": "^4.20240603.0",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/node": "20.14.0",
 		"@types/wait-on": "5.3.4",
