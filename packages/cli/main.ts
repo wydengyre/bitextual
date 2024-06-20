@@ -82,8 +82,8 @@ async function goEpub(sourceEpubPath: string, targetEpubPath: string) {
 		readFile(targetEpubPath),
 	]);
 	const [sourceParas, targetParas] = await Promise.all([
-		toArray(epubParas(sourceEpub)),
-		toArray(epubParas(targetEpub)),
+		Array.fromAsync(epubParas(sourceEpub)),
+		Array.fromAsync(epubParas(targetEpub)),
 	]);
 
 	const sourceText = sourceParas.join("\n");
@@ -114,14 +114,6 @@ async function goEpub(sourceEpubPath: string, targetEpubPath: string) {
 	const aligned = await alignParas(sourceParas, targetParas, alignConfig);
 	const epub = await generateAlignedEpub(aligned, sourceEpub);
 	return new Uint8Array(epub);
-}
-
-async function toArray<T>(asyncGen: AsyncGenerator<T>): Promise<T[]> {
-	const res: T[] = [];
-	for await (const item of asyncGen) {
-		res.push(item);
-	}
-	return res;
 }
 
 const currentFile = fileURLToPath(import.meta.url);
