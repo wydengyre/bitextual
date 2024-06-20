@@ -24,7 +24,7 @@
 		"esbuild": "0.21.5",
 		"puppeteer": "22.11.2",
 		"tsx": "4.15.6",
-		"typescript": "5.4.5",
+		"typescript": "5.5.2",
 		"wait-on": "7.2.0",
 		"wrangler": "3.61.0"
 	},

@@ -16,7 +16,7 @@
 		"@types/html-to-text": "9.0.4",
 		"@types/node": "20.14.6",
 		"tsx": "4.15.6",
-		"typescript": "5.4.5"
+		"typescript": "5.5.2"
 	},
 	"dependencies": {
 		"@bitextual/hunalign": "^0.0.3",
