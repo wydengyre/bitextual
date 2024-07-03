@@ -21,7 +21,7 @@
 		"@types/node": "20.14.9",
 		"@types/wait-on": "5.3.4",
 		"@xmldom/xmldom": "0.8.10",
-		"esbuild": "0.22.0",
+		"esbuild": "0.23.0",
 		"puppeteer": "22.12.1",
 		"tsx": "4.16.2",
 		"typescript": "5.5.2",
