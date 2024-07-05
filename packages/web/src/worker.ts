@@ -1,32 +1,17 @@
 // Copyright (C) 2023 Wyden and Gyre, LLC
-import {
-	type AlignmentConfig,
-	alignParas,
-	alignTexts,
-} from "@bitextual/core/align.js";
-import {
-	epubParas,
-	epubToText,
-	generateAlignedEpub,
-} from "@bitextual/core/epub.js";
+import { type AlignmentConfig, alignTexts } from "@bitextual/core/align.js";
+import { epubToText } from "@bitextual/core/epub.js";
 import type { SubmitEvent } from "@bitextual/web-events/events.js";
 import { expose } from "comlink";
 import { buf } from "crc-32";
 import { franc } from "franc-min";
 
-export type { Worker, RenderAlignmentFn, RenderEpubFn };
+export type { Worker, RenderAlignmentFn };
 
-expose({
-	renderAlignment,
-	renderEpub,
-});
+expose({ renderAlignment });
 
-type Worker = {
-	renderAlignment: RenderAlignmentFn;
-	renderEpub: RenderEpubFn;
-};
+type Worker = { renderAlignment: RenderAlignmentFn };
 type RenderAlignmentFn = typeof renderAlignment;
-type RenderEpubFn = typeof renderEpub;
 
 async function renderAlignment(
 	source: File,
@@ -68,54 +53,6 @@ async function renderAlignment(
 		meta,
 	};
 	return alignTexts(sourceText, targetText, alignConfig);
-}
-
-async function renderEpub(
-	source: File,
-	target: File,
-	metaArr: readonly (readonly [string, string])[],
-): Promise<Uint8Array> {
-	const [sourceData, targetData] = await Promise.all([
-		source.arrayBuffer(),
-		target.arrayBuffer(),
-	]);
-	const [sourceParas, targetParas] = await Promise.all([
-		toArray(epubParas(sourceData)),
-		toArray(epubParas(targetData)),
-	]);
-
-	const sourceText = sourceParas.join("\n");
-	const sourceLang = franc(sourceText);
-	const targetText = targetParas.join("\n");
-	const targetLang = franc(targetText);
-
-	const meta = new Map(metaArr);
-	const clientId = meta.get("clientId") ?? "unknown";
-	meta.delete("clientId");
-	// purposely fire and forget
-	submitEvent(
-		clientId,
-		sourceData,
-		targetData,
-		source.name,
-		target.name,
-		sourceLang,
-		targetLang,
-		"epub",
-	);
-
-	const hunalignDictData = await fetchDictionary(sourceLang, targetLang);
-
-	const alignConfig: AlignmentConfig = {
-		sourceLang,
-		targetLang,
-		hunalignDictData,
-		meta,
-	};
-
-	const aligned = await alignParas(sourceParas, targetParas, alignConfig);
-	const epub = await generateAlignedEpub(aligned, sourceData);
-	return new Uint8Array(epub);
 }
 
 async function fetchDictionary(sourceLang: string, targetLang: string) {
@@ -167,12 +104,4 @@ function submitEvent(
 		headers: { "Content-Type": "application/json" },
 		body,
 	});
-}
-
-async function toArray<T>(asyncGen: AsyncGenerator<T>): Promise<T[]> {
-	const res: T[] = [];
-	for await (const item of asyncGen) {
-		res.push(item);
-	}
-	return res;
 }

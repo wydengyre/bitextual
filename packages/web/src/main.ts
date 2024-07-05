@@ -6,7 +6,6 @@ const worker: Remote<Worker> = wrap(w);
 
 const sourceFileId = "sourceText";
 const targetFileId = "targetText";
-const epubButtonId = "epub";
 const submitButtonId = "submit";
 
 type Model =
@@ -33,7 +32,6 @@ const clientId = crypto.randomUUID();
 
 let loaded = false;
 let errDiv: HTMLDivElement;
-let epubButton: HTMLButtonElement;
 let submitButton: HTMLButtonElement;
 let version = "unknown";
 function loadDom() {
@@ -65,12 +63,10 @@ function loadDom() {
 	const sourceFileInput = getElementById(sourceFileId, HTMLInputElement);
 	const targetFileInput = getElementById(targetFileId, HTMLInputElement);
 	errDiv = getElementById("error", HTMLDivElement);
-	epubButton = getElementById(epubButtonId, HTMLButtonElement);
 	submitButton = getElementById(submitButtonId, HTMLButtonElement);
 
 	sourceFileInput.addEventListener("change", onSourceFileChange);
 	targetFileInput.addEventListener("change", onTargetFileChange);
-	epubButton.addEventListener("click", onSubmit);
 	submitButton.addEventListener("click", onSubmit);
 
 	updateUI();
@@ -99,8 +95,6 @@ async function onTargetFileChange(event: Event) {
 async function onSubmit(event: Event) {
 	event.preventDefault();
 
-	const { target } = event;
-
 	if (model.sourceFile === null || model.targetFile === null) {
 		throw new Error("onSubmit: model.sourceFile or model.targetFile is null");
 	}
@@ -114,35 +108,14 @@ async function onSubmit(event: Event) {
 		["version", version],
 	] as const;
 
-	if (target !== epubButton) {
-		const rendered = await worker.renderAlignment(
-			model.sourceFile,
-			model.targetFile,
-			meta,
-		);
-
-		const blob = new Blob([rendered], { type: "text/html" });
-		window.location.href = URL.createObjectURL(blob);
-		return;
-	}
-
-	const rendered = await worker.renderEpub(
+	const rendered = await worker.renderAlignment(
 		model.sourceFile,
 		model.targetFile,
 		meta,
 	);
-	const blob = new Blob([rendered], { type: "application/epub+zip" });
-	const url = URL.createObjectURL(blob);
-	const a = document.createElement("a");
-	document.body.appendChild(a);
-	a.style.display = "none";
-	a.href = url;
-	a.download = `${model.sourceFile.name}.aligned.epub`;
-	a.click();
-	URL.revokeObjectURL(url);
 
-	model.loading = false;
-	updateUI();
+	const blob = new Blob([rendered], { type: "text/html" });
+	window.location.href = URL.createObjectURL(blob);
 }
 
 function updateUI() {
@@ -154,7 +127,6 @@ function updateUI() {
 	};
 
 	errDiv.innerText = derivedState.error;
-	epubButton.disabled = !derivedState.submissionEnabled;
 	submitButton.disabled = !derivedState.submissionEnabled;
 	submitButton.textContent = derivedState.submitButtonText;
 }
