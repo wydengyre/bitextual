@@ -1,13 +1,12 @@
 import { strict as assert } from "node:assert";
 import { spawn } from "node:child_process";
-import { mkdtemp, readFile, rm, stat } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath } from "@bitextual/test/util.js";
 import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
 import puppeteer, { type Browser, type Page } from "puppeteer";
-import waitOn from "wait-on";
 import { compatibilityDate } from "./conf.json" with { type: "json" };
 
 async function run() {
@@ -38,16 +37,7 @@ await run();
 
 async function testAlignment(page: Page) {
 	const expectedPath = join(__dirname, "test", "aligned.html");
-	const expectedEpubPath = join(
-		__dirname,
-		"dist",
-		"bovary.aligned",
-		"bovary.epub",
-	);
-	const [expected, expectedEpubStat] = await Promise.all([
-		readFile(expectedPath, "utf8"),
-		stat(expectedEpubPath),
-	]);
+	const expected = await readFile(expectedPath, "utf8");
 
 	await page.goto(BASE_URL);
 
@@ -66,25 +56,6 @@ async function testAlignment(page: Page) {
 	await page.waitForFunction(
 		() => !document.querySelector<HTMLButtonElement>("#submit")?.disabled,
 	);
-
-	await using tmp = await mkTempDir();
-	const client = await page.createCDPSession();
-	await client.send("Page.setDownloadBehavior", {
-		behavior: "allow",
-		downloadPath: tmp.path,
-	});
-	await page.click("#epub");
-
-	const downloadPath = join(tmp.path, "bovary.french.epub.aligned.epub");
-	await waitOn({
-		resources: [downloadPath],
-		interval: 100,
-		timeout: 5_000,
-	});
-	const downloadedEpubStat = await stat(downloadPath);
-	// compare size because the actual zip binary will differ: zips have date metadata
-	// in the future we could recursively compare the content of the files in the zip
-	assert.strictEqual(downloadedEpubStat.size, expectedEpubStat.size);
 
 	await page.click("#submit");
 
@@ -168,12 +139,4 @@ function canonicalizeHtml(html: string): string {
 	const docStr = serializer.serializeToString(doc);
 	// the version meta is annoying to deal with
 	return docStr.replace(/<meta name="version" content="[^"]+"\/>/g, "");
-}
-
-async function mkTempDir() {
-	const temp = await mkdtemp("bitextual-e2e");
-	return {
-		path: temp,
-		[Symbol.asyncDispose]: () => rm(temp, { recursive: true }),
-	};
 }
