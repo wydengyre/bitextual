@@ -21,7 +21,7 @@
 		"@types/node": "20.14.10",
 		"@xmldom/xmldom": "0.8.10",
 		"esbuild": "0.23.0",
-		"puppeteer": "22.13.0",
+		"puppeteer": "22.13.1",
 		"tsx": "4.16.2",
 		"typescript": "5.5.3",
 		"wrangler": "3.65.1"
