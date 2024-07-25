@@ -10,6 +10,6 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
-		"husky": "9.1.1"
+		"husky": "9.1.2"
 	}
 }
