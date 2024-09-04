@@ -1,4 +1,4 @@
-import { DOMParser } from "@xmldom/xmldom";
+import { DOMParser, MIME_TYPE } from "@xmldom/xmldom";
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip, { type JSZipObject } from "jszip";
 
@@ -78,7 +78,7 @@ async function epubZipDom(
 		throw new Error(`file not found at ${filePath}`);
 	}
 	const fileText = await file.async("text");
-	return parser.parseFromString(fileText, "application/xml");
+	return parser.parseFromString(fileText, MIME_TYPE.XML_APPLICATION);
 }
 
 async function getRootPath(

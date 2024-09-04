@@ -5,7 +5,7 @@ import { dirname, join, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath } from "@bitextual/test/util.js";
-import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
+import { DOMParser, MIME_TYPE, XMLSerializer } from "@xmldom/xmldom";
 import puppeteer, { type Browser, type Page } from "puppeteer";
 import { compatibilityDate } from "./conf.json" with { type: "json" };
 
@@ -134,7 +134,7 @@ async function runIsolatedTest(
 
 function canonicalizeHtml(html: string): string {
 	const domParser = new DOMParser();
-	const doc = domParser.parseFromString(html, "text/html");
+	const doc = domParser.parseFromString(html, MIME_TYPE.HTML);
 	const serializer = new XMLSerializer();
 	const docStr = serializer.serializeToString(doc);
 	// the version meta is annoying to deal with
