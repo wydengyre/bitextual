@@ -1,4 +1,4 @@
-import { DOMParser, MIME_TYPE } from "@xmldom/xmldom";
+import { DOMParser, type Document, MIME_TYPE } from "@xmldom/xmldom";
 import { compile as compileHtmlConvert } from "html-to-text";
 import JSZip, { type JSZipObject } from "jszip";
 
