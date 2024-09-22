@@ -140,7 +140,16 @@ async function* getSpineHtmls(
 }
 
 function mkManifestMap(manifest: Element): Map<string, string> {
-	const items = manifest.getElementsByTagName("item");
+	const items = (() => {
+		let is = manifest.getElementsByTagName("item");
+		if (is.length === 0) {
+			is = manifest.getElementsByTagName("opf:item");
+		}
+		return is;
+	})();
+	if (items.length === 0) {
+		throw new Error(`no items found in manifest: ${manifest}`);
+	}
 	const itemPairs = Array.from(items)
 		.map((item, n) => {
 			const id = item.getAttribute("id");
