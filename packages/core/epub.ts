@@ -20,7 +20,11 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 		epubText += `${htmlToText(html)}\n`;
 	}
 	const normalizedText = epubText.replace(/\r\n/g, "\n");
-	return normalizedText.replace(/\n+/g, "\n").trim();
+	const trimmedText = normalizedText.replace(/\n+/g, "\n").trim();
+	if (trimmedText.length === 0) {
+		throw new Error("epub text is empty");
+	}
+	return trimmedText;
 }
 
 async function* epubHtmls(epubBytes: ArrayBuffer): AsyncGenerator<string> {
