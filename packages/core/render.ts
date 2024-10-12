@@ -57,6 +57,11 @@ const TEMPLATE = `<!DOCTYPE html>
       line-height: 33px;
     }
 
+    table {
+      width: 100%;
+      table-layout: fixed;
+    }
+
     thead {
       position: sticky;
       top: 0;
@@ -74,9 +79,11 @@ const TEMPLATE = `<!DOCTYPE html>
     }
 
     td {
+      box-sizing: border-box;
       vertical-align: top;
       width: 50%;
       padding: 0 1em 1em;
+      word-wrap: break-word;
     }
 
     #swap-columns {
