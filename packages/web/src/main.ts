@@ -118,6 +118,55 @@ async function onSubmit(event: Event) {
 	window.location.href = URL.createObjectURL(blob);
 }
 
+window.onerror = (message, source, lineno, colno, error) => {
+	let outErr = error;
+	if (outErr === undefined) {
+		const outMessage = message.toString();
+		outErr = new Error(outMessage);
+	}
+	handleError(
+		outErr,
+		"window.onerror",
+		String(message),
+		String(source),
+		lineno ?? null,
+		colno ?? null,
+		String(error),
+	);
+};
+
+window.onunhandledrejection = (event) => {
+	const reason = String(event.reason);
+	const err = new Error(reason);
+	handleError(err, "window.onunhandledrejection", reason);
+};
+
+// Improved model error handling
+function handleError(
+	error: Error,
+	type: string,
+	...details: (string | number | null)[]
+) {
+	model.loading = false;
+	model.error = error;
+	updateUI();
+
+	console.error(type, ...details);
+
+	// Prepare body for sending
+	const body = JSON.stringify([type, clientId, version, ...details]);
+
+	if (navigator.sendBeacon) {
+		navigator.sendBeacon("/error", body);
+	} else {
+		fetch("/error", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body,
+		}).then(() => {}); // fire-and-forget
+	}
+}
+
 function updateUI() {
 	const { sourceFile, targetFile, loading } = model;
 	const derivedState = {
@@ -125,37 +174,13 @@ function updateUI() {
 		submissionEnabled: sourceFile !== null && targetFile !== null && !loading,
 		submitButtonText: loading ? "Loading" : "View HTML",
 	};
+	console.log("updateUI", derivedState);
+	console.log("model", model);
 
 	errDiv.innerText = derivedState.error;
 	submitButton.disabled = !derivedState.submissionEnabled;
 	submitButton.textContent = derivedState.submitButtonText;
 }
-
-window.onerror = (message, source, lineno, colno, error) => {
-	console.error("window.onerror", message, source, lineno, colno, error);
-	if (error === undefined) {
-		return;
-	}
-	model.loading = false;
-	model.error = error;
-	updateUI();
-
-	// purposely fire-and-forget
-	const body = JSON.stringify([
-		clientId,
-		version,
-		message,
-		source,
-		lineno,
-		colno,
-		error,
-	]);
-	fetch("/error", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body,
-	});
-};
 
 if (document.readyState === "loading") {
 	document.addEventListener("DOMContentLoaded", loadDom);

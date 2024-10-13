@@ -26,6 +26,7 @@ async function renderAlignment(
 		epubToText(sourceData),
 		epubToText(targetData),
 	]);
+	console.log("got source text", sourceText.length);
 	const sourceLang = franc(sourceText);
 	const targetLang = franc(targetText);
 
