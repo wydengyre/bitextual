@@ -12,6 +12,7 @@ type AlignmentConfig = {
 };
 
 async function alignTexts(
+	title: string,
 	sourceText: string,
 	targetText: string,
 	conf: AlignmentConfig,
@@ -21,7 +22,7 @@ async function alignTexts(
 	const targetParagraphs: string[] = paragraphs(targetText);
 
 	const paras = await alignParas(sourceParagraphs, targetParagraphs, conf);
-	return render(conf.sourceLang, conf.targetLang, paras, conf.meta);
+	return render(title, conf.sourceLang, conf.targetLang, paras, conf.meta);
 }
 
 async function alignParas(

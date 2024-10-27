@@ -6,7 +6,14 @@ import type { Document, Element } from "@xmldom/xmldom";
 
 export { epubToText };
 
-async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
+export type { EpubContent };
+
+type EpubContent = {
+	title: string;
+	text: string;
+};
+
+async function epubToText(epubBytes: ArrayBuffer): Promise<EpubContent> {
 	const htmlToText = compileHtmlConvert({
 		selectors: [
 			// don't include links in text
@@ -16,37 +23,72 @@ async function epubToText(epubBytes: ArrayBuffer): Promise<string> {
 		],
 		wordwrap: false,
 	});
+
+	const epub = await Epub.fromEpubBytes(epubBytes);
 	let epubText = "";
-	const htmls = epubHtmls(epubBytes);
+	const htmls = epub.htmls();
 	for await (const html of htmls) {
 		epubText += `${htmlToText(html)}\n`;
 	}
+	const title = epub.title();
 	const normalizedText = epubText.replace(/\r\n/g, "\n");
 	const trimmedText = normalizedText.replace(/\n+/g, "\n").trim();
 	if (trimmedText.length === 0) {
 		throw new Error("epub text is empty");
 	}
-	return trimmedText;
+	return {
+		title,
+		text: trimmedText,
+	};
 }
 
-async function* epubHtmls(epubBytes: ArrayBuffer): AsyncGenerator<string> {
-	const domParser = new DOMParser();
-	const zip = await JSZip.loadAsync(epubBytes);
-	const files = zip.files;
+class Epub {
+	#files: { [p: string]: JSZip.JSZipObject };
+	#rootDir: string;
+	#opfDom: Document;
 
-	const rootPath = await getRootPath(domParser, files);
-	const rootDir = rootPath.split("/").slice(0, -1).join("/");
-	const opfDom = await epubZipDom(domParser, files, rootPath);
-
-	const manifest = opfDom.getElementsByTagName("manifest")[0];
-	if (manifest === undefined) {
-		throw new Error(`manifest not found in DOM: ${opfDom.toString()}`);
+	private constructor(
+		files: { [p: string]: JSZip.JSZipObject },
+		rootDir: string,
+		opfDom: Document,
+	) {
+		this.#files = files;
+		this.#rootDir = rootDir;
+		this.#opfDom = opfDom;
 	}
-	const manifestMap: Map<string, string> = mkManifestMap(manifest);
 
-	const spineHtmls = getSpineHtmls(files, opfDom, manifestMap, rootDir);
-	for await (const [_, html] of spineHtmls) {
-		yield html;
+	static async fromEpubBytes(epubBytes: ArrayBuffer): Promise<Epub> {
+		const domParser = new DOMParser();
+		const zip = await JSZip.loadAsync(epubBytes);
+		const files = zip.files;
+
+		const rootPath = await getRootPath(domParser, files);
+		const rootDir = rootPath.split("/").slice(0, -1).join("/");
+		const opfDom = await epubZipDom(domParser, files, rootPath);
+		return new Epub(files, rootDir, opfDom);
+	}
+
+	title(): string {
+		const t = this.#opfDom.getElementsByTagName("dc:title")[0]?.textContent;
+		return t ?? "epub";
+	}
+
+	async *htmls(): AsyncGenerator<string> {
+		const manifest = this.#opfDom.getElementsByTagName("manifest")[0];
+		if (manifest === undefined) {
+			throw new Error(`manifest not found in DOM: ${this.#opfDom.toString()}`);
+		}
+		const manifestMap: Map<string, string> = mkManifestMap(manifest);
+
+		const spineHtmls = getSpineHtmls(
+			this.#files,
+			this.#opfDom,
+			manifestMap,
+			this.#rootDir,
+		);
+		for await (const [_, html] of spineHtmls) {
+			yield html;
+		}
 	}
 }
 
