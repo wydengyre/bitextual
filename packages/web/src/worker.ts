@@ -26,9 +26,9 @@ async function renderAlignment(
 		epubToText(sourceData),
 		epubToText(targetData),
 	]);
-	console.log("got source text", sourceText.length);
-	const sourceLang = franc(sourceText);
-	const targetLang = franc(targetText);
+	console.log("got source text", sourceText.text.length);
+	const sourceLang = franc(sourceText.text);
+	const targetLang = franc(targetText.text);
 
 	const meta = new Map(metaArr);
 	const clientId = meta.get("clientId") ?? "unknown";
@@ -53,7 +53,12 @@ async function renderAlignment(
 		hunalignDictData,
 		meta,
 	};
-	return alignTexts(sourceText, targetText, alignConfig);
+	return alignTexts(
+		sourceText.title,
+		sourceText.text,
+		targetText.text,
+		alignConfig,
+	);
 }
 
 async function fetchDictionary(sourceLang: string, targetLang: string) {

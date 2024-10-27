@@ -24,11 +24,11 @@ test("epub", async (t) => {
 const epubToTextEpub2 = (expected: string) => async () => {
 	const bytes = await readFile(EPUB2_PATH);
 	const text = await epubToText(bytes);
-	assert.strictEqual(text, expected);
+	assert.strictEqual(text.text, expected);
 };
 
 const epubToTextEpub3 = (expected: string) => async () => {
 	const bytes = await readFile(EPUB3_PATH);
 	const text = await epubToText(bytes);
-	assert.strictEqual(text, expected);
+	assert.strictEqual(text.text, expected);
 };

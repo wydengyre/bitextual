@@ -2,8 +2,10 @@ export { render };
 
 const META_MARKER = "<!-- META -->";
 const TABLE_MARKER = "<!-- TABLE -->";
+const TITLE_MARKER = "<!-- TITLE -->";
 
 function render(
+	title: string,
 	sourceLang: string,
 	targetLang: string,
 	alignedParagraphs: [string[], string[]][],
@@ -38,7 +40,9 @@ function render(
         ${swapControl}</th></tr></thead>
     <tbody>${tableBody}</tbody>
 </table>`;
-	return TEMPLATE.replace(META_MARKER, metaTags).replace(TABLE_MARKER, table);
+	return TEMPLATE.replace(META_MARKER, metaTags)
+		.replace(TABLE_MARKER, table)
+		.replace(TITLE_MARKER, title);
 }
 
 function capitalize(s: string): string {
@@ -50,7 +54,7 @@ const TEMPLATE = `<!DOCTYPE html>
   <head>
   <meta charset="utf-8">
   ${META_MARKER}
-  <title>bitextual parallel book</title>
+  <title>bitextual: ${TITLE_MARKER}</title>
   <style>
     body {
       font-size: 23px;

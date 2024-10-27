@@ -37,8 +37,8 @@ async function goHtml(sourcePath: string, targetPath: string) {
 		epubToText(targetEpub),
 	]);
 
-	const sourceLang = franc(sourceText);
-	const targetLang = franc(targetText);
+	const sourceLang = franc(sourceText.text);
+	const targetLang = franc(targetText.text);
 
 	const dictPath = fileURLToPath(
 		import.meta.resolve(
@@ -65,7 +65,12 @@ async function goHtml(sourcePath: string, targetPath: string) {
 		meta,
 	};
 
-	return alignTexts(sourceText, targetText, alignConfig);
+	return alignTexts(
+		sourceText.title,
+		sourceText.text,
+		targetText.text,
+		alignConfig,
+	);
 }
 
 const currentFile = fileURLToPath(import.meta.url);

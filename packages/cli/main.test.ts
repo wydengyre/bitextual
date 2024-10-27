@@ -4,6 +4,7 @@ import { dirname, join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { fixturePath } from "@bitextual/test/util.js";
+import beautify from "js-beautify";
 import { go } from "./main.js";
 
 test("main", async (t) => {
@@ -20,5 +21,9 @@ async function testMain() {
 	const bovaryEnglish = fixturePath("bovary.english.epub");
 	const result = await go(["--html", bovaryFrench, bovaryEnglish]);
 	const resultText = new TextDecoder().decode(result);
-	assert.strictEqual(resultText, expected);
+
+	// beautification simplifies diff
+	const resultBeautified = beautify.html(resultText);
+	const expectedBeautified = beautify.html(expected);
+	assert.strictEqual(resultBeautified, expectedBeautified);
 }

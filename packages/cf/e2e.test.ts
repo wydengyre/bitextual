@@ -60,7 +60,7 @@ async function testAlignment(page: Page) {
 	await page.click("#submit");
 
 	await page.waitForFunction(
-		() => document.title === "bitextual parallel book",
+		() => document.title === "bitextual: Madame Bovary",
 	);
 	const content = await page.content();
 
