@@ -2,9 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { build } from "esbuild";
 import { simpleGit } from "simple-git";
-import { name as packageName, version } from "../package.json" with {
-	type: "json",
-};
+import pkg from "../package.json" with { type: "json" };
 
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = dirname(__filename);
@@ -18,7 +16,7 @@ async function buildIndex() {
 	const hasUncommittedChanges = !status.isClean();
 
 	const VERSION_PLACEHOLDER = "__VERSION__";
-	const VERSION_TAG = `${packageName}@${version}+${commitHash}.${
+	const VERSION_TAG = `${pkg.name}@${pkg.version}+${commitHash}.${
 		hasUncommittedChanges ? "dirty" : "clean"
 	}`;
 

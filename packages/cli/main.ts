@@ -32,9 +32,11 @@ async function goHtml(sourcePath: string, targetPath: string) {
 		readFile(sourcePath),
 		readFile(targetPath),
 	]);
+	const sourceArr = Uint8Array.from(sourceEpub).buffer;
+	const targetArr = Uint8Array.from(targetEpub).buffer;
 	const [sourceText, targetText] = await Promise.all([
-		epubToText(sourceEpub),
-		epubToText(targetEpub),
+		epubToText(sourceArr),
+		epubToText(targetArr),
 	]);
 
 	const sourceLang = franc(sourceText.text);
