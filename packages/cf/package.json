@@ -30,6 +30,6 @@
 	"dependencies": {
 		"@bitextual/web": "*",
 		"@bitextual/web-events": "*",
-		"dotenv": "^16.4.5"
+		"dotenv": "^16.4.7"
 	}
 }
