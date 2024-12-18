@@ -22,7 +22,7 @@
 		"@types/node": "22.10.2",
 		"esbuild": "0.24.0",
 		"js-beautify": "1.15.1",
-		"puppeteer": "23.10.4",
+		"puppeteer": "23.11.0",
 		"tsx": "4.19.2",
 		"typescript": "5.7.2",
 		"wrangler": "3.97.0"
