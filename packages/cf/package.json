@@ -25,7 +25,7 @@
 		"puppeteer": "24.1.1",
 		"tsx": "4.19.2",
 		"typescript": "5.7.3",
-		"wrangler": "3.107.2"
+		"wrangler": "3.107.3"
 	},
 	"dependencies": {
 		"@bitextual/web": "*",
