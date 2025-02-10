@@ -22,6 +22,6 @@
 	"dependencies": {
 		"@bitextual/core": "*",
 		"franc-min": "^6.2.0",
-		"js-beautify": "1.15.1"
+		"js-beautify": "1.15.3"
 	}
 }
