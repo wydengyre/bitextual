@@ -29,7 +29,7 @@
 	},
 	"dependencies": {
 		"@bitextual/core": "*",
-		"@picocss/pico": "2.0.6",
+		"@picocss/pico": "2.1.1",
 		"comlink": "^4.4.2",
 		"crc-32": "^1.2.2",
 		"franc-min": "^6.2.0"
