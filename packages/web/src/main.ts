@@ -174,8 +174,6 @@ function updateUI() {
 		submissionEnabled: sourceFile !== null && targetFile !== null && !loading,
 		submitButtonText: loading ? "Loading" : "View HTML",
 	};
-	console.log("updateUI", derivedState);
-	console.log("model", model);
 
 	errDiv.innerText = derivedState.error;
 	submitButton.disabled = !derivedState.submissionEnabled;

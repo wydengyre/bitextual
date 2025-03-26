@@ -39,7 +39,6 @@ const onRequestPost: PagesFunction<Env> = async (context) => {
 	const city = request.cf?.city ?? "unknown";
 
 	const json = await request.json();
-	console.log("received event", json);
 	const event = await submitEventSchema.parseAsync(json);
 
 	const HEX_RADIX = 16;
@@ -59,7 +58,6 @@ const onRequestPost: PagesFunction<Env> = async (context) => {
 		event.format,
 	];
 	const dp = { indexes: [], blobs, doubles: [] };
-	console.log("registering event", dp);
 	if (context.env.EVENTS === undefined) {
 		console.error("EVENTS is not defined");
 	} else {
