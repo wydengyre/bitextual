@@ -17,10 +17,10 @@ const hunalignWasmDest = join(distDir, "hunalign.wasm");
 const dictionaryDir = join(distDir, "dictionaries");
 
 cpSync(hunalignWasmPath, hunalignWasmDest);
-for (const { path, name } of readdirSync(dictionariesPath, {
+for (const { parentPath, name } of readdirSync(dictionariesPath, {
 	withFileTypes: true,
 })) {
-	const dictPath = join(path, name);
+	const dictPath = join(parentPath, name);
 	const dictDest = join(dictionaryDir, name);
 	cpSync(dictPath, dictDest);
 }
