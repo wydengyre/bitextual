@@ -1,4 +1,4 @@
-import { submitEventSchema } from "@bitextual/web-events/events.js";
+import { submitEventSchema } from "@bitextual/web-events/events.ts";
 
 export { onRequestPost };
 

@@ -1,5 +1,5 @@
 import { type Remote, wrap } from "comlink";
-import type { Worker } from "./worker.js";
+import type { Worker } from "./worker.ts";
 
 const w = new Worker("worker.js", { type: "module" });
 const worker: Remote<Worker> = wrap(w);

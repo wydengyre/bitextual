@@ -2,9 +2,12 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"extends": ["@tsconfig/strictest/tsconfig.json"],
 	"compilerOptions": {
-		"module": "nodenext",
+		"module": "esnext",
+		"moduleResolution": "bundler",
 		"noEmit": true,
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+		"target": "esnext"
 	},
 	"include": ["**/*.ts"]
 }

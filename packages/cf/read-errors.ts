@@ -1,3 +1,5 @@
+export {};
+
 const { CF_ACCOUNT_ID, CF_ANALYTICS_READ_KEY } = process.env;
 if (!CF_ACCOUNT_ID) {
 	throw new Error("CF_ACCOUNT_ID env var is required");

@@ -1,8 +1,8 @@
 import { mkdirSync } from "node:fs";
 import { writeFileSync } from "node:fs";
 import path from "node:path";
-import { go } from "@bitextual/cli/main.js";
-import { fixturePath } from "@bitextual/test/util.js";
+import { go } from "@bitextual/cli/main.ts";
+import { fixturePath } from "@bitextual/test/util.ts";
 
 const bovaryFrenchPath = fixturePath("bovary.french.epub");
 const bovaryEnglishPath = fixturePath("bovary.english.epub");

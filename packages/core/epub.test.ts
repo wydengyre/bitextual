@@ -2,7 +2,7 @@ import { strict as assert } from "node:assert";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { epubToText } from "./epub.js";
+import { epubToText } from "./epub.ts";
 
 const EPUB2_PATH_REL = "@bitextual/test/bovary.english.epub";
 const EPUB2_PATH = fileURLToPath(import.meta.resolve(EPUB2_PATH_REL));

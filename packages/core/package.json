@@ -3,8 +3,8 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
-		"test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
+		"test": "node --test '**/*.test.ts'",
+		"test-only": "node --test --test-only '**/*.test.ts'",
 		"typecheck": "npm run typecheck-lib && npm run typecheck-test",
 		"typecheck-lib": "tsc",
 		"typecheck-test": "tsc --project tsconfig.test.json"
@@ -15,7 +15,6 @@
 		"@tsconfig/strictest": "2.0.5",
 		"@types/html-to-text": "9.0.4",
 		"@types/node": "22.13.13",
-		"tsx": "4.19.3",
 		"typescript": "5.8.2"
 	},
 	"dependencies": {

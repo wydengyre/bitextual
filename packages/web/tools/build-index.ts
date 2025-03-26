@@ -42,7 +42,7 @@ async function buildScript() {
 		sourcemap: true,
 		format: "esm",
 		write: false,
-		target: "es2022",
+		target: "esnext",
 		outdir,
 	});
 
