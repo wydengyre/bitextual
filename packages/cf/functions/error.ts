@@ -36,7 +36,6 @@ const onRequestPost: PagesFunction<Env> = async (context) => {
 	const city = request.cf?.city ?? "unknown";
 
 	const json = await request.json();
-	console.log("received error", json);
 	if (!Array.isArray(json)) {
 		return new Response("Bad Request: JSON must be an array", { status: 400 });
 	}
@@ -48,7 +47,6 @@ const onRequestPost: PagesFunction<Env> = async (context) => {
 		city,
 	];
 	const dp = { indexes: [], blobs, doubles: [] };
-	console.log("registering error", dp);
 	if (context.env.ERRORS === undefined) {
 		console.error("ERRORS is not defined");
 	} else {
