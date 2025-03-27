@@ -7,11 +7,12 @@
 		"build-functions": "esbuild functions/event.ts --tsconfig=functions/tsconfig.json --bundle --sourcemap --format=esm --outfile=dist/functions/event.js",
 		"clean": "rm -rf dist",
 		"deploy": "wrangler pages deploy --project-name bitextual dist",
-		"read-errors": "tsx -r dotenv/config read-errors.ts",
-		"read-events": "tsx -r dotenv/config read-events.ts",
+		"read-errors": "node --env-file=.env read-errors.ts",
+		"read-events": "node --env-file=.env read-events.ts",
 		"serve": "wrangler pages dev dist",
+		"//": "we still need tsx here for resource management support",
 		"test": "tsx e2e.test.ts",
-		"test-post-deploy": "tsx post-deploy.test.ts",
+		"test-post-deploy": "node post-deploy.test.ts",
 		"typecheck": "tsc && tsc --project functions"
 	},
 	"type": "module",
@@ -29,7 +30,6 @@
 	},
 	"dependencies": {
 		"@bitextual/web": "*",
-		"@bitextual/web-events": "*",
-		"dotenv": "^16.4.7"
+		"@bitextual/web-events": "*"
 	}
 }
