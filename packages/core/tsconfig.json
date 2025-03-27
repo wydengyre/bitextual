@@ -3,8 +3,7 @@
 	"extends": ["@tsconfig/strictest/tsconfig.json"],
 	"compilerOptions": {
 		"module": "nodenext",
-		"noEmit": true,
-		"resolveJsonModule": true
+		"noEmit": true
 	},
 	"include": ["**/*.ts"],
 	"exclude": ["*.test.ts"]

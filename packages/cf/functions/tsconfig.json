@@ -4,7 +4,6 @@
 	"compilerOptions": {
 		"module": "nodenext",
 		"noEmit": true,
-		"resolveJsonModule": true,
 		"types": ["@cloudflare/workers-types"]
 	},
 	"include": ["*.ts"]
