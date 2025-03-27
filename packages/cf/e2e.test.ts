@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { fixturePath } from "@bitextual/test/util.js";
+import { fixturePath } from "@bitextual/test/util.ts";
 import beautify from "js-beautify";
 import puppeteer, { type Browser } from "puppeteer";
 import wranglerConf from "./wrangler.json" with { type: "json" };

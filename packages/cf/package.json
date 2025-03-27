@@ -10,8 +10,7 @@
 		"read-errors": "node --env-file=.env read-errors.ts",
 		"read-events": "node --env-file=.env read-events.ts",
 		"serve": "wrangler pages dev dist",
-		"//": "we still need tsx here for resource management support",
-		"test": "tsx e2e.test.ts",
+		"test": "node e2e.test.ts",
 		"test-post-deploy": "node post-deploy.test.ts",
 		"typecheck": "tsc && tsc --project functions",
 		"pretypecheck": "wrangler types"
@@ -24,7 +23,6 @@
 		"esbuild": "0.25.5",
 		"js-beautify": "1.15.4",
 		"puppeteer": "24.10.2",
-		"tsx": "4.20.3",
 		"typescript": "5.8.3",
 		"wrangler": "4.20.3"
 	},

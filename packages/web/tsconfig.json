@@ -3,6 +3,7 @@
 	"extends": ["@tsconfig/strictest/tsconfig.json"],
 	"compilerOptions": {
 		"module": "nodenext",
+		"target": "esnext",
 		"noEmit": true,
 		"types": [],
 		"resolveJsonModule": true,
