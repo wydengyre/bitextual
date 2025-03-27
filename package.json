@@ -6,7 +6,14 @@
 	"scripts": {
 		"ci-lint": "biome ci .",
 		"lint": "biome check --write .",
-		"prepare": "husky"
+		"prepare": "husky",
+		"clean": "npm run clean --workspaces --if-present",
+		"ci-check": "npm run ci-lint && npm run typecheck && npm run build && npm run test",
+		"typecheck": "npm run typecheck --workspaces --if-present",
+		"build": "npm run build --workspace '@bitextual/web' && npm run build --workspace '@bitextual/cf'",
+		"test": "npm run build && npm run test --workspaces --if-present",
+		"serve": "npm run build && npm run serve --workspace '@bitextual/cf'",
+		"deploy": "npm run build && npm run deploy --workspace '@bitextual/cf'"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
