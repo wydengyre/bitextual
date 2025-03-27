@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { type AlignmentConfig, alignTexts } from "@bitextual/core/align.js";
-import { epubToText } from "@bitextual/core/epub.js";
+import { type AlignmentConfig, alignTexts } from "@bitextual/core/align.ts";
+import { epubToText } from "@bitextual/core/epub.ts";
 import { franc } from "franc-min";
 import pkg from "./package.json" with { type: "json" };
 
