@@ -4,8 +4,8 @@
 	"compilerOptions": {
 		"module": "nodenext",
 		"noEmit": true,
-		"resolveJsonModule": true,
-		"types": []
+		"types": [],
+		"resolveJsonModule": true
 	},
 	"include": ["src/*.ts"]
 }
