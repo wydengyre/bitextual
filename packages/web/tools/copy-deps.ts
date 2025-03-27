@@ -22,5 +22,5 @@ for (const { parentPath, name } of readdirSync(dictionariesPath, {
 })) {
 	const dictPath = join(parentPath, name);
 	const dictDest = join(dictionaryDir, name);
-	cpSync(dictPath, dictDest);
+	cpSync(dictPath, dictDest, { recursive: true });
 }
