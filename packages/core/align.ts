@@ -1,5 +1,5 @@
-import { Hunalign } from "./hunalign.js";
-import { render } from "./render.js";
+import { Hunalign } from "./hunalign.ts";
+import { render } from "./render.ts";
 
 export type { AlignmentConfig };
 export { alignParas, alignTexts, paragraphs };
