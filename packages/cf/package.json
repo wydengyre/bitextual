@@ -21,7 +21,7 @@
 		"@tsconfig/strictest": "2.0.5",
 		"@types/js-beautify": "^1.14.3",
 		"@types/node": "22.14.1",
-		"esbuild": "0.25.2",
+		"esbuild": "0.25.3",
 		"js-beautify": "1.15.4",
 		"puppeteer": "24.7.0",
 		"tsx": "4.19.3",
