@@ -20,7 +20,7 @@
 		"@cloudflare/workers-types": "^4.20250507.0",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/js-beautify": "^1.14.3",
-		"@types/node": "22.15.14",
+		"@types/node": "22.15.15",
 		"esbuild": "0.25.4",
 		"js-beautify": "1.15.4",
 		"puppeteer": "24.8.1",
