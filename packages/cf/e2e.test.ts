@@ -12,9 +12,7 @@ import conf from "./conf.json" with { type: "json" };
 async function run() {
 	using _server = startServer();
 	const puppeteerP = startPuppeteer();
-
-	// ideally we'd wait for the server to tell us it's ready, but this works
-	await new Promise((resolve) => setTimeout(resolve, 3_000));
+	await waitForServer();
 	using puppeteer = await puppeteerP;
 	const { browser } = puppeteer;
 
@@ -129,6 +127,30 @@ async function runIsolatedTest(
 	} finally {
 		await page.close();
 		await context.close();
+	}
+}
+
+/**
+ * Polls localhost:SERVER_PORT/ every 200 ms until it responds (HTTP 200),
+ * or throws after 5 000 ms.
+ */
+async function waitForServer(): Promise<void> {
+	const timeoutMs = 5_000;
+	const intervalMs = 200;
+	const start = Date.now();
+	const url = `http://localhost:${SERVER_PORT}/`;
+
+	while (true) {
+		try {
+			await fetch(url, { method: "GET" });
+			// If server responds at all, assume it's ready (can check res.ok or res.status if desired)
+			return;
+		} catch {
+			if (Date.now() - start > timeoutMs) {
+				throw new Error(`Server did not start within ${timeoutMs} ms`);
+			}
+			await new Promise((r) => setTimeout(r, intervalMs));
+		}
 	}
 }
 
