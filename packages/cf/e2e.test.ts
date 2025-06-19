@@ -13,7 +13,7 @@ async function run() {
 	using _server = startServer();
 	const puppeteerP = startPuppeteer();
 	await waitForServer();
-	using puppeteer = await puppeteerP;
+	await using puppeteer = await puppeteerP;
 	const { browser } = puppeteer;
 
 	await Promise.all([
@@ -80,7 +80,7 @@ async function startPuppeteer() {
 	// for debugging, switch to this
 	// const browser = puppeteer.launch({ headless: false, slowMo: 250 });
 
-	return { browser, [Symbol.dispose]: () => browser.close() };
+	return { browser, [Symbol.asyncDispose]: () => browser.close() };
 }
 
 function startServer() {
