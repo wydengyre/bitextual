@@ -17,7 +17,7 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250618.0",
+		"@cloudflare/workers-types": "^4.20250619.0",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/js-beautify": "^1.14.3",
 		"@types/node": "24.0.3",
