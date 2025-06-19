@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { fixturePath } from "@bitextual/test/util.js";
 import beautify from "js-beautify";
 import puppeteer, { type Browser, type Page } from "puppeteer";
+import wranglerConf from "./wrangler.json" with { type: "json" };
 
 async function run() {
 	using _server = startServer();
@@ -27,7 +28,7 @@ const BOVARY_ENGLISH_EPUB_PATH = fixturePath("bovary.english.epub");
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const DIST_PATH = resolve(__dirname, "dist");
+const DIST_PATH = resolve(__dirname, wranglerConf.pages_build_output_dir);
 const BASE_URL = new URL(`http://localhost:${SERVER_PORT}`).toString();
 const SERVER_LOG_LEVEL = "none";
 await run();
