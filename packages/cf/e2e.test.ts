@@ -7,7 +7,6 @@ import { fileURLToPath } from "node:url";
 import { fixturePath } from "@bitextual/test/util.js";
 import beautify from "js-beautify";
 import puppeteer, { type Browser, type Page } from "puppeteer";
-import conf from "./conf.json" with { type: "json" };
 
 async function run() {
 	using _server = startServer();
@@ -92,8 +91,6 @@ function startServer() {
 			"dev",
 			"--port",
 			SERVER_PORT.toString(),
-			"--compatibility-date",
-			conf.compatibilityDate,
 			"--log-level",
 			SERVER_LOG_LEVEL,
 			DIST_PATH,
