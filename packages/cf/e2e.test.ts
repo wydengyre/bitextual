@@ -75,7 +75,7 @@ async function test404(page: Page) {
 }
 
 async function startPuppeteer() {
-	const browser = await puppeteer.launch({ headless: true });
+	const browser = await puppeteer.launch();
 
 	// for debugging, switch to this
 	// const browser = puppeteer.launch({ headless: false, slowMo: 250 });
