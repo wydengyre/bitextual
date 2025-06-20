@@ -4,3 +4,4 @@ build
 dist
 node_modules
 *.iml
+packages/cf/worker-configuration.d.ts
