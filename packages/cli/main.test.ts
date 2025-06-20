@@ -3,9 +3,9 @@ import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { fixturePath } from "@bitextual/test/util.js";
+import { fixturePath } from "@bitextual/test/util.ts";
 import beautify from "js-beautify";
-import { go } from "./main.js";
+import { go } from "./main.ts";
 
 test("main", async (t) => {
 	await t.test(testMain);

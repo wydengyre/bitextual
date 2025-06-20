@@ -5,7 +5,8 @@
 		"module": "nodenext",
 		"noEmit": true,
 		"types": [],
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true
 	},
 	"include": ["src/*.ts"]
 }

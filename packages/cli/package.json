@@ -4,8 +4,8 @@
 	"private": true,
 	"main": "main.ts",
 	"scripts": {
-		"test": "tsx --tsconfig ./tsconfig.json --test '**/*.test.ts'",
-		"test-only": "tsx --tsconfig ./tsconfig.json --test --test-only '**/*.test.ts'",
+		"test": "node --test '**/*.test.ts'",
+		"test-only": "node --test --test-only '**/*.test.ts'",
 		"typecheck": "npm run typecheck-lib && npm run typecheck-test",
 		"typecheck-lib": "tsc",
 		"typecheck-test": "tsc --project tsconfig.test.json"
@@ -16,7 +16,6 @@
 		"@tsconfig/strictest": "2.0.5",
 		"@types/js-beautify": "^1.14.3",
 		"@types/node": "24.0.3",
-		"tsx": "4.20.3",
 		"typescript": "5.8.3"
 	},
 	"dependencies": {
