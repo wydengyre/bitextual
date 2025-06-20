@@ -28,9 +28,9 @@
 		"typescript": "5.8.3",
 		"wrangler": "4.20.3"
 	},
-        "dependencies": {
-                "@bitextual/web": "*",
-                "@bitextual/web-events": "*",
-                "zod": "^3.25.67"
-        }
+	"dependencies": {
+		"@bitextual/web": "*",
+		"@bitextual/web-events": "*",
+		"zod": "^3.25.67"
+	}
 }

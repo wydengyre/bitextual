@@ -3,7 +3,7 @@
 	"extends": ["@tsconfig/strictest/tsconfig.json"],
 	"compilerOptions": {
 		"module": "nodenext",
-		"noEmit": true,
+		"noEmit": true
 	},
 	"include": ["*.ts", "../worker-configuration.d.ts"]
 }

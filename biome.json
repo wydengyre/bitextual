@@ -22,13 +22,14 @@
 	"files": {
 		"includes": [
 			"**/*.json",
-			"**/packages/**/*.ts",
-			"**/packages/**/*.json",
-			"!**/packages/cf/.wrangler",
-			"!**/packages/punkt/data",
-			"!**/packages/web/build",
-			"!**/packages/web/dist",
-			"!**/packages/wiktionary/raw-wiktextract-data.json"
+			"packages/**/*.ts",
+			"packages/**/*.json",
+			"!packages/cf/.wrangler",
+			"!packages/cf/worker-configuration.d.ts",
+			"!packages/punkt/data",
+			"!packages/web/build",
+			"!packages/web/dist",
+			"!packages/wiktionary/raw-wiktextract-data.json"
 		]
 	}
 }

@@ -19,11 +19,11 @@ const res = await fetch(url, {
 });
 
 if (!res.ok) {
-        throw new Error(`Failed to fetch events: ${res.status} ${await res.text()}`);
+	throw new Error(`Failed to fetch events: ${res.status} ${await res.text()}`);
 }
 
 const { data } = z
-       .object({ data: z.array(z.record(z.unknown())) })
-       .parse(await res.json());
+	.object({ data: z.array(z.record(z.unknown())) })
+	.parse(await res.json());
 const events = data.map((event) => Object.values(event).filter((d) => d));
 console.log(events);
