@@ -4,10 +4,10 @@
 	"private": true,
 	"scripts": {
 		"build": "npm-run-all --parallel build-css build-deps build-index build-static build-worker build-sample",
-		"build-css": "tsx tools/copy-css.ts",
-		"build-deps": "tsx tools/copy-deps.ts",
-		"build-index": "tsx tools/build-index.ts",
-		"build-sample": "tsx tools/build-sample.ts",
+		"build-css": "node tools/copy-css.ts",
+		"build-deps": "node tools/copy-deps.ts",
+		"build-index": "node tools/build-index.ts",
+		"build-sample": "node tools/build-sample.ts",
 		"build-static": "mkdir -p dist && cp -R static/* dist",
 		"build-worker": "esbuild src/worker.ts --bundle --minify --sourcemap --format=esm --external:module --target=es2022 --outfile=dist/worker.js",
 		"clean": "rm -rf build dist",
@@ -24,7 +24,6 @@
 		"esbuild": "0.25.5",
 		"npm-run-all": "4.1.5",
 		"simple-git": "3.28.0",
-		"tsx": "4.20.3",
 		"typescript": "5.8.3"
 	},
 	"dependencies": {
