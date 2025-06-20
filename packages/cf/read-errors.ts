@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 const { CF_ACCOUNT_ID, CF_ANALYTICS_READ_KEY } = process.env;
 if (!CF_ACCOUNT_ID) {
 	throw new Error("CF_ACCOUNT_ID env var is required");
@@ -17,10 +19,11 @@ const res = await fetch(url, {
 });
 
 if (!res.ok) {
-	throw new Error(`Failed to fetch events: ${res.status} ${await res.text()}`);
+        throw new Error(`Failed to fetch events: ${res.status} ${await res.text()}`);
 }
-const { data } = await res.json();
-const events = data.map((event: object) =>
-	Object.values(event).filter((d) => d),
-);
+
+const { data } = z
+       .object({ data: z.array(z.record(z.unknown())) })
+       .parse(await res.json());
+const events = data.map((event) => Object.values(event).filter((d) => d));
 console.log(events);
