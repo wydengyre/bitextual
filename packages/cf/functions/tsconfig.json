@@ -3,8 +3,7 @@
 	"extends": ["@tsconfig/strictest/tsconfig.json"],
 	"compilerOptions": {
 		"module": "nodenext",
-		"noEmit": true,
-		"types": ["@cloudflare/workers-types"]
+		"noEmit": true
 	},
-	"include": ["*.ts"]
+	"include": ["*.ts", "../worker-configuration.d.ts"]
 }

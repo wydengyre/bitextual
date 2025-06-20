@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 const { CF_ACCOUNT_ID, CF_ANALYTICS_READ_KEY } = process.env;
 if (!CF_ACCOUNT_ID) {
 	throw new Error("CF_ACCOUNT_ID env var is required");
@@ -19,14 +21,16 @@ const res = await fetch(url, {
 if (!res.ok) {
 	throw new Error(`Failed to fetch events: ${res.status} ${await res.text()}`);
 }
-const { data } = await res.json();
 
-if (!Array.isArray(data)) {
-	throw new Error(`Unexpected response: ${JSON.stringify(data)}`);
-}
+const { data } = z
+	.object({
+		data: z.array(z.object({ timestamp: z.string() }).passthrough()),
+	})
+	.parse(await res.json());
+
 const events = data
 	.toSorted(
 		(a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
 	)
-	.map((event: object) => Object.values(event).filter((d) => d));
+	.map((event) => Object.values(event).filter((d) => d));
 console.log(events.slice(-20));

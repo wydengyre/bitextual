@@ -13,11 +13,11 @@
 		"//": "we still need tsx here for resource management support",
 		"test": "tsx e2e.test.ts",
 		"test-post-deploy": "node post-deploy.test.ts",
-		"typecheck": "tsc && tsc --project functions"
+		"typecheck": "tsc && tsc --project functions",
+		"pretypecheck": "wrangler types"
 	},
 	"type": "module",
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250618.0",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/js-beautify": "^1.14.3",
 		"@types/node": "24.0.3",
@@ -30,6 +30,7 @@
 	},
 	"dependencies": {
 		"@bitextual/web": "*",
-		"@bitextual/web-events": "*"
+		"@bitextual/web-events": "*",
+		"zod": "^3.25.67"
 	}
 }
