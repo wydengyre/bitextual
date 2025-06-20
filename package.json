@@ -18,7 +18,7 @@
 		"deploy": "npm run build && npm run deploy --workspace '@bitextual/cf'"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.0.0",
+		"@biomejs/biome": "2.0.2",
 		"husky": "9.1.7"
 	}
 }
