@@ -51,7 +51,7 @@ async function goHtml(sourcePath: string, targetPath: string) {
 	const hunalignDictData: Buffer = await (async () => {
 		try {
 			return await readFile(dictPath);
-		} catch (e) {
+		} catch (_e) {
 			console.error(`No dictionary found for ${sourceLang}-${targetLang}`);
 			return Buffer.from([]);
 		}

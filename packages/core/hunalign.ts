@@ -1,5 +1,5 @@
-import { create as createHunalign } from "@bitextual/hunalign";
 import type { Hunalign as LibHunalign } from "@bitextual/hunalign";
+import { create as createHunalign } from "@bitextual/hunalign";
 
 export { Hunalign, applyLadder, tokenizeWords };
 

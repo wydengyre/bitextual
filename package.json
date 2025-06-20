@@ -2,7 +2,9 @@
 	"name": "@bitextual/bitextual",
 	"version": "0.0.1",
 	"private": true,
-	"workspaces": ["packages/*"],
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
 		"ci-lint": "biome ci .",
 		"lint": "biome check --write .",
@@ -16,7 +18,7 @@
 		"deploy": "npm run build && npm run deploy --workspace '@bitextual/cf'"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.0.0",
 		"husky": "9.1.7"
 	}
 }
