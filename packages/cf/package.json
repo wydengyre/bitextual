@@ -31,6 +31,6 @@
 	"dependencies": {
 		"@bitextual/web": "*",
 		"@bitextual/web-events": "*",
-		"zod": "^3.25.74"
+		"zod": "^3.25.75"
 	}
 }
