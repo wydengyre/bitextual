@@ -14,7 +14,7 @@
 		"@bitextual/test": "*",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/html-to-text": "9.0.4",
-		"@types/node": "24.1.0",
+		"@types/node": "24.2.0",
 		"typescript": "5.9.2"
 	},
 	"dependencies": {
