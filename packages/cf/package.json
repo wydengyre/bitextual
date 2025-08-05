@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"@tsconfig/strictest": "2.0.5",
 		"@types/js-beautify": "^1.14.3",
-		"@types/node": "24.1.0",
+		"@types/node": "24.2.0",
 		"esbuild": "0.25.8",
 		"js-beautify": "1.15.4",
 		"puppeteer": "24.15.0",
