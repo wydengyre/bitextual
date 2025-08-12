@@ -24,7 +24,7 @@
 		"esbuild": "0.25.8",
 		"js-beautify": "1.15.4",
 		"puppeteer": "24.16.0",
-		"tsx": "4.20.3",
+		"tsx": "4.20.4",
 		"typescript": "5.9.2",
 		"wrangler": "4.28.1"
 	},
