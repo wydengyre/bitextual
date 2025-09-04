@@ -33,7 +33,7 @@ jobs:
           sudo chown root:root /usr/local/sbin/chrome-devel-sandbox
           sudo chmod 4755      /usr/local/sbin/chrome-devel-sandbox
           echo "CHROME_DEVEL_SANDBOX=/usr/local/sbin/chrome-devel-sandbox" >> "$GITHUB_ENV"
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version-file: '.node-version'
           cache: 'npm'
